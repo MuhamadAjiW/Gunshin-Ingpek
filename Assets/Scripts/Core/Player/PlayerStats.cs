@@ -6,7 +6,7 @@ public class PlayerStats {
     public float jumpForce = 600;
     public float snapshotSpeed = 25;
 
-    public float MaxSpeed => player.State switch{
+    public float MaxSpeed => player.stateController.state switch{
         PlayerState.WALKING => walkSpeed,
         PlayerState.SPRINTING => sprintSpeed,
         PlayerState.JUMPING => snapshotSpeed,

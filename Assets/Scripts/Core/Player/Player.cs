@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,14 @@ using UnityEngine;
 public class Player : RigidObject{
     private PlayerAnimationController animationController;
     private PlayerMovementController movementController;
-    private PlayerStateController stateController;
+    public PlayerStateController stateController;
     public PlayerStats stats;
-    public int State => stateController.state;
 
     new void Start(){
         base.Start();
-        animationController = new PlayerAnimationController(this);
-        movementController = new PlayerMovementController(this);
         stateController = new PlayerStateController(this);
+        movementController = new PlayerMovementController(this);
+        animationController = new PlayerAnimationController(this);
         stats = new PlayerStats(this);
     }
 

@@ -6,7 +6,9 @@ public class RigidObject : MonoBehaviour {
     // Readonly by others
     private new Rigidbody rigidbody;
     private new Collider collider;
-    private bool grounded;
+
+    //TODO: grounded automatic detection
+    private bool grounded = true;
 
 
     public Rigidbody Rigidbody => rigidbody;
