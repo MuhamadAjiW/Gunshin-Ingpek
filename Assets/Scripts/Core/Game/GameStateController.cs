@@ -23,9 +23,12 @@ public class GameStateController {
             case GameState.RUNNING:
                 Time.timeScale = 1;
                 break;
+            //TODO: Review cutscenes behaviour
             case GameState.CUTSCENE:
+                Time.timeScale = 0;
                 break;
             case GameState.MENU:
+                Time.timeScale = 0;
                 break;
             default:
                 throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states");
@@ -48,9 +51,12 @@ public class GameStateController {
             case GameState.RUNNING:
                 Time.timeScale = 1;
                 break;
+            //TODO: Review cutscenes behaviour
             case GameState.CUTSCENE:
+                Time.timeScale = 0;
                 break;
             case GameState.MENU:
+                Time.timeScale = 0;
                 break;
         }
         OnGameStateChange.Invoke(new StackChangeEventArgs<GameState>(

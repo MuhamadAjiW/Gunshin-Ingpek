@@ -1,4 +1,1 @@
-public class PlayerState : EntityState
-{
-
-}
+public class PlayerState : EntityState {}

@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour {
     public static GameController instance;
     public static GameCameraController mainCamera;
     public static GameStateController stateController;
+    public bool IsPaused => Time.timeScale == 0;
 
     // Constructor
     private void Awake(){

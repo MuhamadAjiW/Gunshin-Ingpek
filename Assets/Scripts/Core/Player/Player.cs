@@ -2,20 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
+public class Player : RigidObject{
     private PlayerAnimationController animationController;
-    private PlayerInputController inputController;
+    private PlayerMovementController movementController;
     private PlayerStateController stateController;
-    private PlayerState state;
+    public PlayerStats stats;
+    public int State => stateController.state;
 
-    void Start()
-    {
-        
+    new void Start(){
+        base.Start();
+        animationController = new PlayerAnimationController(this);
+        movementController = new PlayerMovementController(this);
+        stateController = new PlayerStateController(this);
+        stats = new PlayerStats(this);
     }
 
-    void Update()
-    {
-        
+    new void Update(){
+        base.Update();
+    }
+
+    new void FixedUpdate(){
+        base.FixedUpdate();
+
+        stateController.DetectState();
+        movementController.HandleMovement();
     }
 }
