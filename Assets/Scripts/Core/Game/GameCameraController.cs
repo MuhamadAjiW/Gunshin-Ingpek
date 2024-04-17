@@ -3,15 +3,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameCameraController {
+    // Attributes
     private Camera activeCamera;
     private CameraBehaviour behaviour;
     private CameraBehaviourType behaviourType;
 
+    // Constructor
     public GameCameraController(Camera camera){
         activeCamera = camera;
         activeCamera.enabled = true;
     }
 
+    // Functions
     public void SwapCamera(Camera camera){
         activeCamera.enabled = false;
         activeCamera = camera;

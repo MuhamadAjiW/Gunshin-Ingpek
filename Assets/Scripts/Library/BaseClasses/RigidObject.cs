@@ -22,6 +22,7 @@ public class RigidObject : MonoBehaviour {
         collider = GetComponent<Collider>();
     }
 
+    // Functions
     protected void Refresh(){
         Rigidbody.AddForce(Vector2.zero);
     }

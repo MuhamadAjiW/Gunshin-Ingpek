@@ -9,6 +9,7 @@ public class PlayerStateController : StateController{
         this.player = player;
     }
 
+    // Functions
     private bool DetectJumping(){
         return !player.Grounded && player.Rigidbody.velocity.y > 0;
     }

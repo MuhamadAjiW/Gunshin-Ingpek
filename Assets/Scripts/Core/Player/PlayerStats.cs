@@ -2,7 +2,7 @@ public class PlayerStats {
     // Attributes
     private Player player;
     public float walkSpeed = 10;
-    public float sprintSpeed = 25;
+    public float sprintSpeed = 20;
     public float jumpForce = 600;
     public float snapshotSpeed = 25;
 

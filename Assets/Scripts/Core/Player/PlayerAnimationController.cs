@@ -20,9 +20,8 @@ public class PlayerAnimationController{
         player.stateController.OnStateChange += Animate;
     }
 
+    // Functions
     public void Animate(){
-        Debug.Log("State changed " + player.stateController.state);
-
         switch (player.stateController.state){
             case PlayerState.IDLE:
                 animator.SetBool(IDLE_TRIGGER, true);

@@ -2,12 +2,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovementController{
+    // Attributes
     private Player player;
 
+    // Constructor
     public PlayerMovementController(Player player){
         this.player = player;
     }
 
+    // Functions
     private void HandleRotation(Vector3 moveDirection){
         Quaternion target = Quaternion.LookRotation(moveDirection, Vector3.up);
 
