@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : AccompaniableCombatant{
+public class Player : AccompaniableCombatant {
     // Attributes
     private PlayerAnimationController animationController;
     private PlayerMovementController movementController;
