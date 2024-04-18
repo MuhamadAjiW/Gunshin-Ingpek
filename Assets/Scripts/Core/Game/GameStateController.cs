@@ -6,15 +6,22 @@ using UnityEngine;
 public class GameStateController {
     // Attributes
     private readonly Stack<GameState> gameStateStack = new();
-    event StackChangeEvent<GameState> OnGameStateChange;
+    event GameStateChangeEvent OnGameStateChange;
     event Action OnPaused;
 
     // Constructor
     public GameStateController(){
         gameStateStack.Push(GameState.NULL);
+        gameStateStack.Push(GameState.RUNNING);
+        OnGameStateChange += LogGameStateStack;
     }
 
     // Functions
+    private void LogGameStateStack(StackChangeEventArgs<GameState> e){
+        Debug.Log(e.EventType);
+        Debug.Log(gameStateStack);
+    }
+
     public void PushState(GameState gameState){
         switch(gameState){
             case GameState.PAUSED:
@@ -23,7 +30,7 @@ public class GameStateController {
             case GameState.RUNNING:
                 Time.timeScale = 1;
                 break;
-            //TODO: Review cutscenes behaviour
+            //TODO: Review cutscenes and menu behaviour
             case GameState.CUTSCENE:
                 Time.timeScale = 0;
                 break;
@@ -34,7 +41,7 @@ public class GameStateController {
                 throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states");
         }
         gameStateStack.Push(gameState);
-        OnGameStateChange.Invoke(new StackChangeEventArgs<GameState>(
+        OnGameStateChange?.Invoke(new GameStateChangeArgs(
             StackChangeEventType.PUSH,
             gameStateStack.Count,
             gameState
@@ -59,8 +66,8 @@ public class GameStateController {
                 Time.timeScale = 0;
                 break;
         }
-        OnGameStateChange.Invoke(new StackChangeEventArgs<GameState>(
-            StackChangeEventType.PUSH,
+        OnGameStateChange?.Invoke(new GameStateChangeArgs(
+            StackChangeEventType.POP,
             gameStateStack.Count,
             gameState
         ));
@@ -70,7 +77,7 @@ public class GameStateController {
         switch (gameStateStack.Peek()){
             case GameState.RUNNING:
                 PushState(GameState.PAUSED);
-                OnPaused.Invoke();
+                OnPaused?.Invoke();
                 return;
 
             case GameState.PAUSED:
