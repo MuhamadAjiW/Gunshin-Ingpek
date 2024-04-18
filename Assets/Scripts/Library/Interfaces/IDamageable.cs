@@ -3,7 +3,7 @@ using System;
 public interface IDamageable{
     float MaxHealth {get; set;}
     float Health {get; set;}
-    bool Damageable {get;}
+    bool Damageable {get; set; }
     bool Dead {get;}
 
     event Action OnDeathEvent;

@@ -40,6 +40,7 @@ public static class ObjectFactory{
         string prefabPath,
         float damage,
         float knockbackPower,
+        Vector3 knockbackOrigin,
         AttackObjectType type,
         Transform parent = null,
         Vector3? position = null,
@@ -48,12 +49,12 @@ public static class ObjectFactory{
         int renderingOrder = 0,
         string objectName = "Unnamed Object"
     ){
-        GameObject prefabObject = Resources.Load<GameObject>(prefabPath);
-        if(prefabObject == null) Debug.LogError("Prefab not found: " + prefabPath);
+        GameObject prefabObject = CreateObject(prefabPath, parent, position, scale, rotation, renderingOrder, objectName);
         if(!prefabObject.TryGetComponent<IAttack>(out var attackObject)) Debug.LogError("Loaded prefab is not an IAttack: " + prefabPath);
 
         attackObject.Damage = damage;
         attackObject.KnockbackPower = knockbackPower;
+        attackObject.KnockbackOrigin = knockbackOrigin;
 
         switch (type){
             case AttackObjectType.PLAYER:
@@ -69,7 +70,7 @@ public static class ObjectFactory{
                 break;
         }
 
-        return CreateObject(prefabObject, parent, position, scale, rotation, renderingOrder, objectName);
+        return prefabObject;
     }
 
     public static void Destroy(GameObject gameObject, float delay = 0){

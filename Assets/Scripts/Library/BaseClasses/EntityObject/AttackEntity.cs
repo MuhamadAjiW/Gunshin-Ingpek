@@ -10,8 +10,8 @@ public class AttackEntity : RigidEntity, IAttack{
         set => damage = value; 
     }
     public float KnockbackPower { 
-        get => damage; 
-        set => damage = value; 
+        get => KnockbackPower; 
+        set => KnockbackPower = value; 
     }
     public Vector3 KnockbackOrigin{get; set;}
     public event Action OnDamageEvent;

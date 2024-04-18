@@ -15,11 +15,16 @@ public class DummyAnimationController : AnimationController{
         meshRenderer = model.GetComponent<MeshRenderer>();
 
         dummy.OnDamagedEvent += IndicateDamaged;
+        dummy.stateController.OnDamageDelayOverEvent += IndicateUnamaged;
     }
 
     // Functions
     private void IndicateDamaged(){
         Debug.Log("Dummy is damaged");
         meshRenderer.material.color = Color.red;
+    }
+
+    private void IndicateUnamaged(){
+        meshRenderer.material.color = Color.white;
     }
 }

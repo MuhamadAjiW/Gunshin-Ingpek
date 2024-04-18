@@ -10,7 +10,7 @@ public class PlayerAttackController{
     public void HandleInputs(){
         if(Input.GetKeyDown(GameControls.instance.attackButton)){
             Debug.Log("Player is attacking");
-            
+
             if(player.Weapon == null) return;
 
             player.Weapon.Attack();

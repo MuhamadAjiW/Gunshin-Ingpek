@@ -6,8 +6,6 @@ public abstract class DamageableEntityStateController : EntityStateController {
     // Attributes
     private readonly DamageableEntity Entity;
     private float damagedDelay;
-    protected bool damaged = false;
-    public bool Damaged => damaged;
     public float DamagedDelay {
         get => damagedDelay;
         set => damagedDelay = value <= 0? GameConfig.DAMAGED_DELAY_DURATION : value;
@@ -20,14 +18,15 @@ public abstract class DamageableEntityStateController : EntityStateController {
         DamagedDelay =  delay;
 
         OnDamageDelayOverEvent += OnDamageDelayOver;
-        entity.OnDamagedEvent += OnDamaged;
+        Entity.OnDamagedEvent += OnDamaged;
+        Entity.Damageable = true;
     }
 
     // Functions
     private IEnumerator WaitDamagedDelay(){
         if (!Entity.Dead){
             yield return new WaitForSeconds(DamagedDelay);
-            damaged = false;
+            Entity.Damageable = true;
             InvokeDamageDelayOver();
         }
     }
@@ -37,12 +36,11 @@ public abstract class DamageableEntityStateController : EntityStateController {
     }
 
     private void OnDamaged(){
-        damaged = true;
-        InvokeOnStateChanged();
+        Entity.Damageable = false;
         Entity.StartCoroutine(WaitDamagedDelay());
     }
+    
     private void OnDamageDelayOver(){
-        damaged = false;
-        InvokeOnStateChanged();
+        Entity.Damageable = true;
     }
 }

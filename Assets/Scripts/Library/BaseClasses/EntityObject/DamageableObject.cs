@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DamageableObject : MonoBehaviour, IDamageable{
     // Attributes
+    private bool damageable = true;
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;
 
@@ -14,8 +15,10 @@ public class DamageableObject : MonoBehaviour, IDamageable{
         get => health;
         set => health = value > 0? (value > MaxHealth? MaxHealth : value) : 0;
     }
-
-    public bool Damageable => !Dead;
+    public bool Damageable { 
+        get => damageable; 
+        set => damageable = value; 
+    }
     public bool Dead => health <= 0;
     public event Action OnDeathEvent;
     public event Action OnDamagedEvent;

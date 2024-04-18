@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Dummy : EnemyEntity{
     // Attributes
     private DummyAnimationController animationController;
