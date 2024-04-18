@@ -4,6 +4,7 @@ public class PlayerAnimationController{
     // Consts
     private const string IDLE_TRIGGER = "idle_param"; 
     private const string WALK_TRIGGER = "walk_param"; 
+    private const string SPRINT_TRIGGER = "sprint_param"; 
     
     // Attributes
     private Player player;
@@ -28,6 +29,9 @@ public class PlayerAnimationController{
                 break;
             case PlayerState.WALKING:
                 animator.SetBool(WALK_TRIGGER, true);
+                break;
+            case PlayerState.SPRINTING:
+                animator.SetBool(SPRINT_TRIGGER, true);
                 break;
         }
     }

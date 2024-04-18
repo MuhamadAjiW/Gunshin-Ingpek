@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : RigidObject{
+public class Player : Combatant {
     private PlayerAnimationController animationController;
     private PlayerMovementController movementController;
     public PlayerStateController stateController;
@@ -11,6 +11,9 @@ public class Player : RigidObject{
 
     new void Start(){
         base.Start();
+        Health *= GameConfig.DIFFICULTY_MODIFIERS[GameData.difficulty].PlayerHealthMultiplier;
+        BaseDamage *= GameConfig.DIFFICULTY_MODIFIERS[GameData.difficulty].PlayerDamageMultiplier;
+
         stateController = new PlayerStateController(this);
         movementController = new PlayerMovementController(this);
         animationController = new PlayerAnimationController(this);

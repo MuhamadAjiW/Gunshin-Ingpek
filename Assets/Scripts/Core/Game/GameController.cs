@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour {
     public static GameController instance;
     public static GameCameraController mainCamera;
     public static GameStateController stateController;
+    public static GameData data;
     public bool IsPaused => Time.timeScale == 0;
 
     // Constructor
@@ -13,6 +14,7 @@ public class GameController : MonoBehaviour {
         if(instance == null) instance = this;
         mainCamera = new GameCameraController(GetComponentInChildren<Camera>());
         stateController = new GameStateController();
+        data = GameData.instance;
     }
 
     // Functions

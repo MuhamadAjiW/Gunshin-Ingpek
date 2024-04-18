@@ -19,9 +19,8 @@ public class PlayerStateController : StateController{
     private bool DetectWalking(){
         return Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0;
     }
-    // TODO: Implement
     private bool DetectSprinting(){
-        return false;        
+        return (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && Input.GetKey(KeyCode.LeftShift);
     }
 
     public override int DetectState(){

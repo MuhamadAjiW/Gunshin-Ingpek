@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class RigidObject : MonoBehaviour {
+public class RigidEntity : MonoBehaviour, IRigid {
     // Attributes
+    [SerializeField] private float knockbackResistance;
 
     // Readonly by others
     private new Rigidbody rigidbody;
@@ -15,6 +16,10 @@ public class RigidObject : MonoBehaviour {
     public Collider Collider => collider;
     public Vector3 Position => transform.position;
     public bool Grounded => grounded;
+    public float KnockbackResistance {
+        get => knockbackResistance <= 0? 1 : knockbackResistance;
+        set => knockbackResistance = value;
+    }
 
     // Constructor
     protected void Start(){
