@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameStateController {
+public class GameStateController{
     // Attributes
     private readonly Stack<GameState> gameStateStack = new();
     event GameStateChangeEvent OnGameStateChange;
-    event Action OnPaused;
+    event Action OnPausedEvent;
 
     // Constructor
     public GameStateController(){
@@ -17,29 +17,20 @@ public class GameStateController {
     }
 
     // Functions
-    private void LogGameStateStack(StackChangeEventArgs<GameState> e){
-        Debug.Log(e.EventType);
-        Debug.Log(gameStateStack);
+    private void LogGameStateStack(GameStateChangeArgs e){
+        Debug.Log(string.Format("GameState {0}; Current gamestate is {1}", e.EventType, e.NewGameState));
     }
 
     public void PushState(GameState gameState){
-        switch(gameState){
-            case GameState.PAUSED:
-                Time.timeScale = 0;
-                break;
-            case GameState.RUNNING:
-                Time.timeScale = 1;
-                break;
-            //TODO: Review cutscenes and menu behaviour
-            case GameState.CUTSCENE:
-                Time.timeScale = 0;
-                break;
-            case GameState.MENU:
-                Time.timeScale = 0;
-                break;
-            default:
-                throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states");
-        }
+        //TODO: Review cutscenes and menu behaviour
+        Time.timeScale = gameState switch{
+            GameState.PAUSED => 0,
+            GameState.RUNNING => 1,
+            GameState.CUTSCENE => 0,
+            GameState.MENU => 0,
+            _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
+        };
+
         gameStateStack.Push(gameState);
         OnGameStateChange?.Invoke(new GameStateChangeArgs(
             StackChangeEventType.PUSH,
@@ -51,21 +42,15 @@ public class GameStateController {
     public void PopState(){
         gameStateStack.Pop();
         GameState gameState = gameStateStack.Peek();
-        switch(gameState){
-            case GameState.PAUSED:
-                Time.timeScale = 0;
-                break;
-            case GameState.RUNNING:
-                Time.timeScale = 1;
-                break;
-            //TODO: Review cutscenes behaviour
-            case GameState.CUTSCENE:
-                Time.timeScale = 0;
-                break;
-            case GameState.MENU:
-                Time.timeScale = 0;
-                break;
-        }
+        //TODO: Review cutscenes behaviour
+        Time.timeScale = gameState switch{
+            GameState.PAUSED => 0,
+            GameState.RUNNING => 1,
+            GameState.CUTSCENE => 0,
+            GameState.MENU => 0,
+            _ => throw new Exception("Invalid gameState popped to GameStateController, please refer to enum GameState for valid states"),
+        };
+
         OnGameStateChange?.Invoke(new GameStateChangeArgs(
             StackChangeEventType.POP,
             gameStateStack.Count,
@@ -77,7 +62,7 @@ public class GameStateController {
         switch (gameStateStack.Peek()){
             case GameState.RUNNING:
                 PushState(GameState.PAUSED);
-                OnPaused?.Invoke();
+                OnPausedEvent?.Invoke();
                 return;
 
             case GameState.PAUSED:

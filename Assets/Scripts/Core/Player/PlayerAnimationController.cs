@@ -7,7 +7,7 @@ public class PlayerAnimationController{
     private const string SPRINT_TRIGGER = "sprint_param"; 
     
     // Attributes
-    private Player player;
+    private readonly Player player;
     private PlayerStateController playerStateController;
     private Transform modelTransform;
     private Animator animator;
@@ -18,7 +18,7 @@ public class PlayerAnimationController{
         modelTransform = player.transform.Find("Model");
         animator = modelTransform.GetComponent<Animator>();
 
-        player.stateController.OnStateChange += Animate;
+        player.stateController.OnStateChangeEvent += Animate;
     }
 
     // Functions

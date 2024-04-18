@@ -6,9 +6,9 @@ public interface IDamageable{
     bool Damageable {get;}
     bool Dead {get;}
 
-    event Action OnDeath;
-    event Action OnDamaged;
-    event Action OnHeal;
+    event Action OnDeathEvent;
+    event Action OnDamagedEvent;
+    event Action OnHealEvent;
 
     float InflictDamage(float damage);
     float InflictHeal(float heal);

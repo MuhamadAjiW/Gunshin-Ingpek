@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovementController{
     // Attributes
-    private Player player;
+    private readonly Player player;
 
     // Constructor
     public PlayerMovementController(Player player){
@@ -19,12 +19,12 @@ public class PlayerMovementController{
     }
 
     public void HandleMovement(){
-        float keyPressAD = Input.GetAxisRaw("Horizontal");
-        float keyPressWS = Input.GetAxisRaw("Vertical");
+        float keyPressX = Input.GetAxisRaw("Horizontal");
+        float keyPressZ = Input.GetAxisRaw("Vertical");
         Vector3 velocity = new(player.Rigidbody.velocity.x, player.Rigidbody.velocity.y, player.Rigidbody.velocity.z);
         Vector3 dampVelocity = Vector3.zero;
 
-        Vector3 inputVector = new(keyPressAD, 0, keyPressWS);
+        Vector3 inputVector = new(keyPressX, 0, keyPressZ);
         Vector3 modifierVector = inputVector.normalized * player.stats.MaxSpeed;
         velocity.x = modifierVector.x;
         velocity.z = modifierVector.z;

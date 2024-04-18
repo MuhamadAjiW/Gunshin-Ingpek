@@ -5,4 +5,9 @@ public static class MathUtils{
         Vector3 direction = origin - target;
         return direction.normalized;
     }
+
+    // TODO: Tweak, add an interesting equation, maybe?
+    public static float CalculateDamage(float characterDamageStat, float weaponDamageStat){
+        return characterDamageStat + weaponDamageStat;
+    }
 }

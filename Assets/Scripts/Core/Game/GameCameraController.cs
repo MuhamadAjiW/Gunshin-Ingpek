@@ -30,17 +30,12 @@ public class GameCameraController {
     public void SetCameraBehaviour(CameraBehaviourType cameraBehaviourType){
         GameObject.Destroy(activeCamera.GetComponent<CameraBehaviour>());
 
-        switch (cameraBehaviourType){
-            case CameraBehaviourType.STATIC:
-                behaviour = activeCamera.AddComponent<CameraStatic>();                
-                break;
-            case CameraBehaviourType.FOLLOW:
-                behaviour = activeCamera.AddComponent<CameraFollowObject>();                
-                break;
-            
-            default:
-                throw new Exception("Invalid cameraBehaviourType set, please refer to enum CameraBehaviourType for valid types");
-        }
+        behaviour = cameraBehaviourType switch{
+            CameraBehaviourType.STATIC => activeCamera.AddComponent<CameraStatic>(),
+            CameraBehaviourType.FOLLOW => activeCamera.AddComponent<CameraFollowObject>(),
+            _ => throw new Exception("Invalid cameraBehaviourType set, please refer to enum CameraBehaviourType for valid types")
+        };
+
         behaviourType = cameraBehaviourType;
     }
 }

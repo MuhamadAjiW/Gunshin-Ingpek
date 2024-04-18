@@ -14,7 +14,7 @@ public class AttackEntity : RigidEntity, IDamaging, IKnockback{
         set => damage = value; 
     }
     public Vector3 KnockbackOrigin{get; set;}
-    public event Action OnDamage;
+    public event Action OnDamageEvent;
 
     // Functions
     public void Knockback(IRigid rigidObject){
@@ -29,7 +29,7 @@ public class AttackEntity : RigidEntity, IDamaging, IKnockback{
 
         if(damageableObject.Damageable){
             damageableObject.InflictDamage(Damage);
-            OnDamage?.Invoke();
+            OnDamageEvent?.Invoke();
 
             otherCollider.TryGetComponent<IRigid>(out var rigidObject);
             if(rigidObject != null) Knockback(rigidObject);

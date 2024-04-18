@@ -3,25 +3,24 @@ using UnityEngine;
 public class RigidEntity : MonoBehaviour, IRigid {
     // Attributes
     [SerializeField] private float knockbackResistance;
-
-    // Readonly by others
+    [SerializeField] private float baseSpeed;
     private new Rigidbody rigidbody;
     private new Collider collider;
-
-    //TODO: grounded automatic detection
-    private bool grounded = true;
-
-
+    
     public Rigidbody Rigidbody => rigidbody;
     public Collider Collider => collider;
     public Vector3 Position => transform.position;
-    public bool Grounded => grounded;
     public float KnockbackResistance {
         get => knockbackResistance <= 0? 1 : knockbackResistance;
         set => knockbackResistance = value;
     }
+    public float BaseSpeed { 
+        get => baseSpeed; 
+        set => baseSpeed = value < 0? 0 : value; 
+    }
 
     // Constructor
+
     protected void Start(){
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();

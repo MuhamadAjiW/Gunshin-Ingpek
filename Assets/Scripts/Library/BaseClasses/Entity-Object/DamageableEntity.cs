@@ -17,22 +17,22 @@ public class DamageableEntity : RigidEntity, IDamageable{
 
     public bool Damageable => !Dead;
     public bool Dead => health <= 0;
-    public event Action OnDeath;
-    public event Action OnDamaged;
-    public event Action OnHeal;
+    public event Action OnDeathEvent;
+    public event Action OnDamagedEvent;
+    public event Action OnHealEvent;
 
     // Functions
     public float InflictDamage(float damage){
         Health -= damage;
-        OnDamaged?.Invoke();
-        if(Dead) OnDeath?.Invoke();
+        OnDamagedEvent?.Invoke();
+        if(Dead) OnDeathEvent?.Invoke();
 
         return Health;
     }
 
     public float InflictHeal(float heal){
         Health += heal;
-        OnHeal?.Invoke();
+        OnHealEvent?.Invoke();
 
         return Health;
     }

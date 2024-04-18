@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameData : MonoBehaviour {
+public class GameSaveData : MonoBehaviour {
     // Attributes
-    public static GameData instance;
+    public static GameSaveData instance;
 
-    public static DifficultyType difficulty = DifficultyType.NORMAL;
-    
+    public DifficultyType difficulty = DifficultyType.NORMAL;
+
     // Constructor
     private void Awake(){
         instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    // Functions
-    public void Save(PlayerStats playerStats){
-    
     }
 }
