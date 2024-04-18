@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class AttackEntity : RigidEntity, IDamaging, IKnockback{
+public class AttackEntity : RigidEntity, IAttack{
     // Attributes
     [SerializeField] private float damage;
     [SerializeField] private float knockbackPower;
