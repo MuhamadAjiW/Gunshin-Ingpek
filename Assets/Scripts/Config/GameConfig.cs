@@ -2,12 +2,12 @@ using System.Collections.Generic;
 
 public static class GameConfig{
     // Default damaged state delay value
-    public static float DAMAGED_DELAY_DURATION = 1.0f;
+    public static readonly float DAMAGED_DELAY_DURATION = 1.0f;
 
     // Movement lerp constants
-    public static float MOVEMENT_SMOOTHING = 0.14f;
-    public static float MOVEMENT_SMOOTHING_JUMP_SNAPSHOT = 0.14f;
-    public static float ROTATION_SMOOTHING = 720;
+    public static readonly float MOVEMENT_SMOOTHING = 0.14f;
+    public static readonly float MOVEMENT_SMOOTHING_JUMP_SNAPSHOT = 0.14f;
+    public static readonly float ROTATION_SMOOTHING = 720;
 
     // Difficulty multipliers
     private static readonly DifficultyData EasyData = new(){

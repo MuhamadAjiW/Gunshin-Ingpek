@@ -3,15 +3,16 @@ using UnityEngine;
 
 public abstract class WeaponObject : MonoBehaviour {
     // Attributes
-    [SerializeField] private float baseDamage;
-    [SerializeField] private float baseKnockbackPower;
-    public float BaseDamage { 
-        get => baseDamage;
-        set => baseDamage = value;
-    }
-    public float BaseKnockbackPower { 
-        get => baseKnockbackPower;
-        set => BaseKnockbackPower = value;
+    protected AttackObjectType bearerType;
+    protected IArmed bearer;
+    [SerializeField] protected float BaseDamage;
+    [SerializeField] protected float KnockbackPower;
+
+    // Constructor
+    void Start(){
+        bearer = GetComponentInParent<IArmed>();
+        if(bearer is Player) bearerType = AttackObjectType.PLAYER;
+        else if(bearer is EnemyEntity) bearerType = AttackObjectType.ENEMY;
     }
 
     // Functions
