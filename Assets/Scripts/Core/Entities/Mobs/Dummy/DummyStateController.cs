@@ -1,5 +1,9 @@
-public class DummyStateController : EntityStateController{
+public class DummyStateController : DamageableEntityStateController{
+    // Constructor
+    public DummyStateController(Dummy dummy) : base(dummy){}
+    
+    // Functions
     public override int UpdateState(){
-        throw new System.NotImplementedException();
+        return EntityState.IDLE;
     }
 }

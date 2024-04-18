@@ -7,6 +7,8 @@ public static class GameEnvironmentConfig{
     public static string TAG_GROUND = "Ground";
 
     // Layers
-    public static string LAYER_ENEMY_HITBOX = "EnemyHitbox";
-    public static string LAYER_PLAYER_HITBOX = "PlayerHitbox";
+    public static string LAYER_ENEMY = "Enemy";
+    public static string LAYER_PLAYER = "Player";
+    public static string LAYER_ENEMY_ATTACK = "EnemyAttack";
+    public static string LAYER_PLAYER_ATTACK = "PlayerAttack";
 }

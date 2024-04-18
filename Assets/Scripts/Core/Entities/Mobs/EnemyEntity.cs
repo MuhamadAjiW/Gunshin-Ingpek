@@ -4,6 +4,6 @@ public abstract class EnemyEntity : Combatant {
         base.Start();
         Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].EnemyHealthMultiplier;
         BaseDamage *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].EnemyDamageMultiplier;
-        tag = GameEnvironmentConfig.ENEMY_TAG;
+        tag = GameEnvironmentConfig.TAG_ENEMY;
     }
 }

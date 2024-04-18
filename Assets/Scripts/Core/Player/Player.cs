@@ -3,17 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : AccompaniableCombatant {
+public class Player : AccompaniableCombatant{
+    // Attributes
     private PlayerAnimationController animationController;
     private PlayerMovementController movementController;
     private PlayerAttackController attackController;
     public PlayerStateController stateController;
     public PlayerStats stats;
 
+    // Constructor
     new void Start(){
         base.Start();
         Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].PlayerHealthMultiplier;
-        BaseDamage *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].PlayerDamageMultiplier;
+        
+        // TODO: Review, base damage is currently done in the ObjectFactory. Might need to decide which is best
+        // BaseDamage *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].PlayerDamageMultiplier;
 
         Weapon = GetComponentInChildren<WeaponObject>();
         stateController = new PlayerStateController(this);
@@ -25,6 +29,7 @@ public class Player : AccompaniableCombatant {
         GameController.instance.player = this;
     }
 
+    // Functions
     new void Update(){
         base.Update();
 

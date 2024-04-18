@@ -57,11 +57,11 @@ public static class ObjectFactory{
 
         switch (type){
             case AttackObjectType.PLAYER:
-                prefabObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_PLAYER_HITBOX);
+                prefabObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_PLAYER_ATTACK);
                 attackObject.Damage *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].PlayerDamageMultiplier;
                 break;
             case AttackObjectType.ENEMY:
-                prefabObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_ENEMY_HITBOX);
+                prefabObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_ENEMY_ATTACK);
                 attackObject.Damage *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].EnemyDamageMultiplier;
                 break;
             default:
