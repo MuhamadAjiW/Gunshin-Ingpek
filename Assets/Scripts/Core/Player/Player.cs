@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : AccompaniableCombatant {
+    // Static attributes
+    public static string ObjectIdPrefix = "Player"; 
+
     // Attributes
     private PlayerAnimationController animationController;
     private PlayerMovementController movementController;
@@ -14,6 +17,7 @@ public class Player : AccompaniableCombatant {
     // Constructor
     new void Start(){
         base.Start();
+        SetIdPrefix(ObjectIdPrefix);
         Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].PlayerHealthMultiplier;
         
         // TODO: Review, base damage is currently done in the ObjectFactory. Might need to decide which is best

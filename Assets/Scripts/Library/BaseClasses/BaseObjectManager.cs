@@ -16,11 +16,20 @@ public class BaseObjectManager : MonoBehaviour{
         Debug.Log(string.Format("Object ids in {0}: {1}", ManagerName, idArray));
     }
 
+    public virtual WorldObject[] GetWorldObjects(){
+        return GetComponentsInChildren<WorldObject>();
+    }
+
     public virtual WorldObject GetWorldObject(string id){
         WorldObject[] worldObjects = GetComponentsInChildren<WorldObject>();
         for (int i = 0; i < worldObjects.Length; i++){
             if(worldObjects[i].Id == id) return worldObjects[i];
         }
         return null;
+    }
+
+    public virtual void RemoveWorldObject(string id){
+        WorldObject worldObject = GetWorldObject(id);
+        Destroy(worldObject.gameObject);
     }
 }

@@ -12,7 +12,7 @@ public static class ObjectFactory{
         int renderingOrder = 0,
         string objectName = "Unnamed Object"
     ){
-        GameObject returnObject = parent == null? GameObject.Instantiate(gameObject) : GameObject.Instantiate(gameObject, parent);
+        GameObject returnObject = parent == null? GameObject.Instantiate(gameObject, ObjectManager.instance.transform) : GameObject.Instantiate(gameObject, parent);
         if(position != null) returnObject.transform.position = position.Value;
         if(rotation != null) returnObject.transform.rotation = rotation.Value;
         if(scale != null) returnObject.transform.localScale = Vector3.Scale(returnObject.transform.localScale, scale.Value);
@@ -73,7 +73,7 @@ public static class ObjectFactory{
         return prefabObject;
     }
 
-    public static GameObject CreateCollectibleObject(
+    public static Collectible CreateCollectibleObject(
         string prefabPath,
         Transform parent = null,
         Vector3? position = null,
@@ -83,10 +83,24 @@ public static class ObjectFactory{
         string objectName = "Unnamed Object"
     ){
         GameObject prefabObject = CreateObject(prefabPath, parent == null? ObjectManager.instance.transform : parent, position, scale, rotation, renderingOrder, objectName);
-        if(!prefabObject.TryGetComponent<Collectible>(out var collectibleObject)) Debug.LogError("Loaded prefab is not a Collectible: " + prefabPath);
+        if(!prefabObject.TryGetComponent<Collectible>(out var collectible)) Debug.LogError("Loaded prefab is not a Collectible: " + prefabPath);
         prefabObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_COLLECTIBLE);
 
-        return prefabObject;
+        return collectible;
+    }
+
+    public static WorldEntity CreateEntity(
+        string prefabPath,
+        Transform parent = null,
+        Vector3? position = null,
+        Vector3? scale = null,
+        Quaternion? rotation = null,
+        int renderingOrder = 0,
+        string objectName = "Unnamed Object"
+    ){
+        GameObject prefabObject = CreateObject(prefabPath, parent == null? EntityManager.instance.transform : parent, position, scale, rotation, renderingOrder, objectName);
+        if(!prefabObject.TryGetComponent<WorldEntity>(out var entity)) Debug.LogError("Loaded prefab is not an entity: " + prefabPath);
+        return entity;
     }
 
     public static void Destroy(GameObject gameObject, float delay = 0){

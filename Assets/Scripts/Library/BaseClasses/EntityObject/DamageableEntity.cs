@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class DamageableEntity : RigidEntity, IDamageable{
+public class DamageableEntity : WorldEntity, IDamageable{
     // Attributes
     private bool damageable = true;
     [SerializeField] private float maxHealth;
