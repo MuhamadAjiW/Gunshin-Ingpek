@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AttackHitbox : AttackObject{
     // Functions
-    void OnTriggerStay(Collider otherCollider){
+    protected void OnTriggerStay(Collider otherCollider){
         Hit(otherCollider);
     }
 }

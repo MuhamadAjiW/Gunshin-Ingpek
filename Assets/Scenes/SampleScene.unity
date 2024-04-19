@@ -507,8 +507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackResistance: 1
   baseSpeed: 0
-  maxHealth: 100
-  health: 100
+  maxHealth: 100000
+  health: 100000
   baseDamage: 0
 --- !u!1 &675919034
 GameObject:
@@ -1194,11 +1194,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2635269686106844091, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
       propertyPath: BaseDamage
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2635269686106844091, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
       propertyPath: KnockbackPower
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3608611397487402253, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
       propertyPath: m_Name

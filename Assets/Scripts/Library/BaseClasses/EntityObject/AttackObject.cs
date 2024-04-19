@@ -21,6 +21,7 @@ public class AttackObject : MonoBehaviour, IAttack{
         var knockbackModifier = (-1) * knockbackPower / rigidObject.KnockbackResistance;
         Vector3 knockbackVector = MathUtils.GetDirectionVector(KnockbackOrigin, rigidObject.Position) * knockbackModifier;
         rigidObject.Rigidbody.AddForce(knockbackVector, ForceMode.Impulse);
+        Debug.Log(knockbackVector);
     }
 
     protected void Hit(Collider otherCollider){

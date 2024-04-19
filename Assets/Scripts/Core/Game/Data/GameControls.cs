@@ -1,13 +1,15 @@
 using UnityEngine;
 
 public class GameControls : MonoBehaviour {
-    // Attributes
+    // Static instance
     public static GameControls instance;
+
+    // Attributes
     public KeyCode backButton = KeyCode.Escape;
     public KeyCode attackButton = KeyCode.Z;
 
     // Constructor
-    private void Awake(){
+    protected void Awake(){
         instance = this;
         DontDestroyOnLoad(gameObject);
     }

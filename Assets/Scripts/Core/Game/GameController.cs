@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
     public bool IsPaused => Time.timeScale == 0;
 
     // Constructor
-    private void Awake(){
+    protected void Awake(){
         if(instance == null) instance = this;
         mainCamera = new GameCameraController(GetComponentInChildren<Camera>());
         stateController = new GameStateController();
@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
     }
 
     // Functions
-    void Update(){
+    protected void Update(){
          if(Input.GetKeyDown(GameControls.instance.backButton)){
             stateController.HandleEscape();
          }

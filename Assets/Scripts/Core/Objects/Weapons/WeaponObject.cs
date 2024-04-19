@@ -9,7 +9,7 @@ public abstract class WeaponObject : MonoBehaviour {
     [SerializeField] protected float KnockbackPower;
 
     // Constructor
-    void Start(){
+    protected void Start(){
         bearer = GetComponentInParent<IArmed>();
         if(bearer is Player) bearerType = AttackObjectType.PLAYER;
         else if(bearer is EnemyEntity) bearerType = AttackObjectType.ENEMY;

@@ -73,11 +73,24 @@ public static class ObjectFactory{
         return prefabObject;
     }
 
+    public static GameObject CreateCollectibleObject(
+        string prefabPath,
+        Transform parent = null,
+        Vector3? position = null,
+        Vector3? scale = null,
+        Quaternion? rotation = null,
+        int renderingOrder = 0,
+        string objectName = "Unnamed Object"
+    ){
+        GameObject prefabObject = CreateObject(prefabPath, parent == null? ObjectManager.instance.transform : parent, position, scale, rotation, renderingOrder, objectName);
+        if(!prefabObject.TryGetComponent<Collectible>(out var collectibleObject)) Debug.LogError("Loaded prefab is not a Collectible: " + prefabPath);
+        prefabObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_COLLECTIBLE);
+
+        return prefabObject;
+    }
+
     public static void Destroy(GameObject gameObject, float delay = 0){
-        if(gameObject == null){
-            Debug.LogError("Tried to destroy a null gameObject");
-            return;
-        }
+        if(gameObject == null) return;
         GameController.instance.StartCoroutine(DestroyWithDelay(gameObject, delay));
     }
 

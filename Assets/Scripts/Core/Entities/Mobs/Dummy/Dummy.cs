@@ -6,7 +6,7 @@ public class Dummy : EnemyEntity{
     public DummyStateController stateController;
 
     // Constructor
-    new void Start(){
+    new protected void Start(){
         base.Start();
         stateController = new DummyStateController(this);
         animationController = new DummyAnimationController(this);

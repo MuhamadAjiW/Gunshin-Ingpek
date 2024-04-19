@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class EntityManager : MonoBehaviour{
+    // Static instance
+    public static EntityManager instance;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    // Constructor
+    protected void Awake(){
+        instance = this;
     }
 }
