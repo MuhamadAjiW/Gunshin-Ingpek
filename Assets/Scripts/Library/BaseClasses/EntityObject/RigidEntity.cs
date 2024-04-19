@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RigidEntity : MonoBehaviour, IRigid {
+public class RigidEntity : WorldObject, IRigid {
     // Attributes
     [SerializeField] private float knockbackResistance;
     [SerializeField] private float baseSpeed;

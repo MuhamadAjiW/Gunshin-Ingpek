@@ -19,12 +19,12 @@ public class PlayerMovementController{
     }
 
     public void HandleMovement(){
-        float keyPressX = Input.GetAxisRaw("Horizontal");
-        float keyPressZ = Input.GetAxisRaw("Vertical");
+        float inputX = player.inputController.movementInputX;
+        float inputZ = player.inputController.movementInputZ;
         Vector3 velocity = new(player.Rigidbody.velocity.x, player.Rigidbody.velocity.y, player.Rigidbody.velocity.z);
         Vector3 dampVelocity = Vector3.zero;
 
-        Vector3 inputVector = new(keyPressX, 0, keyPressZ);
+        Vector3 inputVector = new(inputX, 0, inputZ);
         Vector3 modifierVector = inputVector.normalized * player.stats.MaxSpeed;
         velocity.x = modifierVector.x;
         velocity.z = modifierVector.z;

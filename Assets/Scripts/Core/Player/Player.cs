@@ -7,7 +7,7 @@ public class Player : AccompaniableCombatant {
     // Attributes
     private PlayerAnimationController animationController;
     private PlayerMovementController movementController;
-    private PlayerAttackController attackController;
+    public PlayerInputController inputController;
     public PlayerStateController stateController;
     public PlayerStats stats;
 
@@ -23,7 +23,7 @@ public class Player : AccompaniableCombatant {
         stateController = new PlayerStateController(this);
         movementController = new PlayerMovementController(this);
         animationController = new PlayerAnimationController(this);
-        attackController = new PlayerAttackController(this);
+        inputController = new PlayerInputController(this);
         stats = new PlayerStats(this);
 
         GameController.instance.player = this;
@@ -33,7 +33,7 @@ public class Player : AccompaniableCombatant {
     new void Update(){
         base.Update();
 
-        attackController.HandleInputs();
+        inputController.HandleInputs();
     }
 
     new void FixedUpdate(){

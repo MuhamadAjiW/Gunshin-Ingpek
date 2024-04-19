@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class Collectible : MonoBehaviour {
+public abstract class Collectible : WorldObject {
     // Attributes
     [SerializeField] float TimeToLive;
     private event Action OnCollectEvent;
