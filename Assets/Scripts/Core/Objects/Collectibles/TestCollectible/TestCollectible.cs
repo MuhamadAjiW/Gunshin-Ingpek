@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TestCollectible : Collectible{
     // Static attributes
-    public static string ObjectIdPrefix = "Player";
+    public static string ObjectIdPrefix = "TestCollectible";
 
     // Constructor
     protected new void Start(){

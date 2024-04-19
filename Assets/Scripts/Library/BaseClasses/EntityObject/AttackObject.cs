@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-public class AttackObject : WorldObject, IAttack{
+// TODO: Review whether attack object should be classified as a world object
+public class AttackObject : MonoBehaviour, IAttack{
     // Attributes
     [SerializeField] private float damage;
     [SerializeField] private float knockbackPower;
