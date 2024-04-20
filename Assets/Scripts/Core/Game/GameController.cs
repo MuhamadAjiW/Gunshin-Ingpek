@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour {
     public GameCameraController mainCamera;
     public GameStateController stateController;
     public GameSaveData data;
+
+    // Set-getters
     public bool IsPaused => Time.timeScale == 0;
 
     // Constructor

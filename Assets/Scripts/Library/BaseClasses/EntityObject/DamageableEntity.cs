@@ -6,7 +6,11 @@ public class DamageableEntity : WorldEntity, IDamageable{
     private bool damageable = true;
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;
+    public event Action OnDeathEvent;
+    public event Action OnDamagedEvent;
+    public event Action OnHealEvent;
 
+    // Set-Getters
     public float MaxHealth {
         get => maxHealth;
         set => maxHealth = value > 0? value : 0;
@@ -20,9 +24,6 @@ public class DamageableEntity : WorldEntity, IDamageable{
         set => damageable = value; 
     }
     public bool Dead => health <= 0;
-    public event Action OnDeathEvent;
-    public event Action OnDamagedEvent;
-    public event Action OnHealEvent;
 
     // Functions
     public float InflictDamage(float damage){

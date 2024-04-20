@@ -6,6 +6,8 @@ public class WorldObject : MonoBehaviour{
     private int NumberId; 
     private string Prefix;
     public string Id;
+    public Vector3 Front => transform.rotation * Vector3.forward;
+    public Quaternion Rotation => transform.rotation;
 
     // Constructor
     protected void Awake(){

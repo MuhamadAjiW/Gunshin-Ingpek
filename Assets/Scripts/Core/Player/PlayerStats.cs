@@ -4,6 +4,8 @@ public class PlayerStats {
     // Attributes
     private readonly Player player;
     public float sprintModifier = 1.5f;
+
+    // Set-Getters
     public float Health {
         get => player.Health;
         set => player.Health = value;

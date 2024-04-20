@@ -1,4 +1,4 @@
-public abstract class EnemyEntity : Combatant {
+public abstract class EnemyEntity : CombatantEntity {
     // Functions
     new protected void Start(){
         base.Start();

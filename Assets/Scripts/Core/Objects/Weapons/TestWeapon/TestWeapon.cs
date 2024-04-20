@@ -3,10 +3,15 @@ using UnityEngine;
 public class TestWeapon : WeaponObject{
     // Constants
     private static readonly string hitboxPrefab = "Prefabs/Weapons/TestWeapon/WeaponHitbox";
+    private static readonly string projectilePrefab = "Prefabs/Weapons/TestWeapon/TestProjectile";
+    
+    // Attribute
+    [SerializeField] private float fireRange = 100;
+    [SerializeField] private float projectileSpeed = 100; 
 
     // Function
     public override void Attack(){
-        GameObject attackHitbox = ObjectFactory.CreateAttackObject(
+        AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: hitboxPrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, BaseDamage),
             knockbackPower: KnockbackPower,
@@ -16,6 +21,24 @@ public class TestWeapon : WeaponObject{
             objectName: "TestWeapon Hitbox"
         );
 
-        ObjectFactory.Destroy(attackHitbox, 1f);
+        ObjectFactory.DestroyObject(attackHitbox, 1f);
+    }
+
+    public override void AttackAlternate(){
+        ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
+            prefabPath: projectilePrefab,
+            damage: MathUtils.CalculateDamage(bearer.BaseDamage, BaseDamage),
+            knockbackPower: KnockbackPower / 4,
+            type: bearerType,
+            position: transform.position,
+            rotation: bearer.Rotation,
+            knockbackOrigin: transform.position - (bearer.Front * projectileSpeed),
+            objectName: "TestWeapon Projectile"
+        );
+        attackProjectile.travelDistance = fireRange;
+        attackProjectile.speed = projectileSpeed;
+        attackProjectile.direction = bearer.Front;
+
+        ObjectFactory.DestroyObject(attackProjectile, 1f);
     }
 }

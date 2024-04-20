@@ -6,11 +6,13 @@ public abstract class DamageableEntityStateController : EntityStateController {
     // Attributes
     private readonly DamageableEntity Entity;
     private float damagedDelay;
+    public event Action OnDamageDelayOverEvent;
+    
+    // Set-Getters
     public float DamagedDelay {
         get => damagedDelay;
         set => damagedDelay = value <= 0? GameConfig.DAMAGED_DELAY_DURATION : value;
     }
-    public event Action OnDamageDelayOverEvent;
 
     // Constructor
     public DamageableEntityStateController(DamageableEntity entity, float delay = 0){

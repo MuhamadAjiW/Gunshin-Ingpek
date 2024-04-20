@@ -17,4 +17,5 @@ public abstract class WeaponObject : MonoBehaviour {
 
     // Functions
     public abstract void Attack();
+    public abstract void AttackAlternate();
 }

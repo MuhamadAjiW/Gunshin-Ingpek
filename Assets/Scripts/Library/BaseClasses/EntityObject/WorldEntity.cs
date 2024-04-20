@@ -7,6 +7,7 @@ public class WorldEntity : WorldObject, IRigid {
     private new Rigidbody rigidbody;
     private new Collider collider;
     
+    // Set-Getters
     public Rigidbody Rigidbody => rigidbody;
     public Collider Collider => collider;
     public Vector3 Position => transform.position;

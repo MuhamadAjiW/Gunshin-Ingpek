@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseObjectManager : MonoBehaviour{
+    // Attributes
     protected string ManagerName = "Manager";
+    
     // Functions
     public virtual void LogObjects(){
         WorldObject[] worldObjects = GetComponentsInChildren<WorldObject>();

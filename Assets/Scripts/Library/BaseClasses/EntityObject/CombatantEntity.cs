@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 
-public class Combatant : DamageableEntity, IArmed{
+public class CombatantEntity : DamageableEntity, IArmed{
     // Attributes
     [SerializeField] private float baseDamage;
     private WeaponObject weapon;
+    
+    // Set-Getters
     public float BaseDamage { 
         get => baseDamage;
         set => baseDamage = value;
@@ -13,8 +15,13 @@ public class Combatant : DamageableEntity, IArmed{
         get => weapon; 
         set => weapon = value;
     }
+    Vector3 IArmed.Front => Front;
+    Quaternion IArmed.Rotation => transform.rotation;
+
 
     // TODO: Test then decide whether to destroy/disable previous weapon
+
+
     public void SwapWeapon(WeaponObject newWeapon){
         Weapon = newWeapon;
     }

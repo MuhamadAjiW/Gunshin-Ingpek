@@ -7,7 +7,8 @@ public class GameControls : MonoBehaviour {
     // Attributes
     public KeyCode backButton = KeyCode.Escape;
     public KeyCode attackButton = KeyCode.Z;
-    public KeyCode interactButton = KeyCode.X;
+    public KeyCode attackAlternateButton = KeyCode.X;
+    public KeyCode interactButton = KeyCode.C;
 
     // Constructor
     protected void Awake(){
