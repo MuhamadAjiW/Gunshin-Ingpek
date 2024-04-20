@@ -40,9 +40,9 @@ public class AttackObject : MonoBehaviour, IAttack{
         otherCollider.transform.TryGetComponent<IDamageable>(out var damageableObject);
         if(damageableObject == null) return true;
         
-        Debug.Log(string.Format("Hit in hitbox of {0} by {1} with damage of {2}", transform.name, otherCollider.transform.name, Damage));
         
         if(damageableObject.Damageable){
+            Debug.Log(string.Format("Hit in hitbox of {0} by {1} with damage of {2}", transform.name, otherCollider.transform.name, Damage));
             
             damageableObject.InflictDamage(Damage);
             OnDamageEvent?.Invoke();

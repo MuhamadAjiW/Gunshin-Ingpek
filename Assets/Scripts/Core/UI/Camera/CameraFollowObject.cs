@@ -4,8 +4,8 @@ public class CameraFollowObject : CameraBehaviour {
     // Attributes
     public Transform target;
     public float followingTime = CameraConfig.DEFAULT_FOLLOWING_SPEED;
-    private Vector3 offset;
-    private Vector3 velocity;
+    protected Vector3 offset;
+    protected Vector3 velocity;
     
     // Constructor
     protected void Start(){
@@ -16,7 +16,6 @@ public class CameraFollowObject : CameraBehaviour {
     protected void FixedUpdate(){
         if(GameController.instance.IsPaused) return;
         Vector3 targetPosition = target.position + offset;
-        Vector3 newPosition = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, followingTime);
-        transform.position = newPosition;
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, followingTime);
     }
 }

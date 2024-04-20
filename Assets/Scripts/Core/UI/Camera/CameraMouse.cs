@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class CameraMouse : CameraBehaviour {
+public class CameraMouse : CameraFollowObject {
     // Attributes
-    public Transform target;
     public float mouseSensitivity = 1f;
-    public Vector2 mouseTurn;
+    private Vector2 mouseTurn;
     private Quaternion initialRotation;
-    private Vector3 offset;
-    private readonly float maximumVerticalAngle = 80f;
+    private Vector3 targetPosition;
+    private Quaternion targetRotation;
 
-    protected void Start(){
-        offset = transform.position - target.position;
+    protected new void Start(){
+        base.Start();
         Cursor.lockState = CursorLockMode.Locked;
         initialRotation = transform.rotation;
     }
@@ -22,21 +21,25 @@ public class CameraMouse : CameraBehaviour {
         mouseTurn.x += Input.GetAxis("Mouse X");
         mouseTurn.y += Input.GetAxis("Mouse Y");
 
-        mouseTurn.y = Mathf.Clamp(mouseTurn.y, -maximumVerticalAngle, maximumVerticalAngle);
+        mouseTurn.y = Mathf.Clamp(mouseTurn.y, -90f, 90f);
 
         Quaternion rotation = initialRotation;
         rotation = Quaternion.AngleAxis(-mouseTurn.y, Vector3.right) * rotation;
         rotation = Quaternion.AngleAxis(mouseTurn.x, Vector3.up) * rotation;
 
-        Vector3 newPosition = target.position + rotation * offset;
 
-        bool hit = Physics.Linecast(target.position, newPosition, out RaycastHit hitLocation, 1);
-        if (hit){
-            Debug.Log("Hit Collider: " + hitLocation.collider.gameObject.name);
-            transform.position = hitLocation.point;
-        } else{
-            transform.position = newPosition;
-        }
+        targetPosition = target.position + rotation * offset;
+        bool hit = Physics.Linecast(target.position, targetPosition, out RaycastHit hitLocation, 1);
+        if (hit) targetPosition = hitLocation.point;
+
         transform.localRotation = rotation;
     }
+
+    protected new void FixedUpdate(){
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, followingTime);        
+        // transform.localRotation = targetRotation;
+        return;
+    }
 }
+
+
