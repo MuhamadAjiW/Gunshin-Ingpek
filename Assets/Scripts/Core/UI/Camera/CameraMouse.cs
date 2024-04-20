@@ -16,12 +16,10 @@ public class CameraMouse : CameraFollowObject {
 
     protected void Update(){
         if(GameController.instance.IsPaused) return;
-        transform.forward = offset.normalized;
-
         mouseTurn.x += Input.GetAxis("Mouse X");
         mouseTurn.y += Input.GetAxis("Mouse Y");
 
-        mouseTurn.y = Mathf.Clamp(mouseTurn.y, -90f, 90f);
+        mouseTurn.y = Mathf.Clamp(mouseTurn.y, -GameConfig.CAMERA_MOUSE_VERTICAL_MAX, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
 
         Quaternion rotation = initialRotation;
         rotation = Quaternion.AngleAxis(-mouseTurn.y, Vector3.right) * rotation;
@@ -32,12 +30,13 @@ public class CameraMouse : CameraFollowObject {
         bool hit = Physics.Linecast(target.position, targetPosition, out RaycastHit hitLocation, 1);
         if (hit) targetPosition = hitLocation.point;
 
-        transform.localRotation = rotation;
+        targetRotation = rotation;
     }
 
     protected new void FixedUpdate(){
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, followingTime);        
-        // transform.localRotation = targetRotation;
+        transform.forward = offset.normalized;
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, followingTime);
+        transform.localRotation = targetRotation;
         return;
     }
 }

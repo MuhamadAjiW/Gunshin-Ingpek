@@ -6,8 +6,8 @@ public static class GameConfig{
 
     // Movement lerp constants
     public static readonly float MOVEMENT_SMOOTHING = 0.14f;
-    public static readonly float MOVEMENT_SMOOTHING_JUMP_SNAPSHOT = 0.14f;
     public static readonly float ROTATION_SMOOTHING = 720;
+    public static readonly float CAMERA_MOUSE_VERTICAL_MAX = 60;
 
     // Difficulty multipliers
     private static readonly DifficultyData EasyData = new(){
