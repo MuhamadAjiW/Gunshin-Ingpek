@@ -20,7 +20,7 @@ public class AttackObject : MonoBehaviour, IAttack{
     // Functions
     public void Knockback(IRigid rigidObject){
         var knockbackModifier = (-1) * knockbackPower / rigidObject.KnockbackResistance;
-        Vector3 knockbackVector = MathUtils.GetDirectionVector(KnockbackOrigin, rigidObject.Position) * knockbackModifier;
+        Vector3 knockbackVector = MathUtils.GetDirectionVectorFlat(KnockbackOrigin, rigidObject.Position) * knockbackModifier;
         rigidObject.Rigidbody.AddForce(knockbackVector, ForceMode.Impulse);
         Debug.Log(knockbackVector);
     }

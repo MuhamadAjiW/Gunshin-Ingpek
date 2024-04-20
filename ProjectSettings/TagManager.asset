@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Ground
   - Enemy
-  - Collectibles
+  - Collectible
   layers:
   - Default
   - TransparentFX
@@ -18,7 +18,7 @@ TagManager:
   - Enemy
   - PlayerAttack
   - EnemyAttack
-  - 
+  - Collectible
   - 
   - 
   - 
