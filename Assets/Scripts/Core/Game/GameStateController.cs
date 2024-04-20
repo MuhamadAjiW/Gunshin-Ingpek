@@ -21,7 +21,7 @@ public class GameStateController{
         Debug.Log(string.Format("GameState {0}; Current gamestate is {1}", e.EventType, e.NewGameState));
     }
 
-    public void PushState(GameState gameState){
+    private void SetState(GameState gameState){
         //TODO: Review cutscenes and menu behaviour
         Time.timeScale = gameState switch{
             GameState.PAUSED => 0,
@@ -30,8 +30,19 @@ public class GameStateController{
             GameState.MENU => 0,
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
+        Cursor.lockState = gameState switch {
+            GameState.PAUSED => CursorLockMode.None,
+            GameState.RUNNING => CursorLockMode.Locked,
+            GameState.CUTSCENE => CursorLockMode.Locked,
+            GameState.MENU => CursorLockMode.None,
+            _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
+        };
+    }
 
+    public void PushState(GameState gameState){
         gameStateStack.Push(gameState);
+        
+        SetState(gameState);
         OnGameStateChange?.Invoke(new GameStateChangeArgs(
             StackChangeEventType.PUSH,
             gameStateStack.Count,
@@ -42,15 +53,8 @@ public class GameStateController{
     public void PopState(){
         gameStateStack.Pop();
         GameState gameState = gameStateStack.Peek();
-        //TODO: Review cutscenes behaviour
-        Time.timeScale = gameState switch{
-            GameState.PAUSED => 0,
-            GameState.RUNNING => 1,
-            GameState.CUTSCENE => 0,
-            GameState.MENU => 0,
-            _ => throw new Exception("Invalid gameState popped to GameStateController, please refer to enum GameState for valid states"),
-        };
-
+        
+        SetState(gameState);
         OnGameStateChange?.Invoke(new GameStateChangeArgs(
             StackChangeEventType.POP,
             gameStateStack.Count,

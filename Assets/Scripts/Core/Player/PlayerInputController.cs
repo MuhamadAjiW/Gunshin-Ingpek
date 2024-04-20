@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerInputController{
@@ -16,23 +17,17 @@ public class PlayerInputController{
         movementInputX = Input.GetAxisRaw("Horizontal");
         movementInputZ = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetKeyDown(GameControls.instance.attackButton)){
-            Debug.Log("Player is attacking");
-
+        if(Input.GetKeyDown(GameInput.instance.attackButton)){
             if(player.Weapon == null) return;
 
             player.Weapon.Attack();
         }
-        else if(Input.GetKeyDown(GameControls.instance.attackAlternateButton)){
-            Debug.Log("Player is attacking (alternate)");
-
+        else if(Input.GetKeyDown(GameInput.instance.attackAlternateButton)){
             if(player.Weapon == null) return;
 
             player.Weapon.AttackAlternate();
         }
-        else if(Input.GetKeyDown(GameControls.instance.interactButton)){
-            Debug.Log("Player is interacting");
-        
+        else if(Input.GetKeyDown(GameInput.instance.interactButton)){
             ObjectManager.instance.LogObjects();
             EntityManager.instance.LogObjects();
         }

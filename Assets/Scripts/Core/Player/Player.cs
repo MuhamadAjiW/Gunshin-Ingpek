@@ -21,9 +21,9 @@ public class Player : PlayerEntity {
         Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].PlayerHealthMultiplier;
         Weapon = GetComponentInChildren<WeaponObject>();
         stateController = new PlayerStateController(this);
+        inputController = new PlayerInputController(this);
         movementController = new PlayerMovementController(this);
         animationController = new PlayerAnimationController(this);
-        inputController = new PlayerInputController(this);
         stats = new PlayerStats(this);
 
         GameController.instance.player = this;
@@ -39,7 +39,8 @@ public class Player : PlayerEntity {
     new void FixedUpdate(){
         base.FixedUpdate();
 
-        stateController.UpdateState();
         movementController.HandleMovement();
+
+        stateController.UpdateState();
     }
 }

@@ -31,13 +31,13 @@ public class TestWeapon : WeaponObject{
             knockbackPower: KnockbackPower / 4,
             type: bearerType,
             position: transform.position,
-            rotation: bearer.Rotation,
-            knockbackOrigin: transform.position - (bearer.Front * projectileSpeed),
+            rotation: bearer.Orientation.rotation,
+            knockbackOrigin: transform.position - (bearer.Orientation.forward * projectileSpeed),
             objectName: "TestWeapon Projectile"
         );
         attackProjectile.travelDistance = fireRange;
         attackProjectile.speed = projectileSpeed;
-        attackProjectile.direction = bearer.Front;
+        attackProjectile.direction = bearer.Orientation.forward;
 
         ObjectFactory.DestroyObject(attackProjectile, 1f);
     }

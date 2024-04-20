@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 
     // Functions
     protected void Update(){
-         if(Input.GetKeyDown(GameControls.instance.backButton)){
+         if(Input.GetKeyDown(GameInput.instance.backButton)){
             stateController.HandleEscape();
          }
     }

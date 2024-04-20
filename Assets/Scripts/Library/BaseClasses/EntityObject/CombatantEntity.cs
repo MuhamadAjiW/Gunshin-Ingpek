@@ -15,13 +15,9 @@ public class CombatantEntity : DamageableEntity, IArmed{
         get => weapon; 
         set => weapon = value;
     }
-    Vector3 IArmed.Front => Front;
-    Quaternion IArmed.Rotation => transform.rotation;
-
+    public Transform Orientation => transform;
 
     // TODO: Test then decide whether to destroy/disable previous weapon
-
-
     public void SwapWeapon(WeaponObject newWeapon){
         Weapon = newWeapon;
     }

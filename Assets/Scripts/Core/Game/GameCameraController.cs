@@ -7,6 +7,7 @@ public class GameCameraController {
     private Camera activeCamera;
     private CameraBehaviour behaviour;
     private CameraBehaviourType behaviourType;
+    public Transform Orientation => activeCamera.transform;
 
     // Constructor
     public GameCameraController(Camera camera){
@@ -33,6 +34,7 @@ public class GameCameraController {
         behaviour = cameraBehaviourType switch{
             CameraBehaviourType.STATIC => activeCamera.AddComponent<CameraStatic>(),
             CameraBehaviourType.FOLLOW => activeCamera.AddComponent<CameraFollowObject>(),
+            CameraBehaviourType.MOUSE => activeCamera.AddComponent<CameraMouse>(),
             _ => throw new Exception("Invalid cameraBehaviourType set, please refer to enum CameraBehaviourType for valid types")
         };
 

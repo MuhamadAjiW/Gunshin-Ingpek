@@ -20,7 +20,6 @@ public class DummyAnimationController : AnimationController{
 
     // Functions
     private void IndicateDamaged(){
-        Debug.Log("Dummy is damaged");
         meshRenderer.material.color = Color.red;
     }
 

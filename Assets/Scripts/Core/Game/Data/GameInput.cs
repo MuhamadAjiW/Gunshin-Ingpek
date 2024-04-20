@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class GameControls : MonoBehaviour {
+public class GameInput : MonoBehaviour {
     // Static instance
-    public static GameControls instance;
+    public static GameInput instance;
 
     // Attributes
     public KeyCode backButton = KeyCode.Escape;
