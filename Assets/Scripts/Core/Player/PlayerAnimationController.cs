@@ -11,12 +11,8 @@ public class PlayerAnimationController : AnimationController{
     private readonly PlayerStateController playerStateController;
 
     // Constructor
-    public PlayerAnimationController(Player player){
+    public PlayerAnimationController(Player player) : base(player) {
         this.player = player;
-        model = player.transform.Find("Model");
-        animator = model.GetComponent<Animator>();
-        meshRenderer = model.GetComponent<MeshRenderer>();
-
         player.stateController.OnStateChangeEvent += AnimateStates;
     }
 

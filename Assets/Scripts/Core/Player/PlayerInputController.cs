@@ -18,18 +18,21 @@ public class PlayerInputController{
         movementInputZ = Input.GetAxisRaw("Vertical");
 
         if(Input.GetKeyDown(GameInput.instance.attackButton)){
+            Debug.Log("Player is Attacking");
             if(player.Weapon == null) return;
 
             player.Weapon.Attack();
         }
         else if(Input.GetKeyDown(GameInput.instance.attackAlternateButton)){
+            Debug.Log("Player is Attacking (alternate)");
             if(player.Weapon == null) return;
 
             player.Weapon.AttackAlternate();
         }
         else if(Input.GetKeyDown(GameInput.instance.interactButton)){
-            ObjectManager.instance.LogObjects();
-            EntityManager.instance.LogObjects();
+            Debug.Log("Player is interacting");
+            IInteractable interactable = player.stateController.currentInteractables[player.stateController.currentInteractables.Count - 1];
+            interactable.Interact();
         }
     }
 }

@@ -8,12 +8,8 @@ public class DummyAnimationController : AnimationController{
     private readonly Dummy dummy;
 
     // Constructor
-    public DummyAnimationController(Dummy dummy){
+    public DummyAnimationController(Dummy dummy) : base(dummy) {
         this.dummy = dummy;
-        model = dummy.transform.Find("Model");
-        animator = model.GetComponent<Animator>();
-        meshRenderer = model.GetComponent<MeshRenderer>();
-
         dummy.OnDamagedEvent += IndicateDamaged;
         dummy.stateController.OnDamageDelayOverEvent += IndicateUnamaged;
     }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameInput : MonoBehaviour {
@@ -5,10 +6,10 @@ public class GameInput : MonoBehaviour {
     public static GameInput instance;
 
     // Attributes
-    public KeyCode backButton = KeyCode.Escape;
-    public KeyCode attackButton = KeyCode.Z;
-    public KeyCode attackAlternateButton = KeyCode.X;
-    public KeyCode interactButton = KeyCode.C;
+    [NonSerialized] public KeyCode backButton = KeyCode.Escape;
+    [NonSerialized] public KeyCode attackButton = KeyCode.Z;
+    [NonSerialized] public KeyCode attackAlternateButton = KeyCode.X;
+    [NonSerialized] public KeyCode interactButton = KeyCode.C;
 
     // Constructor
     protected void Awake(){

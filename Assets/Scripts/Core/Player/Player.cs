@@ -30,17 +30,31 @@ public class Player : PlayerEntity {
     }
 
     // Functions
-    new void Update(){
+    protected new void Update(){
         base.Update();
 
         inputController.HandleInputs();
     }
 
-    new void FixedUpdate(){
+    protected new void FixedUpdate(){
         base.FixedUpdate();
 
         movementController.HandleMovement();
 
         stateController.UpdateState();
+    }
+
+    protected void OnTriggerEnter(Collider otherCollider){
+        otherCollider.transform.TryGetComponent<IInteractable>(out var interactable);
+        if(interactable == null) return;
+        interactable.InvokeOnInteractAreaEnterEvent();
+        stateController.currentInteractables.Add(interactable);
+    }
+
+    protected void OnTriggerExit(Collider otherCollider){
+        otherCollider.transform.TryGetComponent<IInteractable>(out var interactable);
+        if(interactable == null) return;
+        interactable.InvokeOnInteractAreaExitEvent();
+        stateController.currentInteractables.Remove(interactable);
     }
 }
