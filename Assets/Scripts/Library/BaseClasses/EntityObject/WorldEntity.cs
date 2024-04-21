@@ -25,6 +25,9 @@ public class WorldEntity : WorldObject, IRigid {
     protected void Start(){
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
+
+        if(rigidbody == null) Debug.LogWarning("Rigid entity " + name + " does not have a rigidbody"); 
+        if(collider == null) Debug.LogWarning("Rigid entity " + name + " does not have a collider"); 
     }
 
     // Functions

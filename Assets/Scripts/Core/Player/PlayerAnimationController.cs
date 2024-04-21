@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerAnimationController : AnimationController{
     // Consts
-    private const string IDLE_TRIGGER = "idle_param"; 
-    private const string WALK_TRIGGER = "walk_param"; 
-    private const string SPRINT_TRIGGER = "sprint_param"; 
+    private const string IDLE_TRIGGER = "Idle_param"; 
+    private const string WALK_TRIGGER = "Walk_param"; 
+    private const string SPRINT_TRIGGER = "Sprint_param"; 
     
     // Attributes
     private readonly Player player;

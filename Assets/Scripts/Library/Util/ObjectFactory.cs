@@ -80,6 +80,9 @@ public static class ObjectFactory{
                 attackObject.gameObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_ENEMY_ATTACK);
                 attackObject.Damage *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].EnemyDamageMultiplier;
                 break;
+            case AttackObjectType.ENVIRONMENT:
+                attackObject.gameObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_ENVIRONMENT_ATTACK);
+                break;
             default:
                 Debug.LogError("Invalid AttackObjectType set, please refer to enum AttackObjectType for valid types");
                 break;

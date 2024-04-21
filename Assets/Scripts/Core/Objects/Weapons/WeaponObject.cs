@@ -13,6 +13,7 @@ public abstract class WeaponObject : MonoBehaviour {
         bearer = GetComponentInParent<IArmed>();
         if(bearer is Player) bearerType = AttackObjectType.PLAYER;
         else if(bearer is EnemyEntity) bearerType = AttackObjectType.ENEMY;
+        else bearerType = AttackObjectType.ENVIRONMENT;
     }
 
     // Functions

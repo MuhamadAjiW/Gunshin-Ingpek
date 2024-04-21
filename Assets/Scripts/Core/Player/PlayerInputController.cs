@@ -31,6 +31,7 @@ public class PlayerInputController{
         }
         else if(Input.GetKeyDown(GameInput.instance.interactButton)){
             Debug.Log("Player is interacting");
+            if(player.stateController.currentInteractables.Count == 0 ) return;
             IInteractable interactable = player.stateController.currentInteractables[player.stateController.currentInteractables.Count - 1];
             interactable.Interact();
         }

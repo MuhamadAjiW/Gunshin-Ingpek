@@ -7,8 +7,8 @@ public class GameInput : MonoBehaviour {
 
     // Attributes
     [NonSerialized] public KeyCode backButton = KeyCode.Escape;
-    [NonSerialized] public KeyCode attackButton = KeyCode.Z;
-    [NonSerialized] public KeyCode attackAlternateButton = KeyCode.X;
+    [NonSerialized] public KeyCode attackButton = KeyCode.Mouse0;
+    [NonSerialized] public KeyCode attackAlternateButton = KeyCode.Mouse1;
     [NonSerialized] public KeyCode interactButton = KeyCode.C;
 
     // Constructor

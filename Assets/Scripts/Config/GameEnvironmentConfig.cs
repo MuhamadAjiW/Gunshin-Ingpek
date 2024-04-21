@@ -7,9 +7,10 @@ public static class GameEnvironmentConfig{
     public static readonly string TAG_GROUND = "Ground";
 
     // Layers
+    public static readonly string LAYER_PLAYER = "Player";
     public static readonly string LAYER_ENEMY = "Enemy";
     public static readonly string LAYER_PLAYER_ATTACK = "PlayerAttack";
-    public static readonly string LAYER_PLAYER = "Player";
     public static readonly string LAYER_ENEMY_ATTACK = "EnemyAttack";
+    public static readonly string LAYER_ENVIRONMENT_ATTACK = "EnvironmentAttack";
     public static readonly string LAYER_COLLECTIBLE = "Collectible";
 }

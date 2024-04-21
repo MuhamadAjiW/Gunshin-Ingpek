@@ -8,23 +8,16 @@ public class TestWeapon : WeaponObject{
     // Attribute
     [SerializeField] private float fireRange = 100;
     [SerializeField] private float projectileSpeed = 100; 
+    private TestWeaponAnimationController animationController;
+
+    // Constructor
+    protected new void Start(){
+        base.Start();
+        animationController = new TestWeaponAnimationController(this);
+    }
 
     // Function
     public override void Attack(){
-        AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
-            prefabPath: hitboxPrefab,
-            damage: MathUtils.CalculateDamage(bearer.BaseDamage, BaseDamage),
-            knockbackPower: KnockbackPower,
-            type: bearerType,
-            knockbackOrigin: transform.position,
-            parent: transform,
-            objectName: "TestWeapon Hitbox"
-        );
-
-        ObjectFactory.DestroyObject(attackHitbox, 1f);
-    }
-
-    public override void AttackAlternate(){
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
             prefabPath: projectilePrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, BaseDamage),
@@ -40,5 +33,21 @@ public class TestWeapon : WeaponObject{
         attackProjectile.direction = bearer.Orientation.forward;
 
         ObjectFactory.DestroyObject(attackProjectile, 1f);
+    }
+
+    public override void AttackAlternate(){
+        animationController.AnimateAlternateAttack();
+
+        AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
+            prefabPath: hitboxPrefab,
+            damage: MathUtils.CalculateDamage(bearer.BaseDamage, BaseDamage),
+            knockbackPower: KnockbackPower,
+            type: bearerType,
+            knockbackOrigin: transform.position,
+            parent: animationController.model,
+            objectName: "TestWeapon Hitbox"
+        );
+
+        ObjectFactory.DestroyObject(attackHitbox, 1f);
     }
 }
