@@ -5,11 +5,9 @@ public class WorldEntity : WorldObject, IRigid {
     [SerializeField] private float knockbackResistance;
     [SerializeField] private float baseSpeed;
     private new Rigidbody rigidbody;
-    private new Collider collider;
     
     // Set-Getters
     public Rigidbody Rigidbody => rigidbody;
-    public Collider Collider => collider;
     public Vector3 Position => transform.position;
     public float KnockbackResistance {
         get => knockbackResistance <= 0? 1 : knockbackResistance;
@@ -23,11 +21,8 @@ public class WorldEntity : WorldObject, IRigid {
     // Constructor
 
     protected void Start(){
-        rigidbody = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
-
+        rigidbody = GetComponent<Rigidbody>();        
         if(rigidbody == null) Debug.LogWarning("Rigid entity " + name + " does not have a rigidbody"); 
-        if(collider == null) Debug.LogWarning("Rigid entity " + name + " does not have a collider"); 
     }
 
     // Functions

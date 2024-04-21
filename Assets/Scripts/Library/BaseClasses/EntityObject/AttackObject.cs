@@ -37,17 +37,20 @@ public class AttackObject : MonoBehaviour, IAttack{
     }
 
     protected bool Hit(Collider otherCollider){
-        otherCollider.transform.TryGetComponent<IDamageable>(out var damageableObject);
+        
+        // Note: Hitboxes are traditionally placed within a model, therefore we get the damageable component from its parent
+        Transform objectParent = otherCollider.transform.parent;
+        objectParent.TryGetComponent<IDamageable>(out var damageableObject);
         if(damageableObject == null) return true;
         
         
         if(damageableObject.Damageable){
-            Debug.Log(string.Format("Hit in hitbox of {0} by {1} with damage of {2}", transform.name, otherCollider.transform.name, Damage));
+            Debug.Log(string.Format("Hit in hitbox of {0} by {1} with damage of {2}", transform.name, objectParent.name, Damage));
             
             damageableObject.InflictDamage(Damage);
             OnDamageEvent?.Invoke();
 
-            otherCollider.TryGetComponent<IRigid>(out var rigidObject);
+            objectParent.TryGetComponent<IRigid>(out var rigidObject);
             if(rigidObject != null) Knockback(rigidObject);
 
             return true;

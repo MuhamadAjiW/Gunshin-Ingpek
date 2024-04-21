@@ -17,7 +17,7 @@ public class TestWeapon : WeaponObject{
     }
 
     // Function
-    public override void Attack(){
+    protected override void OnAttack(){
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
             prefabPath: projectilePrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, BaseDamage),
@@ -35,7 +35,7 @@ public class TestWeapon : WeaponObject{
         ObjectFactory.DestroyObject(attackProjectile, 1f);
     }
 
-    public override void AttackAlternate(){
+    protected override void OnAlternateAttack(){
         animationController.AnimateAlternateAttack();
 
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
@@ -48,6 +48,6 @@ public class TestWeapon : WeaponObject{
             objectName: "TestWeapon Hitbox"
         );
 
-        ObjectFactory.DestroyObject(attackHitbox, 1f);
+        ObjectFactory.DestroyObject(attackHitbox, 0.5f);
     }
 }

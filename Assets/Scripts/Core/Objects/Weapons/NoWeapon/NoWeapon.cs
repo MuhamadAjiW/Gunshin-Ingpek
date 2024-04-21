@@ -1,9 +1,4 @@
 public class NoWeapon : WeaponObject{
-    public override void Attack(){
-        return;
-    }
-
-    public override void AttackAlternate(){
-        return;
-    }
+    protected override void OnAttack(){}
+    protected override void OnAlternateAttack(){}
 }

@@ -27,7 +27,7 @@ public class PlayerInputController{
             Debug.Log("Player is Attacking (alternate)");
             if(player.Weapon == null) return;
 
-            player.Weapon.AttackAlternate();
+            player.Weapon.AlternateAttack();
         }
         else if(Input.GetKeyDown(GameInput.instance.interactButton)){
             Debug.Log("Player is interacting");
