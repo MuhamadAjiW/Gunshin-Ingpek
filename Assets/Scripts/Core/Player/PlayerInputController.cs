@@ -7,6 +7,10 @@ public class PlayerInputController
     private readonly Player player;
     public float movementInputX;
     public float movementInputZ;
+    public bool movementInputJump;
+
+    // Events
+    public event Action OnJumpEvent;
     
     // Constructor
     public PlayerInputController(Player player)
@@ -19,6 +23,11 @@ public class PlayerInputController
     {
         movementInputX = Input.GetAxisRaw("Horizontal");
         movementInputZ = Input.GetAxisRaw("Vertical");
+
+        if(Input.GetButtonDown("Jump") && player.Grounded)
+        {
+            OnJumpEvent?.Invoke();
+        }
 
         if(Input.GetKeyDown(GameInput.instance.attackButton))
         {
@@ -47,7 +56,7 @@ public class PlayerInputController
             {
                 return;
             }
-            
+
             IInteractable interactable = player.stateController.currentInteractables[player.stateController.currentInteractables.Count - 1];
             interactable.Interact();
         }

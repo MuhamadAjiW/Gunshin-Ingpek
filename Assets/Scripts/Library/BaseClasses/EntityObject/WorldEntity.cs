@@ -5,11 +5,16 @@ public class WorldEntity : WorldObject, IRigid
     // Attributes
     [SerializeField] private float knockbackResistance;
     [SerializeField] private float baseSpeed;
-    private new Rigidbody rigidbody;
-    
+    [SerializeField] private float jumpForce;
+    protected Vector3 groundDetectionSize; 
+    [SerializeField] protected LayerMask groundLayers;
+    protected new Rigidbody rigidbody;
+    private bool grounded = false;
+
     // Set-Getters
     public Rigidbody Rigidbody => rigidbody;
     public Vector3 Position => transform.position;
+    public bool Grounded => grounded;
     public float KnockbackResistance
     {
         get => knockbackResistance <= 0? 1 : knockbackResistance;
@@ -20,16 +25,22 @@ public class WorldEntity : WorldObject, IRigid
         get => baseSpeed; 
         set => baseSpeed = value < 0? 0 : value; 
     }
+    public float JumpForce 
+    { 
+        get => jumpForce; 
+        set => jumpForce = value < 0? 0 : value; 
+    }
 
     // Constructor
-
     protected void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();        
+        rigidbody = GetComponent<Rigidbody>();
+        groundDetectionSize = new Vector3(0.05f, 0.05f, 0.05f);      
         if(rigidbody == null)
         {
             Debug.LogWarning("Rigid entity " + name + " does not have a rigidbody"); 
         }
+        groundLayers = LayerMask.GetMask(GameEnvironmentConfig.LAYER_DEFAULT);
     }
 
     // Functions
@@ -61,5 +72,9 @@ public class WorldEntity : WorldObject, IRigid
         {
             return;
         }
+
+        Vector3 center = transform.position;
+        Collider[] groundOverlaps = Physics.OverlapBox(center, groundDetectionSize, Quaternion.identity, groundLayers);
+        grounded = groundOverlaps.Length != 0;
     }
 }

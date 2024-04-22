@@ -22,12 +22,28 @@ public class PlayerStateController : DamageableEntityStateController
     {
         return (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && Input.GetKey(KeyCode.LeftShift);
     }
+    private bool DetectJumping()
+    {
+        return !player.Grounded && player.Rigidbody.velocity.y > 0;
+    }
+    private bool DetectFalling()
+    {
+        return !player.Grounded && player.Rigidbody.velocity.y < 0;
+    }
 
     public override int UpdateState()
     {
         int initialState = state;
 
-        if(DetectSprinting())
+        if(DetectJumping())
+        {
+            state = PlayerState.JUMPING;
+        }
+        else if(DetectFalling())
+        {
+            state = PlayerState.FALLING;
+        }
+        else if(DetectSprinting())
         {
             state = PlayerState.SPRINTING;
         }
@@ -44,7 +60,7 @@ public class PlayerStateController : DamageableEntityStateController
         {
             InvokeOnStateChanged();
         }
-        
+
         return state;
     }
 }

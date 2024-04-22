@@ -5,4 +5,6 @@ public class DefaultEntityState
     public const int WALKING = 2;
     public const int SPRINTING = 4;
     public const int ATTACKING = 8;
+    public const int JUMPING = 16;
+    public const int FALLING = 32;
 }

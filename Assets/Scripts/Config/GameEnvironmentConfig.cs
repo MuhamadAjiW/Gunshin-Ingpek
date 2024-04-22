@@ -8,6 +8,7 @@ public static class GameEnvironmentConfig{
     public const string TAG_GROUND = "Ground";
 
     // Layers
+    public const string LAYER_DEFAULT = "Default";
     public const string LAYER_PLAYER = "Player";
     public const string LAYER_ENEMY = "Enemy";
     public const string LAYER_PLAYER_ATTACK = "PlayerAttack";

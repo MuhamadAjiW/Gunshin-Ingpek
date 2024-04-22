@@ -12,6 +12,7 @@ public class PlayerMovementController
     public PlayerMovementController(Player player)
     {
         this.player = player;
+        player.inputController.OnJumpEvent += HandleJump;
         axisX = new(GameController.instance.mainCamera.Orientation.right.x, 0, GameController.instance.mainCamera.Orientation.right.z);
         axisZ = new(GameController.instance.mainCamera.Orientation.forward.x, 0, GameController.instance.mainCamera.Orientation.forward.z);
     }
@@ -49,5 +50,11 @@ public class PlayerMovementController
         {
             HandleRotation(movementVector);
         } 
+    }
+
+    public void HandleJump()
+    {
+        Vector3 force = new(0, player.JumpForce, 0);
+        player.Rigidbody.AddForce(force, ForceMode.Impulse);
     }
 }
