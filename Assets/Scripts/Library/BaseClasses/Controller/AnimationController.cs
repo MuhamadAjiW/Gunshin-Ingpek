@@ -10,7 +10,7 @@ public abstract class AnimationController
     // Constructor
     public AnimationController(MonoBehaviour animable)
     {
-        model = animable.transform.Find("Model");
+        model = animable.transform.Find(EnvironmentConfig.OBJECT_MODEL);
         animator = model.GetComponent<Animator>();
         meshRenderer = model.GetComponent<MeshRenderer>();
 

@@ -3,13 +3,14 @@ using UnityEngine;
 public class TestWeapon : WeaponObject
 {
     // Constants
+    private static readonly string weaponPrefab = "Prefabs/Weapons/TestWeapon/TestWeapon";
     private static readonly string hitboxPrefab = "Prefabs/Weapons/TestWeapon/WeaponHitbox";
     private static readonly string projectilePrefab = "Prefabs/Weapons/TestWeapon/TestProjectile";
     
     // Attribute
-    [SerializeField] private float fireRange = 100;
-    [SerializeField] private float projectileSpeed = 100; 
-    private TestWeaponAnimationController animationController;
+    public float fireRange = 100;
+    public float projectileSpeed = 100; 
+    public TestWeaponAnimationController animationController;
 
     // Constructor
     protected new void Start()
@@ -25,7 +26,8 @@ public class TestWeapon : WeaponObject
             prefabPath: projectilePrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
             knockbackPower: data.knockbackPower / 4,
-            type: bearerType,
+            attackLayerCode: bearer.AttackLayerCode,
+            damageModifier: bearer.AttackMultiplier,
             position: transform.position,
             rotation: bearer.Orientation.rotation,
             knockbackOrigin: transform.position - (bearer.Orientation.forward * projectileSpeed),
@@ -47,7 +49,8 @@ public class TestWeapon : WeaponObject
             prefabPath: hitboxPrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
             knockbackPower: data.knockbackPower,
-            type: bearerType,
+            attackLayerCode: bearer.AttackLayerCode,
+            damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position,
             parent: animationController.model,
             objectName: "TestWeapon Hitbox"

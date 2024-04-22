@@ -34,20 +34,24 @@ public class PlayerInputController
             Debug.Log("Player is Attacking");
             if(player.Weapon == null)
             {
+                Debug.Log("Player does not have a weapon");
                 return;
             }
+            Debug.Log("Attacking using Weapon");
 
             player.Weapon.Attack();
+            (player.Weapon as TestWeapon).AlternateAttack();
         }
         else if(Input.GetKeyDown(GameInput.instance.attackAlternateButton))
         {
             Debug.Log("Player is Attacking (alternate)");
             if(player.Weapon == null)
             {
+                Debug.Log("Player does not have a weapon");
                 return;
             }
 
-            player.Weapon.AlternateAttack();
+            (player.Weapon as TestWeapon).AlternateAttack();
         }
         else if(Input.GetKeyDown(GameInput.instance.interactButton))
         {

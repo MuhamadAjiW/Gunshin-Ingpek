@@ -15,6 +15,10 @@ public class Player : PlayerEntity
     public PlayerStateController stateController;
     public PlayerStats stats;
 
+    // Set-Getters
+    public new string AttackLayerCode => EnvironmentConfig.LAYER_PLAYER;
+    public new float AttackMultiplier => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].PlayerDamageMultiplier;
+
     // Constructor
     new void Start()
     {
@@ -33,7 +37,7 @@ public class Player : PlayerEntity
         {
             WeaponList.Add(weapon);
         }
-        SetWeapon(0);
+        EquipWeapon(0);
 
         GameController.instance.player = this;
     }

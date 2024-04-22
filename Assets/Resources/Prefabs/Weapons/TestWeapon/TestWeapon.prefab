@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1050311400148833009}
   - component: {fileID: 5029868015402955001}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TestWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68705b8ed948aae4d98ef6e87b6f6961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabPath: Prefabs/Weapons/TestWeapon/TestWeapon
   data: {fileID: 11400000, guid: 875c881f7a9ed2347a9d28ca2c18c4b5, type: 2}
   canAttack: 0
   fireRange: 10

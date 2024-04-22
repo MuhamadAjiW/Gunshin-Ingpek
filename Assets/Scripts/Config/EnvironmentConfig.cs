@@ -1,5 +1,5 @@
 // Configs should only contain constants and static readonly classes
-public static class GameEnvironmentConfig{
+public static class EnvironmentConfig{
     // Tags
     public const string TAG_UNTAGGED = "Untagged";
     public const string TAG_PLAYER = "Player";
@@ -15,4 +15,8 @@ public static class GameEnvironmentConfig{
     public const string LAYER_ENEMY_ATTACK = "EnemyAttack";
     public const string LAYER_ENVIRONMENT_ATTACK = "EnvironmentAttack";
     public const string LAYER_COLLECTIBLE = "Collectible";
+
+    // Object Components
+    public const string OBJECT_WEAPON = "Weapon";
+    public const string OBJECT_MODEL = "Model";
 }

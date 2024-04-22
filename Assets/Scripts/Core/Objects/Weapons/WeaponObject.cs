@@ -4,11 +4,12 @@ using UnityEngine;
 
 public abstract class WeaponObject : MonoBehaviour 
 {
+
     // Attributes
+    public string prefabPath;
     public WeaponData data;
-    protected AttackObjectType bearerType;
     protected IArmed bearer;
-    [SerializeField] private bool canAttack;
+    private bool canAttack = true;
 
     // Events
     public event Action OnAttackEvent;
@@ -18,21 +19,6 @@ public abstract class WeaponObject : MonoBehaviour
     protected void Start()
     {
         bearer = GetComponentInParent<IArmed>();
-        
-        // Switch requires a constant, so can't use that here
-        if(bearer is Player)
-        {
-            bearerType = AttackObjectType.PLAYER;
-        }
-        else if(bearer is EnemyEntity)
-        {
-            bearerType = AttackObjectType.ENEMY;
-        } 
-        else
-        {
-            bearerType = AttackObjectType.ENVIRONMENT;
-        } 
-
         canAttack = true;
         OnAttackEvent += OnAttack;
         OnAlternateAttackEvent += OnAlternateAttack;

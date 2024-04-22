@@ -6,8 +6,8 @@ public class WorldEntity : WorldObject, IRigid
     [SerializeField] private float knockbackResistance;
     [SerializeField] private float baseSpeed;
     [SerializeField] private float jumpForce;
-    protected Vector3 groundDetectionSize; 
     [SerializeField] protected LayerMask groundLayers;
+    protected Vector3 groundDetectionSize; 
     protected new Rigidbody rigidbody;
     private bool grounded = false;
 
@@ -40,7 +40,7 @@ public class WorldEntity : WorldObject, IRigid
         {
             Debug.LogWarning("Rigid entity " + name + " does not have a rigidbody"); 
         }
-        groundLayers = LayerMask.GetMask(GameEnvironmentConfig.LAYER_DEFAULT);
+        groundLayers = LayerMask.GetMask(EnvironmentConfig.LAYER_DEFAULT);
     }
 
     // Functions

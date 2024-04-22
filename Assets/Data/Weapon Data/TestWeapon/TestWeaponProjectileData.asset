@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb73b2d49aa0a5439d5c9a15a3f49e0, type: 3}
   m_Name: TestWeaponProjectileData
   m_EditorClassIdentifier: 
-  speed: 0
-  travelDistance: 0
+  speed: 50
+  travelDistance: 10
   through: 0
-  model: {fileID: 0}
+  model: {fileID: 5003074370431539976, guid: 8c93d213036531f47a377ee7fd1e7877, type: 3}

@@ -241,12 +241,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd12f0cc12b22743998413b3f14b197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
+  id: 
   knockbackResistance: 1
   baseSpeed: 10
+  jumpForce: 5
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 1
   maxHealth: 100
   health: 100
+  damagedDelay: 1
   baseDamage: 10
+  weaponList: []
 --- !u!1 &239523005
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354f6ba1c1428a04da1f256d1da9f51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 117855958}
   data: {fileID: 0}
 --- !u!4 &239523007
 Transform:
@@ -287,7 +293,7 @@ Transform:
   m_GameObject: {fileID: 239523005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1930373, y: 0.8700184, z: -0.31220782}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -435,7 +441,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576314395}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6b36fb2e3a8a80643988a623d515cbcc, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1175,6 +1181,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5029868015402955001, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029868015402955001, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: 875c881f7a9ed2347a9d28ca2c18c4b5, type: 2}
     - target: {fileID: 5240801910879785525, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
       propertyPath: m_Name
       value: TestWeapon
@@ -1315,6 +1329,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1098815287}
     m_Modifications:
+    - target: {fileID: 4603107572195619152, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6b36fb2e3a8a80643988a623d515cbcc, type: 2}
     - target: {fileID: 6541102688641435260, guid: c98b222ded23bb24690e674886e5741a, type: 3}
       propertyPath: m_Name
       value: TestInteractable
@@ -1359,6 +1377,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8869483112752652203, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6b36fb2e3a8a80643988a623d515cbcc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

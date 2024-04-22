@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 10
   knockbackPower: 10
-  attackInterval: 0.5
+  attackInterval: 0.2
   alternateAttackInterval: 1
   model: {fileID: 6146631199650576833, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
