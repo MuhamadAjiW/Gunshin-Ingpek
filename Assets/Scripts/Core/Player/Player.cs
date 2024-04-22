@@ -28,7 +28,12 @@ public class Player : PlayerEntity
         stats = new PlayerStats(this);
 
         WeaponList.Add(GetComponentInChildren<WeaponObject>());
-        WeaponIndex = 0;
+        
+        foreach (WeaponObject weapon in GetComponentsInChildren<WeaponObject>())
+        {
+            WeaponList.Add(weapon);
+        }
+        SetWeapon(0);
 
         GameController.instance.player = this;
     }

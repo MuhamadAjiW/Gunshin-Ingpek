@@ -45,10 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68705b8ed948aae4d98ef6e87b6f6961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseDamage: 10
-  KnockbackPower: 10
-  AttackInterval: 0.2
-  AlternateAttackInterval: 1
+  data: {fileID: 11400000, guid: 875c881f7a9ed2347a9d28ca2c18c4b5, type: 2}
   canAttack: 0
   fireRange: 10
   projectileSpeed: 50

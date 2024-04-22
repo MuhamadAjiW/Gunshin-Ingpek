@@ -5,12 +5,9 @@ using UnityEngine;
 public abstract class WeaponObject : MonoBehaviour 
 {
     // Attributes
+    public WeaponData data;
     protected AttackObjectType bearerType;
     protected IArmed bearer;
-    [SerializeField] protected float BaseDamage;
-    [SerializeField] protected float KnockbackPower;
-    [SerializeField] protected float AttackInterval;
-    [SerializeField] protected float AlternateAttackInterval;
     [SerializeField] private bool canAttack;
 
     // Events
@@ -50,7 +47,7 @@ public abstract class WeaponObject : MonoBehaviour
         }
         
         canAttack = false;
-        StartCoroutine(DelayAttack(AttackInterval));
+        StartCoroutine(DelayAttack(data.attackInterval));
         OnAttackEvent?.Invoke();
 
         return true;
@@ -64,7 +61,7 @@ public abstract class WeaponObject : MonoBehaviour
         }
 
         canAttack = false;
-        StartCoroutine(DelayAttack(AlternateAttackInterval));
+        StartCoroutine(DelayAttack(data.alternateAttackInterval));
         OnAlternateAttackEvent?.Invoke();
         
         return true;

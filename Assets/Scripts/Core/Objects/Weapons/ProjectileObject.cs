@@ -6,9 +6,7 @@ public abstract class ProjectileObject : AttackObject
     protected float distanceTravelled = 0;
     protected Vector3 position;
     public Vector3 direction;
-    public float speed;
-    public float travelDistance;
-    public bool through;
+    public ProjectileData data;
 
     // Constructor
     protected new void Start()
@@ -20,7 +18,7 @@ public abstract class ProjectileObject : AttackObject
     // Functions
     protected void OnTriggerEnter(Collider otherCollider)
     {
-        if(Hit(otherCollider) && !through)
+        if(Hit(otherCollider) && !data.through)
         {
             Destroy(gameObject);
         }
@@ -28,7 +26,7 @@ public abstract class ProjectileObject : AttackObject
 
     protected virtual void Move()
     {
-        transform.position += direction.normalized * speed / 100;
+        transform.position += direction.normalized * data.speed / 100;
     }
 
     protected void FixedUpdate()
@@ -37,7 +35,7 @@ public abstract class ProjectileObject : AttackObject
         distanceTravelled += Vector3.Distance(transform.position, position);
         position = transform.position;
 
-        if(distanceTravelled >= travelDistance)
+        if(distanceTravelled >= data.travelDistance)
         {
             Destroy(gameObject);
         }

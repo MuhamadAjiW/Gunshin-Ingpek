@@ -6,7 +6,7 @@ public class CombatantEntity : DamageableEntity, IArmed
 {
     // Attributes
     [SerializeField] private float baseDamage;
-    private readonly List<WeaponObject> weaponList = new();
+    public List<WeaponObject> weaponList = new();
     private int weaponIndex;
     
     // Set-Getters
@@ -32,9 +32,13 @@ public class CombatantEntity : DamageableEntity, IArmed
     }
 
     // Functions
-    // TODO: Test then decide whether to destroy/disable previous weapon
-    // public void SwapWeapon(WeaponObject newWeapon)
-    // {
-    //      ActiveWeapon = newWeapon;
-    // }
+    public void SetWeapon(int index)
+    {
+        if(weaponList.Count == 0)
+        {
+            return;
+        }
+
+        WeaponIndex = index;
+    }
 }

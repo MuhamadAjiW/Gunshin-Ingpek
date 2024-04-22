@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1310652413205708510}
   - component: {fileID: 4681449771849682896}
   m_Layer: 0
-  m_Name: Model
+  m_Name: TestInteractableModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

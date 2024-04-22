@@ -23,8 +23,8 @@ public class TestWeapon : WeaponObject
     {
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
             prefabPath: projectilePrefab,
-            damage: MathUtils.CalculateDamage(bearer.BaseDamage, BaseDamage),
-            knockbackPower: KnockbackPower / 4,
+            damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
+            knockbackPower: data.knockbackPower / 4,
             type: bearerType,
             position: transform.position,
             rotation: bearer.Orientation.rotation,
@@ -32,8 +32,8 @@ public class TestWeapon : WeaponObject
             objectName: "TestWeapon Projectile"
         );
 
-        attackProjectile.travelDistance = fireRange;
-        attackProjectile.speed = projectileSpeed;
+        attackProjectile.data.travelDistance = fireRange;
+        attackProjectile.data.speed = projectileSpeed;
         attackProjectile.direction = bearer.Orientation.forward;
 
         ObjectFactory.DestroyObject(attackProjectile, 1f);
@@ -45,8 +45,8 @@ public class TestWeapon : WeaponObject
 
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: hitboxPrefab,
-            damage: MathUtils.CalculateDamage(bearer.BaseDamage, BaseDamage),
-            knockbackPower: KnockbackPower,
+            damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
+            knockbackPower: data.knockbackPower,
             type: bearerType,
             knockbackOrigin: transform.position,
             parent: animationController.model,
