@@ -13,7 +13,7 @@ public class DummyAnimationController : AnimationController
     {
         this.dummy = dummy;
         dummy.OnDamagedEvent += IndicateDamaged;
-        dummy.stateController.OnDamageDelayOverEvent += IndicateUnamaged;
+        dummy.OnDamageDelayOverEvent += IndicateUnamaged;
     }
 
     // Functions

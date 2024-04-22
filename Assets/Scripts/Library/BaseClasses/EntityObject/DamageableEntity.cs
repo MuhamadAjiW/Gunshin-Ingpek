@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class DamageableEntity : WorldEntity, IDamageable
@@ -7,11 +8,13 @@ public class DamageableEntity : WorldEntity, IDamageable
     private bool damageable = true;
     [SerializeField] private float maxHealth;
     [SerializeField] private float health;
+    [SerializeField] private float damagedDelay;
 
     // Events
     public event Action OnDeathEvent;
     public event Action OnDamagedEvent;
     public event Action OnHealEvent;
+    public event Action OnDamageDelayOverEvent;
 
     // Set-Getters
     public bool Dead => health <= 0;
@@ -29,6 +32,19 @@ public class DamageableEntity : WorldEntity, IDamageable
     { 
         get => damageable; 
         set => damageable = value; 
+    }
+    public float DamagedDelay 
+    {
+        get => damagedDelay;
+        set => damagedDelay = value <= 0? GameConfig.DAMAGED_DELAY_DURATION : value;
+    }
+
+    // Constructor
+    protected new void Start(){
+        base.Start();
+        OnDamageDelayOverEvent += OnDamageDelayOver;
+        OnDamagedEvent += OnDamaged;
+        Damageable = true;
     }
 
     // Functions
@@ -50,5 +66,32 @@ public class DamageableEntity : WorldEntity, IDamageable
         OnHealEvent?.Invoke();
 
         return Health;
+    }
+
+    private IEnumerator WaitDamagedDelay()
+    {
+        if (!Dead)
+        {
+            Debug.Log("Damage delay over");
+            yield return new WaitForSeconds(DamagedDelay);
+            Damageable = true;
+            InvokeDamageDelayOver();
+        }
+    }
+
+    private void InvokeDamageDelayOver()
+    {
+        OnDamageDelayOverEvent?.Invoke();
+    }
+
+    private void OnDamaged()
+    {
+        Damageable = false;
+        StartCoroutine(WaitDamagedDelay());
+    }
+    
+    private void OnDamageDelayOver()
+    {
+        Damageable = true;
     }
 }

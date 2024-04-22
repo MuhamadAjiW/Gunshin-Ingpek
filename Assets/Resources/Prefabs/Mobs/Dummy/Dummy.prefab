@@ -74,11 +74,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e5aa8cb18425941b8dede35c491e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
+  id: 
   knockbackResistance: 1
   baseSpeed: 0
+  jumpForce: 0
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
   maxHealth: 100000
   health: 100000
+  damagedDelay: 0.5
   baseDamage: 0
 --- !u!1001 &1851493345103208170
 PrefabInstance:

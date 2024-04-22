@@ -1,7 +1,7 @@
-public class DummyStateController : DamageableEntityStateController
+public class DummyStateController : EntityStateController
 {
     // Constructor
-    public DummyStateController(Dummy dummy) : base(dummy)
+    public DummyStateController(Dummy dummy)
     {
     }
     

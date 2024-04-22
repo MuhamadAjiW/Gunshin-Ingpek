@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateController : DamageableEntityStateController 
+public class PlayerStateController : EntityStateController
 {
     // Attributes
     private readonly Player player;
     public List<IInteractable> currentInteractables = new();
 
     // Contstructor
-    public PlayerStateController(Player player) : base(player)
+    public PlayerStateController(Player player)
     {
         this.player = player;
     }
