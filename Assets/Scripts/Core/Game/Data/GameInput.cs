@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 
-public class GameInput : MonoBehaviour {
-    // Static instance
+public class GameInput : MonoBehaviour 
+{
+    // Static Instance
     public static GameInput instance;
 
     // Attributes
@@ -12,7 +13,8 @@ public class GameInput : MonoBehaviour {
     [NonSerialized] public KeyCode interactButton = KeyCode.C;
 
     // Constructor
-    protected void Awake(){
+    protected void Awake()
+    {
         instance = this;
         DontDestroyOnLoad(gameObject);
     }

@@ -1,3 +1,5 @@
 using UnityEngine;
 
-public class CameraStatic : CameraBehaviour {}
+public class CameraStatic : CameraBehaviour
+{
+}

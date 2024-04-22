@@ -1,19 +1,24 @@
 using System;
 using UnityEngine;
 
-public abstract class InteractableObject : MonoBehaviour, IInteractable{
-    // Attributes
+public abstract class InteractableObject : MonoBehaviour, IInteractable
+{
+    // Events
     public event Action OnInteractAreaExitEvent;
     public event Action OnInteractAreaEnterEvent;
 
     // Function
-    public abstract void Interact();
 
-    public void InvokeOnInteractAreaEnterEvent(){
+    public void InvokeOnInteractAreaEnterEvent()
+    {
         OnInteractAreaEnterEvent?.Invoke();
     }
 
-    public void InvokeOnInteractAreaExitEvent(){
+    public void InvokeOnInteractAreaExitEvent()
+    {
         OnInteractAreaExitEvent?.Invoke();
     }
+
+    // Abstract Functions
+    public abstract void Interact();
 }

@@ -1,24 +1,40 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatantEntity : DamageableEntity, IArmed{
+public class CombatantEntity : DamageableEntity, IArmed
+{
     // Attributes
     [SerializeField] private float baseDamage;
-    private WeaponObject weapon;
+    private readonly List<WeaponObject> weaponList = new();
+    private int weaponIndex;
     
     // Set-Getters
-    public float BaseDamage { 
+    public List<WeaponObject> WeaponList => weaponList;
+    public WeaponObject Weapon => weaponList.Count > 0? weaponList[WeaponIndex] : null;
+    public Transform Orientation => transform;
+    public float BaseDamage 
+    {
         get => baseDamage;
         set => baseDamage = value;
     }
-    public WeaponObject Weapon { 
-        get => weapon; 
-        set => weapon = value;
+    public int WeaponIndex
+    {
+        get => weaponIndex;
+        set 
+        {
+            // Switch requires a constant, so can't use that here
+            if(value == weaponList.Count) weaponIndex = 0;
+            else if(value == -1) weaponIndex = weaponList.Count - 1;
+            else if(-1 < value && value < weaponList.Count) weaponIndex = value;
+            else weaponIndex = 0;
+        } 
     }
-    public Transform Orientation => transform;
 
+    // Functions
     // TODO: Test then decide whether to destroy/disable previous weapon
-    public void SwapWeapon(WeaponObject newWeapon){
-        Weapon = newWeapon;
-    }
+    // public void SwapWeapon(WeaponObject newWeapon)
+    // {
+    //      ActiveWeapon = newWeapon;
+    // }
 }

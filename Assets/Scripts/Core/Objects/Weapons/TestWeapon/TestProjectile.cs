@@ -1,1 +1,3 @@
-public class TestProjectile : ProjectileObject{}
+public class TestProjectile : ProjectileObject
+{
+}

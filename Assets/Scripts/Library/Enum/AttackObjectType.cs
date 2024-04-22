@@ -1,4 +1,5 @@
-public enum AttackObjectType {
+public enum AttackObjectType 
+{
     PLAYER,
     ENEMY,
     ENVIRONMENT

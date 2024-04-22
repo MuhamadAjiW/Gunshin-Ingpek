@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class TestWeaponAnimationController : AnimationController{
+public class TestWeaponAnimationController : AnimationController
+{
     // Consts
     private const string ALTERNATE_ATTACK_TRIGGER = "AlternateAttack_param";
 
@@ -8,12 +9,14 @@ public class TestWeaponAnimationController : AnimationController{
     private readonly TestWeapon testWeapon;
     
     // Constructor
-    public TestWeaponAnimationController(TestWeapon testWeapon) : base(testWeapon){
+    public TestWeaponAnimationController(TestWeapon testWeapon) : base(testWeapon)
+    {
         this.testWeapon = testWeapon;
     }
 
     // Functions
-    public void AnimateAlternateAttack(){
+    public void AnimateAlternateAttack()
+    {
         animator.SetBool(ALTERNATE_ATTACK_TRIGGER, true);
     }
 }

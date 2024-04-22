@@ -1,25 +1,36 @@
 using UnityEngine;
 
-public class WorldObject : MonoBehaviour{
+public class WorldObject : MonoBehaviour
+{
     // Attributes
     private static int autoIncrement = 0;
-    private int NumberId; 
-    private string Prefix;
-    public string Id;
+    private int numberId; 
+    private string prefix;
+    public string id;
+
+    // Set-Getters
     public Vector3 Front => transform.rotation * Vector3.forward;
     public Quaternion Rotation => transform.rotation;
 
     // Constructor
-    protected void Awake(){
-        NumberId = autoIncrement;
-        Id = NumberId.ToString();
+    protected void Awake()
+    {
+        numberId = autoIncrement;
+        id = numberId.ToString();
         autoIncrement++;
     }
 
     // Functions
-    protected void SetIdPrefix(string prefix){
-        Prefix = prefix;
-        if(Prefix == "") Id = NumberId.ToString();
-        else Id = Prefix + "_" + Id;
+    protected void SetIdPrefix(string prefix)
+    {
+        this.prefix = prefix;
+        if(this.prefix == "")
+        {
+            id = numberId.ToString();
+        } 
+        else
+        {
+            id = this.prefix + "_" + id;
+        }
     }
 }

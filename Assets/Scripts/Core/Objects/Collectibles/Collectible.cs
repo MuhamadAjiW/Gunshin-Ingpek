@@ -2,14 +2,18 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class Collectible : WorldObject {
+public abstract class Collectible : WorldObject 
+{
     // Attributes
     [SerializeField] float TimeToLive;
+
+    // Events
     private event Action OnCollectEvent;
     private event Action OnTimeoutEvent;
 
     // Constructor
-    protected void Start(){
+    protected void Start()
+    {
         OnCollectEvent += OnCollect;
         OnCollectEvent += OnCollectEnd;
         OnTimeoutEvent += OnTimeout;
@@ -18,36 +22,42 @@ public abstract class Collectible : WorldObject {
     }
 
     // Functions
-    protected void OnTriggerEnter(Collider otherCollider){
+    protected void OnTriggerEnter(Collider otherCollider)
+    {
         OnCollectEvent?.Invoke();
     }
 
-    protected virtual void OnCollectEnd(){
+    protected virtual void OnCollectEnd()
+    {
         Destroy(gameObject);
     }
 
-    protected IEnumerator Timeout(){
+    protected IEnumerator Timeout()
+    {
         yield return new WaitForSeconds(TimeToLive);
         OnTimeoutEvent?.Invoke();
     }
 
-    protected void OnTimeoutEnd(){
+    protected void OnTimeoutEnd()
+    {
         Destroy(gameObject);
     }
 
-    public void AddOnTimeout(Action onTimeout){
+    public void AddOnTimeout(Action onTimeout)
+    {
         OnTimeoutEvent -= OnTimeoutEnd;
         OnTimeoutEvent += onTimeout;
         OnTimeoutEvent += OnTimeoutEnd;
     }
 
-    public void RemoveOnTimeout(Action onTimeout){
+    public void RemoveOnTimeout(Action onTimeout)
+    {
         OnTimeoutEvent -= OnTimeoutEnd;
         OnTimeoutEvent -= onTimeout;
         OnTimeoutEvent += OnTimeoutEnd;
     }
 
     // Abstract Functions
-    protected virtual void OnTimeout(){}
+    protected abstract void OnTimeout();
     protected abstract void OnCollect();
 }

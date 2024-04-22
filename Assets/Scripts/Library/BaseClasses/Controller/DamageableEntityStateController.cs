@@ -2,20 +2,25 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class DamageableEntityStateController : EntityStateController {
+public abstract class DamageableEntityStateController : EntityStateController 
+{
     // Attributes
     private readonly DamageableEntity Entity;
     private float damagedDelay;
+
+    // Events
     public event Action OnDamageDelayOverEvent;
     
     // Set-Getters
-    public float DamagedDelay {
+    public float DamagedDelay 
+    {
         get => damagedDelay;
         set => damagedDelay = value <= 0? GameConfig.DAMAGED_DELAY_DURATION : value;
     }
 
     // Constructor
-    public DamageableEntityStateController(DamageableEntity entity, float delay = 0){
+    public DamageableEntityStateController(DamageableEntity entity, float delay = 0)
+    {
         Entity = entity;
         DamagedDelay =  delay;
 
@@ -25,24 +30,29 @@ public abstract class DamageableEntityStateController : EntityStateController {
     }
 
     // Functions
-    private IEnumerator WaitDamagedDelay(){
-        if (!Entity.Dead){
+    private IEnumerator WaitDamagedDelay()
+    {
+        if (!Entity.Dead)
+        {
             yield return new WaitForSeconds(DamagedDelay);
             Entity.Damageable = true;
             InvokeDamageDelayOver();
         }
     }
 
-    private void InvokeDamageDelayOver(){
+    private void InvokeDamageDelayOver()
+    {
         OnDamageDelayOverEvent?.Invoke();
     }
 
-    private void OnDamaged(){
+    private void OnDamaged()
+    {
         Entity.Damageable = false;
         Entity.StartCoroutine(WaitDamagedDelay());
     }
     
-    private void OnDamageDelayOver(){
+    private void OnDamageDelayOver()
+    {
         Entity.Damageable = true;
     }
 }

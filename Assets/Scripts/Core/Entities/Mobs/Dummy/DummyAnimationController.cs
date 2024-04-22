@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class DummyAnimationController : AnimationController{
+public class DummyAnimationController : AnimationController
+{
     // Consts
     private const string HIT_TRIGGER = "hit_param";
 
@@ -8,18 +9,21 @@ public class DummyAnimationController : AnimationController{
     private readonly Dummy dummy;
 
     // Constructor
-    public DummyAnimationController(Dummy dummy) : base(dummy) {
+    public DummyAnimationController(Dummy dummy) : base(dummy) 
+    {
         this.dummy = dummy;
         dummy.OnDamagedEvent += IndicateDamaged;
         dummy.stateController.OnDamageDelayOverEvent += IndicateUnamaged;
     }
 
     // Functions
-    private void IndicateDamaged(){
+    private void IndicateDamaged()
+    {
         meshRenderer.material.color = Color.red;
     }
 
-    private void IndicateUnamaged(){
+    private void IndicateUnamaged()
+    {
         meshRenderer.material.color = Color.white;
     }
 }

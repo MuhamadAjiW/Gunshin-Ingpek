@@ -1,1 +1,3 @@
-public class PlayerState : EntityState {}
+public class PlayerState : DefaultEntityState 
+{
+}

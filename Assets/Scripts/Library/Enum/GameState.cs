@@ -1,4 +1,5 @@
-public enum GameState {
+public enum GameState 
+{
     NULL,
     RUNNING,
     MENU,

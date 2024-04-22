@@ -1,31 +1,37 @@
 using UnityEngine;
 
-public class PlayerStats {
+public class PlayerStats
+{
     // Attributes
     private readonly Player player;
     public float sprintModifier = 1.5f;
 
     // Set-Getters
-    public float Health {
+    public float Health
+    {
         get => player.Health;
         set => player.Health = value;
     }
-    public float MaxHealth {
+    public float MaxHealth 
+    {
         get => player.MaxHealth;
         set => player.MaxHealth = value;
     }
-    public float BaseDamage {
+    public float BaseDamage 
+    {
         get => player.BaseDamage;
         set => player.BaseDamage = value;
     }
-    public float MaxSpeed => player.stateController.state switch{
+    public float MaxSpeed => player.stateController.state switch
+    {
         PlayerState.WALKING => player.BaseSpeed,
         PlayerState.SPRINTING => player.BaseSpeed * sprintModifier,
         _ => 0
     };
 
     // Constructor
-    public PlayerStats(Player player){
+    public PlayerStats(Player player)
+    {
         this.player = player;
     }
 }

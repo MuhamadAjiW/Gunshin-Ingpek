@@ -1,4 +1,5 @@
-public enum CameraBehaviourType{
+public enum CameraBehaviourType
+{
     NULL,
     STATIC,
     FOLLOW,

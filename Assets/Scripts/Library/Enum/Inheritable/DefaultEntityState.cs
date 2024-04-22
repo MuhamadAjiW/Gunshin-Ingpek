@@ -1,4 +1,5 @@
-public class EntityState {
+public class DefaultEntityState 
+{
     public const int NULL = 0;
     public const int IDLE = 1;
     public const int WALKING = 2;

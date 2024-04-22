@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class CameraFollowObject : CameraBehaviour {
+public class CameraFollowObject : CameraBehaviour 
+{
     // Attributes
     public Transform target;
     public float followingTime = CameraConfig.DEFAULT_FOLLOWING_SPEED;
@@ -8,13 +9,19 @@ public class CameraFollowObject : CameraBehaviour {
     protected Vector3 velocity;
     
     // Constructor
-    protected void Start(){
+    protected void Start()
+    {
         offset = transform.position - target.position;
     }
 
     // Functions
-    protected void FixedUpdate(){
-        if(GameController.instance.IsPaused) return;
+    protected void FixedUpdate()
+    {
+        if(GameController.instance.IsPaused)
+        {
+            return;
+        }
+         
         Vector3 targetPosition = target.position + offset;
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, followingTime);
     }

@@ -1,3 +1,3 @@
-public enum GameEventType{
-    CHEAT
+public enum GameEventType
+{
 }

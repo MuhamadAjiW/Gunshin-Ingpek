@@ -1,3 +1,5 @@
 using UnityEngine;
 
-public abstract class CameraBehaviour : MonoBehaviour {}
+public abstract class CameraBehaviour : MonoBehaviour 
+{
+}

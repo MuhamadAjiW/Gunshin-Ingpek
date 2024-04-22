@@ -3,67 +3,57 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameStateController{
+public class GameStateController
+{
     // Attributes
     private readonly Stack<GameState> gameStateStack = new();
     event GameStateChangeEvent OnGameStateChange;
+
+    // Events
     event Action OnPausedEvent;
 
     // Constructor
-    public GameStateController(){
+    public GameStateController()
+    {
         gameStateStack.Push(GameState.NULL);
         gameStateStack.Push(GameState.RUNNING);
-        OnGameStateChange += LogGameStateStack;
+        OnGameStateChange += LogGameStateEvent;
     }
 
     // Functions
-    private void LogGameStateStack(GameStateChangeArgs e){
-        Debug.Log(string.Format("GameState {0}; Current gamestate is {1}", e.EventType, e.NewGameState));
-    }
-
-    private void SetState(GameState gameState){
-        //TODO: Review cutscenes and menu behaviour
-        Time.timeScale = gameState switch{
-            GameState.PAUSED => 0,
-            GameState.RUNNING => 1,
-            GameState.CUTSCENE => 0,
-            GameState.MENU => 0,
-            _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
-        };
-        Cursor.lockState = gameState switch {
-            GameState.PAUSED => CursorLockMode.None,
-            GameState.RUNNING => CursorLockMode.Locked,
-            GameState.CUTSCENE => CursorLockMode.Locked,
-            GameState.MENU => CursorLockMode.None,
-            _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
-        };
-    }
-
-    public void PushState(GameState gameState){
+    public void PushState(GameState gameState)
+    {
         gameStateStack.Push(gameState);
         
         SetState(gameState);
-        OnGameStateChange?.Invoke(new GameStateChangeArgs(
-            StackChangeEventType.PUSH,
-            gameStateStack.Count,
-            gameState
-        ));
+        OnGameStateChange?.Invoke(
+            new GameStateChangeArgs(
+                StackChangeEventType.PUSH,
+                gameStateStack.Count,
+                gameState
+            )
+        );
     }
 
-    public void PopState(){
+    public void PopState()
+    {
         gameStateStack.Pop();
         GameState gameState = gameStateStack.Peek();
         
         SetState(gameState);
-        OnGameStateChange?.Invoke(new GameStateChangeArgs(
-            StackChangeEventType.POP,
-            gameStateStack.Count,
-            gameState
-        ));
+        OnGameStateChange?.Invoke(
+            new GameStateChangeArgs(
+                StackChangeEventType.POP,
+                gameStateStack.Count,
+                gameState
+            )
+        );
     }
 
-    public void HandleEscape(){
-        switch (gameStateStack.Peek()){
+    public void HandleEscape()
+    {
+        switch (gameStateStack.Peek())
+        {
             case GameState.RUNNING:
                 PushState(GameState.PAUSED);
                 OnPausedEvent?.Invoke();
@@ -78,5 +68,32 @@ public class GameStateController{
             default:
                 return;
         }
+    }
+
+    // Internal Functions
+    private void LogGameStateEvent(GameStateChangeArgs e)
+    {
+        Debug.Log(string.Format("GameState {0}; Current gamestate is {1}", e.EventType, e.NewGameState));
+    }
+
+    private void SetState(GameState gameState)
+    {
+        //TODO: Review cutscenes and menu behaviour
+        Time.timeScale = gameState switch
+        {
+            GameState.PAUSED => 0,
+            GameState.RUNNING => 1,
+            GameState.CUTSCENE => 0,
+            GameState.MENU => 0,
+            _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
+        };
+        Cursor.lockState = gameState switch 
+        {
+            GameState.PAUSED => CursorLockMode.None,
+            GameState.RUNNING => CursorLockMode.Locked,
+            GameState.CUTSCENE => CursorLockMode.Locked,
+            GameState.MENU => CursorLockMode.None,
+            _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
+        };
     }
 }

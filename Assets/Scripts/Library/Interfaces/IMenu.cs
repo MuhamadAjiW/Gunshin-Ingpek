@@ -1,3 +1,5 @@
-public interface IMenu{
+public interface IMenu
+{
+    // Functions
     public void Close();
 }

@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 
-public class PlayerEntity : CombatantEntity, IAccompaniable{
+public class PlayerEntity : CombatantEntity, IAccompaniable
+{
     // Attributes
-    private readonly List<Companions> companionList = new();    
+    protected readonly List<Companions> companionList = new();    
+    
+    // Set-Getters
     public List<Companions> Companions => companionList;
 }

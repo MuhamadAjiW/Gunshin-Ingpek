@@ -1,8 +1,13 @@
 using System;
 
-public class GameEventArgs : EventArgs{
+public class GameEventArgs : EventArgs
+{
+    // Arguments
     public GameEventType EventType { get; }
-    public GameEventArgs(GameEventType eventType){
+    
+    // Constructor
+    public GameEventArgs(GameEventType eventType)
+    {
         EventType = eventType;
     }
 }

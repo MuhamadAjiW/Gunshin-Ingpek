@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class WeaponObject : MonoBehaviour {
+public abstract class WeaponObject : MonoBehaviour 
+{
     // Attributes
     protected AttackObjectType bearerType;
     protected IArmed bearer;
@@ -10,16 +11,30 @@ public abstract class WeaponObject : MonoBehaviour {
     [SerializeField] protected float KnockbackPower;
     [SerializeField] protected float AttackInterval;
     [SerializeField] protected float AlternateAttackInterval;
-    public event Action OnAttackEvent;
-    public event Action OnAlternateAttackEvent;
     [SerializeField] private bool canAttack;
 
+    // Events
+    public event Action OnAttackEvent;
+    public event Action OnAlternateAttackEvent;
+
     // Constructor
-    protected void Start(){
+    protected void Start()
+    {
         bearer = GetComponentInParent<IArmed>();
-        if(bearer is Player) bearerType = AttackObjectType.PLAYER;
-        else if(bearer is EnemyEntity) bearerType = AttackObjectType.ENEMY;
-        else bearerType = AttackObjectType.ENVIRONMENT;
+        
+        // Switch requires a constant, so can't use that here
+        if(bearer is Player)
+        {
+            bearerType = AttackObjectType.PLAYER;
+        }
+        else if(bearer is EnemyEntity)
+        {
+            bearerType = AttackObjectType.ENEMY;
+        } 
+        else
+        {
+            bearerType = AttackObjectType.ENVIRONMENT;
+        } 
 
         canAttack = true;
         OnAttackEvent += OnAttack;
@@ -27,27 +42,41 @@ public abstract class WeaponObject : MonoBehaviour {
     }
 
     // Functions
-    public virtual bool Attack(){
-        if(!canAttack) return false;
+    public virtual bool Attack()
+    {
+        if(!canAttack)
+        {
+            return false;
+        }
+        
         canAttack = false;
         StartCoroutine(DelayAttack(AttackInterval));
         OnAttackEvent?.Invoke();
+
         return true;
     }
 
-    public virtual bool AlternateAttack(){
-        if(!canAttack) return false;
+    public virtual bool AlternateAttack()
+    {
+        if(!canAttack)
+        {
+            return false;
+        }
+
         canAttack = false;
         StartCoroutine(DelayAttack(AlternateAttackInterval));
         OnAlternateAttackEvent?.Invoke();
+        
         return true;
     }
     
-    protected abstract void OnAttack();
-    protected abstract void OnAlternateAttack();
-
-    private IEnumerator DelayAttack(float time){
+    private IEnumerator DelayAttack(float time)
+    {
         yield return new WaitForSeconds(time);
         canAttack = true;
     }
+
+    // Abstract Functions
+    protected abstract void OnAttack();
+    protected abstract void OnAlternateAttack();
 }

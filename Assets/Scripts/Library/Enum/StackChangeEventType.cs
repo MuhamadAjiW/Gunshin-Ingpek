@@ -1,4 +1,5 @@
-public enum StackChangeEventType{
+public enum StackChangeEventType
+{
     PUSH,
     POP
 }

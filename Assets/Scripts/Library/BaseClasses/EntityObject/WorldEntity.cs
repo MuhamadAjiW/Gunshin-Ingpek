@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class WorldEntity : WorldObject, IRigid {
+public class WorldEntity : WorldObject, IRigid
+{
     // Attributes
     [SerializeField] private float knockbackResistance;
     [SerializeField] private float baseSpeed;
@@ -9,28 +10,36 @@ public class WorldEntity : WorldObject, IRigid {
     // Set-Getters
     public Rigidbody Rigidbody => rigidbody;
     public Vector3 Position => transform.position;
-    public float KnockbackResistance {
+    public float KnockbackResistance
+    {
         get => knockbackResistance <= 0? 1 : knockbackResistance;
         set => knockbackResistance = value;
     }
-    public float BaseSpeed { 
+    public float BaseSpeed 
+    { 
         get => baseSpeed; 
         set => baseSpeed = value < 0? 0 : value; 
     }
 
     // Constructor
 
-    protected void Start(){
+    protected void Start()
+    {
         rigidbody = GetComponent<Rigidbody>();        
-        if(rigidbody == null) Debug.LogWarning("Rigid entity " + name + " does not have a rigidbody"); 
+        if(rigidbody == null)
+        {
+            Debug.LogWarning("Rigid entity " + name + " does not have a rigidbody"); 
+        }
     }
 
     // Functions
-    protected void Refresh(){
+    protected void Refresh()
+    {
         Rigidbody.AddForce(Vector2.zero);
     }
 
-    protected void Smoothen(){
+    protected void Smoothen()
+    {
         Vector3 dampVelocity = Vector3.zero;
         Vector3 velocity = Rigidbody.velocity;
         velocity.x = 0;
@@ -38,11 +47,19 @@ public class WorldEntity : WorldObject, IRigid {
         Rigidbody.velocity = Vector3.SmoothDamp(Rigidbody.velocity, velocity, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);
     }
 
-    protected void Update(){
-        if(GameController.instance.IsPaused) return;
+    protected void Update()
+    {
+        if(GameController.instance.IsPaused)
+        {
+            return;
+        }
     }
 
-    protected void FixedUpdate(){
-        if(GameController.instance.IsPaused) return;
+    protected void FixedUpdate()
+    {
+        if(GameController.instance.IsPaused)
+        {
+            return;
+        }
     }
 }

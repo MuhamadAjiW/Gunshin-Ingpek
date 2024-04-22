@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class TestWeapon : WeaponObject{
+public class TestWeapon : WeaponObject
+{
     // Constants
     private static readonly string hitboxPrefab = "Prefabs/Weapons/TestWeapon/WeaponHitbox";
     private static readonly string projectilePrefab = "Prefabs/Weapons/TestWeapon/TestProjectile";
@@ -11,13 +12,15 @@ public class TestWeapon : WeaponObject{
     private TestWeaponAnimationController animationController;
 
     // Constructor
-    protected new void Start(){
+    protected new void Start()
+    {
         base.Start();
         animationController = new TestWeaponAnimationController(this);
     }
 
     // Function
-    protected override void OnAttack(){
+    protected override void OnAttack()
+    {
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
             prefabPath: projectilePrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, BaseDamage),
@@ -28,6 +31,7 @@ public class TestWeapon : WeaponObject{
             knockbackOrigin: transform.position - (bearer.Orientation.forward * projectileSpeed),
             objectName: "TestWeapon Projectile"
         );
+
         attackProjectile.travelDistance = fireRange;
         attackProjectile.speed = projectileSpeed;
         attackProjectile.direction = bearer.Orientation.forward;
@@ -35,7 +39,8 @@ public class TestWeapon : WeaponObject{
         ObjectFactory.DestroyObject(attackProjectile, 1f);
     }
 
-    protected override void OnAlternateAttack(){
+    protected override void OnAlternateAttack()
+    {
         animationController.AnimateAlternateAttack();
 
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(

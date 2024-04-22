@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class PlayerAnimationController : AnimationController{
+public class PlayerAnimationController : AnimationController
+{
     // Consts
     private const string IDLE_TRIGGER = "Idle_param"; 
     private const string WALK_TRIGGER = "Walk_param"; 
@@ -11,14 +12,17 @@ public class PlayerAnimationController : AnimationController{
     private readonly PlayerStateController playerStateController;
 
     // Constructor
-    public PlayerAnimationController(Player player) : base(player) {
+    public PlayerAnimationController(Player player) : base(player) 
+    {
         this.player = player;
         player.stateController.OnStateChangeEvent += AnimateStates;
     }
 
     // Functions
-    public void AnimateStates(){
-        switch (player.stateController.state){
+    public void AnimateStates()
+    {
+        switch (player.stateController.state)
+        {
             case PlayerState.IDLE:
                 animator.SetBool(IDLE_TRIGGER, true);
                 break;

@@ -2,28 +2,10 @@ using System.Collections;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public static class ObjectFactory{
-    // Internal functions
-    private static GameObject CreateObject(
-        GameObject gameObject,
-        Transform parent = null,
-        Vector3? position = null,
-        Vector3? scale = null,
-        Quaternion? rotation = null,
-        int renderingOrder = 0,
-        string objectName = "Unnamed Object"
-    ){
-        GameObject returnObject = parent == null? GameObject.Instantiate(gameObject, ObjectManager.instance.transform) : GameObject.Instantiate(gameObject, parent);
-        if(position != null) returnObject.transform.position = position.Value;
-        if(rotation != null) returnObject.transform.rotation *= rotation.Value;
-        if(scale != null) returnObject.transform.localScale = Vector3.Scale(returnObject.transform.localScale, scale.Value);
-        if(returnObject.TryGetComponent<Renderer>(out var renderer)) renderer.sortingOrder = renderingOrder;
-        returnObject.name = objectName;
-
-        return returnObject;
-    }
-
-    // External functions
+// Util contains static functions
+public static class ObjectFactory
+{
+    // Functions
     public static GameObject CreateObject(
         string prefabPath,
         Transform parent = null,
@@ -32,9 +14,15 @@ public static class ObjectFactory{
         Quaternion? rotation = null,
         int renderingOrder = 0,
         string objectName = "Unnamed Object"
-    ){
+    )
+    {
         GameObject prefabObject = Resources.Load<GameObject>(prefabPath);
-        if(prefabObject == null) Debug.LogError("Prefab not found: " + prefabPath);
+        
+        if(prefabObject == null)
+        {
+            Debug.LogError("Prefab not found: " + prefabPath);
+        }
+
         return CreateObject(prefabObject, parent, position, scale, rotation, renderingOrder, objectName);
     }
 
@@ -46,9 +34,23 @@ public static class ObjectFactory{
         Quaternion? rotation = null,
         int renderingOrder = 0,
         string objectName = "Unnamed Object"
-    ) where T : MonoBehaviour {
-        GameObject prefabObject = CreateObject(prefabPath, parent == null? ObjectManager.instance.transform : parent, position, scale, rotation, renderingOrder, objectName);
-        if(!prefabObject.TryGetComponent<T>(out var UnityObject)) Debug.LogError("Loaded prefab is not a a valid type: " + prefabPath);
+    ) where T : MonoBehaviour 
+    {
+        GameObject prefabObject = CreateObject(
+            prefabPath, 
+            parent == null? ObjectManager.instance.transform : parent, 
+            position, 
+            scale, 
+            rotation, 
+            renderingOrder, 
+            objectName
+        );
+
+        if(!prefabObject.TryGetComponent<T>(out var UnityObject))
+        {
+            Debug.LogError("Loaded prefab is not a a valid type: " + prefabPath);
+        }
+
         return UnityObject;
     }
 
@@ -64,14 +66,24 @@ public static class ObjectFactory{
         Quaternion? rotation = null,
         int renderingOrder = 0,
         string objectName = "Unnamed Object"
-    ){
-        AttackObject attackObject = CreateObject<AttackObject>(prefabPath, parent == null? ObjectManager.instance.transform : parent, position, scale, rotation, renderingOrder, objectName);
+    )
+    {
+        AttackObject attackObject = CreateObject<AttackObject>(
+            prefabPath, 
+            parent == null? ObjectManager.instance.transform : parent, 
+            position, 
+            scale, 
+            rotation, 
+            renderingOrder, 
+            objectName
+        );
 
         attackObject.Damage = damage;
         attackObject.KnockbackPower = knockbackPower;
         attackObject.KnockbackOrigin = knockbackOrigin;
 
-        switch (type){
+        switch (type)
+        {
             case AttackObjectType.PLAYER:
                 attackObject.gameObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_PLAYER_ATTACK);
                 attackObject.Damage *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].PlayerDamageMultiplier;
@@ -103,9 +115,27 @@ public static class ObjectFactory{
         Quaternion? rotation = null,
         int renderingOrder = 0,
         string objectName = "Unnamed Object"
-    ) where T : AttackObject {
-        AttackObject attackObject = CreateAttackObject(prefabPath, damage, knockbackPower, knockbackOrigin, type, parent, position, scale, rotation, renderingOrder, objectName);
-        if(!attackObject.TryGetComponent<T>(out var UnityObject)) Debug.LogError("Loaded prefab is not a a valid type: " + prefabPath);
+    ) where T : AttackObject
+    {
+        AttackObject attackObject = CreateAttackObject(
+            prefabPath, 
+            damage, 
+            knockbackPower, 
+            knockbackOrigin, 
+            type, 
+            parent, 
+            position, 
+            scale, 
+            rotation, 
+            renderingOrder, 
+            objectName
+        );
+
+        if(!attackObject.TryGetComponent<T>(out var UnityObject))
+        {
+            Debug.LogError("Loaded prefab is not a a valid type: " + prefabPath);
+        }
+
         return UnityObject;
     }
 
@@ -118,8 +148,18 @@ public static class ObjectFactory{
         int renderingOrder = 0,
         string objectName = "Unnamed Object"
     ){
-        Collectible collectible = CreateObject<Collectible>(prefabPath, ObjectManager.instance.transform, position, scale, rotation, renderingOrder, objectName);
+        Collectible collectible = CreateObject<Collectible>(
+            prefabPath, 
+            ObjectManager.instance.transform, 
+            position, 
+            scale, 
+            rotation, 
+            renderingOrder, 
+            objectName
+        );
+
         collectible.gameObject.layer = LayerMask.NameToLayer(GameEnvironmentConfig.LAYER_COLLECTIBLE);
+        
         return collectible;
     }
 
@@ -131,16 +171,63 @@ public static class ObjectFactory{
         int renderingOrder = 0,
         string objectName = "Unnamed Object"
     ){
-        WorldEntity prefabObject = CreateObject<WorldEntity>(prefabPath, EntityManager.instance.transform, position, scale, rotation, renderingOrder, objectName);
+        WorldEntity prefabObject = CreateObject<WorldEntity>(
+            prefabPath, 
+            EntityManager.instance.transform, 
+            position, 
+            scale, 
+            rotation, 
+            renderingOrder, 
+            objectName
+        );
+
         return prefabObject;
     }
 
-    public static void DestroyObject(MonoBehaviour gameObject, float delay = 0){
+    public static void DestroyObject(MonoBehaviour gameObject, float delay = 0)
+    {
         if(gameObject == null) return;
         GameController.instance.StartCoroutine(DestroyWithDelay(gameObject.gameObject, delay));
     }
 
-    private static IEnumerator DestroyWithDelay(GameObject gameObject, float delay){
+    // Internal functions
+    private static GameObject CreateObject(
+        GameObject gameObject,
+        Transform parent = null,
+        Vector3? position = null,
+        Vector3? scale = null,
+        Quaternion? rotation = null,
+        int renderingOrder = 0,
+        string objectName = "Unnamed Object"
+    )
+    {
+        GameObject createdObject = parent == null?
+            GameObject.Instantiate(gameObject, ObjectManager.instance.transform) :
+            GameObject.Instantiate(gameObject, parent);
+
+        if(position != null)
+        {
+            createdObject.transform.position = position.Value;
+        }
+        if(rotation != null)
+        {
+            createdObject.transform.rotation *= rotation.Value;
+        }
+        if(scale != null)
+        {
+            createdObject.transform.localScale = Vector3.Scale(createdObject.transform.localScale, scale.Value);
+        }
+        if(createdObject.TryGetComponent<Renderer>(out var renderer))
+        {
+            renderer.sortingOrder = renderingOrder;
+        }
+        createdObject.name = objectName;
+
+        return createdObject;
+    }
+    
+    private static IEnumerator DestroyWithDelay(GameObject gameObject, float delay)
+    {
         yield return new WaitForSeconds(delay);
         GameObject.Destroy(gameObject);
     }

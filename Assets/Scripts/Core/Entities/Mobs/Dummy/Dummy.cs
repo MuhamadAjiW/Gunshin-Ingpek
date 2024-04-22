@@ -1,15 +1,17 @@
 using UnityEngine;
 
-public class Dummy : EnemyEntity{
+public class Dummy : EnemyEntity
+{
     // Static attributes
-    public static string ObjectIdPrefix = "Dummy";
+    public const string ObjectIdPrefix = "Dummy";
 
     // Attributes
     private DummyAnimationController animationController;
     public DummyStateController stateController;
 
     // Constructor
-    new protected void Start(){
+    new protected void Start()
+    {
         base.Start();
         SetIdPrefix(ObjectIdPrefix);
         stateController = new DummyStateController(this);
