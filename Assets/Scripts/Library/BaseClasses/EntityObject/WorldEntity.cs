@@ -38,7 +38,7 @@ public class WorldEntity : WorldObject, IRigid
         groundDetectionSize = new Vector3(0.05f, 0.05f, 0.05f);      
         if(rigidbody == null)
         {
-            Debug.LogWarning("Rigid entity " + name + " does not have a rigidbody"); 
+            Debug.LogWarning($"Rigid entity {name} does not have a rigidbody"); 
         }
         groundLayers = LayerMask.GetMask(EnvironmentConfig.LAYER_DEFAULT);
     }

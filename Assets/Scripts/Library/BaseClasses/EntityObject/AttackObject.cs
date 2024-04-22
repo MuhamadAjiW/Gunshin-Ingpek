@@ -57,7 +57,7 @@ public class AttackObject : MonoBehaviour, IDamaging, IKnockback
         
         if(damageableObject.Damageable)
         {
-            Debug.Log(string.Format("Hit in hitbox of {0} by {1} with damage of {2}", transform.name, objectParent.name, Damage));
+            Debug.Log($"Hit in hitbox of {transform.name} by {objectParent.name} with damage of {Damage}");
             
             damageableObject.InflictDamage(Damage);
             OnDamageEvent?.Invoke();

@@ -16,15 +16,15 @@ public abstract class AnimationController
 
         if(model == null) 
         {
-            Debug.LogWarning("Animated object of " + animable.name + " does not have a model");
+            Debug.LogWarning($"Animated object of {animable.name} does not have a model");
         }
         if(animator == null)
         {
-            Debug.LogWarning("Animated object of " + animable.name + " does not have an animator in its model");
+            Debug.LogWarning($"Animated object of {animable.name} does not have an animator in its model");
         }
         if(meshRenderer == null)
         {
-            Debug.LogWarning("Animated object of " + animable.name + " does not have an meshRenderer in its model");
+            Debug.LogWarning($"Animated object of {animable.name} does not have an meshRenderer in its model");
         }
 
     }

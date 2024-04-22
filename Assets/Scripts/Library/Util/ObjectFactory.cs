@@ -20,7 +20,7 @@ public static class ObjectFactory
         
         if(prefabObject == null)
         {
-            Debug.LogError("Prefab not found: " + prefabPath);
+            Debug.LogError($"Prefab not found: {prefabPath}");
         }
 
         return CreateObject(prefabObject, parent, position, scale, rotation, renderingOrder, objectName);
@@ -83,7 +83,7 @@ public static class ObjectFactory
 
         if(!prefabObject.TryGetComponent<T>(out var UnityObject))
         {
-            Debug.LogError("Loaded prefab is not a a valid type: " + prefabPath);
+            Debug.LogError($"Loaded prefab is not a a valid type: {prefabPath}");
         }
 
         return UnityObject;
@@ -111,7 +111,7 @@ public static class ObjectFactory
 
         if(!prefabObject.TryGetComponent<T>(out var UnityObject))
         {
-            Debug.LogError("Loaded gameobject is not a a valid type: " + gameObject.name);
+            Debug.LogError($"Loaded gameobject is not a a valid type: {gameObject.name}");
         }
 
         return UnityObject;
@@ -184,7 +184,7 @@ public static class ObjectFactory
 
         if(!attackObject.TryGetComponent<T>(out var UnityObject))
         {
-            Debug.LogError("Loaded prefab is not a a valid type: " + prefabPath);
+            Debug.LogError($"Loaded prefab is not a a valid type: {prefabPath}");
         }
 
         return UnityObject;

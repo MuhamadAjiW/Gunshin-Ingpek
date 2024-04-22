@@ -10,10 +10,11 @@ public class CombatantEntity : DamageableEntity, IArmed
     [SerializeField] protected Vector3 weaponLocation;
     public List<WeaponObject> weaponList = new();
     private int weaponIndex;
+    private WeaponObject weapon;
     
     // Set-Getters
     public List<WeaponObject> WeaponList => weaponList;
-    public WeaponObject Weapon => weaponList.Count > 0? weaponList[WeaponIndex] : null;
+    public WeaponObject Weapon => weapon;
     public Transform Orientation => transform;
     public Vector3 WeaponLocation => weaponLocation;
     public string AttackLayerCode => EnvironmentConfig.LAYER_ENVIRONMENT_ATTACK;
@@ -46,22 +47,20 @@ public class CombatantEntity : DamageableEntity, IArmed
         {
             return;
         }
-        Debug.Log($"Equipping weapon {WeaponIndex}");
+        Debug.Log($"Equipping weapon {index}");
 
         UnequipWeapon();
 
         WeaponIndex = index;
-
+        WeaponObject blueprint = WeaponList[WeaponIndex];
         WeaponObject weaponObject = ObjectFactory.CreateObject<WeaponObject>(
-            prefabPath: Weapon.prefabPath,
+            prefabPath: blueprint == null? NoWeapon.weaponPrefab : blueprint.prefabPath,
             parent: transform, 
-            position: WeaponLocation,
             objectName: EnvironmentConfig.OBJECT_WEAPON
         );
+        weaponObject.transform.localPosition = WeaponLocation;
         weaponObject.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
-        WeaponList[weaponIndex] = weaponObject;
-
-        Debug.Log(Weapon == null);
+        weapon = weaponObject;
     }
 
     public void UnequipWeapon(){

@@ -22,7 +22,7 @@ public class BaseObjectManager : MonoBehaviour
         }
         idArray += "]";
         
-        Debug.Log(string.Format("Object ids in {0}: {1}", ManagerName, idArray));
+        Debug.Log($"Object ids in {ManagerName}: {idArray}");
     }
 
     public virtual WorldObject[] GetWorldObjects()

@@ -7,6 +7,7 @@ public class PlayerInputController
     private readonly Player player;
     public float movementInputX;
     public float movementInputZ;
+    public float movementInputScroll;
     public bool movementInputJump;
 
     // Events
@@ -23,10 +24,15 @@ public class PlayerInputController
     {
         movementInputX = Input.GetAxisRaw("Horizontal");
         movementInputZ = Input.GetAxisRaw("Vertical");
+        movementInputScroll = Input.GetAxisRaw("Mouse ScrollWheel");
 
         if(Input.GetButtonDown("Jump") && player.Grounded)
         {
             OnJumpEvent?.Invoke();
+        }
+        if(movementInputScroll != 0)
+        {
+            player.EquipWeapon(player.WeaponIndex + (int)(movementInputScroll * 10));
         }
 
         if(Input.GetKeyDown(GameInput.instance.attackButton))

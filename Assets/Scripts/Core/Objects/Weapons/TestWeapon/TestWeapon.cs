@@ -3,9 +3,9 @@ using UnityEngine;
 public class TestWeapon : WeaponObject
 {
     // Constants
-    private static readonly string weaponPrefab = "Prefabs/Weapons/TestWeapon/TestWeapon";
-    private static readonly string hitboxPrefab = "Prefabs/Weapons/TestWeapon/WeaponHitbox";
-    private static readonly string projectilePrefab = "Prefabs/Weapons/TestWeapon/TestProjectile";
+    public const string weaponPrefab = "Prefabs/Weapons/TestWeapon/TestWeapon";
+    private const string hitboxPrefab = "Prefabs/Weapons/TestWeapon/WeaponHitbox";
+    private const string projectilePrefab = "Prefabs/Weapons/TestWeapon/TestProjectile";
     
     // Attribute
     public float fireRange = 100;

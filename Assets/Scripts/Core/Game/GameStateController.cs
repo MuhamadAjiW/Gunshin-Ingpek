@@ -73,7 +73,7 @@ public class GameStateController
     // Internal Functions
     private void LogGameStateEvent(GameStateChangeArgs e)
     {
-        Debug.Log(string.Format("GameState {0}; Current gamestate is {1}", e.EventType, e.NewGameState));
+        Debug.Log($"GameState {e.EventType}; Current gamestate is {e.NewGameState}");
     }
 
     private void SetState(GameState gameState)
