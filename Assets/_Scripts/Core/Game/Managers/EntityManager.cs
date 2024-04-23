@@ -5,12 +5,12 @@ using UnityEngine;
 public class EntityManager : BaseObjectManager
 {
     // Static instance
-    public static EntityManager instance;
+    public static EntityManager Instance;
 
     // Constructor
     protected void Awake()
     {
-        instance = this;
+        Instance = this;
         ManagerName = "Entity Manager";
     }
 }

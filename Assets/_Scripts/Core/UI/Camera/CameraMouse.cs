@@ -20,7 +20,7 @@ public class CameraMouse : CameraFollowObject
     // Functions
     protected void Update()
     {
-        if(GameController.instance.IsPaused)
+        if(GameController.Instance.IsPaused)
         {
             return;
         }

@@ -35,7 +35,7 @@ public class Player : PlayerEntity
         WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
         EquipWeapon(0);
 
-        GameController.instance.player = this;
+        GameController.Instance.player = this;
     }
 
     // Functions

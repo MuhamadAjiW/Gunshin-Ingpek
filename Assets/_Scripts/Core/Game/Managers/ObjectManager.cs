@@ -3,12 +3,12 @@ using UnityEngine;
 public class ObjectManager : BaseObjectManager
 {
     // Static Instance
-    public static ObjectManager instance;
+    public static ObjectManager Instance;
 
     // Constructor
     protected void Awake()
     {
-        instance = this;
+        Instance = this;
         ManagerName = "Object Manager";
     }
 }

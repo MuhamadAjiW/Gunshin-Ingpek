@@ -13,8 +13,19 @@ public class WorldObject : MonoBehaviour
     public Quaternion Rotation => transform.rotation;
 
     // Constructor
-    protected void Awake()
+    protected void Start()
     {
+        #if STRICT
+        if(GameController.Instance == null
+         || GameSaveData.Instance == null
+         || GameInput.Instance == null
+         || EnvironmentManager.Instance == null
+         )
+        {
+            Debug.LogError("The structural controller scripts does not exist in the scene. How to resolve: refer to https://docs.google.com/document/d/14ypRPRArb10h4RO5I6qJBkxmQ-dMVWQy3zJeMVDpSsM/edit#heading=h.rucy43z24dch for the scene's base structure");
+        }
+        #endif
+
         numberId = autoIncrement;
         id = numberId.ToString();
         autoIncrement++;

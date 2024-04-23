@@ -17,7 +17,7 @@ public class CameraFollowObject : CameraBehaviour
     // Functions
     protected void FixedUpdate()
     {
-        if(GameController.instance.IsPaused)
+        if(GameController.Instance.IsPaused)
         {
             return;
         }

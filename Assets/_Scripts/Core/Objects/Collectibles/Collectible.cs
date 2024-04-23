@@ -12,8 +12,9 @@ public abstract class Collectible : WorldObject
     private event Action OnTimeoutEvent;
 
     // Constructor
-    protected void Start()
+    protected new void Start()
     {
+        base.Start();
         OnCollectEvent += OnCollect;
         OnCollectEvent += OnCollectEnd;
         OnTimeoutEvent += OnTimeout;

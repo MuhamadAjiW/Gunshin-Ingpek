@@ -36,9 +36,12 @@ public class HealingCompanion : Companion
     {
         base.Assign(owner);
         ownerDamageableComponent = Owner.CompanionController.gameObject.GetComponent<IDamageable>();
+        
+        #if STRICT
         if(ownerDamageableComponent == null)
         {
-            Debug.LogWarning("HealingCompanion is assigned to a non-IDamageable object");
+            Debug.LogError("HealingCompanion is assigned to a non-IDamageable object");
         }
+        #endif
     }
 }

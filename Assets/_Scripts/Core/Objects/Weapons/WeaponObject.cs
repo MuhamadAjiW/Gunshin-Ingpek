@@ -18,6 +18,14 @@ public abstract class WeaponObject : MonoBehaviour
     protected void Start()
     {
         bearer = GetComponentInParent<IArmed>();
+        
+        #if STRICT
+        if(bearer == null)
+        {
+            Debug.LogError("Weapon object is assigned to a non-IArmed parent. How to resolve: create one or assign it to something else");
+        }
+        #endif
+
         canAttack = true;
         OnAttackEvent += OnAttack;
         OnAlternateAttackEvent += OnAlternateAttack;

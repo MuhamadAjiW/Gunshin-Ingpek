@@ -17,6 +17,5 @@ public static class EnvironmentConfig{
     public const string LAYER_COLLECTIBLE = "Collectible";
 
     // Object Components
-    public const string OBJECT_WEAPON = "Weapon";
-    public const string OBJECT_MODEL = "Model";
+    public const string OBJECT_NAME_WEAPON = "Weapon";
 }

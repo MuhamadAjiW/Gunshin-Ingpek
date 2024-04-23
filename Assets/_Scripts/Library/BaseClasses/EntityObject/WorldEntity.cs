@@ -3,6 +3,7 @@ using UnityEngine;
 public class WorldEntity : WorldObject, IRigid
 {
     // Attributes
+    protected Model model;
     [SerializeField] private float knockbackResistance;
     [SerializeField] private float baseSpeed;
     [SerializeField] private float jumpForce;
@@ -32,14 +33,24 @@ public class WorldEntity : WorldObject, IRigid
     }
 
     // Constructor
-    protected void Start()
+    protected new void Start()
     {
+        base.Start();
         rigidbody = GetComponent<Rigidbody>();
-        groundDetectionSize = new Vector3(0.05f, 0.05f, 0.05f);      
+        model = GetComponentInChildren<Model>();
+        
+        #if STRICT
         if(rigidbody == null)
         {
-            Debug.LogWarning($"Rigid entity {name} does not have a rigidbody"); 
+            Debug.LogError($"Rigid entity {name} does not have a rigidbody. How to resolve: Add a rigidbody component to it"); 
         }
+        if(model == null) 
+        {
+            Debug.LogError($"Rigid entity {name} does not have a model. How to resolve: Create a gameObject with a model.cs script as its child");
+        }
+        #endif
+
+        groundDetectionSize = new Vector3(0.05f, 0.05f, 0.05f);      
         groundLayers = LayerMask.GetMask(EnvironmentConfig.LAYER_DEFAULT);
     }
 
@@ -60,7 +71,7 @@ public class WorldEntity : WorldObject, IRigid
 
     protected void Update()
     {
-        if(GameController.instance.IsPaused)
+        if(GameController.Instance.IsPaused)
         {
             return;
         }
@@ -68,7 +79,7 @@ public class WorldEntity : WorldObject, IRigid
 
     protected void FixedUpdate()
     {
-        if(GameController.instance.IsPaused)
+        if(GameController.Instance.IsPaused)
         {
             return;
         }

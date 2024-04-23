@@ -38,7 +38,7 @@ public class PlayerInputController
         }
 
 
-        if(Input.GetKey(GameInput.instance.inputToggleButton)){
+        if(Input.GetKey(GameInput.Instance.inputToggleButton)){
             Debug.Log("Player control is Toggled");
             if(movementInputScroll != 0)
             {
@@ -51,7 +51,7 @@ public class PlayerInputController
         }
 
 
-        else if(Input.GetKeyDown(GameInput.instance.attackButton))
+        else if(Input.GetKeyDown(GameInput.Instance.attackButton))
         {
             Debug.Log("Player is Attacking");
             if(player.Weapon == null)
@@ -63,7 +63,7 @@ public class PlayerInputController
 
             player.Weapon.Attack();
         }
-        else if(Input.GetKeyDown(GameInput.instance.attackAlternateButton))
+        else if(Input.GetKeyDown(GameInput.Instance.attackAlternateButton))
         {
             Debug.Log("Player is Attacking (alternate)");
             if(player.Weapon == null)
@@ -74,7 +74,7 @@ public class PlayerInputController
 
             player.Weapon.AlternateAttack();
         }
-        else if(Input.GetKeyDown(GameInput.instance.interactButton))
+        else if(Input.GetKeyDown(GameInput.Instance.interactButton))
         {
             Debug.Log("Player is interacting");
             if(player.stateController.currentInteractables.Count == 0)

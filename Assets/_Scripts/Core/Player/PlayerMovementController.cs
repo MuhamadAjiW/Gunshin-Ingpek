@@ -13,8 +13,8 @@ public class PlayerMovementController
     {
         this.player = player;
         player.inputController.OnJumpEvent += HandleJump;
-        axisX = new(GameController.instance.mainCamera.Orientation.right.x, 0, GameController.instance.mainCamera.Orientation.right.z);
-        axisZ = new(GameController.instance.mainCamera.Orientation.forward.x, 0, GameController.instance.mainCamera.Orientation.forward.z);
+        axisX = new(GameController.Instance.mainCamera.Orientation.right.x, 0, GameController.Instance.mainCamera.Orientation.right.z);
+        axisZ = new(GameController.Instance.mainCamera.Orientation.forward.x, 0, GameController.Instance.mainCamera.Orientation.forward.z);
     }
 
     // Functions
@@ -26,15 +26,14 @@ public class PlayerMovementController
 
     private void SnapshotCameraOrientation()
     {
-        axisX = new(GameController.instance.mainCamera.Orientation.right.x, 0, GameController.instance.mainCamera.Orientation.right.z);
-        axisZ = new(GameController.instance.mainCamera.Orientation.forward.x, 0, GameController.instance.mainCamera.Orientation.forward.z);
+        axisX = new(GameController.Instance.mainCamera.Orientation.right.x, 0, GameController.Instance.mainCamera.Orientation.right.z);
+        axisZ = new(GameController.Instance.mainCamera.Orientation.forward.x, 0, GameController.Instance.mainCamera.Orientation.forward.z);
     }
 
     public void HandleMovement()
     {
         float inputX = player.inputController.movementInputX;
         float inputZ = player.inputController.movementInputZ;
-        Debug.Log(inputX);
 
         SnapshotCameraOrientation();
 

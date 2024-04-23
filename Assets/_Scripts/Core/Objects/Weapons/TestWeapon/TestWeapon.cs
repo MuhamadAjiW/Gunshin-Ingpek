@@ -52,7 +52,7 @@ public class TestWeapon : WeaponObject
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position,
-            parent: animationController.model,
+            parent: animationController.model.transform,
             objectName: "TestWeapon Hitbox"
         );
 

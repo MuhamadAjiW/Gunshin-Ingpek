@@ -7,9 +7,9 @@ public class GameStateController
 {
     // Attributes
     private readonly Stack<GameState> gameStateStack = new();
-    event GameStateChangeEvent OnGameStateChange;
 
     // Events
+    event GameStateChangeEvent OnGameStateChange;
     event Action OnPausedEvent;
 
     // Constructor

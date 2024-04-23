@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnvironmentManager : BaseObjectManager
 {
     // Static instance
-    public static EnvironmentManager instance;
+    public static EnvironmentManager Instance;
 
     // Constructor
     protected void Awake()
     {
-        instance = this;
+        Instance = this;
         ManagerName = "Environment Manager";
     }
 }

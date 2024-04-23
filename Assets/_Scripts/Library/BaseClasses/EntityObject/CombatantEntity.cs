@@ -9,7 +9,6 @@ public class CombatantEntity : DamageableEntity, IArmed
     // Attributes
     public List<WeaponObject> weaponList = new();
     [SerializeField] protected float baseDamage;
-    [SerializeField] protected Vector3 weaponLocation;
     private int weaponIndex;
     private WeaponObject weapon;
     
@@ -17,7 +16,7 @@ public class CombatantEntity : DamageableEntity, IArmed
     public List<WeaponObject> WeaponList => weaponList;
     public WeaponObject Weapon => weapon;
     public Transform Orientation => transform;
-    public Vector3 WeaponLocation => weaponLocation;
+    public Vector3 WeaponLocation => model.WeaponPivot;
     public string AttackLayerCode => EnvironmentConfig.LAYER_ENVIRONMENT_ATTACK;
     public float AttackMultiplier => 1f;
     public float BaseDamage 
@@ -36,6 +35,17 @@ public class CombatantEntity : DamageableEntity, IArmed
             else if(-1 < value && value < weaponList.Count) weaponIndex = value;
             else weaponIndex = 0;
         } 
+    }
+
+    // Constructors
+    protected new void Start(){
+        base.Start();
+        #if STRICT
+        if(WeaponList.Count ==  0)
+        {
+            Debug.LogError($"CombatantEntity {name} does not have any weapon. How to solve: Consider putting a NoWeapon instead in the class");
+        }
+        #endif
     }
 
 
@@ -59,7 +69,7 @@ public class CombatantEntity : DamageableEntity, IArmed
             selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
                 prefabPath: selectedWeapon.data.prefabPath,
                 parent: transform, 
-                objectName: EnvironmentConfig.OBJECT_WEAPON
+                objectName: EnvironmentConfig.OBJECT_NAME_WEAPON
             );
             WeaponList[WeaponIndex] = selectedWeapon;
         }

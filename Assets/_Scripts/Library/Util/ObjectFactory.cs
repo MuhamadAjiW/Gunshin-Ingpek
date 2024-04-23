@@ -18,10 +18,12 @@ public static class ObjectFactory
     {
         UnityEngine.GameObject prefabObject = Resources.Load<UnityEngine.GameObject>(prefabPath);
         
+        #if STRICT
         if(prefabObject == null)
         {
-            Debug.LogError($"Prefab not found: {prefabPath}");
+            Debug.LogError($"Prefab not found: {prefabPath}. How to resolve: check the prefabPath parameter, make sure a prefab on path Resources/{prefabPath} actually exist");
         }
+        #endif
 
         return CreateObject(prefabObject, parent, position, scale, rotation, renderingOrder, objectName);
     }
@@ -37,7 +39,7 @@ public static class ObjectFactory
     )
     {
         UnityEngine.GameObject createdObject = parent == null?
-            UnityEngine.GameObject.Instantiate(gameObject, ObjectManager.instance.transform) :
+            UnityEngine.GameObject.Instantiate(gameObject, ObjectManager.Instance.transform) :
             UnityEngine.GameObject.Instantiate(gameObject, parent);
 
         if(position != null)
@@ -73,7 +75,7 @@ public static class ObjectFactory
     {
         UnityEngine.GameObject prefabObject = CreateObject(
             prefabPath, 
-            parent == null? ObjectManager.instance.transform : parent, 
+            parent == null? ObjectManager.Instance.transform : parent, 
             position, 
             scale, 
             rotation, 
@@ -81,12 +83,16 @@ public static class ObjectFactory
             objectName
         );
 
+        #if STRICT
         if(!prefabObject.TryGetComponent<T>(out var UnityObject))
         {
-            Debug.LogError($"Loaded prefab is not a a valid type: {prefabPath}");
+            Debug.LogError($"Loaded prefab is not a a valid type: {prefabPath}. How to resolve: check the function call, most likely a typo in function call code");
         }
-
         return UnityObject;
+        #else
+        prefabObject.TryGetComponent<T>(out var UnityObject);
+        return UnityObject;
+        #endif
     }
 
     public static T CreateObject<T>(
@@ -101,7 +107,7 @@ public static class ObjectFactory
     {
         UnityEngine.GameObject prefabObject = CreateObject(
             gameObject, 
-            parent == null? ObjectManager.instance.transform : parent, 
+            parent == null? ObjectManager.Instance.transform : parent, 
             position, 
             scale, 
             rotation, 
@@ -109,12 +115,16 @@ public static class ObjectFactory
             objectName
         );
 
+        #if STRICT
         if(!prefabObject.TryGetComponent<T>(out var UnityObject))
         {
-            Debug.LogError($"Loaded gameobject is not a a valid type: {gameObject.name}");
+            Debug.LogError($"Loaded gameobject is not a a valid type: {gameObject.name}. How to resolve: check the function call, most likely a typo in function call code");
         }
-
         return UnityObject;
+        #else
+        prefabObject.TryGetComponent<T>(out var UnityObject);
+        return UnityObject;
+        #endif
     }
 
     public static AttackObject CreateAttackObject(
@@ -134,7 +144,7 @@ public static class ObjectFactory
     {
         AttackObject attackObject = CreateObject<AttackObject>(
             prefabPath, 
-            parent == null? ObjectManager.instance.transform : parent, 
+            parent == null? ObjectManager.Instance.transform : parent, 
             position, 
             scale, 
             rotation, 
@@ -182,12 +192,16 @@ public static class ObjectFactory
             objectName
         );
 
+        #if STRICT
         if(!attackObject.TryGetComponent<T>(out var UnityObject))
         {
-            Debug.LogError($"Loaded prefab is not a a valid type: {prefabPath}");
+            Debug.LogError($"Loaded prefab is not a a valid type: {prefabPath}. How to resolve: check the function call, most likely a typo in function call code");
         }
-
         return UnityObject;
+        #else
+        attackObject.TryGetComponent<T>(out var UnityObject);
+        return UnityObject;
+        #endif
     }
 
 
@@ -201,7 +215,7 @@ public static class ObjectFactory
     ){
         Collectible collectible = CreateObject<Collectible>(
             prefabPath, 
-            ObjectManager.instance.transform, 
+            ObjectManager.Instance.transform, 
             position, 
             scale, 
             rotation, 
@@ -224,7 +238,7 @@ public static class ObjectFactory
     ){
         WorldEntity prefabObject = CreateObject<WorldEntity>(
             prefabPath, 
-            EntityManager.instance.transform, 
+            EntityManager.Instance.transform, 
             position, 
             scale, 
             rotation, 
@@ -238,7 +252,7 @@ public static class ObjectFactory
     public static void DestroyObject(MonoBehaviour gameObject, float delay = 0)
     {
         if(gameObject == null) return;
-        GameController.instance.StartCoroutine(DestroyWithDelay(gameObject.gameObject, delay));
+        GameController.Instance.StartCoroutine(DestroyWithDelay(gameObject.gameObject, delay));
     }
 
     // Internal functions

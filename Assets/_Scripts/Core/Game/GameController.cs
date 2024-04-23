@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour 
 {
     // Static Instance
-    public static GameController instance;
+    public static GameController Instance;
     
     // Attributes
     public Player player;
@@ -17,9 +17,9 @@ public class GameController : MonoBehaviour
     // Constructor
     protected void Awake()
     {
-        if(instance == null)
+        if(Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
 
         mainCamera = new GameCameraController(GetComponentInChildren<Camera>());
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     // Functions
     protected void Update()
     {
-         if(Input.GetKeyDown(GameInput.instance.backButton))
+         if(Input.GetKeyDown(GameInput.Instance.backButton))
          {
             stateController.HandleEscape();
          }
