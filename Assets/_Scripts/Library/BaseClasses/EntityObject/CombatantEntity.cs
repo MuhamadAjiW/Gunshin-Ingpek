@@ -6,9 +6,9 @@ using UnityEngine;
 public class CombatantEntity : DamageableEntity, IArmed
 {
     // Attributes
+    public List<WeaponObject> weaponList = new();
     [SerializeField] protected float baseDamage;
     [SerializeField] protected Vector3 weaponLocation;
-    public List<WeaponObject> weaponList = new();
     private int weaponIndex;
     private WeaponObject weapon;
     

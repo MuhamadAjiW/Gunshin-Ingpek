@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public interface IAccompaniable
 {
     // Set-Getters
-    public List<Companions> Companions { get; }
+    public List<Companion> Companions { get; }
+    public MonoBehaviour CompanionController { get; }
 }

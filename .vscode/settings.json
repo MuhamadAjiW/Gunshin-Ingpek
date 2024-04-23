@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "3dModelTest.sln"
+    "dotnet.defaultSolution": "IF3210-2024-Unity-PIP.sln"
 }

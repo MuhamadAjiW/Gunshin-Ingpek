@@ -1,4 +1,6 @@
-public class DifficultyData
+using UnityEngine;
+
+public class DifficultyData : ScriptableObject
 {
     public float EnemyHealthMultiplier { get; set; }
     public float EnemyDamageMultiplier { get; set; }

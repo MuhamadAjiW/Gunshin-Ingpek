@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerEntity : CombatantEntity, IAccompaniable
 {
     // Attributes
-    protected readonly List<Companions> companionList = new();    
+    public List<Companion> companionList = new();    
     
     // Set-Getters
-    public List<Companions> Companions => companionList;
+    public List<Companion> Companions => companionList;
+    public MonoBehaviour CompanionController => this;
 }
