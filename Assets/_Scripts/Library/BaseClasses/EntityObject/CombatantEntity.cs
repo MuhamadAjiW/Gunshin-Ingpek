@@ -52,9 +52,9 @@ public class CombatantEntity : DamageableEntity, IArmed
         UnequipWeapon();
 
         WeaponIndex = index;
-        WeaponObject blueprint = WeaponList[WeaponIndex];
+        WeaponObject selectedWeapon = WeaponList[WeaponIndex];
         WeaponObject weaponObject = ObjectFactory.CreateObject<WeaponObject>(
-            prefabPath: blueprint == null? NoWeapon.weaponPrefab : blueprint.prefabPath,
+            prefabPath: selectedWeapon == null? NoWeapon.weaponPrefab : selectedWeapon.data.prefabPath,
             parent: transform, 
             objectName: EnvironmentConfig.OBJECT_WEAPON
         );

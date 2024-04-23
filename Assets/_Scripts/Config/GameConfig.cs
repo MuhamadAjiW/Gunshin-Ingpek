@@ -14,24 +14,24 @@ public static class GameConfig
     // Difficulty multipliers
     private static readonly DifficultyData EasyData = new()
     {
-        EnemyDamageMultiplier = 0.5f,
-        EnemyHealthMultiplier = 0.5f,
-        PlayerDamageMultiplier = 2f,
-        PlayerHealthMultiplier = 2f,
+        enemyDamageMultiplier = 0.5f,
+        enemyHealthMultiplier = 0.5f,
+        playerDamageMultiplier = 2f,
+        playerHealthMultiplier = 2f,
     };
     private static readonly DifficultyData MediumData = new()
     {
-        EnemyDamageMultiplier = 0.5f,
-        EnemyHealthMultiplier = 0.5f,
-        PlayerDamageMultiplier = 2f,
-        PlayerHealthMultiplier = 2f,
+        enemyDamageMultiplier = 0.5f,
+        enemyHealthMultiplier = 0.5f,
+        playerDamageMultiplier = 2f,
+        playerHealthMultiplier = 2f,
     };
     private static readonly DifficultyData HardData = new()
     {
-        EnemyDamageMultiplier = 2f,
-        EnemyHealthMultiplier = 2f,
-        PlayerDamageMultiplier = 0.5f,
-        PlayerHealthMultiplier = 0.5f,
+        enemyDamageMultiplier = 2f,
+        enemyHealthMultiplier = 2f,
+        playerDamageMultiplier = 0.5f,
+        playerHealthMultiplier = 0.5f,
     };
 
     public static readonly Dictionary<DifficultyType, DifficultyData> DIFFICULTY_MODIFIERS = new()

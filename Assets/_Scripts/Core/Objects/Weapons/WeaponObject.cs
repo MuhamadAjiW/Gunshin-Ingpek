@@ -6,7 +6,6 @@ public abstract class WeaponObject : MonoBehaviour
 {
 
     // Attributes
-    public string prefabPath;
     public WeaponData data;
     protected IArmed bearer;
     private bool canAttack = true;

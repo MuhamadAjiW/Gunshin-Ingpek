@@ -3,6 +3,9 @@ using UnityEngine;
 
 public abstract class Companion : DamageableEntity 
 {
+    // Attributes
+    public CompanionData data;
+
     // Getter-Setter
     public IAccompaniable Owner {get; set;}
 
