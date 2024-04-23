@@ -17,14 +17,14 @@ public class Player : PlayerEntity
 
     // Set-Getters
     public new string AttackLayerCode => EnvironmentConfig.LAYER_PLAYER;
-    public new float AttackMultiplier => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].playerDamageMultiplier;
+    public new float AttackMultiplier => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerDamageMultiplier;
 
     // Constructor
     new void Start()
     {
         base.Start();
         SetIdPrefix(ObjectIdPrefix);
-        Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].playerHealthMultiplier;
+        Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerHealthMultiplier;
         stats = new PlayerStats(this);
         stateController = new PlayerStateController(this);
         inputController = new PlayerInputController(this);
