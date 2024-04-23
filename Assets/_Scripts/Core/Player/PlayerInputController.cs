@@ -30,12 +30,22 @@ public class PlayerInputController
         {
             OnJumpEvent?.Invoke();
         }
-        if(movementInputScroll != 0)
+
+
+        if(Input.GetKey(GameInput.instance.inputToggleButton)){
+            Debug.Log("Player control is Toggled");
+            if(movementInputScroll != 0)
+            {
+                Debug.Log("Player is scrolling in toggle");
+            }
+        }
+        else if(movementInputScroll != 0)
         {
             player.EquipWeapon(player.WeaponIndex + (int)(movementInputScroll * 10));
         }
 
-        if(Input.GetKeyDown(GameInput.instance.attackButton))
+
+        else if(Input.GetKeyDown(GameInput.instance.attackButton))
         {
             Debug.Log("Player is Attacking");
             if(player.Weapon == null)

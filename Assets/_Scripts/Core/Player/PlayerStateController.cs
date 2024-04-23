@@ -20,7 +20,7 @@ public class PlayerStateController : EntityStateController
     }
     private bool DetectSprinting()
     {
-        return (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && Input.GetKey(KeyCode.LeftShift);
+        return (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && Input.GetKey(GameInput.instance.sprintButton);
     }
     private bool DetectJumping()
     {
