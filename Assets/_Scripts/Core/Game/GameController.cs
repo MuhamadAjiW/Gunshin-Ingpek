@@ -10,7 +10,6 @@ public class GameController : MonoBehaviour
     public Player player;
     public GameCameraController mainCamera;
     public GameStateController stateController;
-    public GameSaveData data;
 
     // Set-getters
     public bool IsPaused => Time.timeScale == 0;
@@ -25,7 +24,6 @@ public class GameController : MonoBehaviour
 
         mainCamera = new GameCameraController(GetComponentInChildren<Camera>());
         stateController = new GameStateController();
-        data = GameSaveData.instance;
     }
 
     // Functions
