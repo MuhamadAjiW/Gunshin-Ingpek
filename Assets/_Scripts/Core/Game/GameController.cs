@@ -23,6 +23,13 @@ public class GameController : MonoBehaviour
         }
 
         mainCamera = new GameCameraController(GetComponentInChildren<Camera>());
+
+        #if STRICT
+        if(mainCamera == null)
+        {
+            Debug.LogError("No main camera detected in child of GameController. How to resolve: create a camera object as child of GameController");
+        }
+        #endif
         stateController = new GameStateController();
     }
 
