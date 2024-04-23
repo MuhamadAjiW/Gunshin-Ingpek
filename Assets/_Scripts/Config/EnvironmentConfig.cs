@@ -15,7 +15,4 @@ public static class EnvironmentConfig{
     public const string LAYER_ENEMY_ATTACK = "EnemyAttack";
     public const string LAYER_ENVIRONMENT_ATTACK = "EnvironmentAttack";
     public const string LAYER_COLLECTIBLE = "Collectible";
-
-    // Object Components
-    public const string OBJECT_NAME_WEAPON = "Weapon";
 }

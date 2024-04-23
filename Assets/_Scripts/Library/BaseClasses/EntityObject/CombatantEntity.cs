@@ -7,8 +7,8 @@ using UnityEngine;
 public class CombatantEntity : DamageableEntity, IArmed
 {
     // Attributes
-    public List<WeaponObject> weaponList = new();
     [SerializeField] protected float baseDamage;
+    public List<WeaponObject> weaponList = new();
     private int weaponIndex;
     private WeaponObject weapon;
     
@@ -38,12 +38,13 @@ public class CombatantEntity : DamageableEntity, IArmed
     }
 
     // Constructors
-    protected new void Start(){
+    protected new void Start()
+    {
         base.Start();
         #if STRICT
         if(WeaponList.Count ==  0)
         {
-            Debug.LogError($"CombatantEntity {name} does not have any weapon. How to solve: Consider putting a NoWeapon instead in the class");
+            Debug.LogError($"CombatantEntity {name} does not have any initial weapon. How to solve: Consider putting a NoWeapon instead to the list in the class");
         }
         #endif
     }
@@ -56,30 +57,36 @@ public class CombatantEntity : DamageableEntity, IArmed
         {
             return;
         }
-        Debug.Log($"Equipping weapon {index}");
-
+        if(Weapon != null && !Weapon.canAttack)
+        {
+            return;
+        }
+        
         UnequipWeapon();
 
         WeaponIndex = index;
         WeaponObject selectedWeapon = WeaponList[WeaponIndex];
+        Debug.Log($"Equipping weapon {selectedWeapon.name}");
         
-        // To handle editor prefab drag n drops
+        // To handle prefabs
         if(!selectedWeapon.gameObject.scene.IsValid())
         {
             selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
                 prefabPath: selectedWeapon.data.prefabPath,
                 parent: transform, 
-                objectName: EnvironmentConfig.OBJECT_NAME_WEAPON
+                objectName: selectedWeapon.name
             );
             WeaponList[WeaponIndex] = selectedWeapon;
         }
+
         selectedWeapon.gameObject.SetActive(true);
         selectedWeapon.transform.localPosition = WeaponLocation;
         selectedWeapon.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
         weapon = selectedWeapon;
     }
 
-    public void UnequipWeapon(){
+    public void UnequipWeapon()
+    {
         foreach (WeaponObject weapon in WeaponList)
         {
             // We'll also clean null weapons here, add no weapons explicitly

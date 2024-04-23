@@ -30,12 +30,24 @@ public class Player : PlayerEntity
         inputController = new PlayerInputController(this);
         movementController = new PlayerMovementController(this);
         animationController = new PlayerAnimationController(this);
+        GameController.Instance.player = this;
 
-        
+
+        // TODO: These are for dev, consider deleting
         WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
         EquipWeapon(0);
 
-        GameController.Instance.player = this;
+        int initialIndex = CompanionList.Count;
+        for (int i = 0; i < initialIndex; i++)
+        {            
+            CompanionActive.Add(false);
+        }
+        
+        CompanionList.AddRange(EntityManager.Instance.GetComponentsInChildren<Companion>());
+        for (int i = initialIndex; i < CompanionList.Count; i++)
+        {            
+            CompanionActive.Add(CompanionList[i].gameObject.activeSelf);
+        }
     }
 
     // Functions

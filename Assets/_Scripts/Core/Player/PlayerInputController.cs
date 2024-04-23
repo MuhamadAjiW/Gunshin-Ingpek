@@ -37,19 +37,23 @@ public class PlayerInputController
             OnJumpEvent?.Invoke();
         }
 
-
-        if(Input.GetKey(GameInput.Instance.inputToggleButton)){
-            Debug.Log("Player control is Toggled");
-            if(movementInputScroll != 0)
-            {
-                Debug.Log("Player is scrolling in toggle");
-            }
+        bool Toggled = Input.GetKey(GameInput.Instance.inputToggleButton);
+        if (Toggled)
+        {
+            HandleToggledInputs();
         }
-        else if(movementInputScroll != 0)
+        else
+        {
+            HandleUntoggledInputs();
+        }
+    }
+
+    private void HandleUntoggledInputs()
+    {
+        if(movementInputScroll != 0)
         {
             player.EquipWeapon(player.WeaponIndex + (int)(movementInputScroll * 10));
         }
-
 
         else if(Input.GetKeyDown(GameInput.Instance.attackButton))
         {
@@ -59,7 +63,6 @@ public class PlayerInputController
                 Debug.Log("Player does not have a weapon");
                 return;
             }
-            Debug.Log("Attacking using Weapon");
 
             player.Weapon.Attack();
         }
@@ -84,6 +87,26 @@ public class PlayerInputController
 
             IInteractable interactable = player.stateController.currentInteractables[player.stateController.currentInteractables.Count - 1];
             interactable.Interact();
+        }
+    }
+
+    private void HandleToggledInputs()
+    {
+        if(movementInputScroll != 0)
+        {
+            player.CompanionSelectorIndex += (int)(movementInputScroll * 10);
+            Debug.Log($"Selecting companions: {player.CompanionSelectorIndex}");
+        }
+
+        else if(Input.GetKeyDown(GameInput.Instance.attackButton))
+        {
+            Debug.Log("Player is Activating a companion");
+            player.ActivateCompanion(player.CompanionSelectorIndex);
+        }
+        else if(Input.GetKeyDown(GameInput.Instance.attackAlternateButton))
+        {
+            Debug.Log("Player is Deactivating a companion");
+            player.DeactivateCompanion(player.CompanionSelectorIndex);
         }
     }
 }

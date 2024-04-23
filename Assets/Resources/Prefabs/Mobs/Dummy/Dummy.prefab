@@ -84,6 +84,8 @@ MonoBehaviour:
   maxHealth: 100000
   health: 100000
   damagedDelay: 0.5
+  weaponList:
+  - {fileID: 2798277747015640978, guid: 967e1612f343be242bd63968a7374248, type: 3}
   baseDamage: 0
 --- !u!1001 &1851493345103208170
 PrefabInstance:

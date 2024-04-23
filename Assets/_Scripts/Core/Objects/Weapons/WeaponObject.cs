@@ -7,8 +7,8 @@ public abstract class WeaponObject : MonoBehaviour
 
     // Attributes
     public WeaponData data;
+    public bool canAttack = true;
     protected IArmed bearer;
-    private bool canAttack = true;
 
     // Events
     public event Action OnAttackEvent;

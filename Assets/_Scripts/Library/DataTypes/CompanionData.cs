@@ -8,5 +8,5 @@ public class CompanionData : ScriptableObject
     // Learn other systems than this obviously
     // but I think the window to learn and implement a new system is not viable within the scope of the project
     public string prefabPath;
-    public UnityEngine.GameObject model;
+    public GameObject model;
 }
