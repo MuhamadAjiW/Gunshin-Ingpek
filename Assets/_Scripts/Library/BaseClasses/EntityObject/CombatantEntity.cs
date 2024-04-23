@@ -40,8 +40,6 @@ public class CombatantEntity : DamageableEntity, IArmed
 
 
     // Functions
-    // TODO: Review, consider using prefabs instead?
-    // Prefabs are easier to implement but much less extendable
     public void EquipWeapon(int index)
     {
         if(weaponList.Count == 0)
@@ -52,32 +50,37 @@ public class CombatantEntity : DamageableEntity, IArmed
 
         UnequipWeapon();
 
-        Debug.Log($"Equipping weapon {index}");
         WeaponIndex = index;
         WeaponObject selectedWeapon = WeaponList[WeaponIndex];
         
-        // To handle editor prefab dragndrops
-        Debug.Log($"Length: {WeaponList.Count}");
+        // To handle editor prefab drag n drops
         if(!selectedWeapon.gameObject.scene.IsValid())
         {
             selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
-                prefabPath: selectedWeapon == null? NoWeapon.weaponPrefab : selectedWeapon.data.prefabPath,
+                prefabPath: selectedWeapon.data.prefabPath,
                 parent: transform, 
                 objectName: EnvironmentConfig.OBJECT_WEAPON
             );
             WeaponList[WeaponIndex] = selectedWeapon;
         }
         selectedWeapon.gameObject.SetActive(true);
+        selectedWeapon.transform.localPosition = WeaponLocation;
+        selectedWeapon.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
         weapon = selectedWeapon;
-        // weaponObject.transform.localPosition = WeaponLocation;
-        // weaponObject.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
-        // weapon = weaponObject;
     }
 
     public void UnequipWeapon(){
         foreach (WeaponObject weapon in WeaponList)
         {
-            weapon.gameObject.SetActive(false);
+            // We'll also clean null weapons here, add no weapons explicitly
+            if(weapon == null)
+            {
+                WeaponList.Remove(weapon);
+            }
+            else
+            {
+                weapon.gameObject.SetActive(false);
+            }
         }
     }
 }

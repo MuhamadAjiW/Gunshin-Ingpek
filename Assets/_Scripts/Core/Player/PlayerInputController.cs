@@ -11,6 +11,7 @@ public class PlayerInputController
     public bool movementInputJump;
 
     // Events
+    public event Action<float, float> OnMovementEvent;
     public event Action OnJumpEvent;
     
     // Constructor
@@ -25,6 +26,11 @@ public class PlayerInputController
         movementInputX = Input.GetAxisRaw("Horizontal");
         movementInputZ = Input.GetAxisRaw("Vertical");
         movementInputScroll = Input.GetAxisRaw("Mouse ScrollWheel");
+
+        if(movementInputX != 0 || movementInputZ != 0)
+        {
+            OnMovementEvent?.Invoke(movementInputX, movementInputZ);
+        }
 
         if(Input.GetButtonDown("Jump") && player.Grounded)
         {

@@ -34,6 +34,7 @@ public class PlayerMovementController
     {
         float inputX = player.inputController.movementInputX;
         float inputZ = player.inputController.movementInputZ;
+        Debug.Log(inputX);
 
         SnapshotCameraOrientation();
 

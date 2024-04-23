@@ -21,6 +21,10 @@ public class PlayerAnimationController : AnimationController
     // Functions
     public void AnimateStates()
     {
+        if(animator == null)
+        {
+            Debug.LogWarning($"Animated object of {player.name} does not have an animator in its model");
+        }
         switch (player.stateController.state)
         {
             case PlayerState.IDLE:

@@ -25,11 +25,11 @@ public class Player : PlayerEntity
         base.Start();
         SetIdPrefix(ObjectIdPrefix);
         Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.instance.difficulty].playerHealthMultiplier;
+        stats = new PlayerStats(this);
         stateController = new PlayerStateController(this);
         inputController = new PlayerInputController(this);
         movementController = new PlayerMovementController(this);
         animationController = new PlayerAnimationController(this);
-        stats = new PlayerStats(this);
 
         
         WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
