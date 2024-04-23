@@ -31,12 +31,8 @@ public class Player : PlayerEntity
         animationController = new PlayerAnimationController(this);
         stats = new PlayerStats(this);
 
-        WeaponList.Add(GetComponentInChildren<WeaponObject>());
         
-        foreach (WeaponObject weapon in GetComponentsInChildren<WeaponObject>())
-        {
-            WeaponList.Add(weapon);
-        }
+        WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
         EquipWeapon(0);
 
         GameController.instance.player = this;

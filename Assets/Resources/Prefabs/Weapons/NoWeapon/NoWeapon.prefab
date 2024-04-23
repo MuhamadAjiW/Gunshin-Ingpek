@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7056211513795390601
 Transform:
   m_ObjectHideFlags: 0
@@ -44,5 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeafa263f26404c4a9f653e7d0889d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPath: Prefabs/Weapons/NoWeapon/NoWeapon
   data: {fileID: 11400000, guid: 1f732bd8cfb50da4dad418d1fcdedd01, type: 2}

@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1050311400148833009
 Transform:
   m_ObjectHideFlags: 0
@@ -45,9 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68705b8ed948aae4d98ef6e87b6f6961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPath: Prefabs/Weapons/TestWeapon/TestWeapon
   data: {fileID: 11400000, guid: 875c881f7a9ed2347a9d28ca2c18c4b5, type: 2}
-  canAttack: 0
   fireRange: 10
   projectileSpeed: 50
 --- !u!1001 &3646467262361916678

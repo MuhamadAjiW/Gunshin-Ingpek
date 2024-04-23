@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc4ca3f3ac6a5646addd6dfbe0b996b, type: 3}
   m_Name: TestWeaponData
   m_EditorClassIdentifier: 
+  prefabPath: Prefabs/Weapons/TestWeapon/TestWeapon
+  model: {fileID: 6146631199650576833, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
   baseDamage: 10
   knockbackPower: 10
   attackInterval: 0.2
   alternateAttackInterval: 1
-  model: {fileID: 6146631199650576833, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}

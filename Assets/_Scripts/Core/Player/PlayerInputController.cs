@@ -46,7 +46,6 @@ public class PlayerInputController
             Debug.Log("Attacking using Weapon");
 
             player.Weapon.Attack();
-            (player.Weapon as TestWeapon).AlternateAttack();
         }
         else if(Input.GetKeyDown(GameInput.instance.attackAlternateButton))
         {
@@ -57,7 +56,7 @@ public class PlayerInputController
                 return;
             }
 
-            (player.Weapon as TestWeapon).AlternateAttack();
+            player.Weapon.AlternateAttack();
         }
         else if(Input.GetKeyDown(GameInput.instance.interactButton))
         {

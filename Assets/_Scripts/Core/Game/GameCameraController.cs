@@ -29,14 +29,14 @@ public class GameCameraController
 
     public void ResetCameraBehaviour()
     {
-        GameObject.Destroy(activeCamera.GetComponent<CameraBehaviour>());
+        UnityEngine.GameObject.Destroy(activeCamera.GetComponent<CameraBehaviour>());
         behaviourType = CameraBehaviourType.NULL;
         behaviour = null;
     }
 
     public void SetCameraBehaviour(CameraBehaviourType cameraBehaviourType)
     {
-        GameObject.Destroy(activeCamera.GetComponent<CameraBehaviour>());
+        UnityEngine.GameObject.Destroy(activeCamera.GetComponent<CameraBehaviour>());
 
         behaviour = cameraBehaviourType switch
         {

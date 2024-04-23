@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatantEntity : DamageableEntity, IArmed
@@ -51,22 +52,32 @@ public class CombatantEntity : DamageableEntity, IArmed
 
         UnequipWeapon();
 
+        Debug.Log($"Equipping weapon {index}");
         WeaponIndex = index;
         WeaponObject selectedWeapon = WeaponList[WeaponIndex];
-        WeaponObject weaponObject = ObjectFactory.CreateObject<WeaponObject>(
-            prefabPath: selectedWeapon == null? NoWeapon.weaponPrefab : selectedWeapon.data.prefabPath,
-            parent: transform, 
-            objectName: EnvironmentConfig.OBJECT_WEAPON
-        );
-        weaponObject.transform.localPosition = WeaponLocation;
-        weaponObject.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
-        weapon = weaponObject;
+        
+        // To handle editor prefab dragndrops
+        Debug.Log($"Length: {WeaponList.Count}");
+        if(!selectedWeapon.gameObject.scene.IsValid())
+        {
+            selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
+                prefabPath: selectedWeapon == null? NoWeapon.weaponPrefab : selectedWeapon.data.prefabPath,
+                parent: transform, 
+                objectName: EnvironmentConfig.OBJECT_WEAPON
+            );
+            WeaponList[WeaponIndex] = selectedWeapon;
+        }
+        selectedWeapon.gameObject.SetActive(true);
+        weapon = selectedWeapon;
+        // weaponObject.transform.localPosition = WeaponLocation;
+        // weaponObject.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
+        // weapon = weaponObject;
     }
 
     public void UnequipWeapon(){
-        foreach (WeaponObject weapon in GetComponentsInChildren<WeaponObject>())
+        foreach (WeaponObject weapon in WeaponList)
         {
-            Destroy(weapon.gameObject);
+            weapon.gameObject.SetActive(false);
         }
     }
 }

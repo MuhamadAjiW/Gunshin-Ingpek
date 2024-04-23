@@ -6,7 +6,7 @@ using UnityEngine;
 public static class ObjectFactory
 {
     // Functions
-    public static GameObject CreateObject(
+    public static UnityEngine.GameObject CreateObject(
         string prefabPath,
         Transform parent = null,
         Vector3? position = null,
@@ -16,7 +16,7 @@ public static class ObjectFactory
         string objectName = "Unnamed Object"
     )
     {
-        GameObject prefabObject = Resources.Load<GameObject>(prefabPath);
+        UnityEngine.GameObject prefabObject = Resources.Load<UnityEngine.GameObject>(prefabPath);
         
         if(prefabObject == null)
         {
@@ -26,8 +26,8 @@ public static class ObjectFactory
         return CreateObject(prefabObject, parent, position, scale, rotation, renderingOrder, objectName);
     }
 
-    public static GameObject CreateObject(
-        GameObject gameObject,
+    public static UnityEngine.GameObject CreateObject(
+        UnityEngine.GameObject gameObject,
         Transform parent = null,
         Vector3? position = null,
         Vector3? scale = null,
@@ -36,9 +36,9 @@ public static class ObjectFactory
         string objectName = "Unnamed Object"
     )
     {
-        GameObject createdObject = parent == null?
-            GameObject.Instantiate(gameObject, ObjectManager.instance.transform) :
-            GameObject.Instantiate(gameObject, parent);
+        UnityEngine.GameObject createdObject = parent == null?
+            UnityEngine.GameObject.Instantiate(gameObject, ObjectManager.instance.transform) :
+            UnityEngine.GameObject.Instantiate(gameObject, parent);
 
         if(position != null)
         {
@@ -71,7 +71,7 @@ public static class ObjectFactory
         string objectName = "Unnamed Object"
     ) where T : MonoBehaviour 
     {
-        GameObject prefabObject = CreateObject(
+        UnityEngine.GameObject prefabObject = CreateObject(
             prefabPath, 
             parent == null? ObjectManager.instance.transform : parent, 
             position, 
@@ -90,7 +90,7 @@ public static class ObjectFactory
     }
 
     public static T CreateObject<T>(
-        GameObject gameObject,
+        UnityEngine.GameObject gameObject,
         Transform parent = null,
         Vector3? position = null,
         Vector3? scale = null,
@@ -99,7 +99,7 @@ public static class ObjectFactory
         string objectName = "Unnamed Object"
     ) where T : MonoBehaviour 
     {
-        GameObject prefabObject = CreateObject(
+        UnityEngine.GameObject prefabObject = CreateObject(
             gameObject, 
             parent == null? ObjectManager.instance.transform : parent, 
             position, 
@@ -242,9 +242,9 @@ public static class ObjectFactory
     }
 
     // Internal functions
-    private static IEnumerator DestroyWithDelay(GameObject gameObject, float delay)
+    private static IEnumerator DestroyWithDelay(UnityEngine.GameObject gameObject, float delay)
     {
         yield return new WaitForSeconds(delay);
-        GameObject.Destroy(gameObject);
+        UnityEngine.GameObject.Destroy(gameObject);
     }
 }
