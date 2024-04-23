@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216226ea5552cac49bdf2645569267bf, type: 3}
   m_Name: HealingCompanionData
   m_EditorClassIdentifier: 
-  prefabPath: 
+  prefabPath: Prefabs/Pets/HealingCompanion/HealingCompanion
   model: {fileID: 0}

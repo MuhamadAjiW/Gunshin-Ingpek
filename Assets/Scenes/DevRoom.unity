@@ -966,12 +966,11 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   damagedDelay: 1
+  baseDamage: 10
   weaponList:
   - {fileID: 5029868015402955001, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
-  baseDamage: 10
-  weaponLocation: {x: 0.258, y: 0.889, z: 0.375}
   companionList: []
-  activeCompanions: 
+  companionActive: 
 --- !u!54 &1501595417
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1242,7 +1241,7 @@ GameObject:
   - component: {fileID: 1899092101}
   - component: {fileID: 1899092100}
   m_Layer: 0
-  m_Name: GameControls
+  m_Name: GameInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1328,6 +1327,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 354420149}
   - {fileID: 1993262143}
+  - {fileID: 354420149}
   - {fileID: 1899092101}

@@ -58,6 +58,7 @@ public abstract class BossEntity : EnemyEntity, IAccompaniable
         // TODO: Set possible spawn locations for companions, for now it will spawn on the left
         selectedCompanion.transform.position = transform.position - new Vector3(-0.5f, 0, 0);
         companionActive[CompanionSelectorIndex] = true;
+        selectedCompanion.Assign(this);
     }
 
     public void DeactivateCompanion(int index)
