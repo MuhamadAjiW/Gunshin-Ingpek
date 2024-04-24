@@ -5,7 +5,7 @@ public class CameraFollowObject : CameraBehaviour
     // Attributes
     public Transform target;
     public float followingTime = CameraConfig.DEFAULT_FOLLOWING_SPEED;
-    protected Vector3 offset;
+    public Vector3 offset;
     protected Vector3 velocity;
     
     // Constructor

@@ -7,12 +7,14 @@ public class PlayerMovementController
     private readonly Player player;
     private Vector3 axisX;
     private Vector3 axisZ;
+    private bool aim = false;
 
     // Constructor
     public PlayerMovementController(Player player)
     {
         this.player = player;
         player.inputController.OnJumpEvent += HandleJump;
+        player.inputController.OnAimEvent += OnAim;
         axisX = new(GameController.Instance.mainCamera.Orientation.right.x, 0, GameController.Instance.mainCamera.Orientation.right.z);
         axisZ = new(GameController.Instance.mainCamera.Orientation.forward.x, 0, GameController.Instance.mainCamera.Orientation.forward.z);
     }
@@ -42,7 +44,6 @@ public class PlayerMovementController
 
         Vector3 movementVector = inputX * axisX.normalized + inputZ * axisZ.normalized;
 
-        Debug.Log(player.stats);
         Vector3 modifierVector = movementVector.normalized * player.stats.MaxSpeed;
         velocity.x = modifierVector.x;
         velocity.z = modifierVector.z;
@@ -57,7 +58,14 @@ public class PlayerMovementController
         if(movementVector != Vector3.zero)
         {
             HandleRotation(movementVector);
-        } 
+        }
+
+        if (aim)
+        {
+            Vector3 cameraForward = GameController.Instance.mainCamera.Orientation.forward;
+            Vector3 vec = new Vector3(cameraForward.x, Mathf.Clamp(cameraForward.y, -CameraConfig.MAX_AIM_ANGLE+50f, CameraConfig.MAX_AIM_ANGLE+50f), cameraForward.z);
+            player.transform.forward = vec;
+        }
     }
 
     public void HandleJump()
@@ -67,5 +75,25 @@ public class PlayerMovementController
 
         Vector3 force = new(0, player.JumpForce, 0);
         player.Rigidbody.AddForce(force, ForceMode.Impulse);
+    }
+
+    public void OnAim(bool aim)
+    {
+        // Make the camera zoom in and zoom out based on the aim toggle
+        this.aim = aim;
+        if (GameController.Instance.mainCamera.behaviour is CameraFollowObject)
+        {
+            if (aim)
+            {
+                (GameController.Instance.mainCamera.behaviour as CameraFollowObject).offset.z += 2.2f;
+                (GameController.Instance.mainCamera.behaviour as CameraFollowObject).offset.x += 0.3f;
+            }
+            else
+            {
+                (GameController.Instance.mainCamera.behaviour as CameraFollowObject).offset.z -= 2.2f;
+                (GameController.Instance.mainCamera.behaviour as CameraFollowObject).offset.x -= 0.3f;
+            }
+        }
+        
     }
 }

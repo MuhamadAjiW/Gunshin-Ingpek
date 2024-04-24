@@ -15,6 +15,8 @@ public class PlayerInputController
     // Events
     public event Action<float, float> OnMovementEvent;
     public event Action OnJumpEvent;
+    public event Action<bool> OnAimEvent;
+    private bool aim = false;
     
     // Constructor
     public PlayerInputController(Player player)
@@ -37,6 +39,12 @@ public class PlayerInputController
         if(Input.GetButtonDown("Jump") && player.Grounded)
         {
             OnJumpEvent?.Invoke();
+        }
+
+        if (Input.GetKeyDown(GameInput.Instance.aimToggleButton))
+        {
+            aim = !aim;
+            OnAimEvent?.Invoke(aim);
         }
 
         bool Toggled = Input.GetKey(GameInput.Instance.inputToggleButton);

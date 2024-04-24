@@ -14,6 +14,7 @@ public class GameInput : MonoBehaviour
     [NonSerialized] public KeyCode interactButton = KeyCode.Q;
     [NonSerialized] public KeyCode sprintButton = KeyCode.LeftShift;
     [NonSerialized] public KeyCode inputToggleButton = KeyCode.LeftControl;
+    [NonSerialized] public KeyCode aimToggleButton = KeyCode.E;
 
     // Constructor
     protected void Awake()

@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameCameraController 
 {
     // Attributes
-    private Camera activeCamera;
-    private CameraBehaviour behaviour;
-    private CameraBehaviourType behaviourType;
+    public Camera activeCamera;
+    public CameraBehaviour behaviour;
+    public CameraBehaviourType behaviourType;
 
     // Set-Getters
     public Transform Orientation => activeCamera.transform;
@@ -17,6 +17,7 @@ public class GameCameraController
     {
         activeCamera = camera;
         activeCamera.enabled = true;
+        behaviour = camera.GetComponent<CameraBehaviour>();
     }
 
     // Functions

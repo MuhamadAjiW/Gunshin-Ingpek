@@ -206,7 +206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  data: {fileID: 0}
 --- !u!4 &272310726
 Transform:
   m_ObjectHideFlags: 0
@@ -552,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1838854055268103909, guid: 71b1260932d07054caf2d52890e46704, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 1838854055268103909, guid: 71b1260932d07054caf2d52890e46704, type: 3}
       propertyPath: m_LocalPosition.z
@@ -919,12 +918,11 @@ MonoBehaviour:
   maxHealth: 10
   health: 10
   damagedDelay: 1
+  baseDamage: 0
   weaponList:
   - {fileID: 1829954854}
-  baseDamage: 0
-  weaponLocation: {x: 0, y: 0, z: 0}
   companionList: []
-  activeCompanions: 
+  companionActive: 
 --- !u!54 &1652156427
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1151,6 +1149,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 1
+  events: []
+  currencyData:
+    balance: 0
+    transactions: []
+  positionData:
+    level: 1
+    point: {x: 0, y: 0, z: 0}
+  storyData:
+    events: []
+    progress: 
+  statisticsData:
+    enemiesKilled: 0
 --- !u!4 &1919968790
 Transform:
   m_ObjectHideFlags: 0
