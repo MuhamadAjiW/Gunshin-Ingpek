@@ -4,10 +4,10 @@ using UnityEngine;
 namespace _Scripts.Core.Game.Data.Statistics
 {
     [Serializable]
-    public class StatisticsData: DataClass
+    public class StatisticsData
     {
         public int enemiesKilled = 0;
-        public override void Load(string json)
+        public void Load(string json)
         {
             StatisticsData data = JsonUtility.FromJson<StatisticsData>(json);
             if (data != null)
@@ -16,7 +16,7 @@ namespace _Scripts.Core.Game.Data.Statistics
             }
         }
 
-        public override string SaveToJson()
+        public string SaveToJson()
         {
             return JsonUtility.ToJson(this);
         }

@@ -41,6 +41,8 @@ public class PlayerMovementController
         Vector3 dampVelocity = Vector3.zero;
 
         Vector3 movementVector = inputX * axisX.normalized + inputZ * axisZ.normalized;
+
+        Debug.Log(player.stats);
         Vector3 modifierVector = movementVector.normalized * player.stats.MaxSpeed;
         velocity.x = modifierVector.x;
         velocity.z = modifierVector.z;

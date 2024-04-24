@@ -5,7 +5,7 @@ using UnityEngine;
 namespace _Scripts.Core.Game.Data.Currency
 {
     [Serializable]
-    public class CurrencyData: DataClass
+    public class CurrencyData
     {
         [Serializable]
         public class Transaction
@@ -22,7 +22,7 @@ namespace _Scripts.Core.Game.Data.Currency
             transactions.Add(new Transaction { amount = amount, description = description });
             balance += amount;
         }
-        public override void Load(string json)
+        public void Load(string json)
         {
             CurrencyData data = JsonUtility.FromJson<CurrencyData>(json);
             if (data != null)
@@ -39,7 +39,7 @@ namespace _Scripts.Core.Game.Data.Currency
             }
         }
 
-        public override string SaveToJson()
+        public string SaveToJson()
         {
             return JsonUtility.ToJson(this);
         }

@@ -9,14 +9,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class GameSaveData : MonoBehaviour
+public class GameSaveData : MonoBehaviour 
 {
     // Static Instance
     public static GameSaveData Instance;
 
     // Attributes
     public DifficultyType difficulty = DifficultyType.NORMAL;
-    public List<String> events = new();
+    public List<string> events = new();
     // Save the currency of the player
     public CurrencyData currencyData = new();
     // Save the position and the level of the player
