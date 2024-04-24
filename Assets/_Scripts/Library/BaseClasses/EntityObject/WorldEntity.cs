@@ -84,8 +84,7 @@ public class WorldEntity : WorldObject, IRigid
             return;
         }
 
-        Vector3 center = transform.position;
-        Collider[] groundOverlaps = Physics.OverlapBox(center, groundDetectionSize, Quaternion.identity, groundLayers);
+        Collider[] groundOverlaps = Physics.OverlapBox(model.Bottom, groundDetectionSize, Quaternion.identity, groundLayers);
         grounded = groundOverlaps.Length != 0;
     }
 }

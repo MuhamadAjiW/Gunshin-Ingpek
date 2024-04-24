@@ -143,4 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4d5359067cdfb47a45684d6cc1482a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponPivot: {x: 0.258, y: 0.75, z: 0.375}
+  staticWeaponPivot: {x: 0.2, y: 0, z: 0.375}
+  renderer: {fileID: 0}
+  bottomOffset: 0
