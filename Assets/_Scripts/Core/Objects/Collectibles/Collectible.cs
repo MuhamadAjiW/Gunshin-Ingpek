@@ -15,6 +15,8 @@ public abstract class Collectible : WorldObject
     protected new void Start()
     {
         base.Start();
+        SetLayer(EnvironmentConfig.LAYER_COLLECTIBLE);
+        
         OnCollectEvent += OnCollect;
         OnCollectEvent += OnCollectEnd;
         OnTimeoutEvent += OnTimeout;

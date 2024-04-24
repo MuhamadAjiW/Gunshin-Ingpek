@@ -52,9 +52,16 @@ public class WorldEntity : WorldObject, IRigid
 
         groundDetectionSize = new Vector3(0.05f, 0.05f, 0.05f);      
         groundLayers = LayerMask.GetMask(EnvironmentConfig.LAYER_DEFAULT);
+        model.gameObject.layer = LayerMask.NameToLayer(LayerCode);
     }
 
     // Functions
+    public new void SetLayer(string layerCode)
+    {
+        base.SetLayer(layerCode);
+        model.gameObject.layer = LayerMask.NameToLayer(LayerCode);
+    }
+
     protected void Refresh()
     {
         Rigidbody.AddForce(Vector2.zero);

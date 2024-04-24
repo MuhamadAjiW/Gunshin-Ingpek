@@ -11,14 +11,24 @@ public class CombatantEntity : DamageableEntity, IArmed
     public List<WeaponObject> weaponList = new();
     private int weaponIndex;
     private WeaponObject weapon;
+    private float attackMultiplier = 1f;
+    private string attackLayerCode = EnvironmentConfig.LAYER_ENVIRONMENT_ATTACK;
     
     // Set-Getters
     public List<WeaponObject> WeaponList => weaponList;
     public WeaponObject Weapon => weapon;
     public Transform Orientation => transform;
     public Vector3 WeaponLocation => model.WeaponPivot;
-    public string AttackLayerCode => EnvironmentConfig.LAYER_ENVIRONMENT_ATTACK;
-    public float AttackMultiplier => 1f;
+    public float AttackMultiplier
+    {
+        get => attackMultiplier;
+        set => attackMultiplier = value;
+    }
+    public string AttackLayerCode
+    {
+        get => attackLayerCode;
+        set => attackLayerCode = value;
+    }
     public float BaseDamage 
     {
         get => baseDamage;
@@ -51,6 +61,17 @@ public class CombatantEntity : DamageableEntity, IArmed
 
 
     // Functions
+    public void SetAttackLayer(string attackLayerCode)
+    {
+        AttackLayerCode = attackLayerCode;
+        AttackMultiplier = attackLayerCode switch 
+        {
+            EnvironmentConfig.LAYER_ENEMY_ATTACK => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].enemyDamageMultiplier,
+            EnvironmentConfig.LAYER_PLAYER_ATTACK => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerDamageMultiplier,
+            _ => 1f
+        };
+    }
+    
     public void EquipWeapon(int index)
     {
         if(weaponList.Count == 0)

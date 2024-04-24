@@ -15,10 +15,6 @@ public class Player : PlayerEntity
     public PlayerStateController stateController;
     public PlayerStats stats;
 
-    // Set-Getters
-    public new string AttackLayerCode => EnvironmentConfig.LAYER_PLAYER;
-    public new float AttackMultiplier => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerDamageMultiplier;
-
     // Constructor
     new void Start()
     {
@@ -30,6 +26,8 @@ public class Player : PlayerEntity
         inputController = new PlayerInputController(this);
         movementController = new PlayerMovementController(this);
         animationController = new PlayerAnimationController(this);
+        SetLayer(EnvironmentConfig.LAYER_PLAYER);
+        SetAttackLayer(EnvironmentConfig.LAYER_PLAYER_ATTACK);
         GameController.Instance.player = this;
 
 

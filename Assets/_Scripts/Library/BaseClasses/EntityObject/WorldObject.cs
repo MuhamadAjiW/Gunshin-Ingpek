@@ -3,14 +3,20 @@ using UnityEngine;
 public class WorldObject : MonoBehaviour
 {
     // Attributes
+    public string id;
     private static int autoIncrement = 0;
     private int numberId; 
     private string prefix;
-    public string id;
+    private string layerCode = EnvironmentConfig.LAYER_DEFAULT;
 
     // Set-Getters
     public Vector3 Front => transform.rotation * Vector3.forward;
     public Quaternion Rotation => transform.rotation;
+    public string LayerCode
+    {
+        get => layerCode;
+        set => layerCode = value;
+    }
 
     // Constructor
     protected void Start()
@@ -29,7 +35,16 @@ public class WorldObject : MonoBehaviour
         numberId = autoIncrement;
         id = numberId.ToString();
         autoIncrement++;
+
+        gameObject.layer = LayerMask.NameToLayer(LayerCode);
     }
+
+    public void SetLayer(string layerCode)
+    {
+        LayerCode = layerCode;
+        gameObject.layer = LayerMask.NameToLayer(LayerCode);
+    }
+
 
     // Functions
     protected void SetIdPrefix(string prefix)

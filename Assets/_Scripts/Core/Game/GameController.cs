@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public GameCameraController mainCamera;
     public GameStateController stateController;
 
-    // Set-getters
+    // Set-Getters
     public bool IsPaused => Time.timeScale == 0;
 
     // Constructor

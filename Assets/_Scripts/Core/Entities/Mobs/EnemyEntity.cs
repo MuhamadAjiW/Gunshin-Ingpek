@@ -1,15 +1,14 @@
+using UnityEngine;
+
 public abstract class EnemyEntity : CombatantEntity 
 {
-    // Set-Getters
-    public new string AttackLayerCode => EnvironmentConfig.LAYER_ENEMY_ATTACK;
-    public new float AttackMultiplier => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].enemyDamageMultiplier;
-
     // Functions
     new protected void Start()
     {
         base.Start();
+        SetLayer(EnvironmentConfig.LAYER_ENEMY);
+        SetAttackLayer(EnvironmentConfig.LAYER_ENEMY_ATTACK);
         Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].enemyHealthMultiplier;
-        BaseDamage *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].enemyDamageMultiplier;
         tag = EnvironmentConfig.TAG_ENEMY;
     }
 }

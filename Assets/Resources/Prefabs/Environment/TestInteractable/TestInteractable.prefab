@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6312057550851766622}
+  - {fileID: 5263704032773805873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &344713511152250207
@@ -67,7 +67,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: -1, y: 0.5, z: 0}
---- !u!1001 &7576994708712382837
+--- !u!1001 &8625066742953119514
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521062537676429355, guid: ec549132bf117594e81e95cc4ae15b07, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4521062537676429355, guid: ec549132bf117594e81e95cc4ae15b07, type: 3}
       propertyPath: m_LocalPosition.z
@@ -117,15 +117,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5071667469683539556, guid: ec549132bf117594e81e95cc4ae15b07, type: 3}
       propertyPath: m_Name
-      value: Model
+      value: TestInteractableModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec549132bf117594e81e95cc4ae15b07, type: 3}
---- !u!4 &6312057550851766622 stripped
+--- !u!4 &5263704032773805873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4521062537676429355, guid: ec549132bf117594e81e95cc4ae15b07, type: 3}
-  m_PrefabInstance: {fileID: 7576994708712382837}
+  m_PrefabInstance: {fileID: 8625066742953119514}
   m_PrefabAsset: {fileID: 0}
