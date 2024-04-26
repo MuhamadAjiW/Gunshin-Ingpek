@@ -18,12 +18,12 @@ public class TestInteractableAnimationController : AnimationController
     private void IndicateInteractable()
     {
         Debug.Log("Test Interactable is interactable now");
-        meshRenderer.material.color = Color.yellow;
+        renderer.material.color = Color.yellow;
     }
 
     private void IndicateUninteractable()
     {
         Debug.Log("Test Interactable is uninteractable now");
-        meshRenderer.material.color = Color.white;
+        renderer.material.color = Color.white;
     }
 }

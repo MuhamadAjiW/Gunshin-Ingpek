@@ -19,11 +19,11 @@ public class DummyAnimationController : AnimationController
     // Functions
     private void IndicateDamaged()
     {
-        meshRenderer.material.color = Color.red;
+        renderer.material.color = Color.red;
     }
 
     private void IndicateUnamaged()
     {
-        meshRenderer.material.color = Color.white;
+        renderer.material.color = Color.white;
     }
 }

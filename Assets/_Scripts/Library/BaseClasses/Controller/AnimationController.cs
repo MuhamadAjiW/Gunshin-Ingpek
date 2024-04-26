@@ -4,7 +4,7 @@ public abstract class AnimationController
 {
     // Attributes
     public Model model;
-    public MeshRenderer meshRenderer;
+    public Renderer renderer;
     public Animator animator;
 
     // Constructor
@@ -20,19 +20,19 @@ public abstract class AnimationController
         else
         {
             animator = model.GetComponent<Animator>();
-            meshRenderer = model.GetComponent<MeshRenderer>();
+            renderer = model.GetComponent<Renderer>();
             if(animator == null)
             {
                 Debug.LogError($"Animated object of {animable.name} does not have an animator in its model. How to resolve: add an animator to its child containing the model.cs script");
             }
-            if(meshRenderer == null)
+            if(renderer == null)
             {
-                Debug.LogError($"Animated object of {animable.name} does not have an meshRenderer in its model. How to resolve: add an meshrenderer to its child containing the model.cs script");
+                Debug.LogError($"Animated object of {animable.name} does not have an renderer in its model. How to resolve: add an renderer to its child containing the model.cs script");
             }
         }
         #else
         animator = model.GetComponent<Animator>();
-        meshRenderer = model.GetComponent<MeshRenderer>();
+        renderer = model.GetComponent<Renderer>();
         #endif
     }
 }

@@ -59,6 +59,16 @@ public abstract class WeaponObject : MonoBehaviour
         
         return true;
     }
+
+    protected void FixedUpdate()
+    {
+        bearer = GetComponentInParent<IArmed>();
+
+        if(transform.position != bearer.WeaponLocation)
+        {
+            transform.position = bearer.WeaponLocation;
+        }
+    }
     
     private IEnumerator DelayAttack(float time)
     {

@@ -4,6 +4,6 @@ public interface IAnimated
 {
     // Set-Getters
     Transform Model {get;}
-    MeshRenderer MeshRenderer {get;}
+    Renderer renderer {get;}
     Animator Animator {get;}
 }
