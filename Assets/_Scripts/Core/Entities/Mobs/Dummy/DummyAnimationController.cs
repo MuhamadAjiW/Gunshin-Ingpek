@@ -3,7 +3,7 @@ using UnityEngine;
 public class DummyAnimationController : AnimationController
 {
     // Consts
-    private const string HIT_TRIGGER = "hit_param";
+    private const string HIT_TRIGGER = "Hit_param";
 
     // Attributes
     private readonly Dummy dummy;

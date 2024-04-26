@@ -8,6 +8,7 @@ public static class GameConfig
 
     // Movement lerp constants
     public const float MOVEMENT_SMOOTHING = 0.14f;
+    public const float MOVEMENT_FALL_SMOOTHING = 1.2f;
     public const float ROTATION_SMOOTHING = 720;
     public const float CAMERA_MOUSE_VERTICAL_MAX = 60;
 

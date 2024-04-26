@@ -5,6 +5,7 @@ public class PlayerStats
     // Attributes
     private readonly Player player;
     public float sprintModifier = 1.5f;
+    public float snapshotSpeed = 0;
 
     // Set-Getters
     public float Health
@@ -26,6 +27,8 @@ public class PlayerStats
     {
         PlayerState.WALKING => player.BaseSpeed,
         PlayerState.SPRINTING => player.BaseSpeed * sprintModifier,
+        PlayerState.JUMPING => snapshotSpeed,
+        PlayerState.FALLING => snapshotSpeed,
         _ => 0
     };
 

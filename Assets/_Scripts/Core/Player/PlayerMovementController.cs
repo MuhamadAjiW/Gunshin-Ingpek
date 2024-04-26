@@ -46,6 +46,12 @@ public class PlayerMovementController
         velocity.z = modifierVector.z;
 
         player.Rigidbody.velocity = Vector3.SmoothDamp(player.Rigidbody.velocity, velocity, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);
+        
+        if (player.Rigidbody.velocity.y < 0)
+        {
+            player.Rigidbody.velocity += GameConfig.MOVEMENT_FALL_SMOOTHING * Time.deltaTime * Vector3.up;
+        }
+
         if(movementVector != Vector3.zero)
         {
             HandleRotation(movementVector);
@@ -54,6 +60,9 @@ public class PlayerMovementController
 
     public void HandleJump()
     {
+        float snapshotSpeed = Mathf.Abs(player.Rigidbody.velocity.x * 1.1f);
+        player.stats.snapshotSpeed = Mathf.Abs(snapshotSpeed > player.BaseSpeed?  snapshotSpeed : player.BaseSpeed);
+
         Vector3 force = new(0, player.JumpForce, 0);
         player.Rigidbody.AddForce(force, ForceMode.Impulse);
     }
