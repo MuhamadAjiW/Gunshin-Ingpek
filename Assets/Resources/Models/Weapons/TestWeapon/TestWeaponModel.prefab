@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6146631199650576833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.3}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -121,4 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4d5359067cdfb47a45684d6cc1482a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponPivot: {x: 0, y: 0, z: 0}
+  staticWeaponPivot: {x: 0, y: 0, z: 0}
+  dynamicBottomPoint: {fileID: 0}
+  dynamicWeaponPivot: {fileID: 0}

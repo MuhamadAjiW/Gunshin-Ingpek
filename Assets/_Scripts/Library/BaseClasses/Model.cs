@@ -5,19 +5,18 @@ public class Model : MonoBehaviour
 {
     // Attributes
     public Vector3 staticWeaponPivot;
+    public Transform dynamicBottomPoint;
     public Transform dynamicWeaponPivot;
     [NonSerialized] public new Renderer renderer;
     [NonSerialized] public float bottomOffset;
     
     // Set-getters
     public Vector3 WeaponPivot => dynamicWeaponPivot == null ? staticWeaponPivot : dynamicWeaponPivot.position;
-    public Vector3 Bottom => new(transform.position.x, transform.position.y - bottomOffset, transform.position.z);
+    public Vector3 Bottom => dynamicBottomPoint == null? new(transform.position.x, transform.position.y - bottomOffset, transform.position.z) : dynamicBottomPoint.position;
 
     // Constructors
     protected void Start(){
         renderer = GetComponent<Renderer>();
-
-        Debug.Log(renderer);
 
         #if STRICT
         if (renderer == null)

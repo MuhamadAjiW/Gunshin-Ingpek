@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1050311400148833009
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 5240801910879785525}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.258, y: 0.889, z: 0.375}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -57,34 +57,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1050311400148833009}
     m_Modifications:
-    - target: {fileID: 691014024523472006, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691014024523472006, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691014024523472006, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691014024523472006, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 691014024523472006, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691014024523472006, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691014024523472006, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 691014024523472006, guid: 50599534a77c7dd46b591a71fbb5feba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
