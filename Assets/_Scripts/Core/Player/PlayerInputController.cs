@@ -68,12 +68,6 @@ public class PlayerInputController
             }
 
             player.stateController.SetWeaponState(WeaponState.ATTACK);
-
-            if(attackWindowCoroutine != null)
-            {
-                player.StopCoroutine(attackWindowCoroutine);
-            }
-            attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(attackWindow));
             
             player.StartCoroutine(HandleAttack());
         }
@@ -138,7 +132,8 @@ public class PlayerInputController
         }
         attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.attackInterval + attackWindow));
         
-        yield return new WaitForSeconds(0);
+        player.animationController.AnimateAttack(player.Weapon.attackType);
+        yield return new WaitForSeconds(delay);
         player.Weapon.Attack();
     }
 
@@ -157,7 +152,8 @@ public class PlayerInputController
         }
         attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.alternateAttackInterval + attackWindow));
 
-        yield return new WaitForSeconds(0);
+        player.animationController.AnimateAttack(player.Weapon.alternateAttackType);
+        yield return new WaitForSeconds(delay);
         player.Weapon.AlternateAttack();
     }
 

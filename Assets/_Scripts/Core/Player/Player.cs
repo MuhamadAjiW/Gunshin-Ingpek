@@ -9,8 +9,8 @@ public class Player : PlayerEntity
     public const string ObjectIdPrefix = "Player"; 
 
     // Attributes
-    private PlayerAnimationController animationController;
-    private PlayerMovementController movementController;
+    public PlayerMovementController movementController;
+    public PlayerAnimationController animationController;
     public PlayerInputController inputController;
     public PlayerStateController stateController;
     public PlayerStats stats;

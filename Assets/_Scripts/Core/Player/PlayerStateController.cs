@@ -58,14 +58,7 @@ public class PlayerStateController : EntityStateController
                 _ => PlayerState.NULL
             };
 
-            if((state & PlayerState.SPRINTING) > 0)
-            {
-                state |= extraState;
-            }
-            else
-            {
-                state = extraState;
-            }
+            state |= extraState;
         }
 
         if(initialState != state)

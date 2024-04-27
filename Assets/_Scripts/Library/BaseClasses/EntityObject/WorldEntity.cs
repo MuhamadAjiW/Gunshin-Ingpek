@@ -13,6 +13,9 @@ public class WorldEntity : WorldObject, IRigid
     protected new Rigidbody rigidbody;
     private bool grounded = false;
 
+    // Events
+    public event Action OnGroundedEvent;
+
     // Set-Getters
     public Rigidbody Rigidbody => rigidbody;
     public Vector3 Position => transform.position;
@@ -93,6 +96,10 @@ public class WorldEntity : WorldObject, IRigid
         }
 
         Collider[] groundOverlaps = Physics.OverlapBox(model.Bottom, groundDetectionSize, Quaternion.identity, groundLayers);
+        if(!grounded && groundOverlaps.Length != 0)
+        {
+            OnGroundedEvent?.Invoke();
+        }
         grounded = groundOverlaps.Length != 0;
     }
 }
