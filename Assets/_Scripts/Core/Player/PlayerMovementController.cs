@@ -69,7 +69,7 @@ public class PlayerMovementController
             player.transform.forward = vec;
         }
 
-        float raycastHeight = -0.03f;
+        float raycastHeight = -0.07f;
         bool stairFront = false;
 
         while (raycastHeight < maxStairHeight)
@@ -80,12 +80,14 @@ public class PlayerMovementController
             bool hit = Physics.Linecast(stairDetectorRear, stairDetectorFront, 1);
             if(hit)
             {
-                Debug.Log("Front bottom is blocked");
                 stairFront = true;
             }
             if(!hit)
             {
-                break;
+                if(raycastHeight > 0)
+                {
+                    break;
+                }
             }
 
             raycastHeight += 0.05f;
@@ -93,21 +95,24 @@ public class PlayerMovementController
 
         if(stairFront && raycastHeight < maxStairHeight)
         {
-            Vector3 dampPosition = Vector3.zero;
-
-            Vector3 targetPosition = player.transform.position + new Vector3(0, raycastHeight + 0.05f, 0);
-            
-            Debug.Log(player.model.Bottom);
-            if(Math.Abs(targetPosition.y - player.transform.position.y) < 0.2f)
+            if(inputZ != 0 || inputX != 0)
             {
-                Debug.Log("Peak");
-                targetPosition.x += 0.1f;
-                targetPosition.y += 0.1f;
-                player.transform.position = targetPosition;
-            }
-            else
-            {
-                player.transform.position = Vector3.SmoothDamp(player.transform.position, targetPosition, ref dampPosition, GameConfig.MOVEMENT_SMOOTHING / 4);
+                // Stair
+                if(raycastHeight > 0.1)
+                {
+                    Vector3 newPosition = player.Position;
+                    newPosition += Vector3.up * (raycastHeight + 0.05f);
+                    newPosition += player.transform.forward * 0.05f;
+                    player.transform.position = newPosition;
+                }
+                // Slope
+                else
+                {
+                    Debug.Log("Pushing");
+                    Debug.Log(player.model.Bottom);
+                    Vector3 force = (player.transform.forward + Vector3.up) * 0.1f;
+                    player.Rigidbody.AddForce(force, ForceMode.VelocityChange);
+                }
             }
         }
     }
