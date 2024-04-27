@@ -60,6 +60,7 @@ public class PlayerMovementController
         if(movementVector != Vector3.zero)
         {
             HandleRotation(movementVector);
+            HandleStairs(movementVector);
         }
 
         if (aim)
@@ -68,14 +69,26 @@ public class PlayerMovementController
             Vector3 vec = new(cameraForward.x, Mathf.Clamp(cameraForward.y, -CameraConfig.MAX_AIM_ANGLE+50f, CameraConfig.MAX_AIM_ANGLE+50f), cameraForward.z);
             player.transform.forward = vec;
         }
+    }
 
+    public void HandleJump()
+    {
+        float snapshotSpeed = Mathf.Abs(player.Rigidbody.velocity.x * 1.1f);
+        player.stats.snapshotSpeed = Mathf.Abs(snapshotSpeed > player.BaseSpeed?  snapshotSpeed : player.BaseSpeed);
+
+        Vector3 force = new(0, player.JumpForce, 0);
+        player.Rigidbody.AddForce(force, ForceMode.Impulse);
+    }
+
+    public void HandleStairs(Vector3 movementVector)
+    {
         float raycastHeight = -0.07f;
         bool stairFront = false;
 
         while (raycastHeight < maxStairHeight)
         {
             Vector3 stairDetectorRear = player.model.Bottom + (Vector3.up * raycastHeight);
-            Vector3 stairDetectorFront = player.model.Bottom + (player.transform.forward * 0.2f) + (Vector3.up * raycastHeight);
+            Vector3 stairDetectorFront = player.model.Bottom + (movementVector * 0.25f) + (Vector3.up * raycastHeight);
 
             bool hit = Physics.Linecast(stairDetectorRear, stairDetectorFront, 1);
             if(hit)
@@ -93,9 +106,10 @@ public class PlayerMovementController
             raycastHeight += 0.05f;
         }
 
+        // TODO: Could use some smoothing
         if(stairFront && raycastHeight < maxStairHeight)
         {
-            if(inputZ != 0 || inputX != 0)
+            Debug.Log($"Height: {raycastHeight}");
             {
                 // Stair
                 if(raycastHeight > 0.1)
@@ -108,22 +122,11 @@ public class PlayerMovementController
                 // Slope
                 else
                 {
-                    Debug.Log("Pushing");
-                    Debug.Log(player.model.Bottom);
                     Vector3 force = (player.transform.forward + Vector3.up) * 0.1f;
                     player.Rigidbody.AddForce(force, ForceMode.VelocityChange);
                 }
             }
         }
-    }
-
-    public void HandleJump()
-    {
-        float snapshotSpeed = Mathf.Abs(player.Rigidbody.velocity.x * 1.1f);
-        player.stats.snapshotSpeed = Mathf.Abs(snapshotSpeed > player.BaseSpeed?  snapshotSpeed : player.BaseSpeed);
-
-        Vector3 force = new(0, player.JumpForce, 0);
-        player.Rigidbody.AddForce(force, ForceMode.Impulse);
     }
 
     public void OnAim(bool aim)
@@ -147,6 +150,5 @@ public class PlayerMovementController
                 (GameController.Instance.mainCamera.behaviour as CameraFollowObject).followingTime = CameraConfig.DEFAULT_FOLLOWING_SPEED;
             }
         }
-        
     }
 }
