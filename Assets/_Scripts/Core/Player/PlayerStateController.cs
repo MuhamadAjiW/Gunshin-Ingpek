@@ -5,6 +5,7 @@ public class PlayerStateController : EntityStateController
 {
     // Attributes
     private readonly Player player;
+    public AttackType attack = AttackType.NULL;
     public List<IInteractable> currentInteractables = new();
 
     // Contstructor
@@ -14,23 +15,6 @@ public class PlayerStateController : EntityStateController
     }
 
     // Functions
-    private bool DetectWalking()
-    {
-        return Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0;
-    }
-    private bool DetectSprinting()
-    {
-        return (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && Input.GetKey(GameInput.Instance.sprintButton);
-    }
-    private bool DetectJumping()
-    {
-        return !player.Grounded && player.Rigidbody.velocity.y > 0;
-    }
-    private bool DetectFalling()
-    {
-        return !player.Grounded && player.Rigidbody.velocity.y < 0;
-    }
-
     public override int UpdateState()
     {
         int initialState = state;
@@ -56,11 +40,44 @@ public class PlayerStateController : EntityStateController
             state = PlayerState.IDLE;
         }
 
+        if(DetectAttacking())
+        {
+            int extraState = player.Weapon.AttackType switch
+            {
+                AttackType.RANGED => PlayerState.ATTACK_RANGED,
+                AttackType.MELEE => PlayerState.ATTACK_MELEE,
+                _ => PlayerState.NULL
+            };
+
+            state |= extraState;
+        }
+
         if(initialState != state)
         {
             InvokeOnStateChanged();
         }
 
         return state;
+    }
+
+    private bool DetectWalking()
+    {
+        return Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0;
+    }
+    private bool DetectSprinting()
+    {
+        return (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && Input.GetKey(GameInput.Instance.sprintButton);
+    }
+    private bool DetectJumping()
+    {
+        return !player.Grounded && player.Rigidbody.velocity.y > 0;
+    }
+    private bool DetectFalling()
+    {
+        return !player.Grounded && player.Rigidbody.velocity.y < 0;
+    }
+    private bool DetectAttacking()
+    {
+        return !player.Weapon.CanAttack;
     }
 }

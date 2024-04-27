@@ -78,7 +78,7 @@ public class CombatantEntity : DamageableEntity, IArmed
         {
             return;
         }
-        if(Weapon != null && !Weapon.canAttack)
+        if(Weapon != null && !Weapon.CanAttack)
         {
             return;
         }

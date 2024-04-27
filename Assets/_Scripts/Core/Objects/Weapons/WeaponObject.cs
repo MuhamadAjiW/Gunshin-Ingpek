@@ -7,8 +7,19 @@ public abstract class WeaponObject : MonoBehaviour
 
     // Attributes
     public WeaponData data;
-    public bool canAttack = true;
+    public WeaponState state;
+    [SerializeField] protected AttackType attackType;
+    [SerializeField] protected AttackType alternateAttackType;
     protected IArmed bearer;
+
+    // Set-Getters
+    public bool CanAttack => state == WeaponState.IDLE;
+    public AttackType AttackType => state switch
+    {
+        WeaponState.ATTACK => attackType,
+        WeaponState.ALTERNATE_ATTACK => alternateAttackType,
+        _ => AttackType.NULL
+    };
 
     // Events
     public event Action OnAttackEvent;
@@ -26,7 +37,7 @@ public abstract class WeaponObject : MonoBehaviour
         }
         #endif
 
-        canAttack = true;
+        state = WeaponState.IDLE;
         OnAttackEvent += OnAttack;
         OnAlternateAttackEvent += OnAlternateAttack;
     }
@@ -34,12 +45,12 @@ public abstract class WeaponObject : MonoBehaviour
     // Functions
     public virtual bool Attack()
     {
-        if(!canAttack)
+        if(!CanAttack)
         {
             return false;
         }
         
-        canAttack = false;
+        state = WeaponState.ATTACK;
         StartCoroutine(DelayAttack(data.attackInterval));
         OnAttackEvent?.Invoke();
 
@@ -48,12 +59,12 @@ public abstract class WeaponObject : MonoBehaviour
 
     public virtual bool AlternateAttack()
     {
-        if(!canAttack)
+        if(!CanAttack)
         {
             return false;
         }
 
-        canAttack = false;
+        state = WeaponState.ALTERNATE_ATTACK;
         StartCoroutine(DelayAttack(data.alternateAttackInterval));
         OnAlternateAttackEvent?.Invoke();
         
@@ -73,7 +84,7 @@ public abstract class WeaponObject : MonoBehaviour
     private IEnumerator DelayAttack(float time)
     {
         yield return new WaitForSeconds(time);
-        canAttack = true;
+        state = WeaponState.IDLE;
     }
 
     // Abstract Functions

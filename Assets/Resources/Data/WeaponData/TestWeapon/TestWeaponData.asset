@@ -17,4 +17,4 @@ MonoBehaviour:
   baseDamage: 10
   knockbackPower: 10
   attackInterval: 0.2
-  alternateAttackInterval: 1
+  alternateAttackInterval: 0.5

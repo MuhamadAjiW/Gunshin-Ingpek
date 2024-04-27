@@ -46,7 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 875c881f7a9ed2347a9d28ca2c18c4b5, type: 2}
-  canAttack: 1
+  state: 0
+  attackType: 2
+  alternateAttackType: 1
   fireRange: 10
   projectileSpeed: 50
 --- !u!1001 &3646467262361916678

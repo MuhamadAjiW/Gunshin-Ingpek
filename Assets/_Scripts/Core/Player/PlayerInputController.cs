@@ -55,7 +55,7 @@ public class PlayerInputController
             player.EquipWeapon(player.WeaponIndex + (int)(movementInputScroll * 10));
         }
 
-        else if(Input.GetKeyDown(GameInput.Instance.attackButton))
+        else if(Input.GetKeyDown(GameInput.Instance.attackButton) && player.Grounded)
         {
             Debug.Log("Player is Attacking");
             if(player.Weapon == null)
@@ -66,7 +66,7 @@ public class PlayerInputController
 
             player.Weapon.Attack();
         }
-        else if(Input.GetKeyDown(GameInput.Instance.attackAlternateButton))
+        else if(Input.GetKeyDown(GameInput.Instance.attackAlternateButton) && player.Grounded)
         {
             Debug.Log("Player is Attacking (alternate)");
             if(player.Weapon == null)
@@ -77,7 +77,7 @@ public class PlayerInputController
 
             player.Weapon.AlternateAttack();
         }
-        else if(Input.GetKeyDown(GameInput.Instance.interactButton))
+        else if(Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
         {
             Debug.Log("Player is interacting");
             if(player.stateController.currentInteractables.Count == 0)

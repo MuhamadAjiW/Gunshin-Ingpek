@@ -3,7 +3,10 @@ using System;
 public abstract class EntityStateController
 {
     // Attributes
-    public int state;
+    protected int state;
+
+    // Set-Getters
+    public int State => state;
 
     // Events
     public event Action OnStateChangeEvent;
