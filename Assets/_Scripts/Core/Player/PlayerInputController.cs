@@ -178,7 +178,6 @@ public class PlayerInputController
     private IEnumerator HandleAttackWindow(float attackWindow)
     {
         yield return new WaitForSeconds(attackWindow);
-        Debug.Log("Out of attack window");
         player.stateController.ClearWeaponState();
     }
 }

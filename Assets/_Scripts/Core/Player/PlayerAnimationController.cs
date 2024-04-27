@@ -32,7 +32,6 @@ public class PlayerAnimationController : AnimationController
             Debug.LogError($"Animated object of {player.name} does not have an animator in its model. How to resolve: add an animator to its child containing the model.cs script");
         }
         #endif
-        Debug.Log(player.stateController.State);
 
         if((player.stateController.State & PlayerState.JUMPING) > 0)
         {

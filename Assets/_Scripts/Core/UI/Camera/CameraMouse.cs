@@ -13,8 +13,10 @@ public class CameraMouse : CameraFollowObject
     protected new void Start()
     {
         base.Start();
+        offset = CameraConfig.DEFAULT_CAMERA_OFFSET;
+        initialRotation = CameraConfig.DEFAULT_CAMERA_ROTATION;
+        
         Cursor.lockState = CursorLockMode.Locked;
-        initialRotation = transform.rotation;
     }
 
     // Functions

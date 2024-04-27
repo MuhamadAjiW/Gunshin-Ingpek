@@ -48,6 +48,10 @@ public class AttackObject : MonoBehaviour, IDamaging, IKnockback
     {    
         // Note: Hitboxes are traditionally placed within a model, therefore we get the damageable component from its parent
         Transform objectParent = otherCollider.transform.parent;
+        if(objectParent == null)
+        {
+            return true;
+        }
         objectParent.TryGetComponent<IDamageable>(out var damageableObject);
         if(damageableObject == null)
         {
