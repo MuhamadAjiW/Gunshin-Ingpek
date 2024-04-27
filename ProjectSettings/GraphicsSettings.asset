@@ -37,10 +37,14 @@ GraphicsSettings:
   m_PreloadShadersBatchTimeLimit: -1
   m_SpritesDefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_CustomRenderPipeline: {fileID: 11400000, guid: 959248546847e0149ac93bb550190e45, type: 2}
 =======
   m_CustomRenderPipeline: {fileID: 0}
 >>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
+=======
+  m_CustomRenderPipeline: {fileID: 11400000, guid: 959248546847e0149ac93bb550190e45, type: 2}
+>>>>>>> 5488cd99 (feat: incorporated jean textures and maps)
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 0, z: 1}
   m_DefaultRenderingPath: 1
@@ -69,8 +73,12 @@ GraphicsSettings:
     UnityEngine.Rendering.HighDefinition.HDRenderPipeline: {fileID: 11400000, guid: a93c03cad4534f640944f7d3d5f1e9ee, type: 2}
     UnityEngine.Rendering.Universal.UniversalRenderPipeline: {fileID: 11400000, guid: 199630221963d5443beb39d75703d665, type: 2}
   m_LightsUseLinearIntensity: 0
+<<<<<<< HEAD
   m_LightsUseColorTemperature: 0
 >>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
+=======
+  m_LightsUseColorTemperature: 1
+>>>>>>> 5488cd99 (feat: incorporated jean textures and maps)
   m_DefaultRenderingLayerMask: 1
   m_LogWhenShaderIsCompiled: 0
   m_LightProbeOutsideHullStrategy: 0

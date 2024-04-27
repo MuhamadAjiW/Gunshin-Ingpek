@@ -78,6 +78,7 @@
       "url": "https://packages.unity.com"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "com.unity.ide.vscode": {
       "version": "1.2.4",
@@ -87,6 +88,8 @@
       "url": "https://packages.unity.com"
     },
 >>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
+=======
+>>>>>>> 5488cd99 (feat: incorporated jean textures and maps)
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 1,

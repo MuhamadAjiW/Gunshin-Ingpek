@@ -54,7 +54,7 @@ public class WorldEntity : WorldObject, IRigid
         }
         #endif
 
-        groundDetectionSize = new Vector3(0.05f, 0.05f, 0.05f);      
+        groundDetectionSize = new Vector3(0.3f, 0.3f, 0.3f);      
         groundLayers = LayerMask.GetMask(EnvironmentConfig.LAYER_DEFAULT);
         model.gameObject.layer = LayerMask.NameToLayer(LayerCode);
     }
