@@ -44,6 +44,7 @@ public class GameCameraController
             CameraBehaviourType.STATIC => activeCamera.AddComponent<CameraStatic>(),
             CameraBehaviourType.FOLLOW => activeCamera.AddComponent<CameraFollowObject>(),
             CameraBehaviourType.MOUSE => activeCamera.AddComponent<CameraMouse>(),
+            CameraBehaviourType.SKILL_1 => activeCamera.AddComponent<CameraSkill_1>(),
             _ => throw new Exception("Invalid cameraBehaviourType set, please refer to enum CameraBehaviourType for valid types")
         };
 

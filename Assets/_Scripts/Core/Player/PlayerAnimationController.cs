@@ -71,6 +71,9 @@ public class PlayerAnimationController : AnimationController
         animator.SetBool(RANGED_TRIGGER, false);
         animator.SetBool(MELEE_TRIGGER, false);
         animator.SetBool(SKILL_TRIGGER, true);
+
+        GameController.Instance.mainCamera.SetCameraBehaviour(CameraBehaviourType.SKILL_1);
+        (GameController.Instance.mainCamera.behaviour as CameraFollowObject).target = player.transform;
     }
 
     private int GetMovementState(int state)

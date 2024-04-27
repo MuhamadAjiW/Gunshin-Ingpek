@@ -51,11 +51,32 @@ public class TestWeapon : WeaponObject
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
-            knockbackOrigin: transform.position,
+            knockbackOrigin: transform.position + (transform.forward * 0.5f),
             parent: animationController.model.transform,
             objectName: "TestWeapon Hitbox"
         );
 
         ObjectFactory.DestroyObject(attackHitbox, 0.5f);
+    }
+
+    protected override void OnSkill()
+    {
+        ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
+            prefabPath: projectilePrefab,
+            damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
+            knockbackPower: data.knockbackPower * 2,
+            attackLayerCode: bearer.AttackLayerCode,
+            damageModifier: bearer.AttackMultiplier * 4,
+            position: transform.position + (transform.forward * 0.5f),
+            rotation: bearer.Orientation.rotation,
+            knockbackOrigin: transform.position - (bearer.Orientation.forward * projectileSpeed),
+            objectName: "TestWeapon Skill Projectile"
+        );
+
+        attackProjectile.data.travelDistance = fireRange * 2;
+        attackProjectile.data.speed = projectileSpeed;
+        attackProjectile.direction = bearer.Orientation.forward;
+
+        ObjectFactory.DestroyObject(attackProjectile, 2f);
     }
 }

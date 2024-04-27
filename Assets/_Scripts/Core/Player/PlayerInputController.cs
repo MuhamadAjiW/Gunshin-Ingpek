@@ -93,14 +93,26 @@ public class PlayerInputController
         }
         else if(Input.GetKeyDown(GameInput.Instance.attackSkillButton) && player.Grounded)
         {
-            Debug.Log("Player is Using a skill");
+            if(!player.Weapon.data.canSkill)
+            {
+                return;
+            }
             if(player.Weapon == null)
             {
                 Debug.Log("Player does not have a weapon");
                 return;
             }
+            if(aim)
+            {
+                aim = !aim;
+                OnAimEvent?.Invoke(aim);
+            }
+            Debug.Log("Player is Using a skill");
 
             player.animationController.AnimateSkill();
+
+            player.stateController.SetWeaponState(WeaponState.SKILL);
+            player.StartCoroutine(HandleSkill());
         }
         else if(Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
         {
@@ -174,6 +186,13 @@ public class PlayerInputController
         yield return new WaitForSeconds(delay);
         player.Weapon.AlternateAttack();
     }
+
+    private IEnumerator HandleSkill()
+    {
+        yield return new WaitForSeconds(player.model.skillAnimationDelay);
+        player.Weapon.Skill();
+    }
+
 
     private IEnumerator HandleAttackWindow(float attackWindow)
     {

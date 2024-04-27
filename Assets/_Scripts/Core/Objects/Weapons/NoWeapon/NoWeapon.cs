@@ -11,4 +11,8 @@ public class NoWeapon : WeaponObject
     protected override void OnAlternateAttack()
     {
     }
+
+    protected override void OnSkill()
+    {
+    }
 }

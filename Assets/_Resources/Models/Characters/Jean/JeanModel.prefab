@@ -12701,6 +12701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3738926971660565114}
   - component: {fileID: 7453883038108435637}
+  - component: {fileID: 2422882661156513751}
   - component: {fileID: 5961469541952119665}
   - component: {fileID: 8709419276929931250}
   - component: {fileID: 1174415839910585320}
@@ -13266,6 +13267,29 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000014202669, y: -0.00011473725, z: 0.0077253976}
     m_Extent: {x: 0.0052090595, y: 0.001601327, z: 0.008134539}
   m_DirtyAABB: 0
+--- !u!136 &2422882661156513751
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6497556749472931103}
+  m_Material: {fileID: 13400000, guid: 6b36fb2e3a8a80643988a623d515cbcc, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.220906
+  m_Height: 1.526908
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.77238554, z: 0}
 --- !u!65 &5961469541952119665
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13285,8 +13309,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 1.6269078, z: 0.32026577}
-  m_Center: {x: -0.000014201666, y: 0.77238554, z: 0.006592878}
+  m_Size: {x: 0.3, y: 0.2, z: 0.2202658}
+  m_Center: {x: -0.000014201666, y: 0.1, z: 0.006592878}
 --- !u!114 &8709419276929931250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13300,7 +13324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAnimationDelay: 0
-  rangedAnimationDelay: 0
+  rangedAnimationDelay: 0.1
+  skillAnimationDelay: 0.8
   staticWeaponPivot: {x: 0, y: 0, z: 0}
   dynamicBottomPoint: {fileID: 3738926971660565114}
   dynamicWeaponPivot: {fileID: 324142494282531500}

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CameraMouse : CameraFollowObject 
 {
+    
     // Attributes
     public float mouseSensitivity = 1f;
     private Vector2 mouseTurn;
@@ -12,11 +13,11 @@ public class CameraMouse : CameraFollowObject
     // Constructor
     protected new void Start()
     {
+        // TODO: Can be improved by not resetting hard direction and angle wise 
         base.Start();
         offset = CameraConfig.DEFAULT_CAMERA_OFFSET;
-        initialRotation = CameraConfig.DEFAULT_CAMERA_ROTATION;
-        
         Cursor.lockState = CursorLockMode.Locked;
+        initialRotation = CameraConfig.DEFAULT_CAMERA_ROTATION;
     }
 
     // Functions

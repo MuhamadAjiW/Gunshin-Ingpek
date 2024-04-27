@@ -25,6 +25,7 @@ public abstract class WeaponObject : MonoBehaviour
     public event Action OnAttackFinished;
     public event Action OnAttackEvent;
     public event Action OnAlternateAttackEvent;
+    public event Action OnSkillEvent;
 
     // Constructor
     protected void Start()
@@ -41,6 +42,7 @@ public abstract class WeaponObject : MonoBehaviour
         state = WeaponState.IDLE;
         OnAttackEvent += OnAttack;
         OnAlternateAttackEvent += OnAlternateAttack;
+        OnSkillEvent += OnSkill;
     }
 
     // Functions
@@ -72,6 +74,20 @@ public abstract class WeaponObject : MonoBehaviour
         return true;
     }
 
+    public virtual bool Skill()
+    {
+        if(!CanAttack)
+        {
+            return false;
+        }
+
+        state = WeaponState.SKILL;
+        StartCoroutine(DelayAttack(data.skillInterval));
+        OnSkillEvent?.Invoke();
+        
+        return true;
+    }
+
     protected void FixedUpdate()
     {
         bearer = GetComponentInParent<IArmed>();
@@ -92,4 +108,5 @@ public abstract class WeaponObject : MonoBehaviour
     // Abstract Functions
     protected abstract void OnAttack();
     protected abstract void OnAlternateAttack();
+    protected abstract void OnSkill();
 }
