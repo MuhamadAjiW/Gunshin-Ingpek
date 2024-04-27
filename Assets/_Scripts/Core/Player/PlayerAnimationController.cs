@@ -4,10 +4,12 @@ public class PlayerAnimationController : AnimationController
 {
     // Consts
     private const string MOVEMENT_PARAM = "Movement_param"; 
-    private const string JUMP_TRIGGER = "Jump_param"; 
+    private const string JUMP_BOOL = "Jump_param"; 
+    private const string DEATH_BOOL = "Death_param"; 
     private const string MELEE_TRIGGER = "MeleeAttack_param"; 
     private const string RANGED_TRIGGER = "RangedAttack_param"; 
     private const string HIT_TRIGGER = "Hit_param"; 
+    private const string SKILL_TRIGGER = "Skill_param"; 
     
     // Attributes
     private readonly Player player;
@@ -18,6 +20,7 @@ public class PlayerAnimationController : AnimationController
         this.player = player;
         player.stateController.OnStateChangeEvent += AnimateStates;
         player.OnGroundedEvent += ClearJumping;
+        player.OnDamagedEvent += OnDamaged;
     }
 
     // Functions
@@ -33,7 +36,7 @@ public class PlayerAnimationController : AnimationController
 
         if((player.stateController.State & PlayerState.JUMPING) > 0)
         {
-            animator.SetBool(JUMP_TRIGGER, true);
+            animator.SetBool(JUMP_BOOL, true);
         }
 
         switch (GetMovementState(player.stateController.State))
@@ -64,6 +67,13 @@ public class PlayerAnimationController : AnimationController
         }
     }
 
+    public void AnimateSkill()
+    {
+        animator.SetBool(RANGED_TRIGGER, false);
+        animator.SetBool(MELEE_TRIGGER, false);
+        animator.SetBool(SKILL_TRIGGER, true);
+    }
+
     private int GetMovementState(int state)
     {
         return state & (PlayerState.IDLE | PlayerState.WALKING  | PlayerState.SPRINTING);
@@ -71,6 +81,11 @@ public class PlayerAnimationController : AnimationController
 
     private void ClearJumping()
     {
-        animator.SetBool(JUMP_TRIGGER, false);
+        animator.SetBool(JUMP_BOOL, false);
+    }
+
+    private void OnDamaged()
+    {
+        animator.SetBool(HIT_TRIGGER, true);
     }
 }

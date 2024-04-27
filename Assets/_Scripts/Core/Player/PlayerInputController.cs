@@ -84,6 +84,17 @@ public class PlayerInputController
 
             player.StartCoroutine(HandleAlternateAttack());
         }
+        else if(Input.GetKeyDown(GameInput.Instance.attackSkillButton) && player.Grounded)
+        {
+            Debug.Log("Player is Using a skill");
+            if(player.Weapon == null)
+            {
+                Debug.Log("Player does not have a weapon");
+                return;
+            }
+
+            player.animationController.AnimateSkill();
+        }
         else if(Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
         {
             Debug.Log("Player is interacting");
