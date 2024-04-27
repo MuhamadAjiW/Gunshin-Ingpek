@@ -10,7 +10,6 @@ public class PlayerInputController
     public float movementInputZ;
     public float movementInputScroll;
     public bool movementInputJump;
-    public float attackWindow = 0f;
     protected Coroutine attackWindowCoroutine;
 
     // Events
@@ -141,7 +140,7 @@ public class PlayerInputController
         {
             player.StopCoroutine(attackWindowCoroutine);
         }
-        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.attackInterval + attackWindow));
+        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.attackInterval));
         
         player.animationController.AnimateAttack(player.Weapon.attackType);
         yield return new WaitForSeconds(delay);
@@ -161,7 +160,7 @@ public class PlayerInputController
         {
             player.StopCoroutine(attackWindowCoroutine);
         }
-        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.alternateAttackInterval + attackWindow));
+        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.alternateAttackInterval));
 
         player.animationController.AnimateAttack(player.Weapon.alternateAttackType);
         yield return new WaitForSeconds(delay);
