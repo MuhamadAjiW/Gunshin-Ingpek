@@ -49,6 +49,15 @@ public class Player : PlayerEntity
     }
 
     // Functions
+    public new void EquipWeapon(int index){
+        if(stateController.weaponState != WeaponState.IDLE)
+        {
+            return;
+        }
+
+        base.EquipWeapon(index);
+    }
+
     protected new void Update()
     {
         base.Update();

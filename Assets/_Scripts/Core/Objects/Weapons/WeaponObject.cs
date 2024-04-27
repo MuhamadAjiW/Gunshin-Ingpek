@@ -8,13 +8,13 @@ public abstract class WeaponObject : MonoBehaviour
     // Attributes
     public WeaponData data;
     public WeaponState state;
-    [SerializeField] protected AttackType attackType;
-    [SerializeField] protected AttackType alternateAttackType;
+    public AttackType attackType;
+    public AttackType alternateAttackType;
     protected IArmed bearer;
 
     // Set-Getters
     public bool CanAttack => state == WeaponState.IDLE;
-    public AttackType AttackType => state switch
+    public AttackType CurrentAttackType => state switch
     {
         WeaponState.ATTACK => attackType,
         WeaponState.ALTERNATE_ATTACK => alternateAttackType,
@@ -22,6 +22,7 @@ public abstract class WeaponObject : MonoBehaviour
     };
 
     // Events
+    public event Action OnAttackFinished;
     public event Action OnAttackEvent;
     public event Action OnAlternateAttackEvent;
 
@@ -85,6 +86,7 @@ public abstract class WeaponObject : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         state = WeaponState.IDLE;
+        OnAttackFinished?.Invoke();
     }
 
     // Abstract Functions

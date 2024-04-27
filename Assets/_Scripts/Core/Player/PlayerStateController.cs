@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,8 +6,9 @@ public class PlayerStateController : EntityStateController
 {
     // Attributes
     private readonly Player player;
-    public AttackType attack = AttackType.NULL;
     public List<IInteractable> currentInteractables = new();
+    public WeaponState weaponState = WeaponState.IDLE;
+    public bool inAttackWindow = false;
 
     // Contstructor
     public PlayerStateController(Player player)
@@ -42,24 +44,46 @@ public class PlayerStateController : EntityStateController
 
         if(DetectAttacking())
         {
-            int extraState = player.Weapon.AttackType switch
+            AttackType attackType = weaponState switch
+            {
+                WeaponState.ATTACK => player.Weapon.attackType,
+                WeaponState.ALTERNATE_ATTACK => player.Weapon.alternateAttackType,
+                _ => AttackType.NULL
+            };
+
+            int extraState = attackType switch
             {
                 AttackType.RANGED => PlayerState.ATTACK_RANGED,
                 AttackType.MELEE => PlayerState.ATTACK_MELEE,
                 _ => PlayerState.NULL
             };
 
-            state |= extraState;
+            if((state & PlayerState.SPRINTING) > 0)
+            {
+                state |= extraState;
+            }
+            else
+            {
+                state = extraState;
+            }
         }
 
         if(initialState != state)
         {
-            InvokeOnStateChanged();
+            InvokeOnStateChanged(initialState);
         }
 
         return state;
     }
 
+    public void ClearWeaponState()
+    {
+        weaponState = WeaponState.IDLE;
+    }
+    public void SetWeaponState(WeaponState state)
+    {
+        weaponState = state;
+    }
     private bool DetectWalking()
     {
         return Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0;
@@ -78,6 +102,6 @@ public class PlayerStateController : EntityStateController
     }
     private bool DetectAttacking()
     {
-        return !player.Weapon.CanAttack;
+        return weaponState != WeaponState.IDLE;
     }
 }

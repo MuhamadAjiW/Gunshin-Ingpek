@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class WorldEntity : WorldObject, IRigid
 {
     // Attributes
-    protected Model model;
+    [NonSerialized] public Model model;
     [SerializeField] private float knockbackResistance;
     [SerializeField] private float baseSpeed;
     [SerializeField] private float jumpForce;

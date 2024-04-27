@@ -9,12 +9,12 @@ public abstract class EntityStateController
     public int State => state;
 
     // Events
-    public event Action OnStateChangeEvent;
+    public event Action<int> OnStateChangeEvent;
 
     // Functions
-    protected void InvokeOnStateChanged()
+    protected void InvokeOnStateChanged(int oldState)
     {
-        OnStateChangeEvent?.Invoke();
+        OnStateChangeEvent?.Invoke(oldState);
     }
 
     // Abstract Functions

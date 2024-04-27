@@ -4,6 +4,8 @@ using UnityEngine;
 public class Model : MonoBehaviour
 {
     // Attributes
+    public float meleeAnimationDelay;
+    public float rangedAnimationDelay;
     public Vector3 staticWeaponPivot;
     public Transform dynamicBottomPoint;
     public Transform dynamicWeaponPivot;

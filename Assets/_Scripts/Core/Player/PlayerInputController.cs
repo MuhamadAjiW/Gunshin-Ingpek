@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerInputController
@@ -9,6 +10,8 @@ public class PlayerInputController
     public float movementInputZ;
     public float movementInputScroll;
     public bool movementInputJump;
+    public float attackWindow = 0f;
+    protected Coroutine attackWindowCoroutine;
 
     // Events
     public event Action<float, float> OnMovementEvent;
@@ -64,7 +67,15 @@ public class PlayerInputController
                 return;
             }
 
-            player.Weapon.Attack();
+            player.stateController.SetWeaponState(WeaponState.ATTACK);
+
+            if(attackWindowCoroutine != null)
+            {
+                player.StopCoroutine(attackWindowCoroutine);
+            }
+            attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(attackWindow));
+            
+            player.StartCoroutine(HandleAttack());
         }
         else if(Input.GetKeyDown(GameInput.Instance.attackAlternateButton) && player.Grounded)
         {
@@ -75,7 +86,9 @@ public class PlayerInputController
                 return;
             }
 
-            player.Weapon.AlternateAttack();
+            player.stateController.SetWeaponState(WeaponState.ALTERNATE_ATTACK);
+
+            player.StartCoroutine(HandleAlternateAttack());
         }
         else if(Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
         {
@@ -108,5 +121,50 @@ public class PlayerInputController
             Debug.Log("Player is Deactivating a companion");
             player.DeactivateCompanion(player.CompanionSelectorIndex);
         }
+    }
+
+    private IEnumerator HandleAttack()
+    {
+        float delay = player.Weapon.attackType switch
+        {
+            AttackType.MELEE => player.model.meleeAnimationDelay,
+            AttackType.RANGED => player.model.rangedAnimationDelay,
+            _ => 0
+        };
+
+        if(attackWindowCoroutine != null)
+        {
+            player.StopCoroutine(attackWindowCoroutine);
+        }
+        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.attackInterval + attackWindow));
+        
+        yield return new WaitForSeconds(0);
+        player.Weapon.Attack();
+    }
+
+    private IEnumerator HandleAlternateAttack()
+    {
+        float delay = player.Weapon.alternateAttackType switch
+        {
+            AttackType.MELEE => player.model.meleeAnimationDelay,
+            AttackType.RANGED => player.model.rangedAnimationDelay,
+            _ => 0
+        };
+
+        if(attackWindowCoroutine != null)
+        {
+            player.StopCoroutine(attackWindowCoroutine);
+        }
+        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.alternateAttackInterval + attackWindow));
+
+        yield return new WaitForSeconds(0);
+        player.Weapon.AlternateAttack();
+    }
+
+    private IEnumerator HandleAttackWindow(float attackWindow)
+    {
+        yield return new WaitForSeconds(attackWindow);
+        Debug.Log("Out of attack window");
+        player.stateController.ClearWeaponState();
     }
 }
