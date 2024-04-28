@@ -14,6 +14,7 @@ public class PlayerStateController : EntityStateController
     public PlayerStateController(Player player)
     {
         this.player = player;
+        player.OnDeathEvent += OnDeath;
     }
 
     // Functions
@@ -96,5 +97,9 @@ public class PlayerStateController : EntityStateController
     private bool DetectAttacking()
     {
         return weaponState != WeaponState.IDLE;
+    }
+    private void OnDeath()
+    {
+        state = PlayerState.DEAD;
     }
 }

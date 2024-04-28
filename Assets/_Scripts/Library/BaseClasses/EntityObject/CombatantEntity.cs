@@ -92,16 +92,28 @@ public class CombatantEntity : DamageableEntity, IArmed
         // To handle prefabs
         if(!selectedWeapon.gameObject.scene.IsValid())
         {
-            selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
-                prefabPath: selectedWeapon.data.prefabPath,
-                parent: transform, 
-                objectName: selectedWeapon.name
-            );
-            WeaponList[WeaponIndex] = selectedWeapon;
+            if(model.dynamicWeaponPivot)
+            {
+                selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
+                    prefabPath: selectedWeapon.data.prefabPath,
+                    parent: model.dynamicWeaponPivot, 
+                    objectName: selectedWeapon.name
+                );
+                WeaponList[WeaponIndex] = selectedWeapon;
+            }
+            else
+            {
+                selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
+                    prefabPath: selectedWeapon.data.prefabPath,
+                    parent: transform, 
+                    objectName: selectedWeapon.name
+                );
+                WeaponList[WeaponIndex] = selectedWeapon;
+                selectedWeapon.transform.localPosition = WeaponLocation;
+            }
         }
 
         selectedWeapon.gameObject.SetActive(true);
-        selectedWeapon.transform.localPosition = WeaponLocation;
         selectedWeapon.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
         weapon = selectedWeapon;
     }

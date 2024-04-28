@@ -7,4 +7,5 @@ public class DefaultEntityState
     public const int ATTACKING = 8;
     public const int JUMPING = 16;
     public const int FALLING = 32;
+    public const int DEAD = 65536;
 }

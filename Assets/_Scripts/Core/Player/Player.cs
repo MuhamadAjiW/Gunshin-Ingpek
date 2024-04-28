@@ -56,11 +56,16 @@ public class Player : PlayerEntity
         }
 
         base.EquipWeapon(index);
+        Weapon.transform.localScale = new(0.01f, 0.01f, 0.01f);
     }
 
     protected new void Update()
     {
         base.Update();
+        if(Dead)
+        {
+            return;
+        }
 
         inputController.HandleInputs();
     }
@@ -68,6 +73,10 @@ public class Player : PlayerEntity
     protected new void FixedUpdate()
     {
         base.FixedUpdate();
+        if(Dead)
+        {
+            return;
+        }
 
         movementController.HandleMovement();
         stateController.UpdateState();
