@@ -26,6 +26,15 @@ public class CameraSkill_1 : CameraFollowObject
         }
         else
         {
+            Vector3 targetOffsetted = target.position;
+            targetOffsetted.y += 0.5f;
+            
+            bool hit = Physics.Linecast(targetOffsetted, targetPosition, out RaycastHit hitLocation, 1);
+            if (hit)
+            {
+                targetPosition = hitLocation.point;
+            }
+
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, followingTime * 2);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, 0.3f);
         }

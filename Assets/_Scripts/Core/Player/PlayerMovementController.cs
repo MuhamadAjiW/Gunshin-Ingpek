@@ -62,7 +62,7 @@ public class PlayerMovementController
         {
             Vector3 cameraForward = GameController.Instance.mainCamera.Orientation.forward;
             float y = Mathf.Clamp(cameraForward.y, -CameraConfig.MAX_AIM_ANGLE+50f, CameraConfig.MAX_AIM_ANGLE+50f);
-            Vector3 vec = new(cameraForward.x, Mathf.Clamp(cameraForward.y, -CameraConfig.MAX_AIM_ANGLE / 360f / 2f, CameraConfig.MAX_AIM_ANGLE/360f), cameraForward.z);
+            Vector3 vec = new(cameraForward.x, Mathf.Clamp(cameraForward.y, -CameraConfig.MAX_AIM_ANGLE / 360f, CameraConfig.MAX_AIM_ANGLE/360f), cameraForward.z);
             player.transform.forward = vec;
         }
     }
