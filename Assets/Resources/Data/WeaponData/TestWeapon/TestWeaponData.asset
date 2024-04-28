@@ -19,4 +19,4 @@ MonoBehaviour:
   knockbackPower: 10
   attackInterval: 0.2
   alternateAttackInterval: 0.5
-  skillInterval: 2
+  skillInterval: 1

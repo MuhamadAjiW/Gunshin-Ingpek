@@ -22,20 +22,13 @@ public class PlayerMovementController
     }
 
     // Functions
-    private void HandleRotation(Vector3 moveDirection)
-    {
-        Quaternion target = Quaternion.LookRotation(moveDirection, Vector3.up);
-        player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, target, GameConfig.ROTATION_SMOOTHING * Time.deltaTime);
-    }
-
-    private void SnapshotCameraOrientation()
-    {
-        axisX = new(GameController.Instance.mainCamera.Orientation.right.x, 0, GameController.Instance.mainCamera.Orientation.right.z);
-        axisZ = new(GameController.Instance.mainCamera.Orientation.forward.x, 0, GameController.Instance.mainCamera.Orientation.forward.z);
-    }
-
     public void HandleMovement()
     {
+        if(player.stateController.weaponState == WeaponState.SKILL)
+        {
+            return;
+        }
+
         float inputX = player.inputController.movementInputX;
         float inputZ = player.inputController.movementInputZ;
 
@@ -71,7 +64,7 @@ public class PlayerMovementController
         }
     }
 
-    public void HandleJump()
+    private void HandleJump()
     {
         float snapshotSpeed = Mathf.Abs(player.Rigidbody.velocity.x * 1.1f);
         player.stats.snapshotSpeed = Mathf.Abs(snapshotSpeed > player.BaseSpeed?  snapshotSpeed : player.BaseSpeed);
@@ -80,7 +73,7 @@ public class PlayerMovementController
         player.Rigidbody.AddForce(force, ForceMode.Impulse);
     }
 
-    public void HandleStairs(Vector3 movementVector)
+    private void HandleStairs(Vector3 movementVector)
     {
         float raycastHeight = -0.07f;
         bool stairFront = false;
@@ -129,7 +122,7 @@ public class PlayerMovementController
         }
     }
 
-    public void OnAim(bool aim)
+    private void OnAim(bool aim)
     {
         // Make the camera zoom in and zoom out based on the aim toggle
         this.aim = aim;
@@ -150,5 +143,17 @@ public class PlayerMovementController
                 (GameController.Instance.mainCamera.behaviour as CameraFollowObject).followingTime = CameraConfig.DEFAULT_FOLLOWING_SPEED;
             }
         }
+    }
+
+    private void HandleRotation(Vector3 moveDirection)
+    {
+        Quaternion target = Quaternion.LookRotation(moveDirection, Vector3.up);
+        player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, target, GameConfig.ROTATION_SMOOTHING * Time.deltaTime);
+    }
+
+    private void SnapshotCameraOrientation()
+    {
+        axisX = new(GameController.Instance.mainCamera.Orientation.right.x, 0, GameController.Instance.mainCamera.Orientation.right.z);
+        axisZ = new(GameController.Instance.mainCamera.Orientation.forward.x, 0, GameController.Instance.mainCamera.Orientation.forward.z);
     }
 }

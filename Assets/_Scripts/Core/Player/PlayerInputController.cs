@@ -109,9 +109,8 @@ public class PlayerInputController
             }
             Debug.Log("Player is Using a skill");
 
-            player.animationController.AnimateSkill();
-
             player.stateController.SetWeaponState(WeaponState.SKILL);
+
             player.StartCoroutine(HandleSkill());
         }
         else if(Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
@@ -189,6 +188,13 @@ public class PlayerInputController
 
     private IEnumerator HandleSkill()
     {
+        if(attackWindowCoroutine != null)
+        {
+            player.StopCoroutine(attackWindowCoroutine);
+        }
+        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.skillInterval));
+
+        player.animationController.AnimateSkill();
         yield return new WaitForSeconds(player.model.skillAnimationDelay);
         player.Weapon.Skill();
     }
