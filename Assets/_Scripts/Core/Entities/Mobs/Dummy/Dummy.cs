@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Dummy : EnemyEntity
 {
-    // Static attributes
+    // Static Attributes
     public const string ObjectIdPrefix = "Dummy";
 
     // Attributes

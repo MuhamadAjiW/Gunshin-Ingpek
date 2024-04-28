@@ -59,12 +59,20 @@ public class PlayerStateController : EntityStateController
                 _ => PlayerState.NULL
             };
 
-            state |= extraState;
+            if((state & PlayerState.SPRINTING) > 0)
+            {
+                state |= extraState;
+            }
+            else
+            {
+                state = PlayerState.IDLE | extraState;
+            }
+
         }
 
         if(initialState != state)
         {
-            InvokeOnStateChanged(initialState);
+            InvokeOnStateChanged(initialState, state);
         }
 
         return state;

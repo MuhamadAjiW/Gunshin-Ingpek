@@ -10,4 +10,6 @@ public class Audio
     public AudioClip clip;
     public float volume;
     public float pitch;
+    public bool loop;
+    public bool spatialize;
 }

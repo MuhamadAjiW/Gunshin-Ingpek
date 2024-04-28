@@ -8,13 +8,10 @@ public class AudioController
     public Audio[] audios;
 
     // Constructors
-    public AudioController(GameObject gameObject)
+    public AudioController(GameObject gameObject, Audio[] audios)
     {
-        if(audios == null)
-        {
-            audios = new Audio[0];
-        }
-        
+        this.audios = audios;
+
         foreach (Audio audio in audios)
         {
             audio.source = gameObject.AddComponent<AudioSource>();
@@ -22,11 +19,29 @@ public class AudioController
 
             audio.source.volume = audio.volume;
             audio.source.pitch = audio.pitch;
+            audio.source.playOnAwake = false;
+            audio.source.loop = audio.loop;
+            audio.source.spatialize = audio.spatialize;
         }
     }
 
     // Functions
-    public void Play (string name)
+    public string Play (string name)
+    {
+        Audio audio = Array.Find(audios, audio => audio.name == name);
+        
+        if(audio == null)
+        {
+            Debug.LogWarning($"Audio not found: {name}");
+            return null;
+        }
+
+        audio.source.Play();
+
+        return name;
+    }
+
+    public void Stop (string name)
     {
         Audio audio = Array.Find(audios, audio => audio.name == name);
         
@@ -36,6 +51,6 @@ public class AudioController
             return;
         }
 
-        audio.source.Play();
+        audio.source.Stop();
     }
 }

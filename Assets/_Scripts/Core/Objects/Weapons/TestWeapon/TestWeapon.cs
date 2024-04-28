@@ -11,12 +11,14 @@ public class TestWeapon : WeaponObject
     public float fireRange = 100;
     public float projectileSpeed = 100; 
     public TestWeaponAnimationController animationController;
+    public AudioController audioController;
 
     // Constructor
     protected new void Start()
     {
         base.Start();
         animationController = new TestWeaponAnimationController(this);
+        audioController = new AudioController(gameObject, audioController.audios);
     }
 
     // Function

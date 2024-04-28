@@ -11,10 +11,10 @@ public class PlayerInputController
     public float movementInputZ;
     public float movementInputScroll;
     public bool movementInputJump;
+    protected float attackWindowSize = 0.5f;
     protected Coroutine attackWindowCoroutine;
 
     // Events
-    public event Action<float, float> OnMovementEvent;
     public event Action OnJumpEvent;
     public event Action<bool> OnAimEvent;
     private bool aim = false;
@@ -31,11 +31,6 @@ public class PlayerInputController
         movementInputX = Input.GetAxisRaw("Horizontal");
         movementInputZ = Input.GetAxisRaw("Vertical");
         movementInputScroll = Input.GetAxisRaw("Mouse ScrollWheel");
-
-        if(movementInputX != 0 || movementInputZ != 0)
-        {
-            OnMovementEvent?.Invoke(movementInputX, movementInputZ);
-        }
 
         if(Input.GetButtonDown("Jump") && player.Grounded)
         {
@@ -73,10 +68,7 @@ public class PlayerInputController
             {
                 Debug.Log("Player does not have a weapon");
                 return;
-            }
-
-            player.stateController.SetWeaponState(WeaponState.ATTACK);
-            
+            }            
             player.StartCoroutine(HandleAttack());
         }
         else if(Input.GetKeyDown(GameInput.Instance.attackAlternateButton) && player.Grounded)
@@ -87,9 +79,6 @@ public class PlayerInputController
                 Debug.Log("Player does not have a weapon");
                 return;
             }
-
-            player.stateController.SetWeaponState(WeaponState.ALTERNATE_ATTACK);
-
             player.StartCoroutine(HandleAlternateAttack());
         }
         else if(Input.GetKeyDown(GameInput.Instance.attackSkillButton) && player.Grounded)
@@ -110,8 +99,6 @@ public class PlayerInputController
             }
             Debug.Log("Player is Using a skill");
 
-            player.stateController.SetWeaponState(WeaponState.SKILL);
-
             player.StartCoroutine(HandleSkill());
         }
         else if(Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
@@ -122,7 +109,7 @@ public class PlayerInputController
                 return;
             }
 
-            IInteractable interactable = player.stateController.currentInteractables[player.stateController.currentInteractables.Count - 1];
+            IInteractable interactable = player.stateController.currentInteractables[^1];
             interactable.Interact();
         }
     }
@@ -156,13 +143,18 @@ public class PlayerInputController
             _ => 0
         };
 
-        if(attackWindowCoroutine != null)
-        {
-            player.StopCoroutine(attackWindowCoroutine);
-        }
-        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.attackInterval));
-        
+
         player.animationController.AnimateAttack(player.Weapon.attackType);
+        if(player.Weapon.CanAttack)
+        {
+            if(player.Weapon.attackType == AttackType.MELEE 
+                || player.stateController.weaponState != WeaponState.ATTACK)
+            {
+                player.audioController.Play(PlayerAudioController.ATTACK_KEY);
+            }
+        }
+
+        TriggerWeaponState(WeaponState.ATTACK);
         yield return new WaitForSeconds(delay);
         player.Weapon.Attack();
     }
@@ -176,26 +168,29 @@ public class PlayerInputController
             _ => 0
         };
 
-        if(attackWindowCoroutine != null)
-        {
-            player.StopCoroutine(attackWindowCoroutine);
-        }
-        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.alternateAttackInterval));
 
         player.animationController.AnimateAttack(player.Weapon.alternateAttackType);
+        if(player.Weapon.CanAttack)
+        {
+            if(player.Weapon.alternateAttackType == AttackType.MELEE 
+                || player.stateController.weaponState != WeaponState.ALTERNATE_ATTACK)
+            {
+                player.audioController.Play(PlayerAudioController.ATTACK_KEY);
+            }
+        }
+
+        TriggerWeaponState(WeaponState.ALTERNATE_ATTACK);
         yield return new WaitForSeconds(delay);
         player.Weapon.AlternateAttack();
     }
 
     private IEnumerator HandleSkill()
     {
-        if(attackWindowCoroutine != null)
-        {
-            player.StopCoroutine(attackWindowCoroutine);
-        }
-        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.skillInterval));
 
+        player.audioController.Play(PlayerAudioController.SKILL_KEY);
         player.animationController.AnimateSkill();
+
+        TriggerWeaponState(WeaponState.SKILL);
         yield return new WaitForSeconds(player.model.skillAnimationDelay);
         player.Weapon.Skill();
     }
@@ -205,5 +200,15 @@ public class PlayerInputController
     {
         yield return new WaitForSeconds(attackWindow);
         player.stateController.ClearWeaponState();
+    }
+
+    private void TriggerWeaponState(WeaponState state)
+    {
+        player.stateController.SetWeaponState(state);
+        if(attackWindowCoroutine != null)
+        {
+            player.StopCoroutine(attackWindowCoroutine);
+        }
+        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.skillInterval + attackWindowSize));
     }
 }

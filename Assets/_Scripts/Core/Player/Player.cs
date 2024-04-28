@@ -19,6 +19,8 @@ public class Player : PlayerEntity
     // Constructor
     new void Start()
     {
+        gameObject.AddComponent<AudioSource>();
+
         base.Start();
         SetIdPrefix(ObjectIdPrefix);
         Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerHealthMultiplier;
@@ -27,7 +29,8 @@ public class Player : PlayerEntity
         inputController = new PlayerInputController(this);
         movementController = new PlayerMovementController(this);
         animationController = new PlayerAnimationController(this);
-        audioController = new PlayerAudioController(this);
+        audioController = new PlayerAudioController(this, audioController.audios);
+
         SetLayer(EnvironmentConfig.LAYER_PLAYER);
         SetAttackLayer(EnvironmentConfig.LAYER_PLAYER_ATTACK);
         GameController.Instance.player = this;
@@ -64,7 +67,7 @@ public class Player : PlayerEntity
     protected new void Update()
     {
         base.Update();
-        if(Dead)
+        if(Dead || GameController.Instance.IsPaused)
         {
             return;
         }
@@ -75,7 +78,7 @@ public class Player : PlayerEntity
     protected new void FixedUpdate()
     {
         base.FixedUpdate();
-        if(Dead)
+        if(Dead || GameController.Instance.IsPaused)
         {
             return;
         }
@@ -109,7 +112,6 @@ public class Player : PlayerEntity
         interactable.InvokeOnInteractAreaExitEvent();
         stateController.currentInteractables.Remove(interactable);
     }
-
 
     protected void OnDrawGizmosSelected()
     {

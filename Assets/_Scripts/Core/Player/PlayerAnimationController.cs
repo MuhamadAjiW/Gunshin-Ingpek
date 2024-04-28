@@ -27,7 +27,7 @@ public class PlayerAnimationController : AnimationController
     }
 
     // Functions
-    public void AnimateStates(int oldState)
+    public void AnimateStates(int oldState, int newState)
     {
         #if STRICT
         if(animator == null)
@@ -36,12 +36,12 @@ public class PlayerAnimationController : AnimationController
         }
         #endif
 
-        if((player.stateController.State & PlayerState.JUMPING) > 0)
+        if((newState & PlayerState.JUMPING) > 0)
         {
             animator.SetBool(JUMP_BOOL, true);
         }
 
-        switch (GetMovementState(player.stateController.State))
+        switch (GetMovementState(newState))
         {
             case PlayerState.IDLE:
                 animator.SetInteger(MOVEMENT_PARAM, PlayerState.IDLE);
