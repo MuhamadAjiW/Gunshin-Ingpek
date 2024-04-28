@@ -121,17 +121,23 @@ public class CombatantEntity : DamageableEntity, IArmed
 
     public void UnequipWeapon()
     {
+        List<WeaponObject> nullObjects = new();
         foreach (WeaponObject weapon in WeaponList)
         {
             // We'll also clean null weapons here, add no weapons explicitly
             if(weapon == null)
             {
-                WeaponList.Remove(weapon);
+                nullObjects.Add(weapon);
             }
             else
             {
                 weapon.gameObject.SetActive(false);
             }
+        }
+
+        foreach (WeaponObject nullWeapons in nullObjects)
+        {
+            weaponList.Remove(nullWeapons);
         }
     }
 }

@@ -196,7 +196,13 @@ public class PlayerInputController
         TriggerWeaponState(WeaponState.SKILL);
         yield return new WaitForSeconds(player.model.skillAnimationDelay);
         player.Weapon.Skill();
+<<<<<<< HEAD
         GameStatistics.Instance.AddSkillsUsed();
+=======
+
+        Quaternion flatRotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y, player.transform.rotation.eulerAngles.z);
+        player.transform.rotation = flatRotation;
+>>>>>>> bcbd8415 (feat: made player prefab, minor bug fixes)
     }
 
 
