@@ -36,12 +36,13 @@ public class PlayerAnimationController : AnimationController
         }
         #endif
 
+        Debug.Log(newState);
         if((newState & PlayerState.JUMPING) > 0)
         {
             animator.SetBool(JUMP_BOOL, true);
         }
 
-        switch (GetMovementState(newState))
+        switch (PlayerState.GetMovementState(newState))
         {
             case PlayerState.IDLE:
                 animator.SetInteger(MOVEMENT_PARAM, PlayerState.IDLE);
@@ -80,11 +81,6 @@ public class PlayerAnimationController : AnimationController
 
         GameController.Instance.mainCamera.SetCameraBehaviour(CameraBehaviourType.SKILL_1);
         (GameController.Instance.mainCamera.behaviour as CameraFollowObject).target = player.transform;
-    }
-
-    private int GetMovementState(int state)
-    {
-        return state & (PlayerState.IDLE | PlayerState.WALKING  | PlayerState.SPRINTING | PlayerState.JUMPING);
     }
 
     private void ClearJumping()

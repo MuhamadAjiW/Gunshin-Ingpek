@@ -24,12 +24,10 @@ public class PlayerStats
         get => player.BaseDamage;
         set => player.BaseDamage = value;
     }
-    public float MaxSpeed => player.stateController.State switch
+    public float MaxSpeed => PlayerState.GetMovementState(player.stateController.State) switch
     {
         PlayerState.WALKING => player.BaseSpeed,
         PlayerState.SPRINTING => player.BaseSpeed * sprintModifier,
-        PlayerState.SPRINTING | PlayerState.ATTACK_MELEE=> player.BaseSpeed * sprintModifier,
-        PlayerState.SPRINTING | PlayerState.ATTACK_RANGED => player.BaseSpeed * sprintModifier,
         PlayerState.JUMPING => snapshotSpeed,
         PlayerState.FALLING => snapshotSpeed,
         _ => 0

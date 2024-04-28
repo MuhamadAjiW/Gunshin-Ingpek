@@ -59,13 +59,14 @@ public class PlayerStateController : EntityStateController
                 _ => PlayerState.NULL
             };
 
-            if((state & PlayerState.SPRINTING) > 0)
+            if((state & PlayerState.WALKING) > 0)
             {
-                state |= extraState;
+                state &= ~PlayerState.WALKING;
+                state |= PlayerState.IDLE | extraState;
             }
             else
             {
-                state = PlayerState.IDLE | extraState;
+                state |= extraState;
             }
 
         }
