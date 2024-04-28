@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4666754847935405941}
   - component: {fileID: 7320871978689485787}
   - component: {fileID: 4205797128800968765}
-  - component: {fileID: 5114590188839600129}
+  - component: {fileID: 4843744555028261649}
   m_Layer: 7
   m_Name: Basic2Model
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.000000059604645}
---- !u!114 &5114590188839600129
+--- !u!114 &4843744555028261649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,11 +140,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3596266059315004415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4d5359067cdfb47a45684d6cc1482a, type: 3}
+  m_Script: {fileID: 11500000, guid: 26f6a876496a9a44f96ef4d53bab5144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dynamicBottomPoint: {fileID: 0}
   meleeAnimationDelay: 0
   rangedAnimationDelay: 0
-  staticWeaponPivot: {x: 0.5, y: 0, z: 0.375}
-  dynamicBottomPoint: {fileID: 0}
+  skillAnimationDelay: 0
+  staticWeaponPivot: {x: 0, y: 0, z: 0}
   dynamicWeaponPivot: {fileID: 0}

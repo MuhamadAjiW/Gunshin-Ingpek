@@ -12703,7 +12703,7 @@ GameObject:
   - component: {fileID: 7453883038108435637}
   - component: {fileID: 2422882661156513751}
   - component: {fileID: 5961469541952119665}
-  - component: {fileID: 8709419276929931250}
+  - component: {fileID: 6642347362383756050}
   - component: {fileID: 1174415839910585320}
   m_Layer: 0
   m_Name: JeanModel
@@ -13311,7 +13311,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3, y: 0.2, z: 0.2202658}
   m_Center: {x: -0.000014201666, y: 0.1, z: 0.006592878}
---- !u!114 &8709419276929931250
+--- !u!114 &6642347362383756050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13320,14 +13320,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6497556749472931103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4d5359067cdfb47a45684d6cc1482a, type: 3}
+  m_Script: {fileID: 11500000, guid: 26f6a876496a9a44f96ef4d53bab5144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dynamicBottomPoint: {fileID: 3738926971660565114}
   meleeAnimationDelay: 0
   rangedAnimationDelay: 0.1
   skillAnimationDelay: 0.8
   staticWeaponPivot: {x: 0, y: 0, z: 0}
-  dynamicBottomPoint: {fileID: 3738926971660565114}
   dynamicWeaponPivot: {fileID: 324142494282531500}
 --- !u!95 &1174415839910585320
 Animator:

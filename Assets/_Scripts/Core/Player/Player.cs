@@ -13,6 +13,7 @@ public class Player : PlayerEntity
     public PlayerAnimationController animationController;
     public PlayerInputController inputController;
     public PlayerStateController stateController;
+    public PlayerAudioController audioController;
     public PlayerStats stats;
 
     // Constructor
@@ -26,6 +27,7 @@ public class Player : PlayerEntity
         inputController = new PlayerInputController(this);
         movementController = new PlayerMovementController(this);
         animationController = new PlayerAnimationController(this);
+        audioController = new PlayerAudioController(this);
         SetLayer(EnvironmentConfig.LAYER_PLAYER);
         SetAttackLayer(EnvironmentConfig.LAYER_PLAYER_ATTACK);
         GameController.Instance.player = this;
@@ -106,5 +108,19 @@ public class Player : PlayerEntity
     
         interactable.InvokeOnInteractAreaExitEvent();
         stateController.currentInteractables.Remove(interactable);
+    }
+
+
+    protected void OnDrawGizmosSelected()
+    {
+        // Visualize stair detection
+        Gizmos.color = Color.red;
+        
+        if(model != null)
+        {
+            Vector3 location = model.Bottom;
+            location.y += movementController.stairMaxHeight / 2 + movementController.stairDetectionBottomOffset;
+            Gizmos.DrawWireCube(location, new(movementController.stairDetectionDistance, movementController.stairMaxHeight, movementController.stairDetectionDistance));
+        }
     }
 }

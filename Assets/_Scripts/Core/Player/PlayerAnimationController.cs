@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class PlayerAnimationController : AnimationController
 {
     // Consts
@@ -50,6 +52,9 @@ public class PlayerAnimationController : AnimationController
             case PlayerState.SPRINTING:
                 animator.SetInteger(MOVEMENT_PARAM, PlayerState.SPRINTING);
                 break;
+            case PlayerState.JUMPING:
+                animator.SetInteger(MOVEMENT_PARAM, PlayerState.JUMPING);
+                break;
         }
     }
 
@@ -79,7 +84,7 @@ public class PlayerAnimationController : AnimationController
 
     private int GetMovementState(int state)
     {
-        return state & (PlayerState.IDLE | PlayerState.WALKING  | PlayerState.SPRINTING);
+        return state & (PlayerState.IDLE | PlayerState.WALKING  | PlayerState.SPRINTING | PlayerState.JUMPING);
     }
 
     private void ClearJumping()
@@ -95,5 +100,6 @@ public class PlayerAnimationController : AnimationController
     private void OnDeath()
     {
         animator.SetBool(DEAD_Trigger, true);
+        animator.SetInteger(MOVEMENT_PARAM, PlayerState.DEAD);
     }
 }

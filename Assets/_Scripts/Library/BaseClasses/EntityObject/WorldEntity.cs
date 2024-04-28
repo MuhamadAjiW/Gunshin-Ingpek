@@ -4,7 +4,7 @@ using UnityEngine;
 public class WorldEntity : WorldObject, IRigid
 {
     // Attributes
-    [NonSerialized] public Model model;
+    [NonSerialized] public CharacterModel model;
     [SerializeField] private float knockbackResistance;
     [SerializeField] private float baseSpeed;
     [SerializeField] private float jumpForce;
@@ -41,7 +41,7 @@ public class WorldEntity : WorldObject, IRigid
     {
         base.Start();
         rigidbody = GetComponent<Rigidbody>();
-        model = GetComponentInChildren<Model>();
+        model = GetComponentInChildren<CharacterModel>();
         
         #if STRICT
         if(rigidbody == null)
@@ -50,7 +50,7 @@ public class WorldEntity : WorldObject, IRigid
         }
         if(model == null) 
         {
-            Debug.LogError($"Rigid entity {name} does not have a model. How to resolve: Create a gameObject with a model.cs script as its child");
+            Debug.LogError($"Rigid entity {name} does not have a CharacterModel. How to resolve: Create a gameObject with a CharacterModel.cs script as its child");
         }
         #endif
 

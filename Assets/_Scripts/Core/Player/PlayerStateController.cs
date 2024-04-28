@@ -1,14 +1,14 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class PlayerStateController : EntityStateController
 {
     // Attributes
     private readonly Player player;
     public List<IInteractable> currentInteractables = new();
     public WeaponState weaponState = WeaponState.IDLE;
-    public bool inAttackWindow = false;
 
     // Contstructor
     public PlayerStateController(Player player)

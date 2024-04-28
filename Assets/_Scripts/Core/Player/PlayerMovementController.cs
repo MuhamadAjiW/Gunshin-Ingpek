@@ -1,7 +1,7 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
+[Serializable]
 public class PlayerMovementController
 {
     // Attributes
@@ -9,7 +9,9 @@ public class PlayerMovementController
     private Vector3 axisX;
     private Vector3 axisZ;
     private bool aim = false;
-    private readonly float maxStairHeight = 0.5f;
+    public readonly float stairMaxHeight = 0.3f;
+    public readonly float stairDetectionDistance = 0.25f;
+    public readonly float stairDetectionBottomOffset = -0.07f;
 
     // Constructor
     public PlayerMovementController(Player player)
@@ -75,13 +77,13 @@ public class PlayerMovementController
 
     private void HandleStairs(Vector3 movementVector)
     {
-        float raycastHeight = -0.07f;
+        float raycastHeight = stairDetectionBottomOffset;
         bool stairFront = false;
 
-        while (raycastHeight < maxStairHeight)
+        while (raycastHeight < stairMaxHeight)
         {
             Vector3 stairDetectorRear = player.model.Bottom + (Vector3.up * raycastHeight);
-            Vector3 stairDetectorFront = player.model.Bottom + (movementVector * 0.25f) + (Vector3.up * raycastHeight);
+            Vector3 stairDetectorFront = player.model.Bottom + (movementVector * stairDetectionDistance) + (Vector3.up * raycastHeight);
 
             bool hit = Physics.Linecast(stairDetectorRear, stairDetectorFront, 1);
             if(hit)
@@ -100,7 +102,7 @@ public class PlayerMovementController
         }
 
         // TODO: Could use some smoothing
-        if(stairFront && raycastHeight < maxStairHeight)
+        if(stairFront && raycastHeight < stairMaxHeight)
         {
             Debug.Log($"Height: {raycastHeight}");
             {
