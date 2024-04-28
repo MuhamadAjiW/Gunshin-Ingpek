@@ -113,6 +113,11 @@ public class PlayerInputController
             IInteractable interactable = player.stateController.currentInteractables[^1];
             interactable.Interact();
         }
+        else if (Input.GetKeyDown(GameInput.Instance.switchWeaponButton))
+        {
+            player.SwitchWeapon();
+            Debug.Log("Weapon switch else if PlayerInputController.cs"); 
+        }
     }
 
     private void HandleToggledInputs()
@@ -132,6 +137,11 @@ public class PlayerInputController
         {
             Debug.Log("Player is Deactivating a companion");
             player.DeactivateCompanion(player.CompanionSelectorIndex);
+        }
+        else if (Input.GetKeyDown(GameInput.Instance.switchWeaponButton))
+        {
+            player.SwitchWeapon();
+            Debug.Log("Weapon switch else if PlayerInputController.cs"); 
         }
     }
 

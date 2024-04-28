@@ -123,6 +123,7 @@ public class Player : PlayerEntity
         stateController.currentInteractables.Remove(interactable);
     }
 
+<<<<<<< HEAD
     protected void OnDrawGizmosSelected()
     {
         // Visualize stair detection
@@ -190,4 +191,42 @@ public class Player : PlayerEntity
 
         Debug.Log(id + ": Base Damage increased from " + prevBaseDamage + " to " + BaseDamage);
     }
+=======
+    // Switches to the next weapon in the list
+    public void SwitchWeapon()
+    {
+        if (WeaponList.Count == 0)
+        {
+            Debug.LogWarning("No weapons available.");
+            return;
+        }
+        
+        int currentIndex = WeaponList.IndexOf(Weapon);
+        int nextIndex = (currentIndex + 1) % WeaponList.Count; // Calculate the index of the next weapon
+        
+        EquipCurrWeapon(nextIndex);
+        Debug.Log("Weapon switch SwitchWeapon Player.cs"); 
+    }
+
+
+    // Equip a weapon by index
+    public void EquipCurrWeapon(int index)
+    {
+        if (index >= 0 && index < WeaponList.Count)
+        {
+            WeaponObject newWeapon = WeaponList[index];
+            Debug.Log($"Equipped weapon: {newWeapon.name}");
+            if (Weapon != null)
+            {
+                Weapon.gameObject.SetActive(false);
+            }
+            newWeapon.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning($"Invalid weapon index: {index}");
+        }
+    }
+
+>>>>>>> 919d0e86 (add: weapon switching)
 }

@@ -17,6 +17,7 @@ public class GameInput : MonoBehaviour
     [NonSerialized] public KeyCode sprintButton = KeyCode.LeftShift;
     [NonSerialized] public KeyCode inputToggleButton = KeyCode.LeftControl;
     [NonSerialized] public KeyCode aimToggleButton = KeyCode.E;
+<<<<<<< HEAD
     [NonSerialized]
     public List<KeyCode> cheatTriggerButton = new()
     {
@@ -33,6 +34,9 @@ public class GameInput : MonoBehaviour
     [HideInInspector] public KeyCode inputToggleButton = KeyCode.LeftControl;
     [HideInInspector] public KeyCode aimToggleButton = KeyCode.E;
 >>>>>>> 83a1ae9e (feat: AI goon attack in range)
+=======
+    [NonSerialized] public KeyCode switchWeaponButton = KeyCode.G;
+>>>>>>> 919d0e86 (add: weapon switching)
 
     // Constructor
     protected void Awake()
