@@ -12,7 +12,7 @@ public class PlayerInputController
     public float movementInputZ;
     public float movementInputScroll;
     public bool movementInputJump;
-    protected float attackWindowSize = 0.5f;
+    protected float attackWindowSize = 0.3f;
     protected Coroutine attackWindowCoroutine;
 
     // Events

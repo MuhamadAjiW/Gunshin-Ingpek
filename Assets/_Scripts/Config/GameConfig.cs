@@ -22,10 +22,10 @@ public static class GameConfig
     };
     private static readonly DifficultyData MediumData = new()
     {
-        enemyDamageMultiplier = 0.5f,
-        enemyHealthMultiplier = 0.5f,
-        playerDamageMultiplier = 2f,
-        playerHealthMultiplier = 2f,
+        enemyDamageMultiplier = 1f,
+        enemyHealthMultiplier = 1f,
+        playerDamageMultiplier = 1f,
+        playerHealthMultiplier = 1f,
     };
     private static readonly DifficultyData HardData = new()
     {

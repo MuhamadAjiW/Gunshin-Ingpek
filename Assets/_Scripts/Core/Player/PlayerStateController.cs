@@ -68,7 +68,6 @@ public class PlayerStateController : EntityStateController
             {
                 state |= extraState;
             }
-
         }
 
         if(initialState != state)
@@ -105,7 +104,7 @@ public class PlayerStateController : EntityStateController
     }
     private bool DetectAttacking()
     {
-        return weaponState != WeaponState.IDLE;
+        return !player.Weapon.CanAttack;
     }
     private void OnDeath()
     {

@@ -35,6 +35,7 @@ public class TestWeapon : WeaponObject
             knockbackOrigin: transform.position - (bearer.Orientation.forward * projectileSpeed),
             objectName: "TestWeapon Projectile"
         );
+        Debug.Log(attackProjectile.Damage);
 
         attackProjectile.data.travelDistance = fireRange;
         attackProjectile.data.speed = projectileSpeed;

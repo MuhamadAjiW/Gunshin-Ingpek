@@ -36,7 +36,6 @@ public class PlayerAnimationController : AnimationController
         }
         #endif
 
-        Debug.Log(newState);
         if((newState & PlayerState.JUMPING) > 0)
         {
             animator.SetBool(JUMP_BOOL, true);
