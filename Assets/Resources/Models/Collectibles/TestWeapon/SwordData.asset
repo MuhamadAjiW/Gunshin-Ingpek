@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc4ca3f3ac6a5646addd6dfbe0b996b, type: 3}
+  m_Name: SwordData
+  m_EditorClassIdentifier: 
+  prefabPath: Prefabs/Weapons/TestWeapon/Sword
+  model: {fileID: 919132149155446097, guid: 3a57f57ae2418ac4d955ac7b76504ccf, type: 3}
+  baseDamage: 50
+  knockbackPower: 1
+  attackInterval: 0.2
+  alternateAttackInterval: 0.2
