@@ -126,6 +126,7 @@ public class CombatantEntity : DamageableEntity, IArmed
         selectedWeapon.gameObject.SetActive(true);
         selectedWeapon.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
         weapon = selectedWeapon;        
+        Weapon.transform.localScale = model.weaponScale != Vector3.zero ? model.weaponScale : Vector3.one;
     }
 
     public void UnequipWeapon()

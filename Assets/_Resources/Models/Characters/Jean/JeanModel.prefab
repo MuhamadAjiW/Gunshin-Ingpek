@@ -13324,10 +13324,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dynamicBottomPoint: {fileID: 3738926971660565114}
+  renderer: {fileID: 0}
+  bottomOffset: 0
   meleeAnimationDelay: 0
   rangedAnimationDelay: 0.1
   skillAnimationDelay: 0.8
   staticWeaponPivot: {x: 0, y: 0, z: 0}
+  weaponScale: {x: 0.01, y: 0.01, z: 0.01}
   dynamicWeaponPivot: {fileID: 324142494282531500}
 --- !u!95 &1174415839910585320
 Animator:

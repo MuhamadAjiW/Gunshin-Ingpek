@@ -70,7 +70,6 @@ public class Player : PlayerEntity
         }
 
         base.EquipWeapon(index);
-        Weapon.transform.localScale = new(0.01f, 0.01f, 0.01f);
     }
 
 

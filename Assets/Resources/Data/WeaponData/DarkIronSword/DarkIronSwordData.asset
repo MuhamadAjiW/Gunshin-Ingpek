@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc4ca3f3ac6a5646addd6dfbe0b996b, type: 3}
   m_Name: DarkIronSwordData
   m_EditorClassIdentifier: 
-  prefabPath: 
-  model: {fileID: 0}
-  canSkill: 0
-  baseDamage: 0
-  knockbackPower: 0
-  attackInterval: 0
-  alternateAttackInterval: 0
-  skillInterval: 0
+  prefabPath: Prefabs/Weapons/DarkIronSword/DarkIronSword
+  model: {fileID: 4462867912151492675, guid: f0d081d1ef8077d4f96b0a13bc2e425c, type: 3}
+  canSkill: 1
+  baseDamage: 40
+  knockbackPower: 10
+  attackInterval: 1
+  alternateAttackInterval: 1
+  skillInterval: 2

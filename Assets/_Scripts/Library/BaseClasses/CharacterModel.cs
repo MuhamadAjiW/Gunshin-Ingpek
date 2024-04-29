@@ -7,6 +7,7 @@ public class CharacterModel : Model
     public float rangedAnimationDelay;
     public float skillAnimationDelay;
     public Vector3 staticWeaponPivot;
+    public Vector3 weaponScale;
     public Transform dynamicWeaponPivot;
 
     // Set-Getters
