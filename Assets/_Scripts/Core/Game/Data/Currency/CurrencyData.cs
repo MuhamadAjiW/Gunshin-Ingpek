@@ -14,7 +14,7 @@ namespace _Scripts.Core.Game.Data.Currency
             public String description;
         }
         
-        public int balance; 
+        public int balance = 100; 
         public List<Transaction> transactions = new();
 
         public void AddTransaction(int amount, string description)
