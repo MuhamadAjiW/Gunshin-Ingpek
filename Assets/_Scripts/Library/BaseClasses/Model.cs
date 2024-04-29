@@ -5,8 +5,8 @@ public class Model : MonoBehaviour
 {
     // Attributes
     public Transform dynamicBottomPoint;
-    [NonSerialized] public new Renderer renderer;
-    [NonSerialized] public float bottomOffset;
+    [HideInInspector] public new Renderer renderer;
+    [HideInInspector] public float bottomOffset;
     
     // Set-getters
     public Vector3 Bottom => dynamicBottomPoint == null? new(transform.position.x, transform.position.y - bottomOffset, transform.position.z) : dynamicBottomPoint.position;

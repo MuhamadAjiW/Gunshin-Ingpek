@@ -4,7 +4,7 @@ using UnityEngine;
 public class WorldEntity : WorldObject, IRigid
 {
     // Attributes
-    [NonSerialized] public CharacterModel model;
+    [HideInInspector] public CharacterModel model;
     [SerializeField] private float knockbackResistance;
     [SerializeField] private float baseSpeed;
     [SerializeField] private float jumpForce;

@@ -7,7 +7,7 @@ public class GoonStateController : EntityStateController
     // Attributes
     [SerializeField] private Goon goon;
     public static float detectionDistance = 10f;
-    public static float attackDistance = 1f;
+    public static float attackDistance = 5f;
 
     // Constructor
     public GoonStateController(Goon goon)
@@ -37,14 +37,14 @@ public class GoonStateController : EntityStateController
         }
 
         int aiState = 0;
-        if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < detectionDistance)
+        if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < attackDistance)
+        {
+            aiState = GoonState.AI_IN_RANGE_STATE;
+        }
+        else if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < detectionDistance)
         {
             aiState = GoonState.AI_DETECTED_STATE;
         }
-        else if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < attackDistance)
-        {
-            aiState = GoonState.AI_IN_RANGE_STATE;
-        }        
 
         state = movementState | aiState;
 

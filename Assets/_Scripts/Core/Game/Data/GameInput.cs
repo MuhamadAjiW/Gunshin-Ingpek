@@ -8,6 +8,7 @@ public class GameInput : MonoBehaviour
     public static GameInput Instance;
 
     // Attributes
+<<<<<<< HEAD
     [NonSerialized] public KeyCode backButton = KeyCode.Escape;
     [NonSerialized] public KeyCode attackButton = KeyCode.Mouse0;
     [NonSerialized] public KeyCode attackAlternateButton = KeyCode.Mouse1;
@@ -22,6 +23,16 @@ public class GameInput : MonoBehaviour
         KeyCode.BackQuote,
         KeyCode.C
     };
+=======
+    [HideInInspector] public KeyCode backButton = KeyCode.Escape;
+    [HideInInspector] public KeyCode attackButton = KeyCode.Mouse0;
+    [HideInInspector] public KeyCode attackAlternateButton = KeyCode.Mouse1;
+    [HideInInspector] public KeyCode attackSkillButton = KeyCode.F;
+    [HideInInspector] public KeyCode interactButton = KeyCode.Q;
+    [HideInInspector] public KeyCode sprintButton = KeyCode.LeftShift;
+    [HideInInspector] public KeyCode inputToggleButton = KeyCode.LeftControl;
+    [HideInInspector] public KeyCode aimToggleButton = KeyCode.E;
+>>>>>>> 83a1ae9e (feat: AI goon attack in range)
 
     // Constructor
     protected void Awake()
