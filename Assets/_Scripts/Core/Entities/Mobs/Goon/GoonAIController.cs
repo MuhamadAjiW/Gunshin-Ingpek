@@ -28,7 +28,7 @@ public class GoonAIController
             case GoonState.AI_IN_RANGE_STATE:
                 Vector3 direction = MathUtils.GetDirectionVectorFlat(GameController.Instance.player.Position, goon.Position);
                 Quaternion look = Quaternion.LookRotation(direction);
-                goon.transform.rotation = Quaternion.Slerp(look, goon.transform.rotation, Time.deltaTime * 4f);
+                goon.transform.rotation = Quaternion.Slerp(look, goon.transform.rotation, Time.deltaTime);
 
                 if(Quaternion.Angle(look, goon.transform.rotation) < 10)
                 {

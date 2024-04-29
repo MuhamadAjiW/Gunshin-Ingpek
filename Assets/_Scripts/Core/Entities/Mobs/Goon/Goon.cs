@@ -18,11 +18,9 @@ public class Goon : EnemyEntity
         stateController = new GoonStateController(this);
         aiController = new GoonAIController(this);
 
-
-        // TODO: These are for dev, consider deleting
-        WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
         EquipWeapon(0);
-        //--TODO
+        
+        OnDeathEvent += OnDeath;
     }
 
     // Functions
@@ -43,5 +41,10 @@ public class Goon : EnemyEntity
     protected void OnDrawGizmosSelected()
     {
         stateController.VisualizeGizmos();
+    }
+
+    private void OnDeath()
+    {
+        Destroy(gameObject);
     }
 }
