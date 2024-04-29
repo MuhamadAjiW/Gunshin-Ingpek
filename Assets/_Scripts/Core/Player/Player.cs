@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : PlayerEntity 
+public class Player : PlayerEntity
 {
     // Static Attributes
-    public const string ObjectIdPrefix = "Player"; 
+    public const string ObjectIdPrefix = "Player";
 
     // Attributes
     public PlayerMovementController movementController;
@@ -15,6 +15,8 @@ public class Player : PlayerEntity
     public PlayerStateController stateController;
     public PlayerAudioController audioController;
     public PlayerStats stats;
+    private Coroutine incSpeedOrbCoroutine;
+    private bool isIncSpeedOrbActive = false;
 
     // Constructor
     new void Start()
@@ -42,20 +44,21 @@ public class Player : PlayerEntity
 
         int initialIndex = CompanionList.Count;
         for (int i = 0; i < initialIndex; i++)
-        {            
+        {
             CompanionActive.Add(false);
         }
-        
+
         CompanionList.AddRange(EntityManager.Instance.GetComponentsInChildren<Companion>());
         for (int i = initialIndex; i < CompanionList.Count; i++)
-        {            
+        {
             CompanionActive.Add(CompanionList[i].gameObject.activeSelf);
         }
     }
 
     // Functions
-    public new void EquipWeapon(int index){
-        if(stateController.weaponState != WeaponState.IDLE)
+    public new void EquipWeapon(int index)
+    {
+        if (stateController.weaponState != WeaponState.IDLE)
         {
             return;
         }
@@ -64,10 +67,31 @@ public class Player : PlayerEntity
         Weapon.transform.localScale = new(0.01f, 0.01f, 0.01f);
     }
 
+    public void ActivateIncSpeedOrb(float duration, float speedMultiplier)
+    {
+        if (isIncSpeedOrbActive)
+        {
+            Debug.Log("Sprint Orb already active. Killing the previous one.");
+            StopCoroutine(incSpeedOrbCoroutine);
+            BaseSpeed /= speedMultiplier;
+        }
+        incSpeedOrbCoroutine = StartCoroutine(IncSpeedOrbTimeout(duration, speedMultiplier));
+    }
+
+    private IEnumerator IncSpeedOrbTimeout(float duration, float speedMultiplier)
+    {
+        isIncSpeedOrbActive = true;
+        BaseSpeed *= speedMultiplier;
+        yield return new WaitForSeconds(duration);
+        BaseSpeed /= speedMultiplier;
+        isIncSpeedOrbActive = false;
+        Debug.Log("Increase Speed Orb effect ended");
+    }
+
     protected new void Update()
     {
         base.Update();
-        if(Dead || GameController.Instance.IsPaused)
+        if (Dead || GameController.Instance.IsPaused)
         {
             return;
         }
@@ -78,7 +102,7 @@ public class Player : PlayerEntity
     protected new void FixedUpdate()
     {
         base.FixedUpdate();
-        if(Dead || GameController.Instance.IsPaused)
+        if (Dead || GameController.Instance.IsPaused)
         {
             return;
         }
@@ -90,12 +114,12 @@ public class Player : PlayerEntity
     protected void OnTriggerEnter(Collider otherCollider)
     {
         otherCollider.transform.TryGetComponent<IInteractable>(out var interactable);
-        
-        if(interactable == null)
+
+        if (interactable == null)
         {
             return;
         }
-        
+
         interactable.InvokeOnInteractAreaEnterEvent();
         stateController.currentInteractables.Add(interactable);
     }
@@ -103,12 +127,12 @@ public class Player : PlayerEntity
     protected void OnTriggerExit(Collider otherCollider)
     {
         otherCollider.transform.TryGetComponent<IInteractable>(out var interactable);
-    
-        if(interactable == null)
+
+        if (interactable == null)
         {
             return;
         }
-    
+
         interactable.InvokeOnInteractAreaExitEvent();
         stateController.currentInteractables.Remove(interactable);
     }
@@ -117,8 +141,8 @@ public class Player : PlayerEntity
     {
         // Visualize stair detection
         Gizmos.color = Color.red;
-        
-        if(model != null)
+
+        if (model != null)
         {
             Vector3 location = model.Bottom;
             location.y += movementController.stairMaxHeight / 2 + movementController.stairDetectionBottomOffset;

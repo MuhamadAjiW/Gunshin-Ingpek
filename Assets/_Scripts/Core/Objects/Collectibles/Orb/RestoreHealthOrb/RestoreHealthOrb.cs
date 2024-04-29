@@ -5,6 +5,9 @@ public class RestoreHealthOrb : Orb
     // Static Attributes
     public const string ObjectIdPrefix = "RestoreHealthOrb";
 
+    // Attributes
+    [SerializeField] float healthMultiplier = 0.2f;
+
     // Constructor
     protected new void Start()
     {
@@ -17,13 +20,8 @@ public class RestoreHealthOrb : Orb
     {
         float prevHealth = collector.Health;
 
-        // Regen by 20% of the collector's max health (not current health)
-        collector.InflictHeal(0.2f * collector.MaxHealth);
+        // Regen by healthMultiplier * collector's current health (not max health)
+        collector.InflictHeal(healthMultiplier * collector.Health);
         Debug.Log(id + ": Health increased from " + prevHealth + " to " + collector.Health);
-    }
-
-    protected override void OnTimeout()
-    {
-        Debug.Log(id + ": Timeout");
     }
 }

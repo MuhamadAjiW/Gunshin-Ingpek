@@ -13,4 +13,9 @@ public abstract class Orb : Collectible
             base.OnTriggerEnter(otherCollider);
         }
     }
+
+    protected override void OnTimeout()
+    {
+        Debug.Log(id + ": Timeout");
+    }
 }
