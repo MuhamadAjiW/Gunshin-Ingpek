@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using _Scripts.Core.Game.Data;
 using UnityEngine;
 
 [Serializable]
@@ -157,6 +158,7 @@ public class PlayerInputController
         TriggerWeaponState(WeaponState.ATTACK);
         yield return new WaitForSeconds(delay);
         player.Weapon.Attack();
+        GameStatistics.Instance.AddShotsFired();
     }
 
     private IEnumerator HandleAlternateAttack()
@@ -182,6 +184,7 @@ public class PlayerInputController
         TriggerWeaponState(WeaponState.ALTERNATE_ATTACK);
         yield return new WaitForSeconds(delay);
         player.Weapon.AlternateAttack();
+        GameStatistics.Instance.AddShotsFired();
     }
 
     private IEnumerator HandleSkill()
@@ -193,6 +196,7 @@ public class PlayerInputController
         TriggerWeaponState(WeaponState.SKILL);
         yield return new WaitForSeconds(player.model.skillAnimationDelay);
         player.Weapon.Skill();
+        GameStatistics.Instance.AddSkillsUsed();
     }
 
 

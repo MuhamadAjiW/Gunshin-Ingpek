@@ -43,7 +43,7 @@ namespace _Scripts.Core.Game.Data
         }
 
         public int SkillsUsed { get; set; }
-        public int ObjectsInteracted { get; set; }
+        public int OrbsCollected { get; set; }
         public int PetsOwned { get; set; }
         
         // Constructor
@@ -74,6 +74,11 @@ namespace _Scripts.Core.Game.Data
         {
             shotsFired++;
         }
+        
+        public void AddShotsHit()
+        {
+            shotsHit++;
+        }
 
         public void AddDistanceTraveled()
         {
@@ -85,9 +90,9 @@ namespace _Scripts.Core.Game.Data
             SkillsUsed++;
         }
         
-        public void AddObjectsInteracted()
+        public void AddOrbsCollected()
         {
-            ObjectsInteracted++;
+            OrbsCollected++;
         }
         
         public void AddPetsOwned()

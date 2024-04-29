@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using _Scripts.Core.Game.Data;
 using Unity.VisualScripting;
 using UnityEngine;
 

@@ -1,3 +1,4 @@
+using _Scripts.Core.Game.Data;
 using UnityEngine;
 
 public class WorldObject : MonoBehaviour
