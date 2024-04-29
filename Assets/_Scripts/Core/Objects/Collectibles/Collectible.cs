@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class Collectible : WorldObject 
+public abstract class Collectible : WorldObject
 {
     // Attributes
     [SerializeField] float TimeToLive;
@@ -16,7 +16,7 @@ public abstract class Collectible : WorldObject
     {
         base.Start();
         SetLayer(EnvironmentConfig.LAYER_COLLECTIBLE);
-        
+
         OnCollectEvent += OnCollect;
         OnCollectEvent += OnCollectEnd;
         OnTimeoutEvent += OnTimeout;
@@ -25,7 +25,7 @@ public abstract class Collectible : WorldObject
     }
 
     // Functions
-    protected void OnTriggerEnter(Collider otherCollider)
+    protected virtual void OnTriggerEnter(Collider otherCollider)
     {
         OnCollectEvent?.Invoke();
     }
