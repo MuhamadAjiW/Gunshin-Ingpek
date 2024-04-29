@@ -19,7 +19,6 @@ public class GoonAIController
     // Functions
     public void Action()
     {
-        Debug.Log($"State: {GoonState.GetAIState(goon.stateController.State)}");
         switch (GoonState.GetAIState(goon.stateController.State))
         {
             case GoonState.AI_DETECTED_STATE:

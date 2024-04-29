@@ -362,6 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
+  model: {fileID: 0}
   knockbackResistance: 1
   baseSpeed: 10
   jumpForce: 5
@@ -386,7 +387,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 90
@@ -520,6 +521,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 52638
     meshQueryIndex: 9
 =======
@@ -533,6 +535,9 @@ MonoBehaviour:
 =======
     surfaceParameter: 49068
 >>>>>>> 83a1ae9e (feat: AI goon attack in range)
+=======
+    surfaceParameter: 49066
+>>>>>>> 9ac59638 (feat: dark iron sword)
     meshQueryIndex: 6
 >>>>>>> b46cf383 (feat: base cheat console)
     subMeshQueryIndex: 0
@@ -1031,6 +1036,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 50014
 =======
     surfaceParameter: 48682
@@ -1041,6 +1047,9 @@ MonoBehaviour:
 =======
     surfaceParameter: 48936
 >>>>>>> 83a1ae9e (feat: AI goon attack in range)
+=======
+    surfaceParameter: 48934
+>>>>>>> 9ac59638 (feat: dark iron sword)
     meshQueryIndex: 7
     subMeshQueryIndex: 0
     geometryHashValue: 3008546525906852216
@@ -25804,17 +25813,68 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2925375618537693497}
   m_Layer: 0
   m_Name: "\u85AC\u6307\u5148.L"
+=======
+  m_GameObject: {fileID: 464623400}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &494931645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 494931646}
+  - component: {fileID: 494931647}
+  m_Layer: 0
+  m_Name: '[generated-meshes]'
+>>>>>>> 9ac59638 (feat: dark iron sword)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!1 &5951287025318195607
+=======
+--- !u!4 &494931646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494931645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2116525530}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &494931647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494931645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  owner: {fileID: 2116525529}
+  helperSurfaces: []
+--- !u!1 &580745003
+>>>>>>> 9ac59638 (feat: dark iron sword)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26597,7 +26657,7 @@ Transform:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 48906
+    surfaceParameter: 48904
     meshQueryIndex: 2
     subMeshQueryIndex: 0
     geometryHashValue: -1365392548276624071
@@ -27057,10 +27117,14 @@ GameObject:
       layers: 33554440
       maskAndChannels: 8
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 48652
 =======
     surfaceParameter: 48906
 >>>>>>> 83a1ae9e (feat: AI goon attack in range)
+=======
+    surfaceParameter: 48904
+>>>>>>> 9ac59638 (feat: dark iron sword)
     meshQueryIndex: 2
     subMeshQueryIndex: 0
     geometryHashValue: -1365392548276624071
@@ -27841,6 +27905,7 @@ GameObject:
     offset: 0
     size: 0
     path: 
+<<<<<<< HEAD
 --- !u!1 &1053996415
 >>>>>>> 83a1ae9e (feat: AI goon attack in range)
 GameObject:
@@ -28345,6 +28410,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &7113282577923628949
 Transform:
+=======
+--- !u!1001 &1070178883
+PrefabInstance:
+>>>>>>> 9ac59638 (feat: dark iron sword)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -29122,6 +29191,7 @@ GameObject:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4468974541361119876}
@@ -29133,6 +29203,34 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7454627290031516390
+=======
+  m_GameObject: {fileID: 1145009684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a92adfdc6e3524fb82e0817c421ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  SharedMesh: {fileID: 1535742890}
+  RenderMaterial: {fileID: 2100000, guid: d8e10aad982fd9d439566c147abd457c, type: 2}
+  PhysicsMaterial: {fileID: 0}
+  RenderSurfaceType: 0
+  MeshDescription:
+    meshQuery:
+      layers: 16777223
+      maskAndChannels: 234881031
+    surfaceParameter: 48968
+    meshQueryIndex: 0
+    subMeshQueryIndex: 0
+    geometryHashValue: -2436489981782101099
+    surfaceHashValue: 6169352796048026373
+    vertexCount: 12
+    indexCount: 30
+  HasGeneratedNormals: 0
+  HasUV2: 0
+  LightingHashValue: 0
+--- !u!1 &1151948386
+>>>>>>> 9ac59638 (feat: dark iron sword)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33192,6 +33290,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 5226750351121879068}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
@@ -33203,6 +33302,35 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8145442345094792661
 Transform:
+=======
+  m_GameObject: {fileID: 1504602805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a92adfdc6e3524fb82e0817c421ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  SharedMesh: {fileID: 825358669}
+  RenderMaterial: {fileID: 2100000, guid: 037c10e8a9c9c5e47a726216732d17d8, type: 2}
+  PhysicsMaterial: {fileID: 0}
+  RenderSurfaceType: 0
+  MeshDescription:
+    meshQuery:
+      layers: 16777223
+      maskAndChannels: 234881031
+    surfaceParameter: 48618
+    meshQueryIndex: 8
+    subMeshQueryIndex: 0
+    geometryHashValue: 6467234982613496563
+    surfaceHashValue: -4871518770290885416
+    vertexCount: 21
+    indexCount: 33
+  HasGeneratedNormals: 0
+  HasUV2: 0
+  LightingHashValue: 0
+--- !u!43 &1535742890
+Mesh:
+>>>>>>> 9ac59638 (feat: dark iron sword)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -33651,9 +33779,46 @@ Transform:
   - {fileID: 3095468078036279739}
   m_Father: {fileID: 7495559222976556968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &8293800251781241706
 GameObject:
   m_ObjectHideFlags: 0
+=======
+--- !u!114 &1669065683
+MonoBehaviour:
+  m_ObjectHideFlags: 16
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669065680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a92adfdc6e3524fb82e0817c421ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  SharedMesh: {fileID: 166589889}
+  RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+  PhysicsMaterial: {fileID: 0}
+  RenderSurfaceType: 0
+  MeshDescription:
+    meshQuery:
+      layers: 16777223
+      maskAndChannels: 234881031
+    surfaceParameter: 48334
+    meshQueryIndex: 1
+    subMeshQueryIndex: 0
+    geometryHashValue: 8624144165243009415
+    surfaceHashValue: 1679634464922189466
+    vertexCount: 633
+    indexCount: 1119
+  HasGeneratedNormals: 0
+  HasUV2: 0
+  LightingHashValue: 0
+--- !u!23 &1669065684
+MeshRenderer:
+  m_ObjectHideFlags: 1
+>>>>>>> 9ac59638 (feat: dark iron sword)
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -35158,6 +35323,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 9060097788631644636}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0022163482, y: -0.01167433, z: 0.008395872, w: 0.9998942}
@@ -35405,11 +35571,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
+=======
+  m_GameObject: {fileID: 1778930064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218a3c5228e87b54f8102630bb1bfc1d, type: 3}
+>>>>>>> 9ac59638 (feat: dark iron sword)
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabBehaviour: 0
   PrefabSourceAlignment: 4
   PrefabDestinationAlignment: 0
+<<<<<<< HEAD
   Version: 1.1
   infiniteBrush: {fileID: 0}
   Settings: 1025
@@ -35453,6 +35626,223 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1993262141
 >>>>>>> 90eccbab (feat: basic chasing AI in goons)
+=======
+  Version: 2.1
+  OperationType: 0
+  Flags: 0
+  Shape:
+    Version: 1
+    Surfaces:
+    - Plane:
+        a: 0
+        b: 0
+        c: -1
+        d: 0
+      Tangent: {x: -1, y: -0, z: -0}
+      BiNormal: {x: -0, y: 1, z: 0}
+      TexGenIndex: 0
+    - Plane:
+        a: 0.0000000055134297
+        b: 0
+        c: 1
+        d: 4.6
+      Tangent: {x: 1, y: 0, z: -0.0000000055134297}
+      BiNormal: {x: -0, y: 1, z: 0}
+      TexGenIndex: 1
+    - Plane:
+        a: -1
+        b: 0
+        c: 0
+        d: 0
+      Tangent: {x: 0, y: 0, z: 1}
+      BiNormal: {x: 0, y: 1, z: -0}
+      TexGenIndex: 2
+    - Plane:
+        a: 0
+        b: 1
+        c: -6.478766e-10
+        d: 0.2
+      Tangent: {x: 1, y: -0, z: 0}
+      BiNormal: {x: 0, y: -6.478766e-10, z: -1}
+      TexGenIndex: 3
+    - Plane:
+        a: 1
+        b: 0.000002073205
+        c: 0
+        d: 20
+      Tangent: {x: 0, y: 0, z: -1}
+      BiNormal: {x: -0.000002073205, y: 1, z: 0}
+      TexGenIndex: 4
+    - Plane:
+        a: 0
+        b: -1
+        c: 0
+        d: 0
+      Tangent: {x: -1, y: 0, z: 0}
+      BiNormal: {x: -0, y: -0, z: -1}
+      TexGenIndex: 5
+    TexGens:
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    TexGenFlags: 010000000100000001000000010000000100000001000000
+    Materials: []
+  ControlMesh:
+    Vertices:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0.2, z: 0}
+    - {x: 20, y: 0.2, z: 0}
+    - {x: 20, y: 0, z: 0}
+    - {x: 0, y: 0, z: 4.6}
+    - {x: 20, y: 0, z: 4.6}
+    - {x: 20, y: 0.2, z: 4.6}
+    - {x: 0, y: 0.2, z: 4.6}
+    Edges:
+    - TwinIndex: 21
+      PolygonIndex: 0
+      HardEdge: 0
+      VertexIndex: 0
+    - TwinIndex: 8
+      PolygonIndex: 0
+      HardEdge: 0
+      VertexIndex: 1
+    - TwinIndex: 12
+      PolygonIndex: 0
+      HardEdge: 0
+      VertexIndex: 2
+    - TwinIndex: 17
+      PolygonIndex: 0
+      HardEdge: 0
+      VertexIndex: 3
+    - TwinIndex: 10
+      PolygonIndex: 1
+      HardEdge: 0
+      VertexIndex: 4
+    - TwinIndex: 23
+      PolygonIndex: 1
+      HardEdge: 0
+      VertexIndex: 5
+    - TwinIndex: 19
+      PolygonIndex: 1
+      HardEdge: 0
+      VertexIndex: 6
+    - TwinIndex: 14
+      PolygonIndex: 1
+      HardEdge: 0
+      VertexIndex: 7
+    - TwinIndex: 1
+      PolygonIndex: 2
+      HardEdge: 0
+      VertexIndex: 0
+    - TwinIndex: 20
+      PolygonIndex: 2
+      HardEdge: 0
+      VertexIndex: 4
+    - TwinIndex: 4
+      PolygonIndex: 2
+      HardEdge: 0
+      VertexIndex: 7
+    - TwinIndex: 13
+      PolygonIndex: 2
+      HardEdge: 0
+      VertexIndex: 1
+    - TwinIndex: 2
+      PolygonIndex: 3
+      HardEdge: 0
+      VertexIndex: 1
+    - TwinIndex: 11
+      PolygonIndex: 3
+      HardEdge: 0
+      VertexIndex: 7
+    - TwinIndex: 7
+      PolygonIndex: 3
+      HardEdge: 0
+      VertexIndex: 6
+    - TwinIndex: 18
+      PolygonIndex: 3
+      HardEdge: 0
+      VertexIndex: 2
+    - TwinIndex: 22
+      PolygonIndex: 4
+      HardEdge: 0
+      VertexIndex: 3
+    - TwinIndex: 3
+      PolygonIndex: 4
+      HardEdge: 0
+      VertexIndex: 2
+    - TwinIndex: 15
+      PolygonIndex: 4
+      HardEdge: 0
+      VertexIndex: 6
+    - TwinIndex: 6
+      PolygonIndex: 4
+      HardEdge: 0
+      VertexIndex: 5
+    - TwinIndex: 9
+      PolygonIndex: 5
+      HardEdge: 0
+      VertexIndex: 0
+    - TwinIndex: 0
+      PolygonIndex: 5
+      HardEdge: 0
+      VertexIndex: 3
+    - TwinIndex: 16
+      PolygonIndex: 5
+      HardEdge: 0
+      VertexIndex: 5
+    - TwinIndex: 5
+      PolygonIndex: 5
+      HardEdge: 0
+      VertexIndex: 4
+    Polygons:
+    - EdgeIndices: 00000000010000000200000003000000
+      TexGenIndex: 0
+    - EdgeIndices: 04000000050000000600000007000000
+      TexGenIndex: 1
+    - EdgeIndices: 08000000090000000a0000000b000000
+      TexGenIndex: 2
+    - EdgeIndices: 0c0000000d0000000e0000000f000000
+      TexGenIndex: 3
+    - EdgeIndices: 10000000110000001200000013000000
+      TexGenIndex: 4
+    - EdgeIndices: 14000000150000001600000017000000
+      TexGenIndex: 5
+    Generation: 33
+--- !u!1 &1819086314
+>>>>>>> 9ac59638 (feat: dark iron sword)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35752,10 +36142,14 @@ Transform:
       layers: 16777223
       maskAndChannels: 234881031
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 49564
 =======
     surfaceParameter: 48232
 >>>>>>> ad6309a1 (fix: movement speed)
+=======
+    surfaceParameter: 48482
+>>>>>>> 9ac59638 (feat: dark iron sword)
     meshQueryIndex: 9
     subMeshQueryIndex: 0
     geometryHashValue: -2774585206094123893
@@ -35788,6 +36182,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1764680798239780215}
   serializedVersion: 2
   m_LocalRotation: {x: 0.018222582, y: -0.0010424443, z: 0.0041244323, w: 0.9998249}
@@ -35799,6 +36194,23 @@ Transform:
   m_Father: {fileID: 1268061101063571759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8987504787067058379
+=======
+  m_GameObject: {fileID: 1899092099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277e6d37ad3220543a05009070b3a2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backButton: 27
+  attackButton: 323
+  attackAlternateButton: 324
+  attackSkillButton: 102
+  interactButton: 113
+  sprintButton: 304
+  inputToggleButton: 306
+  aimToggleButton: 101
+--- !u!4 &1899092101
+>>>>>>> 9ac59638 (feat: dark iron sword)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37673,6 +38085,10 @@ Transform:
     - target: {fileID: 2905064492935360539, guid: c92ef370f6a1fcd47895d5c6e80ad63f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.7955361
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910839213014945957, guid: c92ef370f6a1fcd47895d5c6e80ad63f, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2917002619552613896, guid: c92ef370f6a1fcd47895d5c6e80ad63f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -41030,6 +41446,7 @@ MonoBehaviour:
       TexGenIndex: 4
     - EdgeIndices: 07000000060000000500000004000000
       TexGenIndex: 5
+<<<<<<< HEAD
     Generation: 48
 --- !u!1001 &2048525867
 PrefabInstance:
@@ -41144,11 +41561,18 @@ Transform:
 --- !u!1 &9188532750693674551
 GameObject:
   m_ObjectHideFlags: 0
+=======
+    Generation: 33
+--- !u!1 &2116525527
+GameObject:
+  m_ObjectHideFlags: 17
+>>>>>>> 9ac59638 (feat: dark iron sword)
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 2512107567978968877}
   m_Layer: 0
   m_Name: "\u80F8\u4E0A.R"
@@ -41159,10 +41583,25 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &9201750960554108062
 GameObject:
+=======
+  - component: {fileID: 2116525530}
+  - component: {fileID: 2116525529}
+  - component: {fileID: 2116525528}
+  m_Layer: 0
+  m_Name: '[default-CSGModel]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 124
+  m_IsActive: 1
+--- !u!54 &2116525528
+Rigidbody:
+>>>>>>> 9ac59638 (feat: dark iron sword)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1441978489729999629}
@@ -41205,6 +41644,81 @@ Transform:
   m_Father: {fileID: 2798952111565619463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9220069326993881050
+=======
+  m_GameObject: {fileID: 2116525527}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &2116525529
+MonoBehaviour:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116525527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabBehaviour: 0
+  PrefabSourceAlignment: 4
+  PrefabDestinationAlignment: 0
+  Version: 1.1
+  infiniteBrush: {fileID: 0}
+  Settings: 1025
+  VertexChannels: 14
+  ReceiveGI: 2
+  MeshColliderCookingOptions: 14
+  ShowGeneratedMeshes: 0
+  DefaultPhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  exportType: 0
+  originType: 0
+  exportColliders: 0
+  exportPath: 
+  angleError: 1
+  areaError: 1
+  hardAngle: 60
+  packMargin: 20
+  scaleInLightmap: 1
+  autoUVMaxDistance: 0.5
+  autoUVMaxAngle: 89
+  minimumChartSize: 4
+--- !u!4 &2116525530
+Transform:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116525527}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 494931646}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2147359534
+>>>>>>> 9ac59638 (feat: dark iron sword)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41927,6 +42441,7 @@ SceneRoots:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 623494889}
 =======
   - {fileID: 1723548349}
@@ -41945,3 +42460,6 @@ SceneRoots:
 =======
   - {fileID: 1779140211}
 >>>>>>> 83a1ae9e (feat: AI goon attack in range)
+=======
+  - {fileID: 2116525530}
+>>>>>>> 9ac59638 (feat: dark iron sword)
