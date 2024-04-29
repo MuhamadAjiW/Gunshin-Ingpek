@@ -10,7 +10,7 @@ namespace _Scripts.Core.Game.Data
     {
         // Static Instance
         public static GameStatistics Instance;
-        
+
         // Saved
         public int enemiesKilled = 0;
         // Helper for Accuracy
@@ -45,7 +45,7 @@ namespace _Scripts.Core.Game.Data
         public int SkillsUsed { get; set; }
         public int OrbsCollected { get; set; }
         public int PetsOwned { get; set; }
-        
+
         // Constructor
         private void Awake()
         {
@@ -59,7 +59,7 @@ namespace _Scripts.Core.Game.Data
                 Destroy(gameObject);
             }
         }
-        
+
         private void Start()
         {
             StartCoroutine(RecordTimeRoutine());
@@ -74,7 +74,7 @@ namespace _Scripts.Core.Game.Data
         {
             shotsFired++;
         }
-        
+
         public void AddShotsHit()
         {
             shotsHit++;
@@ -84,22 +84,22 @@ namespace _Scripts.Core.Game.Data
         {
             DistanceTraveled++;
         }
-        
+
         public void AddSkillsUsed()
         {
             SkillsUsed++;
         }
-        
+
         public void AddOrbsCollected()
         {
             OrbsCollected++;
         }
-        
+
         public void AddPetsOwned()
         {
             PetsOwned++;
         }
-        
+
         public void Load(string json)
         {
             GameStatistics data = JsonUtility.FromJson<GameStatistics>(json);
@@ -111,6 +111,8 @@ namespace _Scripts.Core.Game.Data
                 DistanceTraveled = data.DistanceTraveled;
                 PlaytimeFormatted = data.PlaytimeFormatted;
                 SkillsUsed = data.SkillsUsed;
+                OrbsCollected = data.OrbsCollected;
+                PetsOwned = data.PetsOwned;
             }
         }
 
@@ -118,7 +120,7 @@ namespace _Scripts.Core.Game.Data
         {
             return JsonUtility.ToJson(this);
         }
-        
+
         public IEnumerator RecordTimeRoutine()
         {
             TimeSpan ts;

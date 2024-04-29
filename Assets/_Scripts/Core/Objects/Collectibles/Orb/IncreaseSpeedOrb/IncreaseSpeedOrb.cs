@@ -19,6 +19,7 @@ public class IncreaseSpeedOrb : Orb
     // Functions
     protected override void OnCollect()
     {
+        base.OnCollect();
         collector.ActivateIncSpeedOrb(duration, speedMultiplier);
     }
 }

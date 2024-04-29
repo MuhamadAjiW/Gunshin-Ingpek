@@ -16,6 +16,7 @@ public class IncreaseDamageOrb : Orb
     // Functions
     protected override void OnCollect()
     {
+        base.OnCollect();
         collector.ActivateIncDamageOrb(baseDamageMultiplier);
     }
 

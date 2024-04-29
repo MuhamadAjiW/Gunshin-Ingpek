@@ -18,6 +18,7 @@ public class RestoreHealthOrb : Orb
     // Functions
     protected override void OnCollect()
     {
+        base.OnCollect();
         collector.ActivateRestoreHealthOrb(healthMultiplier);
     }
 }
