@@ -19,8 +19,6 @@ public class IncreaseSpeedOrb : Orb
     // Functions
     protected override void OnCollect()
     {
-        float prevBaseSpeed = collector.BaseSpeed;
-        collector.ActivateIncSpeedOrb(duration, 1 + speedMultiplier);
-        Debug.Log(id + ": Base speed increased from " + prevBaseSpeed + " to " + collector.BaseSpeed);
+        collector.ActivateIncSpeedOrb(duration, speedMultiplier);
     }
 }

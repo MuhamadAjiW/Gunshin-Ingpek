@@ -15,8 +15,12 @@ public class Player : PlayerEntity
     public PlayerStateController stateController;
     public PlayerAudioController audioController;
     public PlayerStats stats;
+
+    // Orb Attributes
     private Coroutine incSpeedOrbCoroutine;
     private bool isIncSpeedOrbActive = false;
+    [NonSerialized] public int incDamageOrbCount = 0;
+    public int maxIncDamageOrbCount = 15;
 
     // Constructor
     new void Start()
@@ -67,26 +71,7 @@ public class Player : PlayerEntity
         Weapon.transform.localScale = new(0.01f, 0.01f, 0.01f);
     }
 
-    public void ActivateIncSpeedOrb(float duration, float speedMultiplier)
-    {
-        if (isIncSpeedOrbActive)
-        {
-            Debug.Log("Sprint Orb already active. Killing the previous one.");
-            StopCoroutine(incSpeedOrbCoroutine);
-            BaseSpeed /= speedMultiplier;
-        }
-        incSpeedOrbCoroutine = StartCoroutine(IncSpeedOrbTimeout(duration, speedMultiplier));
-    }
 
-    private IEnumerator IncSpeedOrbTimeout(float duration, float speedMultiplier)
-    {
-        isIncSpeedOrbActive = true;
-        BaseSpeed *= speedMultiplier;
-        yield return new WaitForSeconds(duration);
-        BaseSpeed /= speedMultiplier;
-        isIncSpeedOrbActive = false;
-        Debug.Log("Increase Speed Orb effect ended");
-    }
 
     protected new void Update()
     {
@@ -148,5 +133,60 @@ public class Player : PlayerEntity
             location.y += movementController.stairMaxHeight / 2 + movementController.stairDetectionBottomOffset;
             Gizmos.DrawWireCube(location, new(movementController.stairDetectionDistance, movementController.stairMaxHeight, movementController.stairDetectionDistance));
         }
+    }
+
+    // Orb Functions
+    public void ActivateRestoreHealthOrb(float healthMultiplier)
+    {
+        float prevHealth = Health;
+        InflictHeal(healthMultiplier * Health);
+        Debug.Log(id + ": Health increased from " + prevHealth + " to " + Health);
+    }
+
+    public void ActivateIncSpeedOrb(float duration, float speedMultiplier)
+    {
+        if (isIncSpeedOrbActive)
+        {
+            Debug.Log(id + ": Increase Speed Orb already active. Killing the previous one.");
+            StopCoroutine(incSpeedOrbCoroutine);
+        }
+        incSpeedOrbCoroutine = StartCoroutine(IncSpeedOrbTimeout(duration, speedMultiplier));
+    }
+
+    private IEnumerator IncSpeedOrbTimeout(float duration, float speedMultiplier)
+    {
+        float prevBaseSpeed = BaseSpeed;
+        float actualMultiplier = 1 + speedMultiplier;
+        if (!isIncSpeedOrbActive)
+        {
+            BaseSpeed *= actualMultiplier;
+        }
+
+        Debug.Log(id + ": Base Speed increased from " + prevBaseSpeed + " to " + BaseSpeed);
+
+        isIncSpeedOrbActive = true;
+
+        yield return new WaitForSeconds(duration);
+
+        BaseSpeed /= actualMultiplier;
+        isIncSpeedOrbActive = false;
+        Debug.Log(id + ": Increase Speed Orb effect ended. Base Speed decreased to " + BaseSpeed);
+    }
+
+    public void ActivateIncDamageOrb(float baseDamageMultiplier)
+    {
+        incDamageOrbCount++;
+        float prevBaseDamage = BaseDamage;
+
+        if (incDamageOrbCount == 1)
+        {
+            BaseDamage *= 1 + baseDamageMultiplier;
+        }
+        else
+        {
+            BaseDamage = BaseDamage / (1 + (incDamageOrbCount - 1) * baseDamageMultiplier) * (1 + incDamageOrbCount * baseDamageMultiplier);
+        }
+
+        Debug.Log(id + ": Base Damage increased from " + prevBaseDamage + " to " + BaseDamage);
     }
 }

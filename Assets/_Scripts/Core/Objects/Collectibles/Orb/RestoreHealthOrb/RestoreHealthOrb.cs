@@ -18,10 +18,6 @@ public class RestoreHealthOrb : Orb
     // Functions
     protected override void OnCollect()
     {
-        float prevHealth = collector.Health;
-
-        // Regen by healthMultiplier * collector's current health (not max health)
-        collector.InflictHeal(healthMultiplier * collector.Health);
-        Debug.Log(id + ": Health increased from " + prevHealth + " to " + collector.Health);
+        collector.ActivateRestoreHealthOrb(healthMultiplier);
     }
 }
