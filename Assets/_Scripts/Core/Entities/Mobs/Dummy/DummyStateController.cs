@@ -6,7 +6,7 @@ public class DummyStateController : EntityStateController
     }
     
     // Functions
-    public override int UpdateState()
+    protected override int DetectState()
     {
         return DefaultEntityState.IDLE;
     }

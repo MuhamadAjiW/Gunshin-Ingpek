@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6141342063799955615}
   - component: {fileID: 6013667108095466786}
   - component: {fileID: 8734659159874979979}
+  - component: {fileID: 4360547362322559354}
   m_Layer: 7
   m_Name: Dummy
   m_TagString: Enemy
@@ -87,6 +88,28 @@ MonoBehaviour:
   baseDamage: 0
   weaponList:
   - {fileID: 2798277747015640978, guid: 967e1612f343be242bd63968a7374248, type: 3}
+--- !u!195 &4360547362322559354
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8491347043216026353}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &2330325376918371153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97,10 +120,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3558461250457509906, guid: 12a4aadfaedb1df42bbe4222406bb2ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3558461250457509906, guid: 12a4aadfaedb1df42bbe4222406bb2ad, type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3558461250457509906, guid: 12a4aadfaedb1df42bbe4222406bb2ad, type: 3}
@@ -163,10 +182,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5193666932059780216, guid: b2efcbe9fd3f6fe4c90fb9507057c56d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5193666932059780216, guid: b2efcbe9fd3f6fe4c90fb9507057c56d, type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5193666932059780216, guid: b2efcbe9fd3f6fe4c90fb9507057c56d, type: 3}

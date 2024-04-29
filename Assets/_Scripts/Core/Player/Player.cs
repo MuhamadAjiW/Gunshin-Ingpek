@@ -46,6 +46,7 @@ public class Player : PlayerEntity
         // TODO: These are for dev, consider deleting
         WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
         EquipWeapon(0);
+        // ----------/TODO
 
         int initialIndex = CompanionList.Count;
         for (int i = 0; i < initialIndex; i++)

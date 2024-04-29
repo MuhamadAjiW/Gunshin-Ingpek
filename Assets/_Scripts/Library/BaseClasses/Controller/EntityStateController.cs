@@ -17,6 +17,18 @@ public abstract class EntityStateController
         OnStateChangeEvent?.Invoke(oldState, newState);
     }
 
+    public void UpdateState()
+    {
+        int initialState = state;
+ 
+        state = DetectState();
+
+        if(initialState != state)
+        {
+            InvokeOnStateChanged(initialState, state);
+        }
+    }
+
     // Abstract Functions
-    public abstract int UpdateState();
+    protected abstract int DetectState();
 }

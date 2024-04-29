@@ -8,4 +8,9 @@ public class DefaultEntityState
     public const int JUMPING = 16;
     public const int FALLING = 32;
     public const int DEAD = 65536;
+
+    public static int GetMovementState(int state)
+    {
+        return state & (PlayerState.IDLE | PlayerState.WALKING  | PlayerState.SPRINTING | PlayerState.JUMPING);
+    }
 }

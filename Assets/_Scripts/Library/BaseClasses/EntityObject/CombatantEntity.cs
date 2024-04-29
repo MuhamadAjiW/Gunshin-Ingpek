@@ -93,8 +93,12 @@ public class CombatantEntity : DamageableEntity, IArmed
         // To handle prefabs
         if(!selectedWeapon.gameObject.scene.IsValid())
         {
-            if(model.dynamicWeaponPivot)
+            Debug.Log($"Bearer: {gameObject.name}");
+            Debug.Log($"DynamicPivot: {model.dynamicWeaponPivot != null}");
+            Debug.Log($"Location: {WeaponLocation}");
+            if(model.dynamicWeaponPivot != null)
             {
+                Debug.Log("Dynamic");
                 selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
                     prefabPath: selectedWeapon.data.prefabPath,
                     parent: model.dynamicWeaponPivot, 
@@ -104,19 +108,24 @@ public class CombatantEntity : DamageableEntity, IArmed
             }
             else
             {
+                Debug.Log("Static");
                 selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
                     prefabPath: selectedWeapon.data.prefabPath,
-                    parent: transform, 
+                    parent: gameObject.transform, 
                     objectName: selectedWeapon.name
                 );
                 WeaponList[WeaponIndex] = selectedWeapon;
-                selectedWeapon.transform.localPosition = WeaponLocation;
+                // selectedWeapon.transform.localPosition = WeaponLocation;
             }
+            
+            Debug.Log($"Created weapon local location: {selectedWeapon.transform.localPosition}");
+            Debug.Log($"Created weapon absolute location: {selectedWeapon.transform.position}");
+            Debug.Log($"Created weapon parent: {selectedWeapon.transform.parent.name}");
         }
 
         selectedWeapon.gameObject.SetActive(true);
         selectedWeapon.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
-        weapon = selectedWeapon;
+        weapon = selectedWeapon;        
     }
 
     public void UnequipWeapon()

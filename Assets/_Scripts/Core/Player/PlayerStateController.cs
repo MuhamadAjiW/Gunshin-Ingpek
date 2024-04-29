@@ -18,10 +18,8 @@ public class PlayerStateController : EntityStateController
     }
 
     // Functions
-    public override int UpdateState()
+    protected override int DetectState()
     {
-        int initialState = state;
-
         if(DetectJumping())
         {
             state = PlayerState.JUMPING;
@@ -68,11 +66,6 @@ public class PlayerStateController : EntityStateController
             {
                 state |= extraState;
             }
-        }
-
-        if(initialState != state)
-        {
-            InvokeOnStateChanged(initialState, state);
         }
 
         return state;
