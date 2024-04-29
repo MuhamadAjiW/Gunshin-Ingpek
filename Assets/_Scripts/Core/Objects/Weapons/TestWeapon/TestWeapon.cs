@@ -13,6 +13,8 @@ public class TestWeapon : WeaponObject
     public TestWeaponAnimationController animationController;
     public AudioController audioController;
 
+    // public MonoBehaviour CompanionController => this;
+    
     // Constructor
     protected new void Start()
     {

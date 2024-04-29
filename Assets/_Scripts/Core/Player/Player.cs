@@ -7,7 +7,12 @@ using UnityEngine;
 public class Player : PlayerEntity
 {
     // Static Attributes
+<<<<<<< HEAD
     public const string ObjectIdPrefix = "Player";
+=======
+    public const string ObjectIdPrefix = "Player"; 
+    private int currentIndex = 0;
+>>>>>>> 42c091d4 (fix: weapon switching and position)
 
     // Attributes
     public PlayerMovementController movementController;
@@ -44,7 +49,8 @@ public class Player : PlayerEntity
 
 
         // TODO: These are for dev, consider deleting
-        WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
+        // WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
+
         EquipWeapon(0);
         // ----------/TODO
 
@@ -124,6 +130,7 @@ public class Player : PlayerEntity
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected void OnDrawGizmosSelected()
     {
         // Visualize stair detection
@@ -193,20 +200,24 @@ public class Player : PlayerEntity
     }
 =======
     // Switches to the next weapon in the list
+=======
+>>>>>>> 42c091d4 (fix: weapon switching and position)
     public void SwitchWeapon()
     {
-        if (WeaponList.Count == 0)
-        {
-            Debug.LogWarning("No weapons available.");
-            return;
-        }
-        
-        int currentIndex = WeaponList.IndexOf(Weapon);
-        int nextIndex = (currentIndex + 1) % WeaponList.Count; // Calculate the index of the next weapon
-        
-        EquipCurrWeapon(nextIndex);
-        Debug.Log("Weapon switch SwitchWeapon Player.cs"); 
+    if (WeaponList.Count == 0)
+    {
+        Debug.LogWarning("No weapons available.");
+        return;
     }
+    Debug.Log($"WEAPON {WeaponList.Count}");
+
+    currentIndex = (currentIndex + 1) % WeaponList.Count; // Increment currentIndex and wrap it around if it's equal to WeaponList.Count
+    
+    Debug.Log(currentIndex);
+
+    EquipWeapon(currentIndex);
+    Debug.Log("Weapon switch SwitchWeapon Player.cs"); 
+}
 
 
     // Equip a weapon by index
