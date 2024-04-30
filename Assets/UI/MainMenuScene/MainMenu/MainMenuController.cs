@@ -19,16 +19,15 @@ public class MainMenuController : MonoBehaviour
         startGameButton.RegisterCallback<ClickEvent>(NewGameCallback);
 
         Button loadGameButton = rootElement.Query<Button>("load-game-button").First();
-        Debug.Log(loadGameButton.ToString());
         loadGameButton.RegisterCallback<ClickEvent>(LoadGameCallback);
 
         Button settingsButton = rootElement.Query<Button>("settings-button").First();
         settingsButton.RegisterCallback<ClickEvent>(SettingsCallback);
 
-        Button gameStaticsticsDisplayButton = rootElement.Query<Button>("game-statistics-display-button").First();
+        Button gameStaticsticsDisplayButton = rootElement.Query<Button>("game-statistics-button").First();
         gameStaticsticsDisplayButton.RegisterCallback<ClickEvent>(GameStatisticsDisplayCallback);
 
-        Button exitButton = rootElement.Query<Button>("exit-button").First();
+        Button exitButton = rootElement.Query<Button>("exit-game-button").First();
         exitButton.RegisterCallback<ClickEvent>(ExitCallback);
 
     }
@@ -39,16 +38,17 @@ public class MainMenuController : MonoBehaviour
 
     private void LoadGameCallback(ClickEvent evt)
     {
-        Debug.Log("Load game clicked");
         MainMenuManager.DisplayUIDocument("LoadGame");
     }
 
     private void SettingsCallback(ClickEvent evt)
     {
+        MainMenuManager.DisplayUIDocument("Settings");
     }
 
     private void GameStatisticsDisplayCallback(ClickEvent evt)
     {
+        MainMenuManager.DisplayUIDocument("GameStatisticsDisplay");
     }
 
     private void ExitCallback(ClickEvent evt)

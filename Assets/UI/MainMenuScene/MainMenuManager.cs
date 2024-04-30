@@ -17,15 +17,12 @@ public class MainMenuManager : MonoBehaviour
     {
         foreach (var uiDocument in MainMenuUIDocuments)
         {
-            Debug.Log(uiDocument.ToString());
             if (uiDocument.ToString().Split(" ")[0] != displayedUIDocumentName)
             {
-                Debug.Log("Not accepted");
                 uiDocument.rootVisualElement.style.display = DisplayStyle.None;
             }
             else
             {
-                Debug.Log("Accepted");
                 uiDocument.rootVisualElement.style.display = DisplayStyle.Flex;
             }
         }
