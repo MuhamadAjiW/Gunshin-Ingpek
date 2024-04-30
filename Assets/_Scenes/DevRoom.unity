@@ -285,6 +285,7 @@ Mesh:
     size: 0
     path: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &64821299
 =======
 --- !u!1 &31018965
@@ -307,101 +308,13 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &31018966
+=======
+--- !u!4 &31018966 stripped
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+  m_PrefabInstance: {fileID: 7488330324671763365}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31018965}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.5, y: 0, z: 12.06}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1306423965}
-  m_Father: {fileID: 1835324898}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!54 &31018967
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31018965}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!114 &31018968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31018965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afce2e24b45e0894886be3121a4e5cb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 
-  model: {fileID: 0}
-  knockbackResistance: 1
-  baseSpeed: 10
-  jumpForce: 5
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  maxHealth: 100
-  health: 100
-  damagedDelay: 0.5
-  baseDamage: 5
-  weaponList:
-  - {fileID: 7437526622663931204, guid: 62a4313c03f1e154882c937338e3578e, type: 3}
-  stateController:
-    goon: {fileID: 31018968}
-    detectionDistance: 0
-    attackDistance: 0
-    weaponState: 0
---- !u!195 &31018969
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31018965}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 8
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 90
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &78907985
 >>>>>>> 90eccbab (feat: basic chasing AI in goons)
 GameObject:
@@ -28880,22 +28793,201 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 884440696146558790}
   m_Layer: 0
   m_Name: PJ_4_8
+=======
+  m_Name: <CastShadows helper surface generated -623238>
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 48
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 30
+    localAABB:
+      m_Center: {x: 7.5000267, y: 16.374996, z: -57.5}
+      m_Extent: {x: 105.50008, y: 18.500011, z: 1.5}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200000002000300040005000600040006000700080009000a0008000a000b0008000b000c000d000e000f000d000f0010001100120013001100130014001100140015001600170018001600180019001c001b001a001d001c001a00
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 30
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 360
+    _typelessdata: 0700c4c202800b4200006cc20e00e242fe7f0b4200006cc20e00e242380008c000006cc20700c4c2000008c000006cc20700c4c2000008c0000060c20e00e242380008c0000060c20e00e242fe7f0b42000060c20700c4c202800b42000060c20700c4c202800b42000060c20e00e242fe7f0b42000060c20e00e242fe7f0b42000064c20e00e242fe7f0b4200006cc20700c4c202800b4200006cc20e00e242fe7f0b42000064c20e00e242380008c0000064c20e00e242380008c000006cc20e00e242fe7f0b4200006cc20700c4c2000008c000006cc20e00e242380008c000006cc20e00e242380008c0000064c20e00e242380008c0000060c20700c4c2000008c0000060c20700c4c2000008c000006cc20700c4c2000008c0000060c20700c4c202800b42000060c20700c4c202800b4200006cc2feffe142fe7f0b42000060c2feffe142fe7f0b42000064c2ffffe142200008c0000064c2ffffe142200008c0000060c2
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 7.5000267, y: 16.374996, z: -57.5}
+    m_Extent: {x: 105.50008, y: 18.500011, z: 1.5}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  'm_MeshMetrics[0]': 1
+  'm_MeshMetrics[1]': 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!1 &713403996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 713403997}
+  - component: {fileID: 713403998}
+  m_Layer: 0
+  m_Name: '[generated-meshes]'
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &6665301889614163038
+=======
+--- !u!4 &713403997
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 2434404574345499220}
   serializedVersion: 2
   m_LocalRotation: {x: 0.9866839, y: 0.039595887, z: 0.03959574, w: -0.15270638}
@@ -28907,6 +28999,33 @@ Transform:
   m_Father: {fileID: 8964102990339096944}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6684756449586774397
+=======
+  m_GameObject: {fileID: 713403996}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1233026973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &713403998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713403996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  owner: {fileID: 1233026972}
+  helperSurfaces: []
+--- !u!1 &716801571
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29254,6 +29373,7 @@ MonoBehaviour:
     - EdgeIndices: 14000000150000001600000017000000
       TexGenIndex: 5
     Generation: 33
+<<<<<<< HEAD
 --- !u!1 &733183707
 GameObject:
   m_ObjectHideFlags: 17
@@ -29524,6 +29644,9 @@ Transform:
   m_Father: {fileID: 5307863442215971178}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6792800337044693985
+=======
+--- !u!1 &762847982
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32750,6 +32873,7 @@ Transform:
     - TwinIndex: 3
       PolygonIndex: 4
       HardEdge: 0
+<<<<<<< HEAD
       VertexIndex: 2
     - TwinIndex: 15
       PolygonIndex: 4
@@ -32774,6 +32898,8 @@ Transform:
     - TwinIndex: 5
       PolygonIndex: 5
       HardEdge: 0
+=======
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
       VertexIndex: 4
     Polygons:
     - EdgeIndices: 00000000010000000200000003000000
@@ -32791,12 +32917,17 @@ Transform:
     Generation: 33
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &1159133472
+=======
+--- !u!1001 &1198138126
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
+<<<<<<< HEAD
     m_TransformParent: {fileID: 31018966}
     m_Modifications:
     - target: {fileID: 125248941348886635, guid: 71b1260932d07054caf2d52890e46704, type: 3}
@@ -32847,10 +32978,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+=======
+    m_TransformParent: {fileID: 580745004}
+    m_Modifications:
+    - target: {fileID: 4603107572195619152, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6b36fb2e3a8a80643988a623d515cbcc, type: 2}
+    - target: {fileID: 6541102688641435260, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_Name
+      value: TestInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065619579114910469, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065619579114910469, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065619579114910469, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065619579114910469, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065619579114910469, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065619579114910469, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065619579114910469, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065619579114910469, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869483112752652203, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6b36fb2e3a8a80643988a623d515cbcc, type: 2}
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 71b1260932d07054caf2d52890e46704, type: 3}
 --- !u!1001 &1198138126
@@ -32860,6 +33040,271 @@ PrefabInstance:
 =======
   m_SourcePrefab: {fileID: 100100000, guid: c98b222ded23bb24690e674886e5741a, type: 3}
 --- !u!1 &1203397535
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+--- !u!43 &1220812133
+Mesh:
+  m_ObjectHideFlags: 16
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: <Collider helper surface generated -623236>
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 48
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 30
+    localAABB:
+      m_Center: {x: 7.5000267, y: 16.374996, z: -57.5}
+      m_Extent: {x: 105.50008, y: 18.500011, z: 1.5}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200000002000300040005000600040006000700080009000a0008000a000b0008000b000c000d000e000f000d000f0010001100120013001100130014001100140015001600170018001600180019001c001b001a001d001c001a00
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 30
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 360
+    _typelessdata: 0700c4c202800b4200006cc20e00e242fe7f0b4200006cc20e00e242380008c000006cc20700c4c2000008c000006cc20700c4c2000008c0000060c20e00e242380008c0000060c20e00e242fe7f0b42000060c20700c4c202800b42000060c20700c4c202800b42000060c20e00e242fe7f0b42000060c20e00e242fe7f0b42000064c20e00e242fe7f0b4200006cc20700c4c202800b4200006cc20e00e242fe7f0b42000064c20e00e242380008c0000064c20e00e242380008c000006cc20e00e242fe7f0b4200006cc20700c4c2000008c000006cc20e00e242380008c000006cc20e00e242380008c0000064c20e00e242380008c0000060c20700c4c2000008c0000060c20700c4c2000008c000006cc20700c4c2000008c0000060c20700c4c202800b42000060c20700c4c202800b4200006cc2feffe142fe7f0b42000060c2feffe142fe7f0b42000064c2ffffe142200008c0000064c2ffffe142200008c0000060c2
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 7.5000267, y: 16.374996, z: -57.5}
+    m_Extent: {x: 105.50008, y: 18.500011, z: 1.5}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  'm_MeshMetrics[0]': 1
+  'm_MeshMetrics[1]': 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!1 &1233026970
+GameObject:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233026973}
+  - component: {fileID: 1233026972}
+  - component: {fileID: 1233026971}
+  m_Layer: 0
+  m_Name: '[default-CSGModel]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 124
+  m_IsActive: 1
+--- !u!54 &1233026971
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233026970}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1233026972
+MonoBehaviour:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233026970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabBehaviour: 0
+  PrefabSourceAlignment: 4
+  PrefabDestinationAlignment: 0
+  Version: 1.1
+  infiniteBrush: {fileID: 0}
+  Settings: 1025
+  VertexChannels: 14
+  ReceiveGI: 2
+  MeshColliderCookingOptions: 14
+  ShowGeneratedMeshes: 0
+  DefaultPhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  exportType: 0
+  originType: 0
+  exportColliders: 0
+  exportPath: 
+  angleError: 1
+  areaError: 1
+  hardAngle: 60
+  packMargin: 20
+  scaleInLightmap: 1
+  autoUVMaxDistance: 0.5
+  autoUVMaxAngle: 89
+  minimumChartSize: 4
+--- !u!4 &1233026973
+Transform:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233026970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 713403997}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1250453138
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33897,6 +34342,7 @@ Transform:
   m_Father: {fileID: 1501595418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!65 &7758172077789247872
 BoxCollider:
 =======
@@ -33962,6 +34408,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
   m_PrefabInstance: {fileID: 1306423964}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 --- !u!1 &1309798950
 GameObject:
 >>>>>>> f70a0d6c (feat: goons ai and animation)
@@ -45281,6 +45729,7 @@ GameObject:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &2116525527
 GameObject:
   m_ObjectHideFlags: 17
@@ -45516,6 +45965,8 @@ Transform:
   owner: {fileID: 733183709}
   helperSurfaces: []
 >>>>>>> 10ec52b4 (feat: weapon audio controller, shotgun damage calculation)
+=======
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 --- !u!1 &2147359534
 >>>>>>> 9ac59638 (feat: dark iron sword)
 GameObject:
@@ -45916,16 +46367,21 @@ MonoBehaviour:
     Generation: 33
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Scenes/DevRoom.unity
 >>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
 =======
 =======
 --- !u!1001 &975964434820056533
+=======
+--- !u!1001 &7488330324671763365
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
+<<<<<<< HEAD
     m_TransformParent: {fileID: 580745004}
     m_Modifications:
     - target: {fileID: 484974175336392606, guid: 401b499235e070042a67f24a46b2a9d9, type: 3}
@@ -46226,6 +46682,59 @@ PrefabInstance:
 >>>>>>> 5488cd99 (feat: incorporated jean textures and maps):Assets/_Scenes/DevRoom.unity
 =======
 >>>>>>> ad6309a1 (fix: movement speed)
+=======
+    m_TransformParent: {fileID: 1835324898}
+    m_Modifications:
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068653259312230018, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8116154848368178863, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+      propertyPath: m_Name
+      value: Goons
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -46235,6 +46744,7 @@ SceneRoots:
   - {fileID: 1899092101}
   - {fileID: 92633237}
   - {fileID: 1298502551}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -46290,3 +46800,6 @@ SceneRoots:
 =======
   - {fileID: 733183710}
 >>>>>>> 10ec52b4 (feat: weapon audio controller, shotgun damage calculation)
+=======
+  - {fileID: 1233026973}
+>>>>>>> cbc40efd (feat: shotgun skill, finalized goons)

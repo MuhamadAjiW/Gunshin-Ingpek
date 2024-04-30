@@ -16,6 +16,6 @@ public class ShotgunProjectile : ProjectileObject
     protected new void FixedUpdate()
     {
         base.FixedUpdate();
-        Damage = Mathf.Max(initialDamage - initialDamage * Mathf.Pow(distanceTravelled / travelDistance, 4f), 0);
+        Damage = Mathf.Max(initialDamage - initialDamage * Mathf.Pow(distanceTravelled / travelDistance, 3), 0);
     }
 }

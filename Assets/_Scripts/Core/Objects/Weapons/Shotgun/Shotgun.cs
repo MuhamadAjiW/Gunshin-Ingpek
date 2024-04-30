@@ -74,22 +74,33 @@ public class Shotgun : WeaponObject
 
     protected override void OnSkill()
     {
-        ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
-            prefabPath: projectilePrefab,
-            damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
-            knockbackPower: data.knockbackPower * 2,
-            attackLayerCode: bearer.AttackLayerCode,
-            damageModifier: bearer.AttackMultiplier * 4,
-            position: transform.position + (transform.forward * 0.5f),
-            rotation: bearer.Orientation.rotation,
-            knockbackOrigin: transform.position - (bearer.Orientation.forward * projectileSpeed),
-            objectName: "Shotgun Skill Projectile"
-        );
+        audioController.Play(shotAudioKey);
+        for (int i = 0; i < pelletCount; i++)
+        {
+            float damage = MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage) * 2;
+            ShotgunProjectile attackProjectile = ObjectFactory.CreateAttackObject<ShotgunProjectile>(
+                prefabPath: projectilePrefab,
+                damage: damage,
+                knockbackPower: data.knockbackPower * 3,
+                attackLayerCode: bearer.AttackLayerCode,
+                damageModifier: bearer.AttackMultiplier,
+                position: transform.position,
+                rotation: bearer.Orientation.rotation,
+                knockbackOrigin: transform.position - (bearer.Orientation.forward * projectileSpeed),
+                objectName: "Shotgun Projectile"
+            );
 
-        attackProjectile.travelDistance = fireRange * 2;
-        attackProjectile.speed = projectileSpeed;
-        attackProjectile.direction = bearer.Orientation.forward;
+            float spreadX = UnityEngine.Random.Range(-spread, spread);
+            float spreadY = UnityEngine.Random.Range(-spread, spread);
 
-        ObjectFactory.DestroyObject(attackProjectile, 2f);
+            attackProjectile.travelDistance = fireRange;
+            attackProjectile.speed = projectileSpeed;
+            attackProjectile.initialDamage = damage;
+
+            Vector3 direction = bearer.Orientation.forward;
+            direction += bearer.Orientation.up * spreadY + bearer.Orientation.right * spreadX;
+
+            attackProjectile.direction = direction;
+        }
     }
 }
