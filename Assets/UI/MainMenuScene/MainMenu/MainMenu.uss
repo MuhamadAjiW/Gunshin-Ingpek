@@ -1,0 +1,11 @@
+.main-menu-button {
+    font-size: 28px;
+}
+
+.shake-start {
+    translate: 5% 5px;
+}
+
+.shake-end {
+    translate: -5% -5%;
+}

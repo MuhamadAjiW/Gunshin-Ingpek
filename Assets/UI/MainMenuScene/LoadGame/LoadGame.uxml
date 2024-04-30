@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
+    <ui:VisualElement name="Container" class="containter" style="flex-grow: 1; align-items: flex-start;">
+        <ui:VisualElement name="TitleContainer" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
+            <ui:Label text="Load Saves" name="Title" style="rotate: -5deg; font-size: 48px; translate: 2.5% 20%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="SavesContainer" style="flex-grow: 1;">
+        <ui:Button text="Save 1 [Datetime of save 1]" name="Savefile" />
+        <ui:Label text="No Save Yet!" name="NoSaveLabel" parse-escape-sequences="false" style="font-size: 28px; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+</ui:UXML>
