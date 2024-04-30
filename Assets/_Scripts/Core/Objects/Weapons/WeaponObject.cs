@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class WeaponObject : MonoBehaviour 
 {
-
     // Attributes
     public WeaponData data;
     public WeaponState state;

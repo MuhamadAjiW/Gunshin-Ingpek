@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class TestWeapon : WeaponObject
+public class Rifle : WeaponObject
 {
     // Constants
-    public const string weaponPrefab = "Prefabs/Weapons/TestWeapon/TestWeapon";
-    private const string hitboxPrefab = "Prefabs/Weapons/TestWeapon/WeaponHitbox";
-    private const string projectilePrefab = "Prefabs/Weapons/TestWeapon/TestProjectile";
+    public const string weaponPrefab = "Prefabs/Weapons/Rifle/Rifle";
+    private const string projectilePrefab = "Prefabs/Weapons/Rifle/RifleProjectile";
+    private const string hitboxPrefab = "Prefabs/Weapons/Hitbox";
     
     // Attribute
     public float fireRange = 100;

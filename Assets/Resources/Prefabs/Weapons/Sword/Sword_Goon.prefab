@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1674367515123924342}
   - component: {fileID: 7437526622663931204}
   m_Layer: 6
-  m_Name: DarkIronSword
+  m_Name: Sword_Goon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b45145fee992144aa97de5b8a2cb0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: c4027408fba78754aa6a9650f2684ca9, type: 2}
+  data: {fileID: 11400000, guid: 3d3df3e505cbe2344ae113e08d4debae, type: 2}
   state: 0
   attackType: 1
   alternateAttackType: 1

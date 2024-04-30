@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5240801910879785525
+--- !u!1 &7199235038937275833
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,80 +8,78 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1050311400148833009}
-  - component: {fileID: 5029868015402955001}
-  m_Layer: 0
-  m_Name: TestWeapon
+  - component: {fileID: 1674367515123924342}
+  - component: {fileID: 7437526622663931204}
+  m_Layer: 6
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &1050311400148833009
+--- !u!4 &1674367515123924342
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5240801910879785525}
+  m_GameObject: {fileID: 7199235038937275833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6818626826298730519}
+  - {fileID: 1939601640507407462}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5029868015402955001
+--- !u!114 &7437526622663931204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5240801910879785525}
+  m_GameObject: {fileID: 7199235038937275833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68705b8ed948aae4d98ef6e87b6f6961, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b45145fee992144aa97de5b8a2cb0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 875c881f7a9ed2347a9d28ca2c18c4b5, type: 2}
+  data: {fileID: 11400000, guid: c4027408fba78754aa6a9650f2684ca9, type: 2}
   state: 0
-  attackType: 2
+  attackType: 1
   alternateAttackType: 1
-  fireRange: 10
-  projectileSpeed: 50
---- !u!1001 &1850367676916756885
+--- !u!1001 &2120709989361574462
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1050311400148833009}
+    m_TransformParent: {fileID: 1674367515123924342}
     m_Modifications:
-    - target: {fileID: 5119875216050280834, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+    - target: {fileID: 541732770816302680, guid: f0d081d1ef8077d4f96b0a13bc2e425c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5119875216050280834, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+    - target: {fileID: 541732770816302680, guid: f0d081d1ef8077d4f96b0a13bc2e425c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5119875216050280834, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+    - target: {fileID: 541732770816302680, guid: f0d081d1ef8077d4f96b0a13bc2e425c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5496260497754850104, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+    - target: {fileID: 4462867912151492675, guid: f0d081d1ef8077d4f96b0a13bc2e425c, type: 3}
       propertyPath: m_Name
-      value: Model
+      value: DarkIronSword
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
---- !u!4 &6818626826298730519 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: f0d081d1ef8077d4f96b0a13bc2e425c, type: 3}
+--- !u!4 &1939601640507407462 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5119875216050280834, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
-  m_PrefabInstance: {fileID: 1850367676916756885}
+  m_CorrespondingSourceObject: {fileID: 541732770816302680, guid: f0d081d1ef8077d4f96b0a13bc2e425c, type: 3}
+  m_PrefabInstance: {fileID: 2120709989361574462}
   m_PrefabAsset: {fileID: 0}
