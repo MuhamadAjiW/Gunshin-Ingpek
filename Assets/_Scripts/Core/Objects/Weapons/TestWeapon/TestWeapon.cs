@@ -10,7 +10,6 @@ public class TestWeapon : WeaponObject
     // Attribute
     public float fireRange = 100;
     public float projectileSpeed = 100; 
-    public TestWeaponAnimationController animationController;
     public AudioController audioController;
 
     // public MonoBehaviour CompanionController => this;
@@ -19,7 +18,6 @@ public class TestWeapon : WeaponObject
     protected new void Start()
     {
         base.Start();
-        animationController = new TestWeaponAnimationController(this);
         audioController = new AudioController(gameObject, audioController.audios);
     }
 
@@ -47,8 +45,6 @@ public class TestWeapon : WeaponObject
 
     protected override void OnAlternateAttack()
     {
-        animationController.AnimateAlternateAttack();
-
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: hitboxPrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
@@ -56,7 +52,7 @@ public class TestWeapon : WeaponObject
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position + (transform.forward * 0.5f),
-            parent: animationController.model.transform,
+            parent: transform,
             objectName: "TestWeapon Hitbox"
         );
 

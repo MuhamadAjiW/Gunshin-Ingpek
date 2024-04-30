@@ -7,12 +7,10 @@ public class Sword : WeaponObject
     
     public float attackRange = 2.5f;
     public float attackDamage = 25f; 
-    public SwordAnimationController animationController;
 
     protected new void Start()
     {
         base.Start();
-        animationController = new SwordAnimationController(this);
     }
 
     protected override void OnAttack()
@@ -34,8 +32,6 @@ public class Sword : WeaponObject
 
     protected override void OnAlternateAttack()
     {
-        animationController.AnimateAlternateAttack();
-
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: hitboxPrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
@@ -43,11 +39,15 @@ public class Sword : WeaponObject
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position,
-            parent: animationController.model.transform,
+            parent: transform,
             objectName: "Sword Hitbox"
         );
 
         ObjectFactory.DestroyObject(attackHitbox, 0.5f);
     }
 
+    protected override void OnSkill()
+    {
+        throw new System.NotImplementedException();
+    }
 }

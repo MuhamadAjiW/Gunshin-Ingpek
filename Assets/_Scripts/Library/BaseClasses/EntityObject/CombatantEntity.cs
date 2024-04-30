@@ -88,17 +88,12 @@ public class CombatantEntity : DamageableEntity, IArmed
 
         WeaponIndex = index;
         WeaponObject selectedWeapon = WeaponList[WeaponIndex];
-        Debug.Log($"Equipping weapon {selectedWeapon.name}");
         
         // To handle prefabs
         if(!selectedWeapon.gameObject.scene.IsValid())
         {
-            Debug.Log($"Bearer: {gameObject.name}");
-            Debug.Log($"DynamicPivot: {model.dynamicWeaponPivot != null}");
-            Debug.Log($"Location: {WeaponLocation}");
             if(model.dynamicWeaponPivot != null)
             {
-                Debug.Log("Dynamic");
                 selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
                     prefabPath: selectedWeapon.data.prefabPath,
                     parent: model.dynamicWeaponPivot, 
@@ -108,7 +103,6 @@ public class CombatantEntity : DamageableEntity, IArmed
             }
             else
             {
-                Debug.Log("Static");
                 selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
                     prefabPath: selectedWeapon.data.prefabPath,
                     parent: gameObject.transform, 
@@ -117,10 +111,6 @@ public class CombatantEntity : DamageableEntity, IArmed
                 WeaponList[WeaponIndex] = selectedWeapon;
                 // selectedWeapon.transform.localPosition = WeaponLocation;
             }
-            
-            Debug.Log($"Created weapon local location: {selectedWeapon.transform.localPosition}");
-            Debug.Log($"Created weapon absolute location: {selectedWeapon.transform.position}");
-            Debug.Log($"Created weapon parent: {selectedWeapon.transform.parent.name}");
         }
 
         selectedWeapon.gameObject.SetActive(true);
