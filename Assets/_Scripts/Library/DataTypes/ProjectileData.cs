@@ -5,7 +5,4 @@ using UnityEngine;
 public class ProjectileData : ScriptableObject
 {
     public UnityEngine.GameObject model;
-    public float speed;
-    public float travelDistance;
-    public bool through;
 }

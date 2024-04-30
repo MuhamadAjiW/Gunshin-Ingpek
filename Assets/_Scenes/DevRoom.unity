@@ -2654,6 +2654,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!43 &395782436
 Mesh:
 =======
@@ -2706,6 +2707,8 @@ MonoBehaviour:
   Version: 1
   owner: {fileID: 1759775685}
   helperSurfaces: []
+=======
+>>>>>>> 25f03de8 (feat: shotgun)
 --- !u!1 &437116564
 >>>>>>> 17ce7255 (feat: rifle models)
 GameObject:
@@ -27519,6 +27522,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &6596930668293548867
 GameObject:
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> e6512361 (feat: sword in goons)
@@ -27741,6 +27745,9 @@ Transform:
 Mesh:
 >>>>>>> ad6309a1 (fix: movement speed)
   m_ObjectHideFlags: 0
+=======
+  m_ObjectHideFlags: 16
+>>>>>>> 25f03de8 (feat: shotgun)
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -27756,7 +27763,11 @@ Mesh:
   m_IsActive: 1
 --- !u!4 &6616130363903770542
 Transform:
+<<<<<<< HEAD
   m_ObjectHideFlags: 0
+=======
+  m_ObjectHideFlags: 16
+>>>>>>> 25f03de8 (feat: shotgun)
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -27770,7 +27781,64 @@ Transform:
   - {fileID: 6992788035044479294}
   m_Father: {fileID: 8257644631291058752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &6621230730903113573
+=======
+--- !u!64 &656456189
+MeshCollider:
+  m_ObjectHideFlags: 16
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656456187}
+  m_Material: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 309103434}
+--- !u!114 &656456190
+MonoBehaviour:
+  m_ObjectHideFlags: 16
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656456187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a92adfdc6e3524fb82e0817c421ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  SharedMesh: {fileID: 309103434}
+  RenderMaterial: {fileID: 0}
+  PhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  RenderSurfaceType: 4
+  MeshDescription:
+    meshQuery:
+      layers: 33554440
+      maskAndChannels: 8
+    surfaceParameter: 48976
+    meshQueryIndex: 2
+    subMeshQueryIndex: 0
+    geometryHashValue: -1365392548276624071
+    surfaceHashValue: 6804152214688007603
+    vertexCount: 768
+    indexCount: 1344
+  HasGeneratedNormals: 0
+  HasUV2: 0
+  LightingHashValue: -1365392548276624071
+--- !u!1 &667852598
+>>>>>>> 25f03de8 (feat: shotgun)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32442,20 +32510,69 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
+<<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 71b1260932d07054caf2d52890e46704, type: 3}
 --- !u!1001 &1198138126
 PrefabInstance:
   m_ObjectHideFlags: 0
 >>>>>>> 90eccbab (feat: basic chasing AI in goons)
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: c98b222ded23bb24690e674886e5741a, type: 3}
+--- !u!1 &1203397535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203397536}
+  - component: {fileID: 1203397537}
+  m_Layer: 0
+  m_Name: '[generated-meshes]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1203397536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203397535}
+>>>>>>> 25f03de8 (feat: shotgun)
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
+<<<<<<< HEAD
   m_Children:
   - {fileID: 1267581461}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_Children: []
+  m_Father: {fileID: 2090206274}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1203397537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203397535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  owner: {fileID: 2090206273}
+  helperSurfaces: []
+>>>>>>> 25f03de8 (feat: shotgun)
 --- !u!43 &1220812133
 Mesh:
   m_ObjectHideFlags: 16
@@ -37069,102 +37186,6 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     MeshFilter: {fileID: 0}
     MeshRenderer: {fileID: 0}
---- !u!1 &1759775683
-GameObject:
-  m_ObjectHideFlags: 17
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1759775686}
-  - component: {fileID: 1759775685}
-  - component: {fileID: 1759775684}
-  m_Layer: 0
-  m_Name: '[default-CSGModel]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 124
-  m_IsActive: 1
---- !u!54 &1759775684
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759775683}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!114 &1759775685
-MonoBehaviour:
-  m_ObjectHideFlags: 17
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759775683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabBehaviour: 0
-  PrefabSourceAlignment: 4
-  PrefabDestinationAlignment: 0
-  Version: 1.1
-  infiniteBrush: {fileID: 0}
-  Settings: 1025
-  VertexChannels: 14
-  ReceiveGI: 2
-  MeshColliderCookingOptions: 14
-  ShowGeneratedMeshes: 0
-  DefaultPhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
-  exportType: 0
-  originType: 0
-  exportColliders: 0
-  exportPath: 
-  angleError: 1
-  areaError: 1
-  hardAngle: 60
-  packMargin: 20
-  scaleInLightmap: 1
-  autoUVMaxDistance: 0.5
-  autoUVMaxAngle: 89
-  minimumChartSize: 4
---- !u!4 &1759775686
-Transform:
-  m_ObjectHideFlags: 17
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759775683}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 382892503}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1778930064
 >>>>>>> 17ce7255 (feat: rifle models)
 GameObject:
@@ -42856,12 +42877,16 @@ Transform:
       objectReference: {fileID: 0}
     - target: {fileID: 6295466695771578625, guid: c92ef370f6a1fcd47895d5c6e80ad63f, type: 3}
       propertyPath: weaponList.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6295466695771578625, guid: c92ef370f6a1fcd47895d5c6e80ad63f, type: 3}
       propertyPath: 'weaponList.Array.data[1]'
       value: 
       objectReference: {fileID: 7437526622663931204, guid: 906fae015101ec14d85ef18648b7d9a3, type: 3}
+    - target: {fileID: 6295466695771578625, guid: c92ef370f6a1fcd47895d5c6e80ad63f, type: 3}
+      propertyPath: 'weaponList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6335313778335870420, guid: 5ff13ee560f16334d998301c389295a3, type: 3}
     - target: {fileID: 6299440454832857852, guid: c92ef370f6a1fcd47895d5c6e80ad63f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 2.8136127
@@ -44840,15 +44865,22 @@ GameObject:
 =======
     Generation: 33
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &2116525527
 GameObject:
   m_ObjectHideFlags: 17
 >>>>>>> 9ac59638 (feat: dark iron sword)
+=======
+--- !u!1 &2090206271
+GameObject:
+  m_ObjectHideFlags: 17
+>>>>>>> 25f03de8 (feat: shotgun)
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
 <<<<<<< HEAD
   - component: {fileID: 2512107567978968877}
   m_Layer: 0
@@ -44864,6 +44896,11 @@ GameObject:
   - component: {fileID: 2116525530}
   - component: {fileID: 2116525529}
   - component: {fileID: 2116525528}
+=======
+  - component: {fileID: 2090206274}
+  - component: {fileID: 2090206273}
+  - component: {fileID: 2090206272}
+>>>>>>> 25f03de8 (feat: shotgun)
   m_Layer: 0
   m_Name: '[default-CSGModel]'
   m_TagString: Untagged
@@ -44871,6 +44908,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 124
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!54 &2116525528
 Rigidbody:
 >>>>>>> 9ac59638 (feat: dark iron sword)
@@ -44891,10 +44929,15 @@ Rigidbody:
   m_IsActive: 1
 --- !u!1 &9205513369659142984
 GameObject:
+=======
+--- !u!54 &2090206272
+Rigidbody:
+>>>>>>> 25f03de8 (feat: shotgun)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2969404452279948742}
@@ -44923,6 +44966,9 @@ Transform:
 --- !u!1 &9220069326993881050
 =======
   m_GameObject: {fileID: 2116525527}
+=======
+  m_GameObject: {fileID: 2090206271}
+>>>>>>> 25f03de8 (feat: shotgun)
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -44943,13 +44989,21 @@ Transform:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+<<<<<<< HEAD
 --- !u!114 &2116525529
+=======
+--- !u!114 &2090206273
+>>>>>>> 25f03de8 (feat: shotgun)
 MonoBehaviour:
   m_ObjectHideFlags: 17
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 2116525527}
+=======
+  m_GameObject: {fileID: 2090206271}
+>>>>>>> 25f03de8 (feat: shotgun)
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
@@ -44978,24 +45032,38 @@ MonoBehaviour:
   autoUVMaxDistance: 0.5
   autoUVMaxAngle: 89
   minimumChartSize: 4
+<<<<<<< HEAD
 --- !u!4 &2116525530
+=======
+--- !u!4 &2090206274
+>>>>>>> 25f03de8 (feat: shotgun)
 Transform:
   m_ObjectHideFlags: 17
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 2116525527}
+=======
+  m_GameObject: {fileID: 2090206271}
+>>>>>>> 25f03de8 (feat: shotgun)
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+<<<<<<< HEAD
   - {fileID: 494931646}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
 >>>>>>> 6c8684c5 (feat: added mitachurl, samachurl, lawachurl model. Animation still glitchy though)
+=======
+  - {fileID: 1203397536}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 25f03de8 (feat: shotgun)
 --- !u!1 &2147359534
 >>>>>>> 9ac59638 (feat: dark iron sword)
 GameObject:
@@ -45726,6 +45794,7 @@ SceneRoots:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 623494889}
 =======
   - {fileID: 1723548349}
@@ -45762,3 +45831,6 @@ SceneRoots:
 =======
   - {fileID: 1759775686}
 >>>>>>> 17ce7255 (feat: rifle models)
+=======
+  - {fileID: 2090206274}
+>>>>>>> 25f03de8 (feat: shotgun)

@@ -8,7 +8,7 @@ public class Rifle : WeaponObject
     private const string hitboxPrefab = "Prefabs/Weapons/Hitbox";
     
     // Attribute
-    public float fireRange = 100;
+    public float fireRange = 200;
     public float projectileSpeed = 100; 
     public AudioController audioController;
 
@@ -33,14 +33,12 @@ public class Rifle : WeaponObject
             position: transform.position,
             rotation: bearer.Orientation.rotation,
             knockbackOrigin: transform.position - (bearer.Orientation.forward * projectileSpeed),
-            objectName: "TestWeapon Projectile"
+            objectName: "Rifle Projectile"
         );
 
-        attackProjectile.data.travelDistance = fireRange;
-        attackProjectile.data.speed = projectileSpeed;
+        attackProjectile.travelDistance = fireRange;
+        attackProjectile.speed = projectileSpeed;
         attackProjectile.direction = bearer.Orientation.forward;
-
-        ObjectFactory.DestroyObject(attackProjectile, 1f);
     }
 
     protected override void OnAlternateAttack()
@@ -53,7 +51,7 @@ public class Rifle : WeaponObject
             damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position + (transform.forward * 0.5f),
             parent: transform,
-            objectName: "TestWeapon Hitbox"
+            objectName: "Rifle Hitbox"
         );
 
         ObjectFactory.DestroyObject(attackHitbox, 0.5f);
@@ -70,11 +68,11 @@ public class Rifle : WeaponObject
             position: transform.position + (transform.forward * 0.5f),
             rotation: bearer.Orientation.rotation,
             knockbackOrigin: transform.position - (bearer.Orientation.forward * projectileSpeed),
-            objectName: "TestWeapon Skill Projectile"
+            objectName: "Rifle Skill Projectile"
         );
 
-        attackProjectile.data.travelDistance = fireRange * 2;
-        attackProjectile.data.speed = projectileSpeed;
+        attackProjectile.travelDistance = fireRange * 2;
+        attackProjectile.speed = projectileSpeed;
         attackProjectile.direction = bearer.Orientation.forward;
 
         ObjectFactory.DestroyObject(attackProjectile, 2f);

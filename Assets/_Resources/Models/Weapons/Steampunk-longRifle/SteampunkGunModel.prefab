@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 2465394453977344422}
   - component: {fileID: 4816382976975323976}
   m_Layer: 0
-  m_Name: Model
+  m_Name: SteampunkGunModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
