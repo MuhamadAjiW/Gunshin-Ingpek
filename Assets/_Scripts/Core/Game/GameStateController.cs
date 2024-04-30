@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameStateController
@@ -24,7 +23,7 @@ public class GameStateController
     public void PushState(GameState gameState)
     {
         gameStateStack.Push(gameState);
-        
+
         SetState(gameState);
         OnGameStateChange?.Invoke(
             new GameStateChangeArgs(
@@ -39,7 +38,7 @@ public class GameStateController
     {
         gameStateStack.Pop();
         GameState gameState = gameStateStack.Peek();
-        
+
         SetState(gameState);
         OnGameStateChange?.Invoke(
             new GameStateChangeArgs(
@@ -59,12 +58,16 @@ public class GameStateController
                 OnPausedEvent?.Invoke();
                 return;
 
+            case GameState.CHEAT:
+                PopState();
+                return;
+
             case GameState.PAUSED:
             case GameState.CUTSCENE:
             case GameState.MENU:
                 PopState();
                 return;
-            
+
             default:
                 return;
         }
@@ -82,18 +85,25 @@ public class GameStateController
         Time.timeScale = gameState switch
         {
             GameState.PAUSED => 0,
+            GameState.CHEAT => 0,
             GameState.RUNNING => 1,
             GameState.CUTSCENE => 0,
             GameState.MENU => 0,
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
-        Cursor.lockState = gameState switch 
+        Cursor.lockState = gameState switch
         {
             GameState.PAUSED => CursorLockMode.None,
+            GameState.CHEAT => CursorLockMode.None,
             GameState.RUNNING => CursorLockMode.Locked,
             GameState.CUTSCENE => CursorLockMode.Locked,
             GameState.MENU => CursorLockMode.None,
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
+    }
+
+    public GameState GetState()
+    {
+        return gameStateStack.Peek();
     }
 }

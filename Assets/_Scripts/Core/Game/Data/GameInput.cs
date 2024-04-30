@@ -1,7 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class GameInput : MonoBehaviour 
+public class GameInput : MonoBehaviour
 {
     // Static Instance
     public static GameInput Instance;
@@ -15,6 +16,12 @@ public class GameInput : MonoBehaviour
     [NonSerialized] public KeyCode sprintButton = KeyCode.LeftShift;
     [NonSerialized] public KeyCode inputToggleButton = KeyCode.LeftControl;
     [NonSerialized] public KeyCode aimToggleButton = KeyCode.E;
+    [NonSerialized]
+    public List<KeyCode> cheatTriggerButton = new()
+    {
+        KeyCode.BackQuote,
+        KeyCode.C
+    };
 
     // Constructor
     protected void Awake()
