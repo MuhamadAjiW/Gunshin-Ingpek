@@ -601,6 +601,8 @@ MonoBehaviour:
   - {fileID: 464935306}
   - {fileID: 2112040269}
   - {fileID: 2053505587}
+  TransitionTimeMiliSeconds: 1000
+  MainMenuTransitionInProgress: 0
 --- !u!4 &1421230259
 Transform:
   m_ObjectHideFlags: 0

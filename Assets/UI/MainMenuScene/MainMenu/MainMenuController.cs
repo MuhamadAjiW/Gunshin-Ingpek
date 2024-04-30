@@ -16,19 +16,32 @@ public class MainMenuController : MonoBehaviour
 
         // Setup click functionalities of the buttons
         Button startGameButton = rootElement.Query<Button>("start-game-button").First();
-        startGameButton.RegisterCallback<ClickEvent>(NewGameCallback);
+        startGameButton.RegisterCallback(BlockCallbackInTransition(NewGameCallback));
 
         Button loadGameButton = rootElement.Query<Button>("load-game-button").First();
-        loadGameButton.RegisterCallback<ClickEvent>(LoadGameCallback);
+        loadGameButton.RegisterCallback(BlockCallbackInTransition(LoadGameCallback));
 
         Button settingsButton = rootElement.Query<Button>("settings-button").First();
-        settingsButton.RegisterCallback<ClickEvent>(SettingsCallback);
+        settingsButton.RegisterCallback(BlockCallbackInTransition(SettingsCallback));
 
         Button gameStaticsticsDisplayButton = rootElement.Query<Button>("game-statistics-button").First();
-        gameStaticsticsDisplayButton.RegisterCallback<ClickEvent>(GameStatisticsDisplayCallback);
+        gameStaticsticsDisplayButton.RegisterCallback(BlockCallbackInTransition(GameStatisticsDisplayCallback));
 
         Button exitButton = rootElement.Query<Button>("exit-game-button").First();
-        exitButton.RegisterCallback<ClickEvent>(ExitCallback);
+        exitButton.RegisterCallback(BlockCallbackInTransition(ExitCallback));
+
+    }
+
+    private EventCallback<ClickEvent> BlockCallbackInTransition(EventCallback<ClickEvent> callback)
+    {
+        return (ClickEvent evt) =>
+        {
+            if (MainMenuManager.MainMenuTransitionInProgress)
+            {
+                return;
+            }
+            callback(evt);
+        };
 
     }
 
@@ -38,17 +51,16 @@ public class MainMenuController : MonoBehaviour
 
     private void LoadGameCallback(ClickEvent evt)
     {
-        MainMenuManager.DisplayUIDocument("LoadGame");
+        MainMenuManager.DisplayUIDocument("LoadGame", true);
     }
 
     private void SettingsCallback(ClickEvent evt)
     {
-        MainMenuManager.DisplayUIDocument("Settings");
+        MainMenuManager.DisplayUIDocument("Settings", true);
     }
-
     private void GameStatisticsDisplayCallback(ClickEvent evt)
     {
-        MainMenuManager.DisplayUIDocument("GameStatisticsDisplay");
+        MainMenuManager.DisplayUIDocument("GameStatisticsDisplay", true);
     }
 
     private void ExitCallback(ClickEvent evt)

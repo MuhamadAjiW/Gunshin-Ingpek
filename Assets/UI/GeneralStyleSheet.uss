@@ -6,3 +6,28 @@
 
 .button {
 }
+
+.transform-transition-container {
+    transition-property: translate;
+    transition-duration: 0.25s;
+}
+
+.exiting {
+    translate: -100% 0;
+}
+
+.entering {
+    translate: 100% 0;
+}
+
+.no-translation {
+    translate: 0 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
