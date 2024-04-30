@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,23 +9,9 @@ public class CheatConsole : MonoBehaviour
     Vector2 scroll;
 
     // Cheat Attributes
-    public List<CheatCommand> cheatCommands;
     private readonly List<string> commandHistory = new();
     private readonly List<string> commandResultHistory = new();
     [SerializeField] int maxCommandHistory = 15;
-
-    private void Awake()
-    {
-        CheatCommand HAI = new("hai", () =>
-        {
-            Debug.Log("Hello World");
-        });
-
-        cheatCommands = new List<CheatCommand>
-        {
-            HAI
-        };
-    }
 
     private void OnGUI()
     {
@@ -88,16 +75,15 @@ public class CheatConsole : MonoBehaviour
     private void HandleInput()
     {
         textInput = textInput.Trim();
-        CheatCommand command = cheatCommands.Find(x => x.commandId == textInput);
 
-        if (command == null)
-        {
-            AddHistory("> " + textInput, "Command not found");
-        }
-        else
+        if (CheatCommand.cheatCommands.TryGetValue(textInput, out Action command))
         {
             command.Invoke();
             AddHistory("> " + textInput, "Command executed");
+        }
+        else
+        {
+            AddHistory("> " + textInput, "Command not found");
         }
 
         textInput = "";

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using _Scripts.Core.Game.Data;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -59,6 +56,7 @@ public class GameController : MonoBehaviour
 
             if (Input.anyKeyDown)
             {
+                Debug.Log("Key pressed: " + Input.inputString);
                 if (Input.GetKeyDown(GameInput.Instance.cheatTriggerButton[cheatTriggerIdx]))
                 {
                     cheatTriggerIdx++;
