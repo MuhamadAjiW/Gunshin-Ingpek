@@ -446,6 +446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 464935307}
   - component: {fileID: 464935306}
+  - component: {fileID: 464935308}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -484,6 +485,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1421230259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &464935308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464935305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c88ad8068eff1fa59b373d4e43cab13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SettingsUIDocument: {fileID: 464935306}
+  MainMenuManager: {fileID: 1421230258}
 --- !u!1 &1173827420
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +601,6 @@ MonoBehaviour:
   - {fileID: 464935306}
   - {fileID: 2112040269}
   - {fileID: 2053505587}
-  - {fileID: 0}
 --- !u!4 &1421230259
 Transform:
   m_ObjectHideFlags: 0
@@ -616,6 +630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2053505588}
   - component: {fileID: 2053505587}
+  - component: {fileID: 2053505589}
   m_Layer: 5
   m_Name: GameStatisticsDisplay
   m_TagString: Untagged
@@ -654,6 +669,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1421230259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2053505589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053505586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27235c6773719da88bb27f649e523eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameStatisticsDisplayUIDocument: {fileID: 2053505587}
+  MainMenuManager: {fileID: 1421230258}
 --- !u!1 &2112040268
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112040270}
   - component: {fileID: 2112040269}
+  - component: {fileID: 2112040271}
   m_Layer: 5
   m_Name: LoadGame
   m_TagString: Untagged
@@ -702,6 +732,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1421230259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112040271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112040268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ecae5a04518c7eaaa4f981d38e0bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadGameUIDocument: {fileID: 2112040269}
+  MainMenuManager: {fileID: 1421230258}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

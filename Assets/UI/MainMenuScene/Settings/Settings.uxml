@@ -6,5 +6,8 @@
             <ui:Label text="Settings" name="Title" style="rotate: -5deg; font-size: 48px; translate: 2.5% 20%;" />
         </ui:VisualElement>
         <ui:VisualElement name="SettingsContainer" style="flex-grow: 1;" />
+        <ui:VisualElement name="BackContainer" style="flex-grow: 1;">
+            <ui:Button text="Back" name="back-button" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

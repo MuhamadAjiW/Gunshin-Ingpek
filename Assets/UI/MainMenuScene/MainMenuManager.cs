@@ -8,7 +8,28 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] public List<UIDocument> MainMenuUIDocuments;
 
+    private UIDocument OpenedUIDocument;
+
     public void OnEnable()
+    {
+        GoToMainMenu();
+    }
+
+    public void InitializeBackButton(VisualElement rootElement)
+    {
+        Button backButton = rootElement.Query<Button>("back-button");
+        if (backButton is null)
+        {
+            return;
+        }
+
+        backButton.RegisterCallback<ClickEvent>((ClickEvent evt) =>
+        {
+            GoToMainMenu();
+        });
+    }
+
+    public void GoToMainMenu()
     {
         DisplayUIDocument("MainMenu");
     }
@@ -19,6 +40,7 @@ public class MainMenuManager : MonoBehaviour
         {
             if (uiDocument.ToString().Split(" ")[0] != displayedUIDocumentName)
             {
+                OpenedUIDocument = uiDocument;
                 uiDocument.rootVisualElement.style.display = DisplayStyle.None;
             }
             else
