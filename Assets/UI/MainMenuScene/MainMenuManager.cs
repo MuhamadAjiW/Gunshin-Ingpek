@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,6 +7,9 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] public List<UIDocument> MainMenuUIDocuments;
     [SerializeField] public List<GameObject> MainMenuUIDocumentsDirectionOnSelected;
+
+    [SerializeField] public List<GameObject> MainMenuUIDocumentsCameraPosition;
+
 
     [SerializeField] public CameraManager CameraManager;
     public int TransitionTimeMiliSeconds;
@@ -91,6 +92,7 @@ public class MainMenuManager : MonoBehaviour
             {
                 ToggleElementVisible(GetInnerContainer(OpenedUIDocument), false);
             }
+            LookAtDocument(newDocument, false);
             ToggleElementVisible(GetInnerContainer(newDocument));
             OpenedUIDocument = newDocument;
         }
@@ -118,6 +120,18 @@ public class MainMenuManager : MonoBehaviour
         return uiDocument.ToString().Split(" ")[0];
     }
 
+    void LookAtDocument(UIDocument document, bool isAsync = true)
+    {
+        int nthDocument = GetUIDocumentIndex(document);
+        GameObject targetDirection = MainMenuUIDocumentsDirectionOnSelected[nthDocument];
+        GameObject targetPosition = MainMenuUIDocumentsCameraPosition[nthDocument];
+
+        if (targetDirection is not null && targetPosition is not null)
+        {
+            CameraManager.SmoothLookAt(targetDirection, targetPosition, isAsync ? TransitionTimeMiliSeconds : 0f);
+        }
+    }
+
     IEnumerator ReplaceUIDocument(UIDocument newDocument, bool reverseTransition = false)
     {
         MainMenuTransitionInProgress = true;
@@ -135,13 +149,7 @@ public class MainMenuManager : MonoBehaviour
             yield break;
         }
 
-        int nthDocument = GetUIDocumentIndex(newDocument);
-        GameObject target = MainMenuUIDocumentsDirectionOnSelected[nthDocument];
-
-        if (target is not null)
-        {
-            CameraManager.SmoothLookAt(target, TransitionTimeMiliSeconds);
-        }
+        LookAtDocument(newDocument);
 
         string enteringClass = !reverseTransition ? USSAnimationClasses.Entering : USSAnimationClasses.Exiting;
         string exitingClass = !reverseTransition ? USSAnimationClasses.Exiting : USSAnimationClasses.Entering;
