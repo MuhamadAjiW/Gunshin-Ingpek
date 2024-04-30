@@ -147,6 +147,11 @@ public class PlayerInputController
 
     private IEnumerator HandleAttack()
     {
+        if(!player.Weapon.CanAttack)
+        {
+            yield return new WaitForSeconds(0);
+        }
+
         float delay = player.Weapon.attackType switch
         {
             AttackType.MELEE => player.model.meleeAnimationDelay,
@@ -173,6 +178,11 @@ public class PlayerInputController
 
     private IEnumerator HandleAlternateAttack()
     {
+        if(!player.Weapon.CanAttack)
+        {
+            yield return new WaitForSeconds(0);
+        }
+        
         float delay = player.Weapon.alternateAttackType switch
         {
             AttackType.MELEE => player.model.meleeAnimationDelay,
@@ -199,7 +209,6 @@ public class PlayerInputController
 
     private IEnumerator HandleSkill()
     {
-
         player.audioController.Play(PlayerAudioController.SKILL_KEY);
         player.animationController.AnimateSkill();
 
