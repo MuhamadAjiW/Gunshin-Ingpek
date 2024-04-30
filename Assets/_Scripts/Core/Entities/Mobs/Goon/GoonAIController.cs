@@ -38,7 +38,6 @@ public class GoonAIController
                 }
                 break;
         }
-
     }
 
     public Quaternion LookToward(Transform target)
