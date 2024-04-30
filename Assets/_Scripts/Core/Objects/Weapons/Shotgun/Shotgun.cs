@@ -7,6 +7,7 @@ public class Shotgun : WeaponObject
     public const string weaponPrefab = "Prefabs/Weapons/Shotgun/Shotgun";
     private const string projectilePrefab = "Prefabs/Weapons/Shotgun/ShotgunProjectile";
     private const string hitboxPrefab = "Prefabs/Weapons/Hitbox";
+    public const string shotAudioKey = "Shoot";
     
     // Attribute
     public float fireRange = 100;
@@ -21,8 +22,11 @@ public class Shotgun : WeaponObject
         base.Start();
         audioController = new AudioController(gameObject, audioController.audios);
     }
+
+    // Functions
     protected override void OnAttack()
     {
+        audioController.Play(shotAudioKey);
         for (int i = 0; i < pelletCount; i++)
         {
             float damage = MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage);

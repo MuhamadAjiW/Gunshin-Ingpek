@@ -6,6 +6,7 @@ public class Rifle : WeaponObject
     public const string weaponPrefab = "Prefabs/Weapons/Rifle/Rifle";
     private const string projectilePrefab = "Prefabs/Weapons/Rifle/RifleProjectile";
     private const string hitboxPrefab = "Prefabs/Weapons/Hitbox";
+    public const string shotAudioKey = "Shoot";
     
     // Attribute
     public float fireRange = 200;
@@ -24,6 +25,7 @@ public class Rifle : WeaponObject
     // Function
     protected override void OnAttack()
     {
+        audioController.Play(shotAudioKey);
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
             prefabPath: projectilePrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),

@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class ShotgunProjectile : ProjectileObject
@@ -15,7 +16,6 @@ public class ShotgunProjectile : ProjectileObject
     protected new void FixedUpdate()
     {
         base.FixedUpdate();
-        Debug.Log(((travelDistance - distanceTravelled) / travelDistance));
-        Damage = initialDamage * ((travelDistance - distanceTravelled) / travelDistance);
+        Damage = Mathf.Max(initialDamage - initialDamage * Mathf.Pow(distanceTravelled / travelDistance, 4f), 0);
     }
 }

@@ -49,10 +49,17 @@ MonoBehaviour:
   state: 0
   attackType: 2
   alternateAttackType: 1
-  fireRange: 10
+  fireRange: 20
   projectileSpeed: 50
   audioController:
-    audios: []
+    audios:
+    - source: {fileID: 0}
+      name: Shoot
+      clip: {fileID: 8300000, guid: e0e502addea969a4babeb4fd434f4a96, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 1
 --- !u!1001 &1222245636900030370
 PrefabInstance:
   m_ObjectHideFlags: 0
