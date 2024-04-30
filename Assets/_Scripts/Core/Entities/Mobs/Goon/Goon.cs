@@ -8,6 +8,7 @@ public class Goon : EnemyEntity
     // Attributes
     public GoonStateController stateController;
     public GoonAIController aiController;
+    public GoonAnimationController animationController;
 
     // Constructor
     new protected void Start()
@@ -17,6 +18,7 @@ public class Goon : EnemyEntity
 
         stateController = new GoonStateController(this);
         aiController = new GoonAIController(this);
+        animationController = new GoonAnimationController(this);
 
         EquipWeapon(0);
         

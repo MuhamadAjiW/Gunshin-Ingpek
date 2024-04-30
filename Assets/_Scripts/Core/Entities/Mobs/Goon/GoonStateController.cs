@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+// TODO: Refactor a bit as EnemyStateController
+// Lotsa codes are reusable
 [Serializable]
 public class GoonStateController : EntityStateController
 {
@@ -8,16 +10,19 @@ public class GoonStateController : EntityStateController
     [SerializeField] private Goon goon;
     public static float detectionDistance = 10f;
     public static float attackDistance = 5f;
+    public WeaponState weaponState = WeaponState.IDLE;
 
     // Constructor
     public GoonStateController(Goon goon)
     {
         this.goon = goon;
+        goon.OnDeathEvent += OnDeath;
     }
 
     // Functions
     protected override int DetectState()
     {
+        // Get movementState
         int movementState = 0; 
         if(DetectJumping())
         {
@@ -36,6 +41,7 @@ public class GoonStateController : EntityStateController
             movementState = GoonState.IDLE;
         }
 
+        // Get aiState
         int aiState = 0;
         if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < attackDistance)
         {
@@ -46,22 +52,42 @@ public class GoonStateController : EntityStateController
             aiState = GoonState.AI_DETECTED_STATE;
         }
 
-        state = movementState | aiState;
+        // Get attackState
+        int attackState = 0;
+        if(DetectAttacking())
+        {
+            AttackType attackType = weaponState switch
+            {
+                WeaponState.ATTACK => goon.Weapon.attackType,
+                WeaponState.ALTERNATE_ATTACK => goon.Weapon.alternateAttackType,
+                _ => AttackType.NULL
+            };
+
+            attackState = attackType switch
+            {
+                AttackType.RANGED => GoonState.ATTACK_RANGED,
+                AttackType.MELEE => GoonState.ATTACK_MELEE,
+                _ => GoonState.NULL
+            };
+        }
+
+        // Combine states
+        state = movementState | aiState | attackState;
 
         return state;
     }
 
-    public void VisualizeGizmos()
+    public void ClearWeaponState()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(goon.transform.position, detectionDistance);
-        Gizmos.DrawWireSphere(goon.transform.position, attackDistance);
+        weaponState = WeaponState.IDLE;
     }
-
-
+    public void SetWeaponState(WeaponState state)
+    {
+        weaponState = state;
+    }
     private bool DetectSprinting()
     {
-        return goon.Rigidbody.velocity.magnitude > 10;
+        return goon.aiController.nav.velocity.magnitude > 0.1;
     }
     private bool DetectJumping()
     {
@@ -77,6 +103,15 @@ public class GoonStateController : EntityStateController
     }
     private void OnDeath()
     {
-        state = PlayerState.DEAD;
+        state = GoonState.DEAD;
+    }
+
+
+    // Debugging purposes
+    public void VisualizeGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(goon.transform.position, detectionDistance);
+        Gizmos.DrawWireSphere(goon.transform.position, attackDistance);
     }
 }

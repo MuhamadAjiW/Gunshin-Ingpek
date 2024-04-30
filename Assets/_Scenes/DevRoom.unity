@@ -119,53 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &8539245
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8539246}
-  - component: {fileID: 8539247}
-  m_Layer: 0
-  m_Name: '[generated-meshes]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8539246
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8539245}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 822474910}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8539247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8539245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Version: 1
-  owner: {fileID: 822474909}
-  helperSurfaces: []
 --- !u!43 &28665006
 Mesh:
   m_ObjectHideFlags: 16
@@ -366,7 +319,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1281261018}
+  - {fileID: 1306423965}
   m_Father: {fileID: 1835324898}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!54 &31018967
@@ -570,6 +523,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 52638
     meshQueryIndex: 9
 =======
@@ -589,6 +543,9 @@ MonoBehaviour:
 =======
     surfaceParameter: 49092
 >>>>>>> 6c8684c5 (feat: added mitachurl, samachurl, lawachurl model. Animation still glitchy though)
+=======
+    surfaceParameter: 49150
+>>>>>>> f70a0d6c (feat: goons ai and animation)
     meshQueryIndex: 6
 >>>>>>> b46cf383 (feat: base cheat console)
     subMeshQueryIndex: 0
@@ -1089,6 +1046,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 50014
 =======
     surfaceParameter: 48682
@@ -1105,6 +1063,9 @@ MonoBehaviour:
 =======
     surfaceParameter: 48962
 >>>>>>> 6c8684c5 (feat: added mitachurl, samachurl, lawachurl model. Animation still glitchy though)
+=======
+    surfaceParameter: 49010
+>>>>>>> f70a0d6c (feat: goons ai and animation)
     meshQueryIndex: 7
     subMeshQueryIndex: 0
     geometryHashValue: 3008546525906852216
@@ -10404,7 +10365,11 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1576734158}
+=======
+  m_GameObject: {fileID: 601827281}
+>>>>>>> f70a0d6c (feat: goons ai and animation)
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 218a3c5228e87b54f8102630bb1bfc1d, type: 3}
@@ -10428,12 +10393,21 @@ MonoBehaviour:
       BiNormal: {x: -0, y: 1, z: 0}
       TexGenIndex: 0
     - Plane:
+<<<<<<< HEAD
         a: -0.0000000018626451
         b: 0
         c: 1
         d: 2.5
       Tangent: {x: 1, y: 0, z: 0.0000000018626451}
       BiNormal: {x: 0, y: 1, z: -0}
+=======
+        a: 0.0000000018626451
+        b: 0
+        c: 1
+        d: 5.5
+      Tangent: {x: 1, y: 0, z: -0.0000000018626451}
+      BiNormal: {x: -0, y: 1, z: 0}
+>>>>>>> f70a0d6c (feat: goons ai and animation)
       TexGenIndex: 1
     - Plane:
         a: -1
@@ -10446,10 +10420,17 @@ MonoBehaviour:
     - Plane:
         a: 0
         b: 1
+<<<<<<< HEAD
         c: -0.0000000011920929
         d: 0.2
       Tangent: {x: 1, y: -0, z: 0}
       BiNormal: {x: 0, y: -0.0000000011920929, z: -1}
+=======
+        c: -5.418604e-10
+        d: 0.2
+      Tangent: {x: 1, y: -0, z: 0}
+      BiNormal: {x: 0, y: -5.418604e-10, z: -1}
+>>>>>>> f70a0d6c (feat: goons ai and animation)
       TexGenIndex: 3
     - Plane:
         a: 1
@@ -10512,10 +10493,17 @@ MonoBehaviour:
     - {x: 0, y: 0.2, z: 0}
     - {x: 20, y: 0.2, z: 0}
     - {x: 20, y: 0, z: 0}
+<<<<<<< HEAD
     - {x: 0, y: 0, z: 2.5}
     - {x: 20, y: 0, z: 2.5}
     - {x: 20, y: 0.2, z: 2.5}
     - {x: 0, y: 0.2, z: 2.5}
+=======
+    - {x: 0, y: 0, z: 5.5}
+    - {x: 20, y: 0, z: 5.5}
+    - {x: 20, y: 0.2, z: 5.5}
+    - {x: 0, y: 0.2, z: 5.5}
+>>>>>>> f70a0d6c (feat: goons ai and animation)
     Edges:
     - TwinIndex: 21
       PolygonIndex: 0
@@ -10627,6 +10615,7 @@ MonoBehaviour:
     - EdgeIndices: 14000000150000001600000017000000
       TexGenIndex: 5
     Generation: 33
+<<<<<<< HEAD
 --- !u!1001 &1583224696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26884,6 +26873,9 @@ Transform:
   m_Father: {fileID: 4848444200225077071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6476304702633703497
+=======
+--- !u!1 &656456187
+>>>>>>> f70a0d6c (feat: goons ai and animation)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26952,6 +26944,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 8430800177848665507}
   serializedVersion: 2
   m_LocalRotation: {x: -0.047494005, y: 0.017537547, z: -0.0023382988, w: 0.9987148}
@@ -26978,6 +26971,34 @@ Transform:
   m_Father: {fileID: 8636541682185671816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6514547724871923412
+=======
+  m_GameObject: {fileID: 656456187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a92adfdc6e3524fb82e0817c421ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  SharedMesh: {fileID: 309103434}
+  RenderMaterial: {fileID: 0}
+  PhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  RenderSurfaceType: 4
+  MeshDescription:
+    meshQuery:
+      layers: 33554440
+      maskAndChannels: 8
+    surfaceParameter: 48976
+    meshQueryIndex: 2
+    subMeshQueryIndex: 0
+    geometryHashValue: -1365392548276624071
+    surfaceHashValue: 6804152214688007603
+    vertexCount: 768
+    indexCount: 1344
+  HasGeneratedNormals: 0
+  HasUV2: 0
+  LightingHashValue: -1365392548276624071
+--- !u!1 &667852598
+>>>>>>> f70a0d6c (feat: goons ai and animation)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28354,7 +28375,7 @@ Transform:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 48928
+    surfaceParameter: 48976
     meshQueryIndex: 2
     subMeshQueryIndex: 0
     geometryHashValue: -1365392548276624071
@@ -28364,6 +28385,7 @@ Transform:
   HasGeneratedNormals: 0
   HasUV2: 0
   LightingHashValue: -1365392548276624071
+<<<<<<< HEAD
 --- !u!1 &667852598
 >>>>>>> 6c8684c5 (feat: added mitachurl, samachurl, lawachurl model. Animation still glitchy though)
 GameObject:
@@ -28398,6 +28420,9 @@ Transform:
   m_Father: {fileID: 4869234740735931517}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6723688785726099888
+=======
+--- !u!1 &771776360
+>>>>>>> f70a0d6c (feat: goons ai and animation)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28405,20 +28430,32 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 5625577178628117380}
   m_Layer: 0
   m_Name: PJ_6_13
+=======
+  - component: {fileID: 771776361}
+  - component: {fileID: 771776362}
+  m_Layer: 0
+  m_Name: '[generated-meshes]'
+>>>>>>> f70a0d6c (feat: goons ai and animation)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &6724829549174569187
+=======
+--- !u!4 &771776361
+>>>>>>> f70a0d6c (feat: goons ai and animation)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1175700037790282082}
   serializedVersion: 2
   m_LocalRotation: {x: 0.98916626, y: -0.04943051, z: -0.04943036, w: -0.12908696}
@@ -28446,6 +28483,39 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6758608956608639367
 GameObject:
+=======
+  m_GameObject: {fileID: 771776360}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1144917779}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &771776362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771776360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  owner: {fileID: 1144917778}
+  helperSurfaces: []
+--- !u!4 &805393610 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6141342063799955615, guid: 7e312250336c0244193b4b75151d4fe3, type: 3}
+  m_PrefabInstance: {fileID: 1070178883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!43 &825358669
+Mesh:
+>>>>>>> f70a0d6c (feat: goons ai and animation)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -29557,6 +29627,7 @@ PrefabInstance:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1412269963312684514}
   serializedVersion: 2
   m_LocalRotation: {x: 0.99495995, y: -0.031068742, z: -0.031069253, w: -0.09013413}
@@ -29568,6 +29639,328 @@ PrefabInstance:
   m_Father: {fileID: 6986676508087716627}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7133827451958599205
+=======
+  m_GameObject: {fileID: 1094297156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218a3c5228e87b54f8102630bb1bfc1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabBehaviour: 0
+  PrefabSourceAlignment: 4
+  PrefabDestinationAlignment: 0
+  Version: 2.1
+  OperationType: 0
+  Flags: 0
+  Shape:
+    Version: 1
+    Surfaces:
+    - Plane:
+        a: 0
+        b: 0
+        c: -1
+        d: 0
+      Tangent: {x: -1, y: -0, z: -0}
+      BiNormal: {x: -0, y: 1, z: 0}
+      TexGenIndex: 0
+    - Plane:
+        a: -0.000000005736947
+        b: 0
+        c: 1
+        d: 3.6999998
+      Tangent: {x: 1, y: 0, z: 0.000000005736947}
+      BiNormal: {x: 0, y: 1, z: -0}
+      TexGenIndex: 1
+    - Plane:
+        a: -1
+        b: 0
+        c: 0
+        d: 0
+      Tangent: {x: 0, y: 0, z: 1}
+      BiNormal: {x: 0, y: 1, z: -0}
+      TexGenIndex: 2
+    - Plane:
+        a: 0
+        b: 1
+        c: -8.054682e-10
+        d: 0.2
+      Tangent: {x: 1, y: -0, z: 0}
+      BiNormal: {x: 0, y: -8.054682e-10, z: -1}
+      TexGenIndex: 3
+    - Plane:
+        a: 1
+        b: 0.000005154997
+        c: 0
+        d: 20
+      Tangent: {x: 0, y: 0, z: -1}
+      BiNormal: {x: -0.000005154997, y: 1, z: 0}
+      TexGenIndex: 4
+    - Plane:
+        a: 0
+        b: -1
+        c: 0
+        d: 0
+      Tangent: {x: -1, y: 0, z: 0}
+      BiNormal: {x: -0, y: -0, z: -1}
+      TexGenIndex: 5
+    TexGens:
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    - Translation: {x: 0, y: 0}
+      Scale: {x: 1, y: 1}
+      RotationAngle: 0
+      RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+      PhysicsMaterial: {fileID: 0}
+      SmoothingGroup: 0
+    TexGenFlags: 010000000100000001000000010000000100000001000000
+    Materials: []
+  ControlMesh:
+    Vertices:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0.2, z: 0}
+    - {x: 20, y: 0.2, z: 0}
+    - {x: 20, y: 0, z: 0}
+    - {x: 0, y: 0, z: 3.6999998}
+    - {x: 20, y: 0, z: 3.6999998}
+    - {x: 20, y: 0.2, z: 3.6999998}
+    - {x: 0, y: 0.2, z: 3.6999998}
+    Edges:
+    - TwinIndex: 21
+      PolygonIndex: 0
+      HardEdge: 0
+      VertexIndex: 0
+    - TwinIndex: 8
+      PolygonIndex: 0
+      HardEdge: 0
+      VertexIndex: 1
+    - TwinIndex: 12
+      PolygonIndex: 0
+      HardEdge: 0
+      VertexIndex: 2
+    - TwinIndex: 17
+      PolygonIndex: 0
+      HardEdge: 0
+      VertexIndex: 3
+    - TwinIndex: 10
+      PolygonIndex: 1
+      HardEdge: 0
+      VertexIndex: 4
+    - TwinIndex: 23
+      PolygonIndex: 1
+      HardEdge: 0
+      VertexIndex: 5
+    - TwinIndex: 19
+      PolygonIndex: 1
+      HardEdge: 0
+      VertexIndex: 6
+    - TwinIndex: 14
+      PolygonIndex: 1
+      HardEdge: 0
+      VertexIndex: 7
+    - TwinIndex: 1
+      PolygonIndex: 2
+      HardEdge: 0
+      VertexIndex: 0
+    - TwinIndex: 20
+      PolygonIndex: 2
+      HardEdge: 0
+      VertexIndex: 4
+    - TwinIndex: 4
+      PolygonIndex: 2
+      HardEdge: 0
+      VertexIndex: 7
+    - TwinIndex: 13
+      PolygonIndex: 2
+      HardEdge: 0
+      VertexIndex: 1
+    - TwinIndex: 2
+      PolygonIndex: 3
+      HardEdge: 0
+      VertexIndex: 1
+    - TwinIndex: 11
+      PolygonIndex: 3
+      HardEdge: 0
+      VertexIndex: 7
+    - TwinIndex: 7
+      PolygonIndex: 3
+      HardEdge: 0
+      VertexIndex: 6
+    - TwinIndex: 18
+      PolygonIndex: 3
+      HardEdge: 0
+      VertexIndex: 2
+    - TwinIndex: 22
+      PolygonIndex: 4
+      HardEdge: 0
+      VertexIndex: 3
+    - TwinIndex: 3
+      PolygonIndex: 4
+      HardEdge: 0
+      VertexIndex: 2
+    - TwinIndex: 15
+      PolygonIndex: 4
+      HardEdge: 0
+      VertexIndex: 6
+    - TwinIndex: 6
+      PolygonIndex: 4
+      HardEdge: 0
+      VertexIndex: 5
+    - TwinIndex: 9
+      PolygonIndex: 5
+      HardEdge: 0
+      VertexIndex: 0
+    - TwinIndex: 0
+      PolygonIndex: 5
+      HardEdge: 0
+      VertexIndex: 3
+    - TwinIndex: 16
+      PolygonIndex: 5
+      HardEdge: 0
+      VertexIndex: 5
+    - TwinIndex: 5
+      PolygonIndex: 5
+      HardEdge: 0
+      VertexIndex: 4
+    Polygons:
+    - EdgeIndices: 00000000010000000200000003000000
+      TexGenIndex: 0
+    - EdgeIndices: 04000000050000000600000007000000
+      TexGenIndex: 1
+    - EdgeIndices: 08000000090000000a0000000b000000
+      TexGenIndex: 2
+    - EdgeIndices: 0c0000000d0000000e0000000f000000
+      TexGenIndex: 3
+    - EdgeIndices: 10000000110000001200000013000000
+      TexGenIndex: 4
+    - EdgeIndices: 14000000150000001600000017000000
+      TexGenIndex: 5
+    Generation: 33
+--- !u!1 &1144917776
+GameObject:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144917779}
+  - component: {fileID: 1144917778}
+  - component: {fileID: 1144917777}
+  m_Layer: 0
+  m_Name: '[default-CSGModel]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 124
+  m_IsActive: 1
+--- !u!54 &1144917777
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144917776}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1144917778
+MonoBehaviour:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144917776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabBehaviour: 0
+  PrefabSourceAlignment: 4
+  PrefabDestinationAlignment: 0
+  Version: 1.1
+  infiniteBrush: {fileID: 0}
+  Settings: 1025
+  VertexChannels: 14
+  ReceiveGI: 2
+  MeshColliderCookingOptions: 14
+  ShowGeneratedMeshes: 0
+  DefaultPhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  exportType: 0
+  originType: 0
+  exportColliders: 0
+  exportPath: 
+  angleError: 1
+  areaError: 1
+  hardAngle: 60
+  packMargin: 20
+  scaleInLightmap: 1
+  autoUVMaxDistance: 0.5
+  autoUVMaxAngle: 89
+  minimumChartSize: 4
+--- !u!4 &1144917779
+Transform:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144917776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 771776361}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1145009684
+>>>>>>> f70a0d6c (feat: goons ai and animation)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29702,7 +30095,11 @@ Transform:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
+<<<<<<< HEAD
     surfaceParameter: 48716
+=======
+    surfaceParameter: 49044
+>>>>>>> f70a0d6c (feat: goons ai and animation)
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: -2436489981782101099
@@ -31700,6 +32097,7 @@ MonoBehaviour:
     Generation: 33
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1267581460
 =======
 --- !u!1 &1413009867
@@ -32010,6 +32408,9 @@ Transform:
   m_Father: {fileID: 3739490819445945301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7679454827535355011
+=======
+--- !u!1 &1298502548
+>>>>>>> f70a0d6c (feat: goons ai and animation)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32125,8 +32526,75 @@ Transform:
   - {fileID: 2243825734271312460}
   m_Father: {fileID: 1501595418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!65 &7758172077789247872
 BoxCollider:
+=======
+--- !u!1001 &1306423964
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 31018966}
+    m_Modifications:
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055744311529746177, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+      propertyPath: m_Name
+      value: HiliChurl
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+--- !u!4 &1306423965 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1679620163752030157, guid: ed2d7ccf66071e54c9d3b33b2adea59b, type: 3}
+  m_PrefabInstance: {fileID: 1306423964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1309798950
+GameObject:
+>>>>>>> f70a0d6c (feat: goons ai and animation)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -33655,7 +34123,11 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
+<<<<<<< HEAD
     surfaceParameter: 48620
+=======
+    surfaceParameter: 48650
+>>>>>>> f70a0d6c (feat: goons ai and animation)
     meshQueryIndex: 8
     subMeshQueryIndex: 0
     geometryHashValue: 6467234982613496563
@@ -35103,6 +35575,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 7507400760574220154}
   serializedVersion: 2
   m_LocalRotation: {x: 0.34751493, y: -0.4201157, z: 0.39461908, w: 0.73960257}
@@ -35116,6 +35589,36 @@ Transform:
 --- !u!1 &8275089306298141823
 GameObject:
   m_ObjectHideFlags: 0
+=======
+  m_GameObject: {fileID: 1669065680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a92adfdc6e3524fb82e0817c421ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  SharedMesh: {fileID: 166589889}
+  RenderMaterial: {fileID: 2100000, guid: ca37785d773692b47bd7339c9dd802ce, type: 2}
+  PhysicsMaterial: {fileID: 0}
+  RenderSurfaceType: 0
+  MeshDescription:
+    meshQuery:
+      layers: 16777223
+      maskAndChannels: 234881031
+    surfaceParameter: 48340
+    meshQueryIndex: 1
+    subMeshQueryIndex: 0
+    geometryHashValue: 8624144165243009415
+    surfaceHashValue: 1679634464922189466
+    vertexCount: 633
+    indexCount: 1119
+  HasGeneratedNormals: 0
+  HasUV2: 0
+  LightingHashValue: 0
+--- !u!23 &1669065684
+MeshRenderer:
+  m_ObjectHideFlags: 1
+>>>>>>> f70a0d6c (feat: goons ai and animation)
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -36197,6 +36700,7 @@ Transform:
       PolygonIndex: 1
       HardEdge: 0
       VertexIndex: 6
+<<<<<<< HEAD
     - TwinIndex: 14
       PolygonIndex: 1
       HardEdge: 0
@@ -36280,6 +36784,164 @@ Transform:
       TexGenIndex: 5
     Generation: 33
 --- !u!1 &1723548347
+=======
+    - TwinIndex: 6
+      PolygonIndex: 2
+      HardEdge: 1
+      VertexIndex: 7
+    - TwinIndex: 21
+      PolygonIndex: 2
+      HardEdge: 1
+      VertexIndex: 2
+    - TwinIndex: 3
+      PolygonIndex: 3
+      HardEdge: 1
+      VertexIndex: 2
+    - TwinIndex: 19
+      PolygonIndex: 3
+      HardEdge: 1
+      VertexIndex: 7
+    - TwinIndex: 7
+      PolygonIndex: 3
+      HardEdge: 1
+      VertexIndex: 4
+    - TwinIndex: 9
+      PolygonIndex: 3
+      HardEdge: 1
+      VertexIndex: 3
+    Polygons:
+    - EdgeIndices: 08000000090000000a0000000b000000
+      TexGenIndex: 0
+    - EdgeIndices: 0c0000000d0000000e0000000f000000
+      TexGenIndex: 1
+    - EdgeIndices: 10000000110000001200000013000000
+      TexGenIndex: 2
+    - EdgeIndices: 14000000150000001600000017000000
+      TexGenIndex: 3
+    - EdgeIndices: 00000000010000000200000003000000
+      TexGenIndex: 4
+    - EdgeIndices: 07000000060000000500000004000000
+      TexGenIndex: 5
+    Generation: 2
+--- !u!1 &1870920633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1870920634}
+  - component: {fileID: 1870920637}
+  - component: {fileID: 1870920636}
+  - component: {fileID: 1870920635}
+  m_Layer: 0
+  m_Name: '[generated-render-mesh]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 124
+  m_IsActive: 1
+--- !u!4 &1870920634
+Transform:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870920633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1737545313}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1870920635
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870920633}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d40e29484caa88c4891e1e09bf80ad8c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 2
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1870920636
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870920633}
+  m_Mesh: {fileID: 1045058972}
+--- !u!114 &1870920637
+MonoBehaviour:
+  m_ObjectHideFlags: 16
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870920633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a92adfdc6e3524fb82e0817c421ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  SharedMesh: {fileID: 1045058972}
+  RenderMaterial: {fileID: 2100000, guid: d40e29484caa88c4891e1e09bf80ad8c, type: 2}
+  PhysicsMaterial: {fileID: 0}
+  RenderSurfaceType: 0
+  MeshDescription:
+    meshQuery:
+      layers: 16777223
+      maskAndChannels: 234881031
+    surfaceParameter: 48506
+    meshQueryIndex: 9
+    subMeshQueryIndex: 0
+    geometryHashValue: -2774585206094123893
+    surfaceHashValue: 8429986782490831525
+    vertexCount: 28
+    indexCount: 48
+  HasGeneratedNormals: 0
+  HasUV2: 0
+  LightingHashValue: 0
+--- !u!1 &1899092099
+>>>>>>> f70a0d6c (feat: goons ai and animation)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43901,6 +44563,7 @@ SceneRoots:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 623494889}
 =======
   - {fileID: 1723548349}
@@ -43925,3 +44588,6 @@ SceneRoots:
 =======
   - {fileID: 822474910}
 >>>>>>> 6c8684c5 (feat: added mitachurl, samachurl, lawachurl model. Animation still glitchy though)
+=======
+  - {fileID: 1144917779}
+>>>>>>> f70a0d6c (feat: goons ai and animation)

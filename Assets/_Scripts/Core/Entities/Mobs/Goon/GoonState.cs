@@ -1,7 +1,7 @@
-public class GoonState : DefaultEntityState
+public class GoonState : CombatantEntityState
 {
-    public const int AI_DETECTED_STATE = 64;
-    public const int AI_IN_RANGE_STATE = 128;
+    public const int AI_DETECTED_STATE = 128;
+    public const int AI_IN_RANGE_STATE = 256;
     public const int AI_IN_RANGE_CLOSE_STATE = 256;
 
     public static int GetAIState(int state)

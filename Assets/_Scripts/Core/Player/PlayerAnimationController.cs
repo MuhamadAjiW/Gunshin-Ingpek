@@ -21,7 +21,6 @@ public class PlayerAnimationController : AnimationController
     {
         this.player = player;
         player.stateController.OnStateChangeEvent += AnimateStates;
-        player.OnGroundedEvent += ClearJumping;
         player.OnDamagedEvent += OnDamaged;
         player.OnDeathEvent += OnDeath;
     }
@@ -29,13 +28,6 @@ public class PlayerAnimationController : AnimationController
     // Functions
     public void AnimateStates(int oldState, int newState)
     {
-        #if STRICT
-        if(animator == null)
-        {
-            Debug.LogError($"Animated object of {player.name} does not have an animator in its model. How to resolve: add an animator to its child containing the model.cs script");
-        }
-        #endif
-
         if((newState & PlayerState.JUMPING) > 0)
         {
             animator.SetBool(JUMP_BOOL, true);
@@ -80,11 +72,6 @@ public class PlayerAnimationController : AnimationController
 
         GameController.Instance.mainCamera.SetCameraBehaviour(CameraBehaviourType.SKILL_1);
         (GameController.Instance.mainCamera.behaviour as CameraFollowObject).target = player.transform;
-    }
-
-    private void ClearJumping()
-    {
-        animator.SetBool(JUMP_BOOL, false);
     }
 
     private void OnDamaged()

@@ -1,5 +1,3 @@
-public class PlayerState : DefaultEntityState 
+public class PlayerState : CombatantEntityState
 {
-    public const int ATTACK_MELEE = 64;
-    public const int ATTACK_RANGED = 128;
 }

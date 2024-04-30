@@ -219,6 +219,15 @@ public class PlayerInputController
         {
             player.StopCoroutine(attackWindowCoroutine);
         }
-        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(player.Weapon.data.skillInterval + attackWindowSize));
+        
+        float delay = state switch
+        {
+            WeaponState.ATTACK => player.Weapon.data.attackInterval,
+            WeaponState.ALTERNATE_ATTACK => player.Weapon.data.alternateAttackInterval,
+            WeaponState.SKILL => player.Weapon.data.skillInterval,
+            _ => 0
+        };
+        
+        attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(delay + attackWindowSize));
     }
 }
