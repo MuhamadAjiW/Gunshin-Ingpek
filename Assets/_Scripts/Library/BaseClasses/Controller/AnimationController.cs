@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public abstract class AnimationController 
 {
     // Attributes
-    public Model model;
-    public Renderer renderer;
-    public Animator animator;
+    [HideInInspector] public Model model;
+    [HideInInspector] public Renderer renderer;
+    [HideInInspector] public Animator animator;
 
     // Constructor
     public void Init(MonoBehaviour monobehaviour)

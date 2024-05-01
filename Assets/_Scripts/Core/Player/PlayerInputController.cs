@@ -8,10 +8,10 @@ public class PlayerInputController
 {
     // Attributes
     private Player player;
-    public float movementInputX;
-    public float movementInputZ;
-    public float movementInputScroll;
-    public bool movementInputJump;
+    [HideInInspector] public float movementInputX;
+    [HideInInspector] public float movementInputZ;
+    [HideInInspector] public float movementInputScroll;
+    [HideInInspector] public bool movementInputJump;
     protected float attackWindowSize = 0.3f;
     protected Coroutine attackWindowCoroutine;
 
