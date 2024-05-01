@@ -10,7 +10,6 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] public List<GameObject> MainMenuUIDocumentsCameraPosition;
 
-
     [SerializeField] public CameraManager CameraManager;
     public int TransitionTimeMiliSeconds;
 
@@ -22,11 +21,12 @@ public class MainMenuManager : MonoBehaviour
 
     private bool IsZoomingIn = true;
 
-
-
-
-
     private UIDocument OpenedUIDocument;
+
+    public string OpenedUIDocumentString
+    {
+        get => GetDocumentName(OpenedUIDocument);
+    }
 
     public bool MainMenuTransitionInProgress = false;
 
@@ -36,7 +36,6 @@ public class MainMenuManager : MonoBehaviour
         static public string Exiting = "exiting";
         static public string Entering = "entering";
         static public string ResetTranslation = "no-translation";
-
         static public string Hidden = "hidden";
         static public string Flex = "flex";
 
@@ -49,12 +48,12 @@ public class MainMenuManager : MonoBehaviour
             GetInnerContainer(document).AddToClassList(USSAnimationClasses.TransformTransition);
             ToggleElementVisible(GetInnerContainer(document));
 
-            if (GetDocumentName(document) != "MainMenu")
+            if (GetDocumentName(document) != "ClickToStart")
             {
                 GetInnerContainer(document).AddToClassList(USSAnimationClasses.Entering);
             }
         }
-        GoToMainMenu();
+        DisplayUIDocument("ClickToStart");
     }
 
     public void InitializeBackButton(VisualElement rootElement)
@@ -103,7 +102,7 @@ public class MainMenuManager : MonoBehaviour
         return MainMenuUIDocuments.FindIndex(documentSearched => GetDocumentName(document) == GetDocumentName(documentSearched));
     }
 
-    VisualElement GetInnerContainer(UIDocument mainMenuDocument)
+    public VisualElement GetInnerContainer(UIDocument mainMenuDocument)
     {
         return mainMenuDocument.rootVisualElement.Query<VisualElement>("Container");
     }
@@ -115,7 +114,7 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
-    string GetDocumentName(UIDocument uiDocument)
+    public string GetDocumentName(UIDocument uiDocument)
     {
         return uiDocument.ToString().Split(" ")[0];
     }
@@ -153,7 +152,6 @@ public class MainMenuManager : MonoBehaviour
 
         string enteringClass = !reverseTransition ? USSAnimationClasses.Entering : USSAnimationClasses.Exiting;
         string exitingClass = !reverseTransition ? USSAnimationClasses.Exiting : USSAnimationClasses.Entering;
-
 
         // Transition the new document in
         newDocumentInnerContainer.RemoveFromClassList(enteringClass);
