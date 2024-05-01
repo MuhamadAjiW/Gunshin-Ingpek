@@ -7,8 +7,8 @@ public class General : BossEntity
     public const string OBJECT_ID_PREFIX = "General";
 
     // Attributes
-    public int drainDamage = 1;
-    public int drainDelay = 5;
+    public float drainDamage = 1;
+    public float drainDelay = 5;
     public GeneralStateController stateController;
     public GeneralAIController aiController;
     public GeneralAnimationController animationController;

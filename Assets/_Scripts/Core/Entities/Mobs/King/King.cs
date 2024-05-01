@@ -10,8 +10,8 @@ public class King : BossEntity
 
     // Attributes
     public int goonCountLimit = 5;
-    public int drainDamage = 1;
-    public int drainDelay = 5;
+    public float drainDelay = 5;
+    public float drainDamage = 1;
     public KingStateController stateController;
     public KingAIController aiController;
     public KingAnimationController animationController;

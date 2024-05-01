@@ -2571,7 +2571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116154848368178863, guid: bbf8b8bb5e2f2e04e93f5beaf9fc2d42, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14918,7 +14918,11 @@ MonoBehaviour:
     - EdgeIndices: 14000000150000001600000017000000
       TexGenIndex: 5
     Generation: 33
+<<<<<<< HEAD
 --- !u!1 &2086713189
+=======
+--- !u!1 &449230182
+>>>>>>> d0185fed (feat: finished mobs)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14926,6 +14930,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 2086713190}
   - component: {fileID: 2086713193}
   - component: {fileID: 2086713192}
@@ -26755,42 +26760,67 @@ GameObject:
   m_Layer: 0
   m_Name: '[generated-meshes]'
 >>>>>>> 9ac59638 (feat: dark iron sword)
+=======
+  - component: {fileID: 449230183}
+  - component: {fileID: 449230184}
+  m_Layer: 0
+  m_Name: '[generated-meshes]'
+>>>>>>> d0185fed (feat: finished mobs)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &5951287025318195607
 =======
 --- !u!4 &494931646
+=======
+--- !u!4 &449230183
+>>>>>>> d0185fed (feat: finished mobs)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 494931645}
+=======
+  m_GameObject: {fileID: 449230182}
+>>>>>>> d0185fed (feat: finished mobs)
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 2116525530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &494931647
+=======
+  m_Father: {fileID: 1330786159}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449230184
+>>>>>>> d0185fed (feat: finished mobs)
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 494931645}
+=======
+  m_GameObject: {fileID: 449230182}
+>>>>>>> d0185fed (feat: finished mobs)
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Version: 1
+<<<<<<< HEAD
   owner: {fileID: 2116525529}
   helperSurfaces: []
 --- !u!1 &580745003
@@ -26843,6 +26873,11 @@ Transform:
   m_Father: {fileID: 8198373489437335164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5969193329568475139
+=======
+  owner: {fileID: 1330786158}
+  helperSurfaces: []
+--- !u!1 &453930802
+>>>>>>> d0185fed (feat: finished mobs)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39259,6 +39294,102 @@ Mesh:
     - EdgeIndices: 14000000150000001600000017000000
       TexGenIndex: 5
     Generation: 33
+--- !u!1 &1330786156
+GameObject:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1330786159}
+  - component: {fileID: 1330786158}
+  - component: {fileID: 1330786157}
+  m_Layer: 0
+  m_Name: '[default-CSGModel]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 124
+  m_IsActive: 1
+--- !u!54 &1330786157
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330786156}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1330786158
+MonoBehaviour:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330786156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabBehaviour: 0
+  PrefabSourceAlignment: 4
+  PrefabDestinationAlignment: 0
+  Version: 1.1
+  infiniteBrush: {fileID: 0}
+  Settings: 1025
+  VertexChannels: 14
+  ReceiveGI: 2
+  MeshColliderCookingOptions: 14
+  ShowGeneratedMeshes: 0
+  DefaultPhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  exportType: 0
+  originType: 0
+  exportColliders: 0
+  exportPath: 
+  angleError: 1
+  areaError: 1
+  hardAngle: 60
+  packMargin: 20
+  scaleInLightmap: 1
+  autoUVMaxDistance: 0.5
+  autoUVMaxAngle: 89
+  minimumChartSize: 4
+--- !u!4 &1330786159
+Transform:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330786156}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 449230183}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473232142
 >>>>>>> 6c8684c5 (feat: added mitachurl, samachurl, lawachurl model. Animation still glitchy though)
 GameObject:
@@ -39616,6 +39747,11 @@ MonoBehaviour:
   companionList: []
   companionActive: 
   goonCountLimit: 5
+<<<<<<< HEAD
+=======
+  drainDelay: 1
+  drainDamage: 0.2
+>>>>>>> d0185fed (feat: finished mobs)
   stateController:
     detectionDistance: 25
     debuffDistance: 20
@@ -40845,10 +40981,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IsActive: 1
 --- !u!4 &8285761648614158313
 =======
   m_IsActive: 0
+=======
+  m_IsActive: 1
+>>>>>>> d0185fed (feat: finished mobs)
 --- !u!4 &1679100259
 >>>>>>> b9478062 (feat: king and general health draining)
 Transform:
@@ -40948,9 +41088,14 @@ GameObject:
   - {fileID: 7437526622663931204, guid: 9557126a4feee8a4496bbe7f48b9c52b, type: 3}
   companionList: []
   companionActive: 
+<<<<<<< HEAD
+=======
+  drainDamage: 0.1
+  drainDelay: 1
+>>>>>>> d0185fed (feat: finished mobs)
   stateController:
     detectionDistance: 20
-    debuffDistance: 25
+    debuffDistance: 15
     attackDistance: 2
     weaponState: 0
     playerInDebuff: 0
@@ -43262,6 +43407,7 @@ Transform:
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   Version: 1
   SharedMesh: {fileID: 1045058972}
   RenderMaterial: {fileID: 2100000, guid: d40e29484caa88c4891e1e09bf80ad8c, type: 2}
@@ -43334,6 +43480,8 @@ MonoBehaviour:
   owner: {fileID: 1980988774}
   helperSurfaces: []
 >>>>>>> 3e7ccdd6 (refactor: effects)
+=======
+>>>>>>> d0185fed (feat: finished mobs)
 --- !u!1 &1859789728
 GameObject:
 >>>>>>> a3a0d57a (feat: model slippery colliders, weapon recoil)
@@ -43372,7 +43520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1859789729
 Transform:
   m_ObjectHideFlags: 0
@@ -43869,6 +44017,7 @@ Transform:
   m_Father: {fileID: 6475033879508161950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!4 &8809792566885801089
 =======
 --- !u!1 &1980988772
@@ -43979,6 +44128,10 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8824697535483605762
 Transform:
+=======
+--- !u!1 &1993262141
+GameObject:
+>>>>>>> d0185fed (feat: finished mobs)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -51175,7 +51328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116154848368178863, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51192,6 +51345,7 @@ SceneRoots:
   - {fileID: 1899092101}
   - {fileID: 92633237}
   - {fileID: 1298502551}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -51275,3 +51429,6 @@ SceneRoots:
 =======
   - {fileID: 1980988775}
 >>>>>>> 3e7ccdd6 (refactor: effects)
+=======
+  - {fileID: 1330786159}
+>>>>>>> d0185fed (feat: finished mobs)
