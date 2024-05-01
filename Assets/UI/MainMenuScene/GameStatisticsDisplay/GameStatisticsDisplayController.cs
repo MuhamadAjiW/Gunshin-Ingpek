@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GameStatisticsDisplayController : MonoBehaviour
+public class GameStatisticsDisplayController : MainMenuScreenController
 {
-    [SerializeField] public UIDocument GameStatisticsDisplayUIDocument;
-    [SerializeField] public MainMenuManager MainMenuManager;
-
-    private VisualElement rootElement;
-    public void OnEnable()
+    public new void OnEnable()
     {
-        rootElement = GameStatisticsDisplayUIDocument.rootVisualElement;
+        base.OnEnable();
 
         MainMenuManager.InitializeBackButton(rootElement);
-
-
     }
 }

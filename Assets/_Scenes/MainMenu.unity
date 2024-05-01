@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bee2d6cbd31c06b0ad887b210b72b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenuUIDocument: {fileID: 264948486}
+  ControlledUIDocument: {fileID: 264948486}
   MainMenuManager: {fileID: 1421230258}
 --- !u!1 &296400957
 GameObject:
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c88ad8068eff1fa59b373d4e43cab13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SettingsUIDocument: {fileID: 464935306}
+  ControlledUIDocument: {fileID: 464935306}
   MainMenuManager: {fileID: 1421230258}
 --- !u!1 &758632711
 GameObject:
@@ -1421,6 +1421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1650238869}
   - component: {fileID: 1650238868}
+  - component: {fileID: 1650238870}
   m_Layer: 0
   m_Name: ClickToStart
   m_TagString: Untagged
@@ -1459,6 +1460,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1421230259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650238870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650238867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9143154a2f9d5fae96959c1c6ee9b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControlledUIDocument: {fileID: 1650238868}
+  MainMenuManager: {fileID: 1421230258}
 --- !u!1 &1658578701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,7 +1749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27235c6773719da88bb27f649e523eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameStatisticsDisplayUIDocument: {fileID: 2053505587}
+  ControlledUIDocument: {fileID: 2053505587}
   MainMenuManager: {fileID: 1421230258}
 --- !u!1 &2112040268
 GameObject:
@@ -1797,7 +1812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ecae5a04518c7eaaa4f981d38e0bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadGameUIDocument: {fileID: 2112040269}
+  ControlledUIDocument: {fileID: 2112040269}
   MainMenuManager: {fileID: 1421230258}
 --- !u!1 &2117513227
 GameObject:

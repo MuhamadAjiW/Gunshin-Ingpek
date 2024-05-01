@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class SettingsController : MonoBehaviour
+public class SettingsController : MainMenuScreenController
 {
-    [SerializeField] public UIDocument SettingsUIDocument;
-    [SerializeField] public MainMenuManager MainMenuManager;
-
-    private VisualElement rootElement;
-    public void OnEnable()
+    public new void OnEnable()
     {
-        rootElement = SettingsUIDocument.rootVisualElement;
+        base.OnEnable();
 
         MainMenuManager.InitializeBackButton(rootElement);
 

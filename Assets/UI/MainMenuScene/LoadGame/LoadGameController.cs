@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class LoadGameController : MonoBehaviour
+public class LoadGameController : MainMenuScreenController
 {
-    [SerializeField] public UIDocument LoadGameUIDocument;
-    [SerializeField] public MainMenuManager MainMenuManager;
 
-    private VisualElement rootElement;
-    public void OnEnable()
+    public new void OnEnable()
     {
-        rootElement = LoadGameUIDocument.rootVisualElement;
+        base.OnEnable();
 
         MainMenuManager.InitializeBackButton(rootElement);
-
-
-
     }
 }

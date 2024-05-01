@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuController : MainMenuScreenController
 {
-    [SerializeField] public UIDocument MainMenuUIDocument;
-    [SerializeField] public MainMenuManager MainMenuManager;
-
-
-    private VisualElement rootElement;
-    public void OnEnable()
+    public new void OnEnable()
     {
-        rootElement = MainMenuUIDocument.rootVisualElement;
+        base.OnEnable();
 
         // Setup click functionalities of the buttons
         Button startGameButton = rootElement.Query<Button>("start-game-button").First();
@@ -29,7 +24,6 @@ public class MainMenuController : MonoBehaviour
 
         Button exitButton = rootElement.Query<Button>("exit-game-button").First();
         exitButton.RegisterCallback(BlockCallbackInTransition(ExitCallback));
-
     }
 
     private EventCallback<ClickEvent> BlockCallbackInTransition(EventCallback<ClickEvent> callback)

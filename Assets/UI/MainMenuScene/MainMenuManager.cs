@@ -102,21 +102,11 @@ public class MainMenuManager : MonoBehaviour
         return MainMenuUIDocuments.FindIndex(documentSearched => GetDocumentName(document) == GetDocumentName(documentSearched));
     }
 
-    public VisualElement GetInnerContainer(UIDocument mainMenuDocument)
-    {
-        return mainMenuDocument.rootVisualElement.Query<VisualElement>("Container");
-    }
-
     void ToggleElementVisible(VisualElement element, bool isVisible = true)
     {
         element.AddToClassList(isVisible ? USSAnimationClasses.Flex : USSAnimationClasses.Hidden);
         element.RemoveFromClassList(isVisible ? USSAnimationClasses.Hidden : USSAnimationClasses.Flex);
 
-    }
-
-    public string GetDocumentName(UIDocument uiDocument)
-    {
-        return uiDocument.ToString().Split(" ")[0];
     }
 
     void LookAtDocument(UIDocument document, bool isAsync = true)
@@ -177,6 +167,15 @@ public class MainMenuManager : MonoBehaviour
         yield return null;
     }
 
+    // Utils function
+    public static VisualElement GetInnerContainer(UIDocument mainMenuDocument)
+    {
+        return mainMenuDocument.rootVisualElement.Query<VisualElement>("Container");
+    }
 
+    public static string GetDocumentName(UIDocument uiDocument)
+    {
+        return uiDocument.ToString().Split(" ")[0];
+    }
 
 }
