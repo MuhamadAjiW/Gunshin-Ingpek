@@ -9,11 +9,15 @@ public class King : BossEntity
     public const string OBJECT_ID_PREFIX = "King";
 
     // Attributes
-    protected int goonCount = 0;
     public int goonCountLimit = 5;
+    public int drainDamage = 1;
+    public int drainDelay = 5;
     public KingStateController stateController;
     public KingAIController aiController;
     public KingAnimationController animationController;
+    protected int goonCount = 0;
+    private readonly StatEffect speedDebuff = new("King_Debuff", StatEffectType.SPEED, StatEffectType.MULTIPLICATION, -0.15f);
+    private readonly StatEffect damageDebuff = new("King_Debuff", StatEffectType.DAMAGE, StatEffectType.MULTIPLICATION, -0.15f);
 
     // Constructor
     new protected void Start()
@@ -30,15 +34,30 @@ public class King : BossEntity
         OnDeathEvent += OnDeath;
         StartCoroutine(SpawnGoons());
         StartCoroutine(DrainPlayerHealth());
+
+        stateController.OnPlayerEnterDebuffEffect += RegisterPlayerDebuff;
+        stateController.OnPlayerLeaveDebuffEffect += UnregisterPlayerDebuff;
     }
 
     // Functions
+    protected void RegisterPlayerDebuff()
+    {
+        GameController.Instance.player.effects.Add(damageDebuff);
+        GameController.Instance.player.effects.Add(speedDebuff);
+    }
+    
+    protected void UnregisterPlayerDebuff()
+    {
+        GameController.Instance.player.effects.Remove(damageDebuff);
+        GameController.Instance.player.effects.Remove(speedDebuff);
+    }
+
     protected IEnumerator DrainPlayerHealth()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(drainDelay);
         if (stateController.playerInDebuff)
         {
-            GameController.Instance.player.InflictDrainDamage(1);
+            GameController.Instance.player.InflictDrainDamage(drainDamage);
         }
 
         if(!Dead)

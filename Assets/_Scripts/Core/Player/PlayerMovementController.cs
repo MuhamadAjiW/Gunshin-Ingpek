@@ -70,7 +70,7 @@ public class PlayerMovementController
     private void HandleJump()
     {
         float snapshotSpeed = player.Rigidbody.velocity.magnitude;
-        player.stats.snapshotSpeed = Mathf.Abs(snapshotSpeed > player.BaseSpeed?  snapshotSpeed : player.BaseSpeed);
+        player.stats.snapshotSpeed = Mathf.Abs(snapshotSpeed > player.Speed?  snapshotSpeed : player.Speed);
 
         Vector3 force = new(0, player.JumpForce, 0);
         player.Rigidbody.AddForce(force, ForceMode.Impulse);

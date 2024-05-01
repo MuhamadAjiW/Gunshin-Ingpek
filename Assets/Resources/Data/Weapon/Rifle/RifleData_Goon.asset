@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc4ca3f3ac6a5646addd6dfbe0b996b, type: 3}
-  m_Name: RifleData
+  m_Name: RifleData_Goon
   m_EditorClassIdentifier: 
-  prefabPath: Prefabs/Weapons/Rifle/Rifle
+  prefabPath: Prefabs/Weapons/Rifle/Rifle_Goon
   model: {fileID: 5496260497754850104, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
   canSkill: 1
-  baseDamage: 10
+  baseDamage: 5
   knockbackPower: 5
   attackInterval: 0.1
   alternateAttackInterval: 0.5

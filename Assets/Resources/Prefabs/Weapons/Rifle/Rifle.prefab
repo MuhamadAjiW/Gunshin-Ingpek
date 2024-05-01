@@ -50,7 +50,7 @@ MonoBehaviour:
   attackType: 2
   alternateAttackType: 1
   fireRange: 20
-  projectileSpeed: 50
+  projectileSpeed: 100
   audioController:
     audios:
     - source: {fileID: 0}

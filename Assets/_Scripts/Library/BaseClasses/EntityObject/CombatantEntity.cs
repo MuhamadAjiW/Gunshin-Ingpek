@@ -30,11 +30,39 @@ public class CombatantEntity : DamageableEntity, IArmed
         get => attackLayerCode;
         set => attackLayerCode = value;
     }
-    public float BaseDamage 
+    public float Damage 
     {
-        get => baseDamage;
+        get {
+            float finalDamage = baseDamage;
+            float modifiers = 1;
+            if(effects.Count > 0)
+            {
+                for (int i = 0; i < effects.Count; i++)
+                {
+                    StatEffect statEffect = effects[i];
+                    if(statEffect.statType != StatEffectType.DAMAGE)
+                    {
+                        continue;
+                    }
+
+                    switch (statEffect.opType)
+                    {
+                        case StatEffectType.MULTIPLICATION:
+                            modifiers += statEffect.value;
+                            break;
+                        case StatEffectType.ADDITION:
+                            finalDamage += statEffect.value;
+                            break;
+                    }
+                }
+                finalDamage *= modifiers;
+            }
+
+            return Mathf.Max(finalDamage, 0);
+        }
         set => baseDamage = value;
     }
+    
     public int WeaponIndex
     {
         get => weaponIndex;

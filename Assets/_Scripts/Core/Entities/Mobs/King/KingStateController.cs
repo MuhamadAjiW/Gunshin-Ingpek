@@ -14,6 +14,10 @@ public class KingStateController : EntityStateController
     [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
     [HideInInspector] public bool playerInDebuff = false;
 
+    // Effects
+    public event Action OnPlayerEnterDebuffEffect;
+    public event Action OnPlayerLeaveDebuffEffect;
+
     // Constructor
     public void Init(King king)
     {
@@ -77,7 +81,19 @@ public class KingStateController : EntityStateController
         state = movementState | aiState | attackState;
         
         // Additional state
+        bool previousDebuff = playerInDebuff;
         playerInDebuff = Vector3.Distance(king.Position, GameController.Instance.player.Position) < debuffDistance;
+        if(playerInDebuff != previousDebuff)
+        {
+            if(playerInDebuff == true)
+            {
+                OnPlayerEnterDebuffEffect?.Invoke();
+            }
+            else
+            {
+                OnPlayerLeaveDebuffEffect?.Invoke();
+            }
+        }
 
         return state;
     }

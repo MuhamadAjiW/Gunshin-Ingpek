@@ -7,6 +7,8 @@ public class General : BossEntity
     public const string OBJECT_ID_PREFIX = "General";
 
     // Attributes
+    public int drainDamage = 1;
+    public int drainDelay = 5;
     public GeneralStateController stateController;
     public GeneralAIController aiController;
     public GeneralAnimationController animationController;
@@ -43,10 +45,10 @@ public class General : BossEntity
     
     protected IEnumerator DrainPlayerHealth()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(drainDelay);
         if (stateController.playerInDebuff)
         {
-            GameController.Instance.player.InflictDrainDamage(1);
+            GameController.Instance.player.InflictDrainDamage(drainDamage);
         }
 
         if(!Dead)

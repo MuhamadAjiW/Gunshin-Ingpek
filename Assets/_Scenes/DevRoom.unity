@@ -40458,9 +40458,19 @@ MonoBehaviour:
   - {fileID: 6335313778335870420, guid: cdda51714cd51004d8db48ed3c887bfd, type: 3}
   companionList: []
   companionActive: 
+<<<<<<< HEAD
+=======
+  goonCountLimit: 5
+  drainDamage: 1
+  drainDelay: 5
+>>>>>>> 3e7ccdd6 (refactor: effects)
   stateController:
     weaponState: 0
     detectionDistance: 25
+<<<<<<< HEAD
+=======
+    debuffDistance: 15
+>>>>>>> 3e7ccdd6 (refactor: effects)
     attackDistance: 8
   aiController:
     nav: {fileID: 0}
@@ -41670,6 +41680,8 @@ MonoBehaviour:
   - {fileID: 7437526622663931204, guid: 9557126a4feee8a4496bbe7f48b9c52b, type: 3}
   companionList: []
   companionActive: 
+  drainDamage: 1
+  drainDelay: 5
   stateController:
     detectionDistance: 20
     attackDistance: 2
@@ -41730,7 +41742,10 @@ Rigidbody:
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &1687945511
+<<<<<<< HEAD
 >>>>>>> a3a0d57a (feat: model slippery colliders, weapon recoil)
+=======
+>>>>>>> 3e7ccdd6 (refactor: effects)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41738,14 +41753,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 4869234740735931517}
   m_Layer: 0
   m_Name: PJ_1_12
+=======
+  - component: {fileID: 1687945512}
+  - component: {fileID: 1687945513}
+  m_Layer: 0
+  m_Name: Brush (10)
+>>>>>>> 3e7ccdd6 (refactor: effects)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &8417042779717237668
 Transform:
   m_ObjectHideFlags: 0
@@ -41763,6 +41786,9 @@ Transform:
   m_Father: {fileID: 4715273330575507088}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8423712208425221156
+=======
+--- !u!4 &1687945512
+>>>>>>> 3e7ccdd6 (refactor: effects)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43235,6 +43261,7 @@ Transform:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Version: 1
   SharedMesh: {fileID: 1045058972}
   RenderMaterial: {fileID: 2100000, guid: d40e29484caa88c4891e1e09bf80ad8c, type: 2}
@@ -43258,6 +43285,55 @@ Transform:
 GameObject:
 >>>>>>> 90eccbab (feat: basic chasing AI in goons)
 =======
+=======
+--- !u!1 &1835594763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1835594764}
+  - component: {fileID: 1835594765}
+  m_Layer: 0
+  m_Name: '[generated-meshes]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1835594764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835594763}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1980988775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1835594765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835594763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Version: 1
+  owner: {fileID: 1980988774}
+  helperSurfaces: []
+>>>>>>> 3e7ccdd6 (refactor: effects)
 --- !u!1 &1859789728
 GameObject:
 >>>>>>> a3a0d57a (feat: model slippery colliders, weapon recoil)
@@ -43792,21 +43868,114 @@ Transform:
   - {fileID: 601580570523087043}
   m_Father: {fileID: 6475033879508161950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!4 &8809792566885801089
+=======
+--- !u!1 &1980988772
+GameObject:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980988775}
+  - component: {fileID: 1980988774}
+  - component: {fileID: 1980988773}
+  m_Layer: 0
+  m_Name: '[default-CSGModel]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 124
+  m_IsActive: 1
+--- !u!54 &1980988773
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980988772}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1980988774
+MonoBehaviour:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980988772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabBehaviour: 0
+  PrefabSourceAlignment: 4
+  PrefabDestinationAlignment: 0
+  Version: 1.1
+  infiniteBrush: {fileID: 0}
+  Settings: 1025
+  VertexChannels: 14
+  ReceiveGI: 2
+  MeshColliderCookingOptions: 14
+  ShowGeneratedMeshes: 0
+  DefaultPhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  exportType: 0
+  originType: 0
+  exportColliders: 0
+  exportPath: 
+  angleError: 1
+  areaError: 1
+  hardAngle: 60
+  packMargin: 20
+  scaleInLightmap: 1
+  autoUVMaxDistance: 0.5
+  autoUVMaxAngle: 89
+  minimumChartSize: 4
+--- !u!4 &1980988775
+>>>>>>> 3e7ccdd6 (refactor: effects)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 7024956815794683836}
+=======
+  m_GameObject: {fileID: 1980988772}
+>>>>>>> 3e7ccdd6 (refactor: effects)
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0.00000004371139, z: 1.9106855e-15, w: -0.00000004371139}
   m_LocalPosition: {x: -0, y: 0, z: 0.005779425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+<<<<<<< HEAD
   - {fileID: 7221250298168075262}
   m_Father: {fileID: 5757646133246606967}
+=======
+  - {fileID: 1835594764}
+  m_Father: {fileID: 0}
+>>>>>>> 3e7ccdd6 (refactor: effects)
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8824697535483605762
 Transform:
@@ -51042,6 +51211,7 @@ SceneRoots:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 623494889}
 =======
   - {fileID: 1723548349}
@@ -51102,3 +51272,6 @@ SceneRoots:
 =======
   - {fileID: 1950403583}
 >>>>>>> b9478062 (feat: king and general health draining)
+=======
+  - {fileID: 1980988775}
+>>>>>>> 3e7ccdd6 (refactor: effects)

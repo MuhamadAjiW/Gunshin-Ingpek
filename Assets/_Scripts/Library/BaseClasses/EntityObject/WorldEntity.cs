@@ -1,13 +1,15 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldEntity : WorldObject, IRigid
 {
     // Attributes
+    public readonly List<StatEffect> effects = new();
     [HideInInspector] public CharacterModel model;
-    [SerializeField] private float knockbackResistance;
-    [SerializeField] private float baseSpeed;
-    [SerializeField] private float jumpForce;
+    [SerializeField] protected float knockbackResistance;
+    [SerializeField] protected float baseSpeed;
+    [SerializeField] protected float jumpForce;
     [SerializeField] protected LayerMask groundLayers;
     protected Vector3 groundDetectionSize; 
     protected new Rigidbody rigidbody;
@@ -25,11 +27,39 @@ public class WorldEntity : WorldObject, IRigid
         get => knockbackResistance <= 0? 1 : knockbackResistance;
         set => knockbackResistance = value;
     }
-    public float BaseSpeed 
-    { 
-        get => baseSpeed; 
+
+    public float Speed
+    {
+        get {
+            float finalSpeed = baseSpeed;
+            float modifiers = 1;
+            if(effects.Count > 0)
+            {
+                for (int i = 0; i < effects.Count; i++)
+                {
+                    StatEffect statEffect = effects[i];
+                    if(statEffect.statType != StatEffectType.SPEED)
+                    {
+                        continue;
+                    }
+                    
+                    switch (effects[i].opType)
+                    {
+                        case StatEffectType.MULTIPLICATION:
+                            modifiers += statEffect.value;
+                            break;
+                        case StatEffectType.ADDITION:
+                            finalSpeed += statEffect.value;
+                            break;
+                    }
+                }
+                finalSpeed *= modifiers;
+            }
+
+            return Mathf.Max(finalSpeed, 0);
+        }
         set => baseSpeed = value < 0? 0 : value; 
-    }
+    } 
     public float JumpForce 
     { 
         get => jumpForce; 
