@@ -8,7 +8,7 @@ public class GeneralStateController : EntityStateController
 {
     // Attributes
     [SerializeField] private General general;
-    public float detectionDistance = 15f;
+    public float detectionDistance = 20f;
     public float attackDistance = 2f;
     public WeaponState weaponState = WeaponState.IDLE;
 

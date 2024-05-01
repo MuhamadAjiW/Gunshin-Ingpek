@@ -2807,7 +2807,7 @@ MonoBehaviour:
   rangedAnimationDelay: 0.1
   skillAnimationDelay: 0.8
   staticWeaponPivot: {x: 0, y: 0, z: 0}
-  weaponScale: {x: 0.02, y: 0.02, z: 0.02}
+  weaponScale: {x: 0.03, y: 0.03, z: 0.03}
   dynamicWeaponPivot: {fileID: 6570832650275602490}
 --- !u!1 &5991969070787017271
 GameObject:

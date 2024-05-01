@@ -4,10 +4,10 @@ using UnityEngine;
 public class Shotgun : WeaponObject
 {
     // Constants
-    public const string weaponPrefab = "Prefabs/Weapons/Shotgun/Shotgun";
-    private const string projectilePrefab = "Prefabs/Weapons/Shotgun/ShotgunProjectile";
-    private const string hitboxPrefab = "Prefabs/Weapons/Hitbox";
-    public const string shotAudioKey = "Shoot";
+    public const string WEAPON_PREFAB = "Prefabs/Weapons/Shotgun/Shotgun";
+    private const string PROJECTILE_PREFAB = "Prefabs/Weapons/Shotgun/ShotgunProjectile";
+    private const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
+    public const string SHOT_AUDIO_KEY = "Shoot";
     
     // Attribute
     public float fireRange = 100;
@@ -26,10 +26,10 @@ public class Shotgun : WeaponObject
     // Functions
     protected override void OnAttack()
     {
-        audioController.Play(shotAudioKey);
+        audioController.Play(SHOT_AUDIO_KEY);
         float damage = MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage);
         ShotgunProjectile attackProjectile = ObjectFactory.CreateAttackObject<ShotgunProjectile>(
-            prefabPath: projectilePrefab,
+            prefabPath: PROJECTILE_PREFAB,
             damage: damage,
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
@@ -50,7 +50,7 @@ public class Shotgun : WeaponObject
         for (int i = 0; i < pelletCount; i++)
         {
             attackProjectile = ObjectFactory.CreateAttackObject<ShotgunProjectile>(
-                prefabPath: projectilePrefab,
+                prefabPath: PROJECTILE_PREFAB,
                 damage: damage,
                 knockbackPower: data.knockbackPower,
                 attackLayerCode: bearer.AttackLayerCode,
@@ -81,7 +81,7 @@ public class Shotgun : WeaponObject
     protected override void OnAlternateAttack()
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
-            prefabPath: hitboxPrefab,
+            prefabPath: HITBOX_PREFAB,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
@@ -96,10 +96,10 @@ public class Shotgun : WeaponObject
 
     protected override void OnSkill()
     {
-        audioController.Play(shotAudioKey);
+        audioController.Play(SHOT_AUDIO_KEY);
         float damage = MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage);
         ShotgunProjectile attackProjectile = ObjectFactory.CreateAttackObject<ShotgunProjectile>(
-            prefabPath: projectilePrefab,
+            prefabPath: PROJECTILE_PREFAB,
             damage: damage,
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
@@ -120,7 +120,7 @@ public class Shotgun : WeaponObject
         for (int i = 0; i < pelletCount; i++)
         {
             attackProjectile = ObjectFactory.CreateAttackObject<ShotgunProjectile>(
-                prefabPath: projectilePrefab,
+                prefabPath: PROJECTILE_PREFAB,
                 damage: damage,
                 knockbackPower: data.knockbackPower * 3,
                 attackLayerCode: bearer.AttackLayerCode,

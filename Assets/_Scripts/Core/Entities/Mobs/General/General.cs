@@ -4,7 +4,7 @@ using UnityEngine;
 public class General : BossEntity
 {
     // Static Attributes
-    public const string ObjectIdPrefix = "General";
+    public const string OBJECT_ID_PREFIX = "General";
 
     // Attributes
     public GeneralStateController stateController;
@@ -15,7 +15,7 @@ public class General : BossEntity
     new protected void Start()
     {
         base.Start();
-        SetIdPrefix(ObjectIdPrefix);
+        SetIdPrefix(OBJECT_ID_PREFIX);
 
         stateController = new GeneralStateController(this);
         aiController = new GeneralAIController(this);

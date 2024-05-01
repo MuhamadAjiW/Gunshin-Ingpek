@@ -3,10 +3,10 @@ using UnityEngine;
 public class Rifle : WeaponObject
 {
     // Constants
-    public const string weaponPrefab = "Prefabs/Weapons/Rifle/Rifle";
-    private const string projectilePrefab = "Prefabs/Weapons/Rifle/RifleProjectile";
-    private const string hitboxPrefab = "Prefabs/Weapons/Hitbox";
-    public const string shotAudioKey = "Shoot";
+    public const string WEAPON_PREFAB = "Prefabs/Weapons/Rifle/Rifle";
+    private const string PROJECTILE_PREFAB = "Prefabs/Weapons/Rifle/RifleProjectile";
+    private const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
+    public const string SHOT_AUDIO_KEY = "Shoot";
     
     // Attribute
     public float fireRange = 200;
@@ -25,9 +25,9 @@ public class Rifle : WeaponObject
     // Function
     protected override void OnAttack()
     {
-        audioController.Play(shotAudioKey);
+        audioController.Play(SHOT_AUDIO_KEY);
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
-            prefabPath: projectilePrefab,
+            prefabPath: PROJECTILE_PREFAB,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
             knockbackPower: data.knockbackPower / 4,
             attackLayerCode: bearer.AttackLayerCode,
@@ -49,7 +49,7 @@ public class Rifle : WeaponObject
     protected override void OnAlternateAttack()
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
-            prefabPath: hitboxPrefab,
+            prefabPath: HITBOX_PREFAB,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
@@ -64,9 +64,9 @@ public class Rifle : WeaponObject
 
     protected override void OnSkill()
     {
-        audioController.Play(shotAudioKey);
+        audioController.Play(SHOT_AUDIO_KEY);
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
-            prefabPath: projectilePrefab,
+            prefabPath: PROJECTILE_PREFAB,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
             knockbackPower: data.knockbackPower * 2,
             attackLayerCode: bearer.AttackLayerCode,

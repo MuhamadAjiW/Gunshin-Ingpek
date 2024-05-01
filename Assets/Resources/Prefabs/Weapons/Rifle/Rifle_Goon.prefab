@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &691292242578239398
+--- !u!1 &5240801910879785525
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,91 +8,89 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2964358494867643936}
-  - component: {fileID: 6335313778335870420}
-  m_Layer: 6
-  m_Name: Shotgun_King
+  - component: {fileID: 1050311400148833009}
+  - component: {fileID: 5029868015402955001}
+  m_Layer: 0
+  m_Name: Rifle_Goon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &2964358494867643936
+--- !u!4 &1050311400148833009
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691292242578239398}
+  m_GameObject: {fileID: 5240801910879785525}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3522311759412705154}
+  - {fileID: 2754522901997450281}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6335313778335870420
+--- !u!114 &5029868015402955001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691292242578239398}
+  m_GameObject: {fileID: 5240801910879785525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0309cf2d5a9629a4faf26d77d6b8174e, type: 3}
+  m_Script: {fileID: 11500000, guid: 68705b8ed948aae4d98ef6e87b6f6961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: f82d3f27bd2154343a0412c1157ced41, type: 2}
+  data: {fileID: 11400000, guid: b56b74c224335f24c8daf85752a7ea40, type: 2}
   state: 0
   attackType: 2
   alternateAttackType: 1
   fireRange: 10
-  projectileSpeed: 100
-  spread: 0.2
-  pelletCount: 20
+  projectileSpeed: 50
   audioController:
     audios:
     - source: {fileID: 0}
       name: Shoot
-      clip: {fileID: 8300000, guid: 9736498bdc1d9e94f83c5c8ab29466f0, type: 3}
-      volume: 1
+      clip: {fileID: 8300000, guid: e0e502addea969a4babeb4fd434f4a96, type: 3}
+      volume: 0.5
       pitch: 1
       loop: 0
       spatialize: 1
---- !u!1001 &8641475865680113152
+--- !u!1001 &1222245636900030370
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2964358494867643936}
+    m_TransformParent: {fileID: 1050311400148833009}
     m_Modifications:
-    - target: {fileID: 5119875216050280834, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+    - target: {fileID: 3948616814334768011, guid: 0233fbc92be37a74386377f0624213df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5119875216050280834, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+    - target: {fileID: 3948616814334768011, guid: 0233fbc92be37a74386377f0624213df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 5119875216050280834, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+    - target: {fileID: 3948616814334768011, guid: 0233fbc92be37a74386377f0624213df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5496260497754850104, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+    - target: {fileID: 6851966416951645542, guid: 0233fbc92be37a74386377f0624213df, type: 3}
       propertyPath: m_Name
-      value: SteampunkGunModel
+      value: VZ-58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
---- !u!4 &3522311759412705154 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 0233fbc92be37a74386377f0624213df, type: 3}
+--- !u!4 &2754522901997450281 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5119875216050280834, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
-  m_PrefabInstance: {fileID: 8641475865680113152}
+  m_CorrespondingSourceObject: {fileID: 3948616814334768011, guid: 0233fbc92be37a74386377f0624213df, type: 3}
+  m_PrefabInstance: {fileID: 1222245636900030370}
   m_PrefabAsset: {fileID: 0}

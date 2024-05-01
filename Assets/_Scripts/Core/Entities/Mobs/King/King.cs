@@ -4,7 +4,7 @@ using UnityEngine;
 public class King : BossEntity
 {
     // Static Attributes
-    public const string ObjectIdPrefix = "King";
+    public const string OBJECT_ID_PREFIX = "King";
 
     // Attributes
     public KingStateController stateController;
@@ -15,7 +15,7 @@ public class King : BossEntity
     new protected void Start()
     {
         base.Start();
-        SetIdPrefix(ObjectIdPrefix);
+        SetIdPrefix(OBJECT_ID_PREFIX);
 
         stateController = new KingStateController(this);
         aiController = new KingAIController(this);

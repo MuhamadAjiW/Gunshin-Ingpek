@@ -248,6 +248,28 @@ public static class ObjectFactory
         return prefabObject;
     }
 
+    public static T CreateEntity<T>(
+        string prefabPath,
+        Vector3? position = null,
+        Vector3? scale = null,
+        Quaternion? rotation = null,
+        int renderingOrder = 0,
+        string objectName = "Unnamed Object"
+    ) where T : WorldEntity
+    {
+        T prefabObject = CreateObject<T>(
+            prefabPath, 
+            EntityManager.Instance.transform, 
+            position, 
+            scale, 
+            rotation, 
+            renderingOrder, 
+            objectName
+        );
+
+        return prefabObject;
+    }
+
     public static void DestroyObject(MonoBehaviour gameObject, float delay = 0)
     {
         if(gameObject == null) return;

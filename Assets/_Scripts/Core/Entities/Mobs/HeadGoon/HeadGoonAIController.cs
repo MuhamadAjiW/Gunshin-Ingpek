@@ -155,7 +155,7 @@ public class HeadGoonAIController
 
     private void OnDamaged()
     {
-        nav.velocity /= 2;
+        nav.velocity = Vector3.zero;
     }
 
     private void OnDeath()

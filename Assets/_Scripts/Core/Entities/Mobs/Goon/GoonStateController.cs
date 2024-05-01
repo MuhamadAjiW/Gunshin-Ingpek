@@ -8,7 +8,7 @@ public class GoonStateController : EntityStateController
 {
     // Attributes
     [SerializeField] private Goon goon;
-    public float detectionDistance = 10f;
+    public float detectionDistance = 15f;
     public float attackDistance = 1.5f;
     public WeaponState weaponState = WeaponState.IDLE;
 

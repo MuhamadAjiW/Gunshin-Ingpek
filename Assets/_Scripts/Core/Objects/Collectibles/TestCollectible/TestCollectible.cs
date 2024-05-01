@@ -3,13 +3,13 @@ using UnityEngine;
 public class TestCollectible : Collectible
 {
     // Static Attributes
-    public const string ObjectIdPrefix = "TestCollectible";
+    public const string OBJECT_ID_PREFIX = "TestCollectible";
 
     // Constructor
     protected new void Start()
     {
         base.Start();
-        SetIdPrefix(ObjectIdPrefix);
+        SetIdPrefix(OBJECT_ID_PREFIX);
     }
 
     // Functions

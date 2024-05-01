@@ -8,11 +8,15 @@ public class Player : PlayerEntity
 {
     // Static Attributes
 <<<<<<< HEAD
+<<<<<<< HEAD
     public const string ObjectIdPrefix = "Player";
 =======
     public const string ObjectIdPrefix = "Player"; 
     private int currentIndex = 0;
 >>>>>>> 42c091d4 (fix: weapon switching and position)
+=======
+    public const string OBJECT_ID_PREFIX = "Player"; 
+>>>>>>> acb4f76d (feat: Headgoon spawning, mobs stat tweak)
 
     // Attributes
     public PlayerMovementController movementController;
@@ -34,7 +38,7 @@ public class Player : PlayerEntity
         gameObject.AddComponent<AudioSource>();
 
         base.Start();
-        SetIdPrefix(ObjectIdPrefix);
+        SetIdPrefix(OBJECT_ID_PREFIX);
         Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerHealthMultiplier;
         stats = new PlayerStats(this);
         stateController = new PlayerStateController(this);

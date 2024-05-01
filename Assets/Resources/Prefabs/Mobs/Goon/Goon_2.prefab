@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3253619422251248908}
   - component: {fileID: 4187848840791600618}
   m_Layer: 0
-  m_Name: Goon
+  m_Name: Goon_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   damagedDelay: 0.2
   baseDamage: 5
   weaponList:
-  - {fileID: 7437526622663931204, guid: 62a4313c03f1e154882c937338e3578e, type: 3}
+  - {fileID: 5029868015402955001, guid: 39e8cb311f4bc1244a98949e6aa3fd3f, type: 3}
   stateController:
     goon: {fileID: 4187848840791600618}
     detectionDistance: 0

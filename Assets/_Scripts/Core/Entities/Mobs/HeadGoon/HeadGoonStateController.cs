@@ -8,8 +8,8 @@ public class HeadGoonStateController : EntityStateController
 {
     // Attributes
     [SerializeField] private HeadGoon headGoon;
-    public float detectionDistance = 10f;
-    public float attackDistance = 4f;
+    public float detectionDistance = 15f;
+    public float attackDistance = 5f;
     public WeaponState weaponState = WeaponState.IDLE;
 
     // Constructor

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Goon : EnemyEntity
 {
     // Static Attributes
-    public const string ObjectIdPrefix = "Goon";
+    public const string OBJECT_ID_PREFIX = "Goon";
 
     // Attributes
     public GoonStateController stateController;
@@ -15,7 +15,7 @@ public class Goon : EnemyEntity
     new protected void Start()
     {
         base.Start();
-        SetIdPrefix(ObjectIdPrefix);
+        SetIdPrefix(OBJECT_ID_PREFIX);
 
         stateController = new GoonStateController(this);
         aiController = new GoonAIController(this);
