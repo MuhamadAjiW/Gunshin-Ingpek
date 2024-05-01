@@ -1252,23 +1252,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenuUIDocuments:
-  - {fileID: 264948486}
-  - {fileID: 464935306}
-  - {fileID: 2112040269}
-  - {fileID: 2053505587}
   - {fileID: 1650238868}
+  - {fileID: 264948486}
+  - {fileID: 2112040269}
+  - {fileID: 464935306}
+  - {fileID: 2053505587}
   MainMenuUIDocumentsDirectionOnSelected:
-  - {fileID: 1537542417}
-  - {fileID: 2032813328}
-  - {fileID: 173796323}
-  - {fileID: 879195874}
   - {fileID: 1181984261}
+  - {fileID: 1537542417}
+  - {fileID: 173796323}
+  - {fileID: 2032813328}
+  - {fileID: 879195874}
   MainMenuUIDocumentsCameraPosition:
-  - {fileID: 2117513227}
-  - {fileID: 879471347}
-  - {fileID: 758632711}
-  - {fileID: 1658578701}
   - {fileID: 113375723}
+  - {fileID: 2117513227}
+  - {fileID: 758632711}
+  - {fileID: 879471347}
+  - {fileID: 1658578701}
   CameraManager: {fileID: 296400962}
   TransitionTimeMiliSeconds: 250
   ZoomPeriodMiliSeconds: 0
