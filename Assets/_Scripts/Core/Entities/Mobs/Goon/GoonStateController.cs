@@ -22,6 +22,11 @@ public class GoonStateController : EntityStateController
     // Functions
     protected override int DetectState()
     {
+        if(goon.Dead)
+        {
+            return GoonState.DEAD;
+        }
+
         // Get movementState
         int movementState = 0; 
         if(DetectJumping())

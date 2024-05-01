@@ -25,6 +25,11 @@ public class GoonAIController
     // Functions
     public void Action()
     {
+        if(goon.Dead)
+        {
+            return;
+        }
+        
         switch (GoonState.GetAIState(goon.stateController.State))
         {
             case GoonState.AI_DETECTED_STATE:

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Goon : EnemyEntity
@@ -47,6 +48,12 @@ public class Goon : EnemyEntity
 
     private void OnDeath()
     {
+        StartCoroutine(DeleteBody());
+    }
+
+    private IEnumerator DeleteBody()
+    {
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 }

@@ -43,7 +43,6 @@ public class Rifle : WeaponObject
         attackProjectile.direction = bearer.Orientation.forward;
 
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
-        Debug.Log(bearerBody);
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 16) + bearer.Orientation.up, ForceMode.Impulse);
     }
 
@@ -83,5 +82,8 @@ public class Rifle : WeaponObject
         attackProjectile.direction = bearer.Orientation.forward;
 
         ObjectFactory.DestroyObject(attackProjectile, 2f);
+
+        IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
+        bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 16) + bearer.Orientation.up, ForceMode.Impulse);
     }
 }
