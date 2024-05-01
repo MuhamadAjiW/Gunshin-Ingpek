@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
 
             if (Input.anyKeyDown)
             {
-                Debug.Log("Key pressed: " + Input.inputString);
+                // Debug.Log("Key pressed: " + Input.inputString);
                 if (Input.GetKeyDown(GameInput.Instance.cheatTriggerButton[cheatTriggerIdx]))
                 {
                     cheatTriggerIdx++;

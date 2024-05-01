@@ -12,6 +12,9 @@ public class HeadGoonStateController : EntityStateController
     public float detectionDistance = 15f;
     public float attackDistance = 5f;
 
+    // Events
+    public event Action OnPlayerEnterDetectionEvent;
+
     // Constructor
     public void Init(HeadGoon headGoon)
     {
@@ -45,6 +48,10 @@ public class HeadGoonStateController : EntityStateController
         int aiState = 0;
         if(Vector3.Distance(headGoon.Position, GameController.Instance.player.Position) < attackDistance)
         {
+            if(HeadGoonState.GetAIState(state) == 0)
+            {
+                headGoon.audioController.Play(HeadGoon.AUDIO_CRY_KEY);
+            }
             aiState = HeadGoonState.AI_IN_RANGE_STATE;
         }
         else if(Vector3.Distance(headGoon.Position, GameController.Instance.player.Position) < detectionDistance)

@@ -51,6 +51,10 @@ public class GeneralStateController : EntityStateController
         }
         else if(Vector3.Distance(general.Position, GameController.Instance.player.Position) < detectionDistance)
         {
+            if(GeneralState.GetAIState(state) == 0)
+            {
+                general.audioController.Play(General.AUDIO_CRY_KEY);
+            }
             aiState = GeneralState.AI_DETECTED_STATE;
         }
 

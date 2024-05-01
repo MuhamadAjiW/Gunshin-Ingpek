@@ -50,13 +50,16 @@ public class Player : PlayerEntity
         SetLayer(EnvironmentConfig.LAYER_PLAYER);
         SetAttackLayer(EnvironmentConfig.LAYER_PLAYER_ATTACK);
         GameController.Instance.player = this;
+<<<<<<< HEAD
 
 
         // TODO: These are for dev, consider deleting
         // WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
 
+=======
+        
+>>>>>>> cc490e85 (feat: mob sounds)
         EquipWeapon(0);
-        // ----------/TODO
 
         int initialIndex = CompanionList.Count;
         for (int i = 0; i < initialIndex; i++)

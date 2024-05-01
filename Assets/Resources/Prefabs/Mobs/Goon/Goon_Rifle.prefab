@@ -114,6 +114,15 @@ MonoBehaviour:
     detectionDistance: 15
     attackDistance: 8
     weaponState: 0
+  audioController:
+    audios:
+    - source: {fileID: 0}
+      name: cry
+      clip: {fileID: 8300000, guid: c93df6169fe9dc14e83e96fd5a12e6d4, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 0
   aiController:
     nav: {fileID: 0}
   animationController:

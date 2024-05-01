@@ -85,16 +85,14 @@ public class GeneralAIController
     
         general.animationController.AnimateAttack(general.Weapon.attackType);
         
-        // TODO: Implement AudioController
-
-        // if(general.Weapon.CanAttack)
-        // {
-        //     if(general.Weapon.attackType == AttackType.MELEE 
-        //         || general.stateController.weaponState != WeaponState.ATTACK)
-        //     {
-        //         general.audioController.Play(PlayerAudioController.ATTACK_KEY);
-        //     }
-        // }
+        if(general.Weapon.CanAttack)
+        {
+            if(general.Weapon.attackType == AttackType.MELEE 
+                || general.stateController.weaponState != WeaponState.ATTACK)
+            {
+                general.audioController.Play(General.AUDIO_ATTACK_KEY);
+            }
+        }
 
         TriggerWeaponState(WeaponState.ATTACK);
         yield return new WaitForSeconds(delay);
@@ -110,18 +108,16 @@ public class GeneralAIController
             _ => 0
         };
     
-        general.animationController.AnimateAttack(general.Weapon.attackType);
+        general.animationController.AnimateAttack(general.Weapon.alternateAttackType);
         
-        // TODO: Implement AudioController
-
-        // if(general.Weapon.CanAttack)
-        // {
-        //     if(general.Weapon.attackType == AttackType.MELEE 
-        //         || general.stateController.weaponState != WeaponState.ATTACK)
-        //     {
-        //         general.audioController.Play(PlayerAudioController.ATTACK_KEY);
-        //     }
-        // }
+        if(general.Weapon.CanAttack)
+        {
+            if(general.Weapon.alternateAttackType == AttackType.MELEE 
+                || general.stateController.weaponState != WeaponState.ATTACK)
+            {
+                general.audioController.Play(General.AUDIO_ATTACK_KEY);
+            }
+        }
 
         TriggerWeaponState(WeaponState.ALTERNATE_ATTACK);
         yield return new WaitForSeconds(delay);

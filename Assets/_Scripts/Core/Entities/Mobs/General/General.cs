@@ -5,11 +5,15 @@ public class General : BossEntity
 {
     // Static Attributes
     public const string OBJECT_ID_PREFIX = "General";
+    public const string AUDIO_CRY_KEY = "cry";
+    public const string AUDIO_DIE_KEY = "die";
+    public const string AUDIO_ATTACK_KEY = "attack";
 
     // Attributes
     public float drainDamage = 1;
     public float drainDelay = 5;
     public GeneralStateController stateController;
+    public AudioController audioController;
     public GeneralAIController aiController;
     public GeneralAnimationController animationController;
 
@@ -19,6 +23,7 @@ public class General : BossEntity
         base.Start();
         SetIdPrefix(OBJECT_ID_PREFIX);
 
+        audioController.Init(this);
         stateController.Init(this);
         aiController.Init(this);
         animationController.Init(this);
@@ -59,6 +64,11 @@ public class General : BossEntity
 
     private void OnDeath()
     {
+<<<<<<< HEAD
+=======
+        audioController.Play(AUDIO_DIE_KEY);
+        GameStatistics.Instance.AddGeneralsKilled();
+>>>>>>> cc490e85 (feat: mob sounds)
         StartCoroutine(DeleteBody());
     }
 

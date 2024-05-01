@@ -5,18 +5,21 @@ public class Goon : EnemyEntity
 {
     // Static Attributes
     public const string OBJECT_ID_PREFIX = "Goon";
+    public const string AUDIO_CRY_KEY = "cry";
 
     // Attributes
     public GoonStateController stateController;
+    public AudioController audioController;
     public GoonAIController aiController;
     public GoonAnimationController animationController;
-
+    
     // Constructor
     new protected void Start()
     {
         base.Start();
         SetIdPrefix(OBJECT_ID_PREFIX);
 
+        audioController.Init(this);
         stateController.Init(this);
         aiController.Init(this);
         animationController.Init(this);

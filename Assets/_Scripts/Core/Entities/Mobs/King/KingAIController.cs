@@ -62,6 +62,7 @@ public class KingAIController
         {
             return;
         }
+
         king.StartCoroutine(HandleAttack());
     }
 
@@ -71,6 +72,7 @@ public class KingAIController
         {
             return;
         }
+
         king.StartCoroutine(HandleAlternateAttack());
     }
 
@@ -85,16 +87,14 @@ public class KingAIController
     
         king.animationController.AnimateAttack(king.Weapon.attackType);
         
-        // TODO: Implement AudioController
-
-        // if(king.Weapon.CanAttack)
-        // {
-        //     if(king.Weapon.attackType == AttackType.MELEE 
-        //         || king.stateController.weaponState != WeaponState.ATTACK)
-        //     {
-        //         king.audioController.Play(PlayerAudioController.ATTACK_KEY);
-        //     }
-        // }
+        if(king.Weapon.CanAttack)
+        {
+            if(king.Weapon.attackType == AttackType.MELEE 
+                || king.stateController.weaponState != WeaponState.ATTACK)
+            {
+                king.audioController.Play(King.AUDIO_ATTACK_KEY);
+            }
+        }
 
         TriggerWeaponState(WeaponState.ATTACK);
         yield return new WaitForSeconds(delay);
@@ -110,18 +110,16 @@ public class KingAIController
             _ => 0
         };
     
-        king.animationController.AnimateAttack(king.Weapon.attackType);
+        king.animationController.AnimateAttack(king.Weapon.alternateAttackType);
         
-        // TODO: Implement AudioController
-
-        // if(king.Weapon.CanAttack)
-        // {
-        //     if(king.Weapon.attackType == AttackType.MELEE 
-        //         || king.stateController.weaponState != WeaponState.ATTACK)
-        //     {
-        //         king.audioController.Play(PlayerAudioController.ATTACK_KEY);
-        //     }
-        // }
+        if(king.Weapon.CanAttack)
+        {
+            if(king.Weapon.alternateAttackType == AttackType.MELEE 
+                || king.stateController.weaponState != WeaponState.ATTACK)
+            {
+                king.audioController.Play(King.AUDIO_ATTACK_KEY);
+            }
+        }
 
         TriggerWeaponState(WeaponState.ALTERNATE_ATTACK);
         yield return new WaitForSeconds(delay);

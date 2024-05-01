@@ -109,7 +109,7 @@ public class GoonAIController
             _ => 0
         };
     
-        goon.animationController.AnimateAttack(goon.Weapon.attackType);
+        goon.animationController.AnimateAttack(goon.Weapon.alternateAttackType);
         
         // TODO: Implement AudioController
 

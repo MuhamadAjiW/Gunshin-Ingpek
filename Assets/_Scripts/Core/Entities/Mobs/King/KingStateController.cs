@@ -15,8 +15,9 @@ public class KingStateController : EntityStateController
     [HideInInspector] public bool playerInDebuff = false;
 
     // Effects
-    public event Action OnPlayerEnterDebuffEffect;
-    public event Action OnPlayerLeaveDebuffEffect;
+    public event Action OnPlayerEnterDetectionEvent;
+    public event Action OnPlayerEnterDebuffEvent;
+    public event Action OnPlayerLeaveDebuffEvent;
 
     // Constructor
     public void Init(King king)
@@ -55,6 +56,10 @@ public class KingStateController : EntityStateController
         }
         else if(Vector3.Distance(king.Position, GameController.Instance.player.Position) < detectionDistance)
         {
+            if(KingState.GetAIState(state) == 0)
+            {
+                king.audioController.Play(King.AUDIO_CRY_KEY);
+            }
             aiState = KingState.AI_DETECTED_STATE;
         }
 
@@ -87,11 +92,11 @@ public class KingStateController : EntityStateController
         {
             if(playerInDebuff == true)
             {
-                OnPlayerEnterDebuffEffect?.Invoke();
+                OnPlayerEnterDebuffEvent?.Invoke();
             }
             else
             {
-                OnPlayerLeaveDebuffEffect?.Invoke();
+                OnPlayerLeaveDebuffEvent?.Invoke();
             }
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,13 @@ public class HeadGoon : EnemyEntity
     // Static Attributes
     public const string GOON_PREFAB = "Prefabs/Mobs/Goon/Goon";
     public const string OBJECT_ID_PREFIX = "HeadGoon";
+    public const string AUDIO_CRY_KEY = "cry";
 
     // Attributes
     protected int goonCount = 0;
     public int goonCountLimit = 2;
     public HeadGoonStateController stateController;
+    public AudioController audioController;
     public HeadGoonAIController aiController;
     public HeadGoonAnimationController animationController;
 
@@ -21,6 +24,7 @@ public class HeadGoon : EnemyEntity
         base.Start();
         SetIdPrefix(OBJECT_ID_PREFIX);
 
+        audioController.Init(this);
         stateController.Init(this);
         aiController.Init(this);
         animationController.Init(this);

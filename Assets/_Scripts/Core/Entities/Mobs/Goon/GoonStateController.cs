@@ -49,6 +49,11 @@ public class GoonStateController : EntityStateController
         }
         else if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < detectionDistance)
         {
+            if(GoonState.GetAIState(state) == 0)
+            {
+                Debug.Log("Wah");
+                goon.audioController.Play(Goon.AUDIO_CRY_KEY);
+            }
             aiState = GoonState.AI_DETECTED_STATE;
         }
 

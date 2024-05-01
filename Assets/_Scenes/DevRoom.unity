@@ -2571,7 +2571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116154848368178863, guid: bbf8b8bb5e2f2e04e93f5beaf9fc2d42, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34261,6 +34261,7 @@ MonoBehaviour:
       TexGenIndex: 4
     - EdgeIndices: 14000000150000001600000017000000
       TexGenIndex: 5
+<<<<<<< HEAD
     Generation: 33
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -34273,11 +34274,18 @@ GameObject:
 --- !u!1 &1016964661
 GameObject:
   m_ObjectHideFlags: 17
+=======
+    Generation: 2
+--- !u!1 &683164255
+GameObject:
+  m_ObjectHideFlags: 0
+>>>>>>> cc490e85 (feat: mob sounds)
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1016964664}
   - component: {fileID: 1016964663}
   - component: {fileID: 1016964662}
@@ -34351,6 +34359,52 @@ MonoBehaviour:
   autoUVMaxAngle: 89
   minimumChartSize: 4
 --- !u!4 &1016964664
+=======
+  - component: {fileID: 683164257}
+  - component: {fileID: 683164256}
+  m_Layer: 0
+  m_Name: GameStatistics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &683164256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683164255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699af7536f1e4c5584c4d74309a3eea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goonsKilled: 0
+  headgoonsKilled: 0
+  generalsKilled: 0
+  kingsKilled: 0
+  shotsFired: 0
+  shotsHit: 0
+  playtime: 0
+--- !u!4 &683164257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683164255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &684483251 stripped
+>>>>>>> cc490e85 (feat: mob sounds)
 Transform:
   m_ObjectHideFlags: 17
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36613,6 +36667,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1267581460
 =======
 --- !u!1 &1413009867
@@ -36884,6 +36939,15 @@ Transform:
 --- !u!1 &7641455596702282793
 =======
   m_Name: <Collider helper surface generated -623236>
+=======
+--- !u!43 &1040530778
+Mesh:
+  m_ObjectHideFlags: 16
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: <ReceiveShadows helper surface generated -623240>
+>>>>>>> cc490e85 (feat: mob sounds)
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -40011,6 +40075,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!1 &1383178523
 GameObject:
@@ -40250,6 +40315,10 @@ MonoBehaviour:
 --- !u!43 &1635427727
 Mesh:
 >>>>>>> 90eccbab (feat: basic chasing AI in goons)
+=======
+--- !u!1 &1298502548
+GameObject:
+>>>>>>> cc490e85 (feat: mob sounds)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -40766,7 +40835,11 @@ MeshFilter:
       TexGenIndex: 5
     Generation: 33
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1415519060
+=======
+--- !u!1 &1485905671
+>>>>>>> cc490e85 (feat: mob sounds)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40774,8 +40847,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1415519061}
   - component: {fileID: 1415519062}
+=======
+  - component: {fileID: 1485905672}
+  - component: {fileID: 1485905673}
+>>>>>>> cc490e85 (feat: mob sounds)
   m_Layer: 0
   m_Name: '[generated-meshes]'
   m_TagString: Untagged
@@ -40783,13 +40861,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &1415519061
 >>>>>>> 80acb321 (feat: base for headgoon, general, king)
+=======
+--- !u!4 &1485905672
+>>>>>>> cc490e85 (feat: mob sounds)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 4031872045038218615}
   serializedVersion: 2
@@ -40804,27 +40887,41 @@ Transform:
 --- !u!1 &8188162573670760316
 =======
   m_GameObject: {fileID: 1415519060}
+=======
+  m_GameObject: {fileID: 1485905671}
+>>>>>>> cc490e85 (feat: mob sounds)
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 949923648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1415519062
+=======
+  m_Father: {fileID: 1838001793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485905673
+>>>>>>> cc490e85 (feat: mob sounds)
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1415519060}
+=======
+  m_GameObject: {fileID: 1485905671}
+>>>>>>> cc490e85 (feat: mob sounds)
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Version: 1
+<<<<<<< HEAD
   owner: {fileID: 949923647}
   helperSurfaces: []
 =======
@@ -40864,6 +40961,11 @@ Transform:
   m_Father: {fileID: 3900791983693939397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8192439821796494061
+=======
+  owner: {fileID: 1838001792}
+  helperSurfaces: []
+--- !u!1 &1489131866
+>>>>>>> cc490e85 (feat: mob sounds)
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40886,9 +40988,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IsActive: 1
 --- !u!4 &8196042007804431649
 =======
+=======
+>>>>>>> cc490e85 (feat: mob sounds)
   m_IsActive: 0
 --- !u!4 &1489131867
 >>>>>>> 0ba6d5e3 (refactor: internal classes for better editor experience)
@@ -40960,6 +41065,34 @@ MonoBehaviour:
     debuffDistance: 15
 >>>>>>> 3e7ccdd6 (refactor: effects)
     attackDistance: 8
+<<<<<<< HEAD
+=======
+    weaponState: 0
+    playerInDebuff: 0
+  audioController:
+    audios:
+    - source: {fileID: 0}
+      name: cry
+      clip: {fileID: 8300000, guid: e463043121b28bb449b131167622654b, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 0
+    - source: {fileID: 0}
+      name: die
+      clip: {fileID: 8300000, guid: 0964d05e2b50e1444990323d6fa25be2, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 0
+    - source: {fileID: 0}
+      name: attack
+      clip: {fileID: 8300000, guid: 1de3f686b2584dc44a0466b96f848736, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 0
+>>>>>>> cc490e85 (feat: mob sounds)
   aiController:
     nav: {fileID: 0}
   animationController:
@@ -42183,6 +42316,33 @@ MonoBehaviour:
     detectionDistance: 20
     attackDistance: 2
     weaponState: 0
+<<<<<<< HEAD
+=======
+    playerInDebuff: 0
+  audioController:
+    audios:
+    - source: {fileID: 0}
+      name: cry
+      clip: {fileID: 8300000, guid: 7134333ae4f58e1429dcd679d2598e40, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 0
+    - source: {fileID: 0}
+      name: die
+      clip: {fileID: 8300000, guid: 2f1ee214f1403f74c93ec343c448418a, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 0
+    - source: {fileID: 0}
+      name: attack
+      clip: {fileID: 8300000, guid: 221cab7acf426224bac887b9a18b2e24, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 0
+>>>>>>> cc490e85 (feat: mob sounds)
   aiController:
     nav: {fileID: 0}
   animationController:
@@ -43828,12 +43988,111 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3643d4978096d4880d7edbf4f65a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Version: 1
   owner: {fileID: 1980988774}
   helperSurfaces: []
 >>>>>>> 3e7ccdd6 (refactor: effects)
 =======
 >>>>>>> d0185fed (feat: finished mobs)
+=======
+--- !u!1 &1838001790
+GameObject:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1838001793}
+  - component: {fileID: 1838001792}
+  - component: {fileID: 1838001791}
+  m_Layer: 0
+  m_Name: '[default-CSGModel]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 124
+  m_IsActive: 1
+--- !u!54 &1838001791
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838001790}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1838001792
+MonoBehaviour:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838001790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabBehaviour: 0
+  PrefabSourceAlignment: 4
+  PrefabDestinationAlignment: 0
+  Version: 1.1
+  infiniteBrush: {fileID: 0}
+  Settings: 1025
+  VertexChannels: 14
+  ReceiveGI: 2
+  MeshColliderCookingOptions: 14
+  ShowGeneratedMeshes: 0
+  DefaultPhysicsMaterial: {fileID: 13400000, guid: 0c5fdfb44d6f19646a41a0720fbf751a, type: 2}
+  exportType: 0
+  originType: 0
+  exportColliders: 0
+  exportPath: 
+  angleError: 1
+  areaError: 1
+  hardAngle: 60
+  packMargin: 20
+  scaleInLightmap: 1
+  autoUVMaxDistance: 0.5
+  autoUVMaxAngle: 89
+  minimumChartSize: 4
+--- !u!4 &1838001793
+Transform:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838001790}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1485905672}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> cc490e85 (feat: mob sounds)
 --- !u!1 &1859789728
 GameObject:
 >>>>>>> a3a0d57a (feat: model slippery colliders, weapon recoil)
@@ -43872,7 +44131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1859789729
 Transform:
   m_ObjectHideFlags: 0
@@ -43920,6 +44179,15 @@ MonoBehaviour:
     weaponState: 0
     detectionDistance: 15
     attackDistance: 5
+  audioController:
+    audios:
+    - source: {fileID: 0}
+      name: cry
+      clip: {fileID: 8300000, guid: c93df6169fe9dc14e83e96fd5a12e6d4, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 0
   aiController:
     nav: {fileID: 0}
   animationController:
@@ -44352,7 +44620,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &8807029435540059481
+=======
+--- !u!114 &1899092100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899092099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277e6d37ad3220543a05009070b3a2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backButton: 27
+  attackButton: 323
+  attackAlternateButton: 324
+  attackSkillButton: 102
+  interactButton: 113
+  sprintButton: 304
+  inputToggleButton: 306
+  aimToggleButton: 101
+  cheatTriggerButton: 6000000063000000
+--- !u!4 &1899092101
+>>>>>>> cc490e85 (feat: mob sounds)
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51680,7 +51973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116154848368178863, guid: 63009b5528003a4469e908d291dff8a9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51695,6 +51988,7 @@ SceneRoots:
   - {fileID: 1993262143}
   - {fileID: 354420149}
   - {fileID: 1899092101}
+<<<<<<< HEAD
   - {fileID: 92633237}
   - {fileID: 1298502551}
 <<<<<<< HEAD
@@ -51788,3 +52082,8 @@ SceneRoots:
 =======
   - {fileID: 1016964664}
 >>>>>>> a70505c1 (mod: tweaked king stats)
+=======
+  - {fileID: 683164257}
+  - {fileID: 1298502551}
+  - {fileID: 1838001793}
+>>>>>>> cc490e85 (feat: mob sounds)

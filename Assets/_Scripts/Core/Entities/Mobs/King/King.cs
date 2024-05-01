@@ -7,12 +7,16 @@ public class King : BossEntity
     public const string GOON_PREFAB = "Prefabs/Mobs/Goon/Goon";
     public const string GOON_RIFLE_PREFAB = "Prefabs/Mobs/Goon/Goon_Rifle";
     public const string OBJECT_ID_PREFIX = "King";
+    public const string AUDIO_CRY_KEY = "cry";
+    public const string AUDIO_DIE_KEY = "die";
+    public const string AUDIO_ATTACK_KEY = "attack";
 
     // Attributes
     public int goonCountLimit = 5;
     public float drainDamage = 1;
     public float drainDelay = 5;
     public KingStateController stateController;
+    public AudioController audioController;
     public KingAIController aiController;
     public KingAnimationController animationController;
     protected int goonCount = 0;
@@ -25,6 +29,7 @@ public class King : BossEntity
         base.Start();
         SetIdPrefix(OBJECT_ID_PREFIX);
 
+        audioController.Init(this);
         stateController.Init(this);
         aiController.Init(this);
         animationController.Init(this);
@@ -35,8 +40,8 @@ public class King : BossEntity
         StartCoroutine(SpawnGoons());
         StartCoroutine(DrainPlayerHealth());
 
-        stateController.OnPlayerEnterDebuffEffect += RegisterPlayerDebuff;
-        stateController.OnPlayerLeaveDebuffEffect += UnregisterPlayerDebuff;
+        stateController.OnPlayerEnterDebuffEvent += RegisterPlayerDebuff;
+        stateController.OnPlayerLeaveDebuffEvent += UnregisterPlayerDebuff;
     }
 
     // Functions
@@ -122,6 +127,11 @@ public class King : BossEntity
 
     private void OnDeath()
     {
+<<<<<<< HEAD
+=======
+        audioController.Play(AUDIO_DIE_KEY);
+        GameStatistics.Instance.AddKingsKilled();
+>>>>>>> cc490e85 (feat: mob sounds)
         StartCoroutine(DeleteBody());
     }
 

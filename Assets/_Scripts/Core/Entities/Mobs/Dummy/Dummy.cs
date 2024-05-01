@@ -7,6 +7,7 @@ public class Dummy : EnemyEntity
 
     // Attributes
     public DummyAnimationController animationController;
+    public AudioController audioController;
     public DummyStateController stateController;
 
     // Constructor
@@ -16,5 +17,6 @@ public class Dummy : EnemyEntity
         SetIdPrefix(OBJECT_ID_PREFIX);
         stateController.Init(this);
         animationController.Init(this);
+        audioController.Init(this);
     }
 }
