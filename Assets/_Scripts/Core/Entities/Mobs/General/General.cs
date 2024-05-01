@@ -24,6 +24,7 @@ public class General : BossEntity
         EquipWeapon(0);
         
         OnDeathEvent += OnDeath;
+        StartCoroutine(DrainPlayerHealth());
     }
 
     // Functions
@@ -35,12 +36,23 @@ public class General : BossEntity
     protected override void FixedUpdateAction()
     {
         aiController?.Action();
+
+        Vector3 dampVelocity = new();
+        Rigidbody.velocity = Vector3.SmoothDamp(Rigidbody.velocity, Vector3.zero, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);
     }
     
-    protected new void OnDrawGizmosSelected()
+    protected IEnumerator DrainPlayerHealth()
     {
-        base.OnDrawGizmosSelected();
-        stateController.VisualizeDetection(this);
+        yield return new WaitForSeconds(5);
+        if (stateController.playerInDebuff)
+        {
+            GameController.Instance.player.InflictDrainDamage(1);
+        }
+
+        if(!Dead)
+        {
+            StartCoroutine(DrainPlayerHealth());
+        }
     }
 
     private void OnDeath()
@@ -52,5 +64,12 @@ public class General : BossEntity
     {
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
+    }
+
+    // Debugging purposes
+    protected new void OnDrawGizmosSelected()
+    {
+        base.OnDrawGizmosSelected();
+        stateController.VisualizeDetection(this);
     }
 }

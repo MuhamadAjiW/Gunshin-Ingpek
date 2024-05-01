@@ -110,8 +110,9 @@ public class HeadGoonStateController : EntityStateController
     // Debugging purposes
     public void VisualizeDetection(MonoBehaviour monoBehaviour)
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, detectionDistance);
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
     }
 }

@@ -87,6 +87,18 @@ public class DamageableEntity : WorldEntity, IDamageable
         return Health;
     }
 
+    public float InflictDrainDamage(float damage)
+    {
+        Debug.Log($"{name} health is drained by {damage}");
+        Health -= damage;
+        if(Dead)
+        {
+            OnDeathEvent?.Invoke();
+        }
+
+        return Health;
+    }
+
     private IEnumerator WaitDamagedDelay()
     {
         if (!Dead)

@@ -9,8 +9,10 @@ public class GeneralStateController : EntityStateController
     // Attributes
     private General general;
     public float detectionDistance = 20f;
+    public float debuffDistance = 10f;
     public float attackDistance = 2f;
     [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
+    [HideInInspector] public bool playerInDebuff = false;
 
     // Constructor
     public void Init(General general)
@@ -74,6 +76,9 @@ public class GeneralStateController : EntityStateController
         // Combine states
         state = movementState | aiState | attackState;
 
+        // Additional state
+        playerInDebuff = Vector3.Distance(general.Position, GameController.Instance.player.Position) < debuffDistance;
+
         return state;
     }
 
@@ -110,8 +115,11 @@ public class GeneralStateController : EntityStateController
     // Debugging purposes
     public void VisualizeDetection(MonoBehaviour monoBehaviour)
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, detectionDistance);
+        Gizmos.color = Color.gray;
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, debuffDistance);
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
     }
 }

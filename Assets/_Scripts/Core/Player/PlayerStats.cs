@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -7,6 +8,8 @@ public class PlayerStats
     // Attributes
     private Player player;
     public float sprintModifier = 1.5f;
+    public List<float> speedEffects;
+    public List<float> damageEffects;
     [HideInInspector] public float snapshotSpeed = 0;
 
     // Set-Getters
@@ -20,7 +23,7 @@ public class PlayerStats
         get => player.MaxHealth;
         set => player.MaxHealth = value;
     }
-    public float BaseDamage 
+    public float BaseDamage
     {
         get => player.BaseDamage;
         set => player.BaseDamage = value;

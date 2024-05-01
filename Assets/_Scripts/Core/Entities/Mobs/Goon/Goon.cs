@@ -35,6 +35,8 @@ public class Goon : EnemyEntity
     protected override void FixedUpdateAction()
     {
         aiController?.Action();
+        Vector3 dampVelocity = new();
+        Rigidbody.velocity = Vector3.SmoothDamp(Rigidbody.velocity, Vector3.zero, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);
     }
     
     protected new void OnDrawGizmosSelected()

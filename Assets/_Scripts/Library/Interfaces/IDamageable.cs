@@ -16,4 +16,5 @@ public interface IDamageable
     // Functions
     float InflictDamage(float damage);
     float InflictHeal(float heal);
+    float InflictDrainDamage(float damage);
 }

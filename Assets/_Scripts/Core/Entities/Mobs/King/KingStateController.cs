@@ -8,9 +8,11 @@ public class KingStateController : EntityStateController
 {
     // Attributes
     private King king;
-    [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
     public float detectionDistance = 25f;
+    public float debuffDistance = 12.5f;
     public float attackDistance = 8f;
+    [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
+    [HideInInspector] public bool playerInDebuff = false;
 
     // Constructor
     public void Init(King king)
@@ -73,6 +75,9 @@ public class KingStateController : EntityStateController
 
         // Combine states
         state = movementState | aiState | attackState;
+        
+        // Additional state
+        playerInDebuff = Vector3.Distance(king.Position, GameController.Instance.player.Position) < debuffDistance;
 
         return state;
     }
@@ -110,8 +115,11 @@ public class KingStateController : EntityStateController
     // Debugging purposes
     public void VisualizeDetection(MonoBehaviour monoBehaviour)
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, detectionDistance);
+        Gizmos.color = Color.gray;
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, debuffDistance);
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
     }
 }
