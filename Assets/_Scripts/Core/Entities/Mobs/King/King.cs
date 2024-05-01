@@ -10,8 +10,8 @@ public class King : BossEntity
 
     // Attributes
     public int goonCountLimit = 5;
-    public float drainDelay = 5;
     public float drainDamage = 1;
+    public float drainDelay = 5;
     public KingStateController stateController;
     public KingAIController aiController;
     public KingAnimationController animationController;
@@ -86,7 +86,7 @@ public class King : BossEntity
                     position: transform.position + transform.up
                 );
             }
-            goon.stateController.detectionDistance = stateController.detectionDistance + 1;
+            goon.stateController.detectionDistance = stateController.detectionDistance;
             goon.OnDeathEvent += OnGoonDeath;
             goonCount++;
         }
