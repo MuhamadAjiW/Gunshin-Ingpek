@@ -54,10 +54,15 @@ public class Shotgun : WeaponObject
 
             attackProjectile.direction = direction;
         }
+
+        IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
+        Debug.Log(bearerBody);
+        bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower) + bearer.Orientation.up, ForceMode.Impulse);
     }
 
     protected override void OnAlternateAttack()
     {
+        audioController.Play(shotAudioKey);
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: hitboxPrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),

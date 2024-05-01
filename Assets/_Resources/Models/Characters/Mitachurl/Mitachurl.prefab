@@ -4657,8 +4657,9 @@ GameObject:
   - component: {fileID: 2798732665719323713}
   - component: {fileID: 817127039554953639}
   - component: {fileID: 1118863174917745892}
-  - component: {fileID: 2196964153182794288}
+  - component: {fileID: 3638169004667410931}
   - component: {fileID: 7569328102528658887}
+  - component: {fileID: 2196964153182794288}
   m_Layer: 0
   m_Name: Mitachurl
   m_TagString: Untagged
@@ -4844,29 +4845,31 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.186825, y: 2.041303, z: 1.162389}
-  m_Center: {x: 0.00000047014532, y: 1.0140175, z: 0.32699302}
---- !u!114 &2196964153182794288
-MonoBehaviour:
+  m_Size: {x: 0.886825, y: 0.1541303, z: 0.862389}
+  m_Center: {x: 0.00000047014532, y: 0.0714017, z: 0.126993}
+--- !u!136 &3638169004667410931
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8921967183058121480}
+  m_Material: {fileID: 13400000, guid: 6b36fb2e3a8a80643988a623d515cbcc, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f6a876496a9a44f96ef4d53bab5144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dynamicBottomPoint: {fileID: 2798732665719323713}
-  renderer: {fileID: 0}
-  bottomOffset: 0
-  meleeAnimationDelay: 0
-  rangedAnimationDelay: 0
-  skillAnimationDelay: 0
-  staticWeaponPivot: {x: 0, y: 0, z: 0}
-  weaponScale: {x: 0.015, y: 0.015, z: 0.015}
-  dynamicWeaponPivot: {fileID: 9193538449772447981}
+  serializedVersion: 2
+  m_Radius: 0.623413
+  m_Height: 2.041303
+  m_Direction: 1
+  m_Center: {x: 0.00000047014532, y: 1.114017, z: 0.32699302}
 --- !u!95 &7569328102528658887
 Animator:
   serializedVersion: 7
@@ -4889,6 +4892,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2196964153182794288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921967183058121480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f6a876496a9a44f96ef4d53bab5144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dynamicBottomPoint: {fileID: 2798732665719323713}
+  renderer: {fileID: 0}
+  bottomOffset: 0
+  meleeAnimationDelay: 0
+  rangedAnimationDelay: 0
+  skillAnimationDelay: 0
+  staticWeaponPivot: {x: 0, y: 0, z: 0}
+  weaponScale: {x: 0.015, y: 0.015, z: 0.015}
+  dynamicWeaponPivot: {fileID: 9193538449772447981}
 --- !u!1 &8922501030353832557
 GameObject:
   m_ObjectHideFlags: 0

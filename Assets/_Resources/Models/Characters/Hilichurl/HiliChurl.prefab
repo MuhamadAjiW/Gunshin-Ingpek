@@ -6779,8 +6779,9 @@ GameObject:
   - component: {fileID: 1679620163752030157}
   - component: {fileID: 7204018465045481849}
   - component: {fileID: 8280085049398671212}
-  - component: {fileID: 2467843891167784974}
+  - component: {fileID: 5302368569581213549}
   - component: {fileID: 3088270521644624589}
+  - component: {fileID: 2467843891167784974}
   m_Layer: 0
   m_Name: HiliChurl
   m_TagString: Untagged
@@ -7047,29 +7048,31 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 1.3783556, z: 0.5842882}
-  m_Center: {x: -0.0008513515, y: 0.6523226, z: 0.079206064}
---- !u!114 &2467843891167784974
-MonoBehaviour:
+  m_Size: {x: 0.3, y: 0.108356, z: 0.3842882}
+  m_Center: {x: -0.0008513515, y: 0.0523226, z: 0.079206064}
+--- !u!136 &5302368569581213549
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8055744311529746177}
+  m_Material: {fileID: 13400000, guid: 6b36fb2e3a8a80643988a623d515cbcc, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f6a876496a9a44f96ef4d53bab5144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dynamicBottomPoint: {fileID: 1679620163752030157}
-  renderer: {fileID: 0}
-  bottomOffset: 0
-  meleeAnimationDelay: 0
-  rangedAnimationDelay: 0.1
-  skillAnimationDelay: 0.8
-  staticWeaponPivot: {x: 0, y: 0, z: 0}
-  weaponScale: {x: 0.01, y: 0.01, z: 0.01}
-  dynamicWeaponPivot: {fileID: 9039037775935979644}
+  serializedVersion: 2
+  m_Radius: 0.2917286
+  m_Height: 1.278356
+  m_Direction: 1
+  m_Center: {x: -0.00085135567, y: 0.6723226, z: 0.07920583}
 --- !u!95 &3088270521644624589
 Animator:
   serializedVersion: 7
@@ -7092,6 +7095,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2467843891167784974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055744311529746177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f6a876496a9a44f96ef4d53bab5144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dynamicBottomPoint: {fileID: 1679620163752030157}
+  renderer: {fileID: 0}
+  bottomOffset: 0
+  meleeAnimationDelay: 0
+  rangedAnimationDelay: 0.1
+  skillAnimationDelay: 0.8
+  staticWeaponPivot: {x: 0, y: 0, z: 0}
+  weaponScale: {x: 0.01, y: 0.01, z: 0.01}
+  dynamicWeaponPivot: {fileID: 9039037775935979644}
 --- !u!1 &8062116136903610258
 GameObject:
   m_ObjectHideFlags: 0

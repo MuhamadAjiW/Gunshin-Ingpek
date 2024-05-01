@@ -57,7 +57,7 @@ MonoBehaviour:
     audios:
     - source: {fileID: 0}
       name: Shoot
-      clip: {fileID: 8300000, guid: e0e502addea969a4babeb4fd434f4a96, type: 3}
+      clip: {fileID: 8300000, guid: 9736498bdc1d9e94f83c5c8ab29466f0, type: 3}
       volume: 1
       pitch: 1
       loop: 0

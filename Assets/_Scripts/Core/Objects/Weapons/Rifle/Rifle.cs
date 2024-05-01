@@ -41,6 +41,10 @@ public class Rifle : WeaponObject
         attackProjectile.travelDistance = fireRange;
         attackProjectile.speed = projectileSpeed;
         attackProjectile.direction = bearer.Orientation.forward;
+
+        IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
+        Debug.Log(bearerBody);
+        bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 16) + bearer.Orientation.up, ForceMode.Impulse);
     }
 
     protected override void OnAlternateAttack()
@@ -61,6 +65,7 @@ public class Rifle : WeaponObject
 
     protected override void OnSkill()
     {
+        audioController.Play(shotAudioKey);
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
             prefabPath: projectilePrefab,
             damage: MathUtils.CalculateDamage(bearer.BaseDamage, data.baseDamage),
