@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9d9b886f7a8fe7b4baf56624c42e3420
+timeCreated: 1459956392
+licenseType: Store
+ComputeShaderImporter:
+  currentAPIMask: 4
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117330
+  packageName: Lowpoly Dungeon Assets
+  packageVersion: 1.0
+  assetPath: Assets/LowpolyDungeonAssets/Demo Scene/PostProcessing/Editor Resources/Monitors/WaveformCompute.compute
+  uploadId: 244909

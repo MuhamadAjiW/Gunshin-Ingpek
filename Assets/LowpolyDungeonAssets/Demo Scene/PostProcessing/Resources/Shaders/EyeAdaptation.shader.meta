@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 81899cddfbc72494497a6db0ae045f2c
+timeCreated: 1465903628
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117330
+  packageName: Lowpoly Dungeon Assets
+  packageVersion: 1.0
+  assetPath: Assets/LowpolyDungeonAssets/Demo Scene/PostProcessing/Resources/Shaders/EyeAdaptation.shader
+  uploadId: 244909

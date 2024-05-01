@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4da9078f5301e924ea052376eefae3d9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117330
+  packageName: Lowpoly Dungeon Assets
+  packageVersion: 1.0
+  assetPath: Assets/LowpolyDungeonAssets/Assets/Prefabs/Wall/Wall_Stone_Window.prefab
+  uploadId: 244909

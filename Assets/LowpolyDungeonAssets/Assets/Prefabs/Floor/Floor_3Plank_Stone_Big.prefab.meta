@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: efae8855cfb60984ca15c8f28cef128d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117330
+  packageName: Lowpoly Dungeon Assets
+  packageVersion: 1.0
+  assetPath: Assets/LowpolyDungeonAssets/Assets/Prefabs/Floor/Floor_3Plank_Stone_Big.prefab
+  uploadId: 244909
