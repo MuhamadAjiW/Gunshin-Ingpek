@@ -301,7 +301,7 @@ MonoBehaviour:
       loop: 0
       spatialize: 0
   stats:
-    sprintModifier: 0
+    sprintModifier: 1.5
     snapshotSpeed: 0
 --- !u!1001 &6535092109388027278
 PrefabInstance:

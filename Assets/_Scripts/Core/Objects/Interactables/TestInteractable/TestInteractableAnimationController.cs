@@ -1,14 +1,17 @@
 
+using System;
 using UnityEngine;
 
+[Serializable]
 public class TestInteractableAnimationController : AnimationController
 {
     // Attributes
-    private readonly TestInteractable testInteractable;
+    private TestInteractable testInteractable;
 
     // Constructor
-    public TestInteractableAnimationController(TestInteractable testInteractable) : base(testInteractable)
+    public void Init(TestInteractable testInteractable)
     {
+        base.Init(testInteractable);
         this.testInteractable = testInteractable;
         testInteractable.OnInteractAreaEnterEvent += IndicateInteractable;
         testInteractable.OnInteractAreaExitEvent += IndicateUninteractable;

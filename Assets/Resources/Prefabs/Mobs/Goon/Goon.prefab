@@ -106,15 +106,20 @@ MonoBehaviour:
     m_Bits: 0
   maxHealth: 100
   health: 100
-  damagedDelay: 0.2
+  damagedDelay: 0.5
   baseDamage: 5
   weaponList:
   - {fileID: 7437526622663931204, guid: 62a4313c03f1e154882c937338e3578e, type: 3}
   stateController:
-    goon: {fileID: 4187848840791600618}
-    detectionDistance: 0
-    attackDistance: 0
+    detectionDistance: 15
+    attackDistance: 1.5
     weaponState: 0
+  aiController:
+    nav: {fileID: 0}
+  animationController:
+    model: {fileID: 0}
+    renderer: {fileID: 0}
+    animator: {fileID: 0}
 --- !u!1001 &7913878451570947917
 PrefabInstance:
   m_ObjectHideFlags: 0

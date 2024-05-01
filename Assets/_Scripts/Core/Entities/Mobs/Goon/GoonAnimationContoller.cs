@@ -1,3 +1,6 @@
+using System;
+
+[Serializable]
 public class GoonAnimationController : AnimationController
 {
     // Consts
@@ -9,10 +12,11 @@ public class GoonAnimationController : AnimationController
     private const string HIT_TRIGGER = "Hit_param"; 
 
     // Attributes
-    private readonly Goon goon;
+    private Goon goon;
 
-    public GoonAnimationController(Goon goon) : base(goon)
+    public void Init(Goon goon)
     {
+        base.Init(goon);
         this.goon = goon;
         goon.stateController.OnStateChangeEvent += AnimateStates;
         goon.OnDamagedEvent += OnDamaged;

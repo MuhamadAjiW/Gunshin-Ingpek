@@ -6,12 +6,12 @@ using UnityEngine;
 public class PlayerStateController : EntityStateController
 {
     // Attributes
-    private readonly Player player;
+    private Player player;
     public List<IInteractable> currentInteractables = new();
     public WeaponState weaponState = WeaponState.IDLE;
 
     // Contstructor
-    public PlayerStateController(Player player)
+    public void Init(Player player)
     {
         this.player = player;
         player.OnDeathEvent += OnDeath;

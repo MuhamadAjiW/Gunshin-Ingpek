@@ -16,7 +16,7 @@ public class PlayerAudioController : AudioController
     public const string WALKING_KEY = "walking_";
 
     // Attributes
-    private readonly Player player;
+    private Player player;
     private readonly string[] keys = new string[]{
         ATTACK_KEY,
         DEATH_KEY,
@@ -30,8 +30,9 @@ public class PlayerAudioController : AudioController
     private readonly Dictionary<string, int> audioAmount = new();
 
     // Constructors
-    public PlayerAudioController(Player player, Audio[] audios) : base(player.gameObject, audios)
+    public void Init(Player player)
     {
+        base.Init(player);
         foreach (Audio audio in audios)
         {
             foreach(string key in keys)

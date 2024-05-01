@@ -1,3 +1,7 @@
+
+using System;
+
+[Serializable]
 public class HeadGoonAnimationController : AnimationController
 {
     // Consts
@@ -9,10 +13,11 @@ public class HeadGoonAnimationController : AnimationController
     private const string HIT_TRIGGER = "Hit_param"; 
 
     // Attributes
-    private readonly HeadGoon headGoon;
+    private HeadGoon headGoon;
 
-    public HeadGoonAnimationController(HeadGoon headGoon) : base(headGoon)
+    public void Init(HeadGoon headGoon)
     {
+        base.Init(headGoon);
         this.headGoon = headGoon;
         headGoon.stateController.OnStateChangeEvent += AnimateStates;
         headGoon.OnDamagedEvent += OnDamaged;

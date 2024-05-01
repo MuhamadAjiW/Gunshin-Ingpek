@@ -17,9 +17,9 @@ public class King : BossEntity
         base.Start();
         SetIdPrefix(OBJECT_ID_PREFIX);
 
-        stateController = new KingStateController(this);
-        aiController = new KingAIController(this);
-        animationController = new KingAnimationController(this);
+        stateController.Init(this);
+        aiController.Init(this);
+        animationController.Init(this);
 
         EquipWeapon(0);
         
@@ -29,18 +29,18 @@ public class King : BossEntity
     // Functions
     protected override void UpdateAction()
     {
-        stateController.UpdateState();
+        stateController?.UpdateState();
     }
 
     protected override void FixedUpdateAction()
     {
-        aiController.Action();
+        aiController?.Action();
     }
     
     protected new void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
-        stateController.VisualizeGizmos();
+        stateController.VisualizeDetection(this);
     }
 
     private void OnDeath()

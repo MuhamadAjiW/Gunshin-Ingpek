@@ -1,12 +1,13 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class PlayerStats
 {
     // Attributes
-    private readonly Player player;
+    private Player player;
     public float sprintModifier = 1.5f;
-    public float snapshotSpeed = 0;
+    [HideInInspector] public float snapshotSpeed = 0;
 
     // Set-Getters
     public float Health
@@ -34,7 +35,7 @@ public class PlayerStats
     };
 
     // Constructor
-    public PlayerStats(Player player)
+    public void Init(Player player)
     {
         this.player = player;
     }

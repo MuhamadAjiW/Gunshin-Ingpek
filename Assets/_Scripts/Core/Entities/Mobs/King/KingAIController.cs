@@ -10,13 +10,13 @@ using UnityEngine.AI;
 public class KingAIController
 {
     // Attributes
-    public readonly NavMeshAgent nav;
+    [HideInInspector] public NavMeshAgent nav;
+    private King king;
     protected float attackWindowSize = 0.3f;
     protected Coroutine attackWindowCoroutine;
-    private readonly King king;
 
     // Constructor
-    public KingAIController(King king)
+    public void Init(King king)
     {
         this.king = king;
         nav = king.GetComponent<NavMeshAgent>();

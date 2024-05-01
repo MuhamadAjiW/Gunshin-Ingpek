@@ -17,9 +17,9 @@ public class Goon : EnemyEntity
         base.Start();
         SetIdPrefix(OBJECT_ID_PREFIX);
 
-        stateController = new GoonStateController(this);
-        aiController = new GoonAIController(this);
-        animationController = new GoonAnimationController(this);
+        stateController.Init(this);
+        aiController.Init(this);
+        animationController.Init(this);
 
         EquipWeapon(0);
         
@@ -29,18 +29,18 @@ public class Goon : EnemyEntity
     // Functions
     protected override void UpdateAction()
     {
-        stateController.UpdateState();
+        stateController?.UpdateState();
     }
 
     protected override void FixedUpdateAction()
     {
-        aiController.Action();
+        aiController?.Action();
     }
     
     protected new void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
-        stateController.VisualizeGizmos();
+        stateController.VisualizeDetection(this);
     }
 
     private void OnDeath()

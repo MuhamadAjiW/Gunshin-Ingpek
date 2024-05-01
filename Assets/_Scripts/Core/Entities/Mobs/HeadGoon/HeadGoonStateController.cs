@@ -7,13 +7,13 @@ using UnityEngine;
 public class HeadGoonStateController : EntityStateController
 {
     // Attributes
-    [SerializeField] private HeadGoon headGoon;
+    private HeadGoon headGoon;
+    [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
     public float detectionDistance = 15f;
     public float attackDistance = 5f;
-    public WeaponState weaponState = WeaponState.IDLE;
 
     // Constructor
-    public HeadGoonStateController(HeadGoon headGoon)
+    public void Init(HeadGoon headGoon)
     {
         this.headGoon = headGoon;
         headGoon.OnDeathEvent += OnDeath;
@@ -108,10 +108,10 @@ public class HeadGoonStateController : EntityStateController
 
 
     // Debugging purposes
-    public void VisualizeGizmos()
+    public void VisualizeDetection(MonoBehaviour monoBehaviour)
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(headGoon.transform.position, detectionDistance);
-        Gizmos.DrawWireSphere(headGoon.transform.position, attackDistance);
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, detectionDistance);
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
     }
 }

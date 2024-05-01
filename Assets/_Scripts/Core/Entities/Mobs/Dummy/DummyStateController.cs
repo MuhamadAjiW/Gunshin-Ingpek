@@ -1,7 +1,11 @@
+using System;
+using UnityEngine;
+
+[Serializable]
 public class DummyStateController : EntityStateController
 {
     // Constructor
-    public DummyStateController(Dummy dummy)
+    public void Init(Dummy dummy)
     {
     }
     

@@ -8,13 +8,11 @@ public class AudioController
     public Audio[] audios;
 
     // Constructors
-    public AudioController(GameObject gameObject, Audio[] audios)
+    public void Init(MonoBehaviour monoBehaviour)
     {
-        this.audios = audios;
-
         foreach (Audio audio in audios)
         {
-            audio.source = gameObject.AddComponent<AudioSource>();
+            audio.source = monoBehaviour.gameObject.AddComponent<AudioSource>();
             audio.source.clip = audio.clip;
 
             audio.source.volume = audio.volume;

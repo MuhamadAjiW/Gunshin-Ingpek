@@ -14,11 +14,12 @@ public class PlayerAnimationController : AnimationController
     private const string SKILL_TRIGGER = "Skill_param"; 
     
     // Attributes
-    private readonly Player player;
+    private Player player;
 
     // Constructor
-    public PlayerAnimationController(Player player) : base(player) 
+    public void Init(Player player)
     {
+        base.Init(player);
         this.player = player;
         player.stateController.OnStateChangeEvent += AnimateStates;
         player.OnDamagedEvent += OnDamaged;

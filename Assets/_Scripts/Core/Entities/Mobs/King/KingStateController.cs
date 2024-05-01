@@ -7,13 +7,13 @@ using UnityEngine;
 public class KingStateController : EntityStateController
 {
     // Attributes
-    [SerializeField] private King king;
+    private King king;
+    [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
     public float detectionDistance = 25f;
     public float attackDistance = 8f;
-    public WeaponState weaponState = WeaponState.IDLE;
 
     // Constructor
-    public KingStateController(King king)
+    public void Init(King king)
     {
         this.king = king;
         king.OnDeathEvent += OnDeath;
@@ -108,10 +108,10 @@ public class KingStateController : EntityStateController
 
 
     // Debugging purposes
-    public void VisualizeGizmos()
+    public void VisualizeDetection(MonoBehaviour monoBehaviour)
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(king.transform.position, detectionDistance);
-        Gizmos.DrawWireSphere(king.transform.position, attackDistance);
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, detectionDistance);
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
     }
 }

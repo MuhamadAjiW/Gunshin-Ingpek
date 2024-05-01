@@ -19,7 +19,7 @@ public class Rifle : WeaponObject
     protected new void Start()
     {
         base.Start();
-        audioController = new AudioController(gameObject, audioController.audios);
+        audioController.Init(this);
     }
 
     // Function

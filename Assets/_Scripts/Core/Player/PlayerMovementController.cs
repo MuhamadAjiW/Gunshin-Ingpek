@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovementController
 {
     // Attributes
-    private readonly Player player;
+    private Player player;
     private Vector3 axisX;
     private Vector3 axisZ;
     private bool aim = false;
@@ -14,7 +14,7 @@ public class PlayerMovementController
     public readonly float stairDetectionBottomOffset = -0.07f;
 
     // Constructor
-    public PlayerMovementController(Player player)
+    public void Init(Player player)
     {
         this.player = player;
         player.inputController.OnJumpEvent += HandleJump;

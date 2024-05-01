@@ -10,13 +10,13 @@ using UnityEngine.AI;
 public class GeneralAIController
 {
     // Attributes
-    public readonly NavMeshAgent nav;
+    private General general;
+    [HideInInspector] public NavMeshAgent nav;
     protected float attackWindowSize = 0.3f;
     protected Coroutine attackWindowCoroutine;
-    private readonly General general;
 
     // Constructor
-    public GeneralAIController(General general)
+    public void Init(General general)
     {
         this.general = general;
         nav = general.GetComponent<NavMeshAgent>();

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3253619422251248908}
   - component: {fileID: 4187848840791600618}
   m_Layer: 0
-  m_Name: Goon_2
+  m_Name: Goon_Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
-  m_Acceleration: 20
+  m_Speed: 5
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0.5
@@ -99,22 +99,27 @@ MonoBehaviour:
   id: 
   model: {fileID: 0}
   knockbackResistance: 1
-  baseSpeed: 10
+  baseSpeed: 5
   jumpForce: 5
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
   maxHealth: 100
   health: 100
-  damagedDelay: 0.2
+  damagedDelay: 0.5
   baseDamage: 5
   weaponList:
   - {fileID: 5029868015402955001, guid: 39e8cb311f4bc1244a98949e6aa3fd3f, type: 3}
   stateController:
-    goon: {fileID: 4187848840791600618}
-    detectionDistance: 0
-    attackDistance: 0
+    detectionDistance: 15
+    attackDistance: 8
     weaponState: 0
+  aiController:
+    nav: {fileID: 0}
+  animationController:
+    model: {fileID: 0}
+    renderer: {fileID: 0}
+    animator: {fileID: 0}
 --- !u!1001 &7913878451570947917
 PrefabInstance:
   m_ObjectHideFlags: 0

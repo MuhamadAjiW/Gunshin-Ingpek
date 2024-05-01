@@ -8,14 +8,14 @@ public abstract class AnimationController
     public Animator animator;
 
     // Constructor
-    public AnimationController(MonoBehaviour animable)
+    public void Init(MonoBehaviour monobehaviour)
     {
-        model = animable.GetComponentInChildren<Model>();
+        model = monobehaviour.GetComponentInChildren<Model>();
         
         #if STRICT
         if(model == null) 
         {
-            Debug.LogError($"Animated object of {animable.name} does not have a model. How to resolve: create a gameObject with a model.cs script as its child");
+            Debug.LogError($"Animated object of {monobehaviour.name} does not have a model. How to resolve: create a gameObject with a model.cs script as its child");
         }
         else
         {
@@ -23,11 +23,11 @@ public abstract class AnimationController
             renderer = model.GetComponent<Renderer>();
             if(animator == null)
             {
-                Debug.LogError($"Animated object of {animable.name} does not have an animator in its model. How to resolve: add an animator to its child containing the model.cs script");
+                Debug.LogError($"Animated object of {monobehaviour.name} does not have an animator in its model. How to resolve: add an animator to its child containing the model.cs script");
             }
             if(renderer == null)
             {
-                Debug.LogError($"Animated object of {animable.name} does not have an renderer in its model. How to resolve: add an renderer to its child containing the model.cs script");
+                Debug.LogError($"Animated object of {monobehaviour.name} does not have an renderer in its model. How to resolve: add an renderer to its child containing the model.cs script");
             }
         }
         #else

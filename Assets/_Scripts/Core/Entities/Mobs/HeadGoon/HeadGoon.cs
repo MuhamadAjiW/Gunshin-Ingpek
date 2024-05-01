@@ -21,9 +21,9 @@ public class HeadGoon : EnemyEntity
         base.Start();
         SetIdPrefix(OBJECT_ID_PREFIX);
 
-        stateController = new HeadGoonStateController(this);
-        aiController = new HeadGoonAIController(this);
-        animationController = new HeadGoonAnimationController(this);
+        stateController.Init(this);
+        aiController.Init(this);
+        animationController.Init(this);
 
         EquipWeapon(0);
         
@@ -57,18 +57,18 @@ public class HeadGoon : EnemyEntity
 
     protected override void UpdateAction()
     {
-        stateController.UpdateState();
+        stateController?.UpdateState();
     }
 
     protected override void FixedUpdateAction()
     {
-        aiController.Action();
+        aiController?.Action();
     }
     
     protected new void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
-        stateController.VisualizeGizmos();
+        stateController.VisualizeDetection(this);
     }
 
     private void OnDeath()

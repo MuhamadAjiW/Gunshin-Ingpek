@@ -1,3 +1,6 @@
+using System;
+
+[Serializable]
 public class GeneralAnimationController : AnimationController
 {
     // Consts
@@ -9,10 +12,11 @@ public class GeneralAnimationController : AnimationController
     private const string HIT_TRIGGER = "Hit_param"; 
 
     // Attributes
-    private readonly General general;
+    private General general;
 
-    public GeneralAnimationController(General general) : base(general)
+    public void Init(General general)
     {
+        base.Init(general);
         this.general = general;
         general.stateController.OnStateChangeEvent += AnimateStates;
         general.OnDamagedEvent += OnDamaged;

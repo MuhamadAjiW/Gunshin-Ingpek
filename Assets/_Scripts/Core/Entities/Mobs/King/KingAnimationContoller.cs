@@ -1,3 +1,6 @@
+using System;
+
+[Serializable]
 public class KingAnimationController : AnimationController
 {
     // Consts
@@ -9,10 +12,11 @@ public class KingAnimationController : AnimationController
     private const string HIT_TRIGGER = "Hit_param"; 
 
     // Attributes
-    private readonly King king;
+    private King king;
 
-    public KingAnimationController(King king) : base(king)
+    public void Init(King king)
     {
+        base.Init(king);
         this.king = king;
         king.stateController.OnStateChangeEvent += AnimateStates;
         king.OnDamagedEvent += OnDamaged;

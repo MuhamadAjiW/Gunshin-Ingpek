@@ -40,12 +40,12 @@ public class Player : PlayerEntity
         base.Start();
         SetIdPrefix(OBJECT_ID_PREFIX);
         Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerHealthMultiplier;
-        stats = new PlayerStats(this);
-        stateController = new PlayerStateController(this);
-        inputController = new PlayerInputController(this);
-        movementController = new PlayerMovementController(this);
-        animationController = new PlayerAnimationController(this);
-        audioController = new PlayerAudioController(this, audioController.audios);
+        stats.Init(this);
+        stateController.Init(this);
+        inputController.Init(this);
+        movementController.Init(this);
+        animationController.Init(this);
+        audioController.Init(this);
 
         SetLayer(EnvironmentConfig.LAYER_PLAYER);
         SetAttackLayer(EnvironmentConfig.LAYER_PLAYER_ATTACK);
@@ -96,12 +96,17 @@ public class Player : PlayerEntity
 =======
     protected override void UpdateAction()
     {
+<<<<<<< HEAD
 >>>>>>> 80acb321 (feat: base for headgoon, general, king)
         inputController.HandleInputs();
+=======
+        inputController?.HandleInputs();
+>>>>>>> 0ba6d5e3 (refactor: internal classes for better editor experience)
     }
 
     protected override void FixedUpdateAction()
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         base.FixedUpdate();
         if (Dead || GameController.Instance.IsPaused)
@@ -113,6 +118,10 @@ public class Player : PlayerEntity
 >>>>>>> 80acb321 (feat: base for headgoon, general, king)
         movementController.HandleMovement();
         stateController.UpdateState();
+=======
+        movementController?.HandleMovement();
+        stateController?.UpdateState();
+>>>>>>> 0ba6d5e3 (refactor: internal classes for better editor experience)
     }
 
     protected void OnTriggerEnter(Collider otherCollider)

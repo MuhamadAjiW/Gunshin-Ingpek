@@ -10,13 +10,13 @@ using UnityEngine.AI;
 public class HeadGoonAIController
 {
     // Attributes
-    public readonly NavMeshAgent nav;
+    [HideInInspector] public NavMeshAgent nav;
     protected float attackWindowSize = 0.3f;
     protected Coroutine attackWindowCoroutine;
-    private readonly HeadGoon headGoon;
+    private HeadGoon headGoon;
 
     // Constructor
-    public HeadGoonAIController(HeadGoon headGoon)
+    public void Init(HeadGoon headGoon)
     {
         this.headGoon = headGoon;
         nav = headGoon.GetComponent<NavMeshAgent>();

@@ -7,13 +7,13 @@ using UnityEngine;
 public class GeneralStateController : EntityStateController
 {
     // Attributes
-    [SerializeField] private General general;
+    private General general;
     public float detectionDistance = 20f;
     public float attackDistance = 2f;
-    public WeaponState weaponState = WeaponState.IDLE;
+    [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
 
     // Constructor
-    public GeneralStateController(General general)
+    public void Init(General general)
     {
         this.general = general;
         general.OnDeathEvent += OnDeath;
@@ -108,10 +108,10 @@ public class GeneralStateController : EntityStateController
 
 
     // Debugging purposes
-    public void VisualizeGizmos()
+    public void VisualizeDetection(MonoBehaviour monoBehaviour)
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(general.transform.position, detectionDistance);
-        Gizmos.DrawWireSphere(general.transform.position, attackDistance);
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, detectionDistance);
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
     }
 }

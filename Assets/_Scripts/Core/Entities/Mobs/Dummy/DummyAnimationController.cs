@@ -1,16 +1,20 @@
+using System;
 using UnityEngine;
 
+
+[Serializable]
 public class DummyAnimationController : AnimationController
 {
     // Consts
     private const string HIT_TRIGGER = "Hit_param";
 
     // Attributes
-    private readonly Dummy dummy;
+    private Dummy dummy;
 
     // Constructor
-    public DummyAnimationController(Dummy dummy) : base(dummy) 
+    public void Init(Dummy dummy)
     {
+        base.Init(dummy);
         this.dummy = dummy;
         dummy.OnDamagedEvent += IndicateDamaged;
         dummy.OnDamageDelayOverEvent += IndicateUnamaged;

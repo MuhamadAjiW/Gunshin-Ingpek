@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerInputController
 {
     // Attributes
-    private readonly Player player;
+    private Player player;
     public float movementInputX;
     public float movementInputZ;
     public float movementInputScroll;
@@ -21,7 +21,7 @@ public class PlayerInputController
     private bool aim = false;
     
     // Constructor
-    public PlayerInputController(Player player)
+    public void Init(Player player)
     {
         this.player = player;
     }

@@ -4,12 +4,12 @@ using UnityEngine;
 public class TestInteractable : InteractableObject 
 {
     // Attributes
-    private TestInteractableAnimationController animationController;
+    public TestInteractableAnimationController animationController;
     
     // Constructor
     protected void Start()
     {
-        animationController = new TestInteractableAnimationController(this);
+        animationController.Init(this);
     }
 
     // Function
