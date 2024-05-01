@@ -41,6 +41,7 @@ public class MainMenuController : MainMenuScreenController
 
     private void NewGameCallback(ClickEvent evt)
     {
+        ScenesManager.Instance.LoadNewGame();
     }
 
     private void LoadGameCallback(ClickEvent evt)

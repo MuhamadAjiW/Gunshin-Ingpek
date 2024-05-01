@@ -25,32 +25,21 @@ public class MainMenuManager : MonoBehaviour
 
     public string OpenedUIDocumentString
     {
-        get => GetDocumentName(OpenedUIDocument);
+        get => UIManagement.GetDocumentName(OpenedUIDocument);
     }
 
     public bool MainMenuTransitionInProgress = false;
-
-    static class USSAnimationClasses
-    {
-        static public string TransformTransition = "transform-transition-container";
-        static public string Exiting = "exiting";
-        static public string Entering = "entering";
-        static public string ResetTranslation = "no-translation";
-        static public string Hidden = "hidden";
-        static public string Flex = "flex";
-
-    }
 
     public void OnEnable()
     {
         foreach (var document in MainMenuUIDocuments)
         {
-            GetInnerContainer(document).AddToClassList(USSAnimationClasses.TransformTransition);
-            ToggleElementVisible(GetInnerContainer(document));
+            UIManagement.GetInnerContainer(document).AddToClassList(UIManagement.USSAnimationClasses.TransformTransition);
+            UIManagement.ToggleElementVisible(UIManagement.GetInnerContainer(document));
 
-            if (GetDocumentName(document) != "ClickToStart")
+            if (UIManagement.GetDocumentName(document) != "ClickToStart")
             {
-                GetInnerContainer(document).AddToClassList(USSAnimationClasses.Entering);
+                UIManagement.GetInnerContainer(document).AddToClassList(UIManagement.USSAnimationClasses.Entering);
             }
         }
         DisplayUIDocument("ClickToStart");
@@ -89,24 +78,17 @@ public class MainMenuManager : MonoBehaviour
         {
             if (OpenedUIDocument is not null)
             {
-                ToggleElementVisible(GetInnerContainer(OpenedUIDocument), false);
+                UIManagement.ToggleElementVisible(UIManagement.GetInnerContainer(OpenedUIDocument), false);
             }
             LookAtDocument(newDocument, false);
-            ToggleElementVisible(GetInnerContainer(newDocument));
+            UIManagement.ToggleElementVisible(UIManagement.GetInnerContainer(newDocument));
             OpenedUIDocument = newDocument;
         }
     }
 
     int GetUIDocumentIndex(UIDocument document)
     {
-        return MainMenuUIDocuments.FindIndex(documentSearched => GetDocumentName(document) == GetDocumentName(documentSearched));
-    }
-
-    void ToggleElementVisible(VisualElement element, bool isVisible = true)
-    {
-        element.AddToClassList(isVisible ? USSAnimationClasses.Flex : USSAnimationClasses.Hidden);
-        element.RemoveFromClassList(isVisible ? USSAnimationClasses.Hidden : USSAnimationClasses.Flex);
-
+        return MainMenuUIDocuments.FindIndex(documentSearched => UIManagement.GetDocumentName(document) == UIManagement.GetDocumentName(documentSearched));
     }
 
     void LookAtDocument(UIDocument document, bool isAsync = true)
@@ -124,8 +106,8 @@ public class MainMenuManager : MonoBehaviour
     IEnumerator ReplaceUIDocument(UIDocument newDocument, bool reverseTransition = false)
     {
         MainMenuTransitionInProgress = true;
-        VisualElement newDocumentInnerContainer = GetInnerContainer(newDocument);
-        VisualElement oldDocumentInnerContainer = GetInnerContainer(OpenedUIDocument);
+        VisualElement newDocumentInnerContainer = UIManagement.GetInnerContainer(newDocument);
+        VisualElement oldDocumentInnerContainer = UIManagement.GetInnerContainer(OpenedUIDocument);
         if (newDocumentInnerContainer is null)
         {
             Debug.LogError("New document doesn't have inner container!");
@@ -140,13 +122,13 @@ public class MainMenuManager : MonoBehaviour
 
         LookAtDocument(newDocument);
 
-        string enteringClass = !reverseTransition ? USSAnimationClasses.Entering : USSAnimationClasses.Exiting;
-        string exitingClass = !reverseTransition ? USSAnimationClasses.Exiting : USSAnimationClasses.Entering;
+        string enteringClass = !reverseTransition ? UIManagement.USSAnimationClasses.Entering : UIManagement.USSAnimationClasses.Exiting;
+        string exitingClass = !reverseTransition ? UIManagement.USSAnimationClasses.Exiting : UIManagement.USSAnimationClasses.Entering;
 
         // Transition the new document in
         newDocumentInnerContainer.RemoveFromClassList(enteringClass);
-        newDocumentInnerContainer.AddToClassList(USSAnimationClasses.ResetTranslation);
-        newDocumentInnerContainer.AddToClassList(USSAnimationClasses.Flex);
+        newDocumentInnerContainer.AddToClassList(UIManagement.USSAnimationClasses.ResetTranslation);
+        newDocumentInnerContainer.AddToClassList(UIManagement.USSAnimationClasses.Flex);
 
         yield return null;
 
@@ -155,27 +137,16 @@ public class MainMenuManager : MonoBehaviour
         {
             oldDocumentInnerContainer.AddToClassList(exitingClass);
             yield return new WaitForSeconds(TransitionTimeMiliSeconds / 1000);
-            oldDocumentInnerContainer.AddToClassList(USSAnimationClasses.Hidden);
+            oldDocumentInnerContainer.AddToClassList(UIManagement.USSAnimationClasses.Hidden);
 
         }
 
-        newDocumentInnerContainer.RemoveFromClassList(USSAnimationClasses.ResetTranslation);
+        newDocumentInnerContainer.RemoveFromClassList(UIManagement.USSAnimationClasses.ResetTranslation);
 
 
         OpenedUIDocument = newDocument;
         MainMenuTransitionInProgress = false;
         yield return null;
-    }
-
-    // Utils function
-    public static VisualElement GetInnerContainer(UIDocument mainMenuDocument)
-    {
-        return mainMenuDocument.rootVisualElement.Query<VisualElement>("Container");
-    }
-
-    public static string GetDocumentName(UIDocument uiDocument)
-    {
-        return uiDocument.ToString().Split(" ")[0];
     }
 
 }
