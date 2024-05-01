@@ -78,6 +78,7 @@ public class Player : PlayerEntity
         base.EquipWeapon(index);
     }
 
+<<<<<<< HEAD
 
 
     protected new void Update()
@@ -88,17 +89,24 @@ public class Player : PlayerEntity
             return;
         }
 
+=======
+    protected override void UpdateAction()
+    {
+>>>>>>> 80acb321 (feat: base for headgoon, general, king)
         inputController.HandleInputs();
     }
 
-    protected new void FixedUpdate()
+    protected override void FixedUpdateAction()
     {
+<<<<<<< HEAD
         base.FixedUpdate();
         if (Dead || GameController.Instance.IsPaused)
         {
             return;
         }
 
+=======
+>>>>>>> 80acb321 (feat: base for headgoon, general, king)
         movementController.HandleMovement();
         stateController.UpdateState();
     }
@@ -131,8 +139,15 @@ public class Player : PlayerEntity
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected void OnDrawGizmosSelected()
+=======
+    // Debug Functions
+    protected new void OnDrawGizmosSelected()
+>>>>>>> 80acb321 (feat: base for headgoon, general, king)
     {
+        base.OnDrawGizmosSelected();
+
         // Visualize stair detection
         Gizmos.color = Color.red;
 

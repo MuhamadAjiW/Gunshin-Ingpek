@@ -20,16 +20,13 @@ public class GoonAIController
     {
         this.goon = goon;
         nav = goon.GetComponent<NavMeshAgent>();
+        goon.OnDamagedEvent += OnDamaged;
+        goon.OnDeathEvent += OnDeath;
     }
 
     // Functions
     public void Action()
     {
-        if(goon.Dead)
-        {
-            return;
-        }
-        
         switch (GoonState.GetAIState(goon.stateController.State))
         {
             case GoonState.AI_DETECTED_STATE:
@@ -55,7 +52,7 @@ public class GoonAIController
 
     public void GoToward(Transform target)
     {
-        nav.destination = GameController.Instance.player.Position;
+        nav.destination = target.position;
     }
 
     public void Attack()
@@ -153,5 +150,16 @@ public class GoonAIController
         };
 
         attackWindowCoroutine = goon.StartCoroutine(HandleAttackWindow(delay + attackWindowSize));
+    }
+
+    private void OnDamaged()
+    {
+        nav.velocity = Vector3.zero;
+    }
+
+    private void OnDeath()
+    {
+        GoToward(goon.transform);
+        nav.velocity = Vector3.zero;
     }
 }

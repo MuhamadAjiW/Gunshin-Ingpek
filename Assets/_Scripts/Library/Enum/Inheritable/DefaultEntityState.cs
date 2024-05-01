@@ -10,6 +10,6 @@ public class DefaultEntityState
 
     public static int GetMovementState(int state)
     {
-        return state & (IDLE | WALKING  | SPRINTING | JUMPING);
+        return state & (IDLE | WALKING  | SPRINTING | JUMPING | FALLING);
     }
 }

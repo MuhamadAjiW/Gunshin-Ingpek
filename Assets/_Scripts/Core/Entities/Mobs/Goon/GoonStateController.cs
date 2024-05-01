@@ -9,7 +9,7 @@ public class GoonStateController : EntityStateController
     // Attributes
     [SerializeField] private Goon goon;
     public float detectionDistance = 10f;
-    public float attackDistance = 1.8f;
+    public float attackDistance = 1.5f;
     public WeaponState weaponState = WeaponState.IDLE;
 
     // Constructor
@@ -22,11 +22,6 @@ public class GoonStateController : EntityStateController
     // Functions
     protected override int DetectState()
     {
-        if(goon.Dead)
-        {
-            return GoonState.DEAD;
-        }
-
         // Get movementState
         int movementState = 0; 
         if(DetectJumping())
@@ -92,7 +87,7 @@ public class GoonStateController : EntityStateController
     }
     private bool DetectSprinting()
     {
-        return goon.aiController.nav.velocity.magnitude > 0.1;
+        return goon.aiController.nav.velocity.magnitude > 0.5;
     }
     private bool DetectJumping()
     {

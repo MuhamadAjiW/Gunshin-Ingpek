@@ -55,12 +55,12 @@ public class GoonAnimationController : AnimationController
         }
     }
 
-    public void OnDamaged()
+    private void OnDamaged()
     {
         animator.SetBool(HIT_TRIGGER, true);
     }
 
-    public void OnDeath()
+    private void OnDeath()
     {
         animator.SetBool(DEAD_Trigger, true);
         animator.SetInteger(MOVEMENT_PARAM, GoonState.DEAD);

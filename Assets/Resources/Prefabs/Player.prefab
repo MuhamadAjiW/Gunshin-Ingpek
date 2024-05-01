@@ -74,18 +74,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
+  model: {fileID: 0}
   knockbackResistance: 1
-  baseSpeed: 10
+  baseSpeed: 6
   jumpForce: 5
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
   maxHealth: 100
   health: 100
-  damagedDelay: 1
+  damagedDelay: 0.5
   baseDamage: 10
   weaponList:
   - {fileID: 5029868015402955001, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
+  - {fileID: 7437526622663931204, guid: 906fae015101ec14d85ef18648b7d9a3, type: 3}
+  - {fileID: 6335313778335870420, guid: 5ff13ee560f16334d998301c389295a3, type: 3}
   companionList: []
   companionActive: 
   animationController:

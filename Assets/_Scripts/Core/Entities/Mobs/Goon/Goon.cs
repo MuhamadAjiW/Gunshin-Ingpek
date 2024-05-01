@@ -27,22 +27,19 @@ public class Goon : EnemyEntity
     }
 
     // Functions
-    protected new void Update()
+    protected override void UpdateAction()
     {
-        base.Update();
-        
         stateController.UpdateState();
     }
 
-    protected new void FixedUpdate()
+    protected override void FixedUpdateAction()
     {
-        base.Update();
-
         aiController.Action();
     }
     
-    protected void OnDrawGizmosSelected()
+    protected new void OnDrawGizmosSelected()
     {
+        base.OnDrawGizmosSelected();
         stateController.VisualizeGizmos();
     }
 

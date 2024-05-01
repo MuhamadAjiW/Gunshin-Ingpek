@@ -66,26 +66,14 @@ public class WorldEntity : WorldObject, IRigid
         model.gameObject.layer = LayerMask.NameToLayer(LayerCode);
     }
 
-    protected void Refresh()
-    {
-        Rigidbody.AddForce(Vector2.zero);
-    }
-
-    protected void Smoothen()
-    {
-        Vector3 dampVelocity = Vector3.zero;
-        Vector3 velocity = Rigidbody.velocity;
-        velocity.x = 0;
-        velocity.z = 0;
-        Rigidbody.velocity = Vector3.SmoothDamp(Rigidbody.velocity, velocity, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);
-    }
-
     protected void Update()
     {
         if(GameController.Instance.IsPaused)
         {
             return;
         }
+
+        UpdateAction();
     }
 
     protected void FixedUpdate()
@@ -98,8 +86,27 @@ public class WorldEntity : WorldObject, IRigid
         Collider[] groundOverlaps = Physics.OverlapBox(model.Bottom, groundDetectionSize, Quaternion.identity, groundLayers);
         if(!grounded && groundOverlaps.Length != 0)
         {
+            Debug.Log($"{transform.name} is grounded");
             OnGroundedEvent?.Invoke();
         }
         grounded = groundOverlaps.Length != 0;
+        FixedUpdateAction();
+    }
+
+    protected virtual void UpdateAction()
+    {
+    }
+
+    protected virtual void FixedUpdateAction()
+    {
+    }
+
+    protected void OnDrawGizmosSelected()
+    {
+        if(model != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawCube(model.Bottom, groundDetectionSize);
+        }
     }
 }

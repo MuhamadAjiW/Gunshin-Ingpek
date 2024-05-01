@@ -48,6 +48,25 @@ public class DamageableEntity : WorldEntity, IDamageable
     }
 
     // Functions
+    protected new void Update()
+    {
+        if(GameController.Instance.IsPaused || Dead)
+        {
+            return;
+        }
+        UpdateAction();
+    }
+
+    protected new void FixedUpdate()
+    {
+        if(GameController.Instance.IsPaused || Dead)
+        {
+            return;
+        }
+        base.FixedUpdate();
+        FixedUpdateAction();
+    }
+
     public float InflictDamage(float damage)
     {
         Health -= damage;

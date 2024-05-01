@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc4ca3f3ac6a5646addd6dfbe0b996b, type: 3}
+  m_Name: ShotgunData_King
+  m_EditorClassIdentifier: 
+  prefabPath: Prefabs/Weapons/Shotgun/Shotgun_King
+  model: {fileID: 5496260497754850104, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+  canSkill: 1
+  baseDamage: 10
+  knockbackPower: 5
+  attackInterval: 0.4
+  alternateAttackInterval: 0.5
+  skillInterval: 0.8
