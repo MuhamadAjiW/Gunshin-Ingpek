@@ -82,13 +82,15 @@ public class King : BossEntity
             {
                 goon = ObjectFactory.CreateEntity<Goon>(
                     prefabPath: GOON_RIFLE_PREFAB,
-                    position: transform.position + transform.up
+                    position: transform.position + transform.up,
+                    objectName: $"{name}'s Goons"
                 );
             }
             else{
                 goon = ObjectFactory.CreateEntity<Goon>(
                     prefabPath: GOON_PREFAB,
-                    position: transform.position + transform.up
+                    position: transform.position + transform.up,
+                    objectName: $"{name}'s Goons"
                 );
             }
             goon.stateController.detectionDistance = stateController.detectionDistance;

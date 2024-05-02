@@ -128,11 +128,14 @@ public class GoonStateController : EntityStateController
 
     public void VisualizePatrolRoute(Goon goon)
     {
-        Gizmos.color = Color.cyan;
-        for (int i = 0; i < goon.aiController.patrolRoute.Count - 1; i++)
+        if(goon.aiController.patrolRoute.Count > 1)
         {
-            Gizmos.DrawLine(goon.aiController.patrolRoute[i].position, goon.aiController.patrolRoute[i + 1].position);
+            Gizmos.color = Color.cyan;
+            for (int i = 0; i < goon.aiController.patrolRoute.Count - 1; i++)
+            {
+                Gizmos.DrawLine(goon.aiController.patrolRoute[i].position, goon.aiController.patrolRoute[i + 1].position);
+            }
+            Gizmos.DrawLine(goon.aiController.patrolRoute[^1].position, goon.aiController.patrolRoute[0].position);
         }
-        Gizmos.DrawLine(goon.aiController.patrolRoute[^1].position, goon.aiController.patrolRoute[0].position);
     }
 }

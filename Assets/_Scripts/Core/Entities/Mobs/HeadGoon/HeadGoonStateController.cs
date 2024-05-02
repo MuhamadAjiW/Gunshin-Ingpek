@@ -131,11 +131,14 @@ public class HeadGoonStateController : EntityStateController
 
     public void VisualizePatrolRoute(HeadGoon headGoon)
     {
-        Gizmos.color = Color.cyan;
-        for (int i = 0; i < headGoon.aiController.patrolRoute.Count - 1; i++)
+        if(headGoon.aiController.patrolRoute.Count > 1)
         {
-            Gizmos.DrawLine(headGoon.aiController.patrolRoute[i].position, headGoon.aiController.patrolRoute[i + 1].position);
+            Gizmos.color = Color.cyan;
+            for (int i = 0; i < headGoon.aiController.patrolRoute.Count - 1; i++)
+            {
+                Gizmos.DrawLine(headGoon.aiController.patrolRoute[i].position, headGoon.aiController.patrolRoute[i + 1].position);
+            }
+            Gizmos.DrawLine(headGoon.aiController.patrolRoute[^1].position, headGoon.aiController.patrolRoute[0].position);
         }
-        Gizmos.DrawLine(headGoon.aiController.patrolRoute[^1].position, headGoon.aiController.patrolRoute[0].position);
     }
 }

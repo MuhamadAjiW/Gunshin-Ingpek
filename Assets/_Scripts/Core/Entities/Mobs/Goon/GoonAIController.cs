@@ -34,7 +34,6 @@ public class GoonAIController
         switch (GoonState.GetAIState(goon.stateController.State))
         {
             case GoonState.AI_PATROL_STATE:
-                Debug.Log("Going");
                 if(patrolRoute.Count > 0)
                 {
                     GoToward(patrolRoute[patrolIndex]);

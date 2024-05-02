@@ -135,11 +135,14 @@ public class GeneralStateController : EntityStateController
 
     public void VisualizePatrolRoute(General general)
     {
-        Gizmos.color = Color.cyan;
-        for (int i = 0; i < general.aiController.patrolRoute.Count - 1; i++)
+        if(general.aiController.patrolRoute.Count > 1)
         {
-            Gizmos.DrawLine(general.aiController.patrolRoute[i].position, general.aiController.patrolRoute[i + 1].position);
+            Gizmos.color = Color.cyan;
+            for (int i = 0; i < general.aiController.patrolRoute.Count - 1; i++)
+            {
+                Gizmos.DrawLine(general.aiController.patrolRoute[i].position, general.aiController.patrolRoute[i + 1].position);
+            }
+            Gizmos.DrawLine(general.aiController.patrolRoute[^1].position, general.aiController.patrolRoute[0].position);
         }
-        Gizmos.DrawLine(general.aiController.patrolRoute[^1].position, general.aiController.patrolRoute[0].position);
     }
 }

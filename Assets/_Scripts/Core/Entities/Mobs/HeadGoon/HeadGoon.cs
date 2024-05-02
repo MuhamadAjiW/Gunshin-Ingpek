@@ -42,7 +42,8 @@ public class HeadGoon : EnemyEntity
         {            
             Goon goon = ObjectFactory.CreateEntity<Goon>(
                 prefabPath: GOON_PREFAB,
-                position: transform.position + transform.up
+                position: transform.position + transform.up,
+                objectName: $"{name}'s Goons"
             );
             goon.OnDeathEvent += OnGoonDeath;
             goonCount++;

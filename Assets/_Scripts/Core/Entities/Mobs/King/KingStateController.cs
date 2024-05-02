@@ -152,11 +152,14 @@ public class KingStateController : EntityStateController
 
     public void VisualizePatrolRoute(King king)
     {
-        Gizmos.color = Color.cyan;
-        for (int i = 0; i < king.aiController.patrolRoute.Count - 1; i++)
+        if(king.aiController.patrolRoute.Count > 1)
         {
-            Gizmos.DrawLine(king.aiController.patrolRoute[i].position, king.aiController.patrolRoute[i + 1].position);
+            Gizmos.color = Color.cyan;
+            for (int i = 0; i < king.aiController.patrolRoute.Count - 1; i++)
+            {
+                Gizmos.DrawLine(king.aiController.patrolRoute[i].position, king.aiController.patrolRoute[i + 1].position);
+            }
+            Gizmos.DrawLine(king.aiController.patrolRoute[^1].position, king.aiController.patrolRoute[0].position);
         }
-        Gizmos.DrawLine(king.aiController.patrolRoute[^1].position, king.aiController.patrolRoute[0].position);
     }
 }
