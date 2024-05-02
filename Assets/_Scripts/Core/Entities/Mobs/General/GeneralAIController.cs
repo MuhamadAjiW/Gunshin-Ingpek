@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,9 @@ public class GeneralAIController
     [HideInInspector] public NavMeshAgent nav;
     protected float attackWindowSize = 0.3f;
     protected Coroutine attackWindowCoroutine;
+    protected int patrolIndex = 0;
+    public float patrolSpeed = 3;
+    public List<Transform> patrolRoute;
 
     // Constructor
     public void Init(General general)
@@ -29,6 +33,23 @@ public class GeneralAIController
     {
         switch (GeneralState.GetAIState(general.stateController.State))
         {
+            case GeneralState.AI_PATROL_STATE:
+                if(patrolRoute.Count > 0)
+                {
+                    GoToward(patrolRoute[patrolIndex]);
+                    if(Vector3.Distance(patrolRoute[patrolIndex].position, general.transform.position) < 0.1)
+                    {
+                        if(patrolIndex < patrolRoute.Count)
+                        {
+                            patrolIndex++;
+                        }
+                        else
+                        {
+                            patrolIndex = 0;
+                        }
+                    }
+                }
+                break;
             case GeneralState.AI_DETECTED_STATE:
                 GoToward(GameController.Instance.player.transform);
                 break;

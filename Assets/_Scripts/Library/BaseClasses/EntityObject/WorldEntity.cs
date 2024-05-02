@@ -7,8 +7,8 @@ public class WorldEntity : WorldObject, IRigid
     // Attributes
     public readonly List<StatEffect> effects = new();
     [HideInInspector] public CharacterModel model;
-    [SerializeField] protected float knockbackResistance;
     [SerializeField] protected float baseSpeed;
+    [SerializeField] protected float knockbackResistance;
     [SerializeField] protected float jumpForce;
     [SerializeField] protected LayerMask groundLayers;
     protected Vector3 groundDetectionSize; 

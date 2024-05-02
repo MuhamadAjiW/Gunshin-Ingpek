@@ -70,12 +70,6 @@ public class HeadGoon : EnemyEntity
         Vector3 dampVelocity = new();
         Rigidbody.velocity = Vector3.SmoothDamp(Rigidbody.velocity, Vector3.zero, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);
     }
-    
-    protected new void OnDrawGizmosSelected()
-    {
-        base.OnDrawGizmosSelected();
-        stateController.VisualizeDetection(this);
-    }
 
     private void OnDeath()
     {
@@ -86,5 +80,13 @@ public class HeadGoon : EnemyEntity
     {
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
+    }
+    
+    // Debugging functions
+    protected new void OnDrawGizmosSelected()
+    {
+        base.OnDrawGizmosSelected();
+        stateController.VisualizeDetection(this);
+        stateController.VisualizePatrolRoute(this);
     }
 }

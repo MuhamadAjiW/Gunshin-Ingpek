@@ -56,11 +56,17 @@ public class KingStateController : EntityStateController
         }
         else if(Vector3.Distance(king.Position, GameController.Instance.player.Position) < detectionDistance)
         {
-            if(KingState.GetAIState(state) == 0)
+            if(KingState.GetAIState(state) < KingState.AI_DETECTED_STATE)
             {
                 king.audioController.Play(King.AUDIO_CRY_KEY);
             }
+            king.aiController.nav.speed = king.Speed;
             aiState = KingState.AI_DETECTED_STATE;
+        }
+        else
+        {
+            king.aiController.nav.speed = king.aiController.patrolSpeed;
+            aiState = KingState.AI_PATROL_STATE;
         }
 
         // Get attackState
@@ -133,7 +139,7 @@ public class KingStateController : EntityStateController
     }
 
 
-    // Debugging purposes
+    // Debugging functions
     public void VisualizeDetection(MonoBehaviour monoBehaviour)
     {
         Gizmos.color = Color.yellow;
@@ -142,5 +148,15 @@ public class KingStateController : EntityStateController
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, debuffDistance);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
+    }
+
+    public void VisualizePatrolRoute(King king)
+    {
+        Gizmos.color = Color.cyan;
+        for (int i = 0; i < king.aiController.patrolRoute.Count - 1; i++)
+        {
+            Gizmos.DrawLine(king.aiController.patrolRoute[i].position, king.aiController.patrolRoute[i + 1].position);
+        }
+        Gizmos.DrawLine(king.aiController.patrolRoute[^1].position, king.aiController.patrolRoute[0].position);
     }
 }

@@ -78,10 +78,11 @@ public class General : BossEntity
         Destroy(gameObject);
     }
 
-    // Debugging purposes
+    // Debugging functions
     protected new void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
         stateController.VisualizeDetection(this);
+        stateController.VisualizePatrolRoute(this);
     }
 }

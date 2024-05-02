@@ -51,11 +51,17 @@ public class GeneralStateController : EntityStateController
         }
         else if(Vector3.Distance(general.Position, GameController.Instance.player.Position) < detectionDistance)
         {
-            if(GeneralState.GetAIState(state) == 0)
+            if(GeneralState.GetAIState(state) < GeneralState.AI_DETECTED_STATE)
             {
                 general.audioController.Play(General.AUDIO_CRY_KEY);
             }
+            general.aiController.nav.speed = general.Speed;
             aiState = GeneralState.AI_DETECTED_STATE;
+        }
+        else
+        {
+            general.aiController.nav.speed = general.aiController.patrolSpeed;
+            aiState = GeneralState.AI_PATROL_STATE;
         }
 
         // Get attackState
@@ -116,7 +122,7 @@ public class GeneralStateController : EntityStateController
     }
 
 
-    // Debugging purposes
+    // Debugging functions
     public void VisualizeDetection(MonoBehaviour monoBehaviour)
     {
         Gizmos.color = Color.yellow;
@@ -125,5 +131,15 @@ public class GeneralStateController : EntityStateController
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, debuffDistance);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
+    }
+
+    public void VisualizePatrolRoute(General general)
+    {
+        Gizmos.color = Color.cyan;
+        for (int i = 0; i < general.aiController.patrolRoute.Count - 1; i++)
+        {
+            Gizmos.DrawLine(general.aiController.patrolRoute[i].position, general.aiController.patrolRoute[i + 1].position);
+        }
+        Gizmos.DrawLine(general.aiController.patrolRoute[^1].position, general.aiController.patrolRoute[0].position);
     }
 }

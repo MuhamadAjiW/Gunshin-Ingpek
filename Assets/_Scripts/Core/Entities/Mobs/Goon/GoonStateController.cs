@@ -49,12 +49,17 @@ public class GoonStateController : EntityStateController
         }
         else if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < detectionDistance)
         {
-            if(GoonState.GetAIState(state) == 0)
+            if(GoonState.GetAIState(state) < GoonState.AI_DETECTED_STATE)
             {
-                Debug.Log("Wah");
                 goon.audioController.Play(Goon.AUDIO_CRY_KEY);
             }
+            goon.aiController.nav.speed = goon.Speed;
             aiState = GoonState.AI_DETECTED_STATE;
+        }
+        else
+        {
+            goon.aiController.nav.speed = goon.aiController.patrolSpeed;
+            aiState = GoonState.AI_PATROL_STATE;
         }
 
         // Get attackState
@@ -112,12 +117,22 @@ public class GoonStateController : EntityStateController
     }
 
 
-    // Debugging purposes
+    // Debugging functions
     public void VisualizeDetection(MonoBehaviour monoBehaviour)
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, detectionDistance);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
+    }
+
+    public void VisualizePatrolRoute(Goon goon)
+    {
+        Gizmos.color = Color.cyan;
+        for (int i = 0; i < goon.aiController.patrolRoute.Count - 1; i++)
+        {
+            Gizmos.DrawLine(goon.aiController.patrolRoute[i].position, goon.aiController.patrolRoute[i + 1].position);
+        }
+        Gizmos.DrawLine(goon.aiController.patrolRoute[^1].position, goon.aiController.patrolRoute[0].position);
     }
 }

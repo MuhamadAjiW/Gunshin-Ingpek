@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,9 @@ public class KingAIController
     private King king;
     protected float attackWindowSize = 0.3f;
     protected Coroutine attackWindowCoroutine;
+    protected int patrolIndex = 0;
+    public float patrolSpeed = 3;
+    public List<Transform> patrolRoute;
 
     // Constructor
     public void Init(King king)
@@ -29,6 +33,23 @@ public class KingAIController
     {
         switch (KingState.GetAIState(king.stateController.State))
         {
+            case KingState.AI_PATROL_STATE:
+                if(patrolRoute.Count > 0)
+                {
+                    GoToward(patrolRoute[patrolIndex]);
+                    if(Vector3.Distance(patrolRoute[patrolIndex].position, king.transform.position) < 0.1)
+                    {
+                        if(patrolIndex < patrolRoute.Count)
+                        {
+                            patrolIndex++;
+                        }
+                        else
+                        {
+                            patrolIndex = 0;
+                        }
+                    }
+                }
+                break;
             case KingState.AI_DETECTED_STATE:
                 GoToward(GameController.Instance.player.transform);
                 break;

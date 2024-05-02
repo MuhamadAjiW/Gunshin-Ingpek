@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,9 @@ public class GoonAIController
     [HideInInspector] public NavMeshAgent nav;
     protected float attackWindowSize = 0.3f;
     protected Coroutine attackWindowCoroutine;
+    protected int patrolIndex = 0;
+    public float patrolSpeed = 3;
+    public List<Transform> patrolRoute;
 
     // Constructor
     public void Init(Goon goon)
@@ -29,6 +33,24 @@ public class GoonAIController
     {
         switch (GoonState.GetAIState(goon.stateController.State))
         {
+            case GoonState.AI_PATROL_STATE:
+                Debug.Log("Going");
+                if(patrolRoute.Count > 0)
+                {
+                    GoToward(patrolRoute[patrolIndex]);
+                    if(Vector3.Distance(patrolRoute[patrolIndex].position, goon.transform.position) < 0.1)
+                    {
+                        if(patrolIndex < patrolRoute.Count)
+                        {
+                            patrolIndex++;
+                        }
+                        else
+                        {
+                            patrolIndex = 0;
+                        }
+                    }
+                }
+                break;
             case GoonState.AI_DETECTED_STATE:
                 GoToward(GameController.Instance.player.transform);
                 break;
