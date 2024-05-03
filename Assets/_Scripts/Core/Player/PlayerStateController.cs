@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.Animations;
+=======
+using UnityEngine.SceneManagement;
+>>>>>>> ef999f90 (fix: death cutscene)
 
 [Serializable]
 public class PlayerStateController : EntityStateController
@@ -105,6 +109,7 @@ public class PlayerStateController : EntityStateController
     private void OnDeath()
     {
         state = PlayerState.DEAD;
+        SceneManager.LoadScene("Cutscene");
     }
 
     public bool GetIsAiming()
