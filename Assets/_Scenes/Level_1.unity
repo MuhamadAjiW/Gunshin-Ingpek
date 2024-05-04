@@ -6475,6 +6475,7 @@ GameObject:
   - component: {fileID: 296110131}
   - component: {fileID: 296110130}
   - component: {fileID: 296110133}
+  - component: {fileID: 296110134}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -6616,6 +6617,18 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &296110134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296110128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5e7fc43a148683aaa20fa32b008c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &309103434
 >>>>>>> 875d571d (feat: player prefab in level 1)
 Mesh:
@@ -20060,6 +20073,108 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4281817650431037186, guid: 7a89c72c01f4d8c4796bc426fe28bf40, type: 3}
   m_PrefabInstance: {fileID: 1180459689}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &599273585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599273586}
+  - component: {fileID: 599273587}
+  m_Layer: 0
+  m_Name: Crosshair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &599273586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599273585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 602452950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599273587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599273585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 918c698afb08adc8ba85f9cd76d295b9, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 1cb4c673ddff59d0f8d98585dabc8748, type: 3}
+  m_SortingOrder: 0
+--- !u!1 &602452949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602452950}
+  - component: {fileID: 602452951}
+  m_Layer: 0
+  m_Name: InGameUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &602452950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602452949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -50.763783, y: 0.79291266, z: 54.905167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2118423255}
+  - {fileID: 975820966}
+  - {fileID: 599273586}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &602452951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602452949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac43af0d27e494184ae4f3bb55e7d567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InGameUIDocuments:
+  - {fileID: 599273587}
+  - {fileID: 975820967}
+  - {fileID: 2118423256}
+  CameraManager: {fileID: 296110134}
+  GameController: {fileID: 1993262142}
+  player: {fileID: 1109856210}
 --- !u!1001 &625770421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20423,7 +20538,11 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
+<<<<<<< HEAD
     surfaceParameter: 90430
+=======
+    surfaceParameter: 49786
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171
@@ -27026,6 +27145,54 @@ MonoBehaviour:
     - EdgeIndices: 07000000060000000500000004000000
       TexGenIndex: 5
     Generation: 19
+--- !u!1 &975820965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975820966}
+  - component: {fileID: 975820967}
+  m_Layer: 0
+  m_Name: HealthBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &975820966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975820965}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 602452950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &975820967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975820965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 918c698afb08adc8ba85f9cd76d295b9, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
 --- !u!1 &977136617
 GameObject:
   m_ObjectHideFlags: 0
@@ -27114,7 +27281,7 @@ MeshFilter:
 --- !u!1 &987697891
 >>>>>>> cb03e584 (feat: add level 1 and shop)
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 16
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -27157,7 +27324,7 @@ Transform:
 =======
 --- !u!4 &987697892
 Transform:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 16
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -27172,7 +27339,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &987697893
 MeshCollider:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 16
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -27213,7 +27380,11 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
+<<<<<<< HEAD
     surfaceParameter: 90430
+=======
+    surfaceParameter: 49786
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171
@@ -27772,6 +27943,73 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989776108}
   m_Mesh: {fileID: -3184341113752548868, guid: af2a4e809113c3d4dae2b4590d129a66, type: 3}
+--- !u!1 &999285954
+GameObject:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 999285956}
+  - component: {fileID: 999285955}
+  m_Layer: 0
+  m_Name: '[default-CSGModel]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 124
+  m_IsActive: 1
+--- !u!114 &999285955
+MonoBehaviour:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999285954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8672dcc90e16b0a489a41edf56e016f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabBehaviour: 0
+  PrefabSourceAlignment: 4
+  PrefabDestinationAlignment: 0
+  Version: 1.1
+  infiniteBrush: {fileID: 0}
+  Settings: 1025
+  VertexChannels: 14
+  ReceiveGI: 2
+  MeshColliderCookingOptions: 14
+  ShowGeneratedMeshes: 0
+  DefaultPhysicsMaterial: {fileID: 0}
+  exportType: 0
+  originType: 0
+  exportColliders: 0
+  exportPath: 
+  angleError: 1
+  areaError: 1
+  hardAngle: 60
+  packMargin: 20
+  scaleInLightmap: 1
+  autoUVMaxDistance: 0.5
+  autoUVMaxAngle: 89
+  minimumChartSize: 4
+--- !u!4 &999285956
+Transform:
+  m_ObjectHideFlags: 17
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999285954}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1002225798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36957,8 +37195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  knockbackResistance: 1
+  model: {fileID: 0}
   baseSpeed: 10
+  knockbackResistance: 1
   jumpForce: 5
   groundLayers:
     serializedVersion: 2
@@ -37990,7 +38229,7 @@ MonoBehaviour:
 --- !u!1 &1145009684
 >>>>>>> cb03e584 (feat: add level 1 and shop)
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 16
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -38015,7 +38254,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &1145009685
 Transform:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 16
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -38030,7 +38269,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1145009686
 MeshRenderer:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 16
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -38074,7 +38313,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1145009687
 MeshFilter:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 16
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -38101,7 +38340,11 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
+<<<<<<< HEAD
     surfaceParameter: 58076
+=======
+    surfaceParameter: 52802
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171
@@ -46285,6 +46528,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 1474332047}
   m_Enabled: 1
   m_CastShadows: 1
@@ -46440,6 +46684,8 @@ MonoBehaviour:
   helperSurfaces: []
 =======
 >>>>>>> 875d571d (feat: player prefab in level 1)
+=======
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
 --- !u!1001 &1412835385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51539,8 +51785,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 8be5a49d9c8c64b4d8a5af2b2255a3e3, type: 3}
 --- !u!1 &1737545312
 GameObject:
+<<<<<<< HEAD
   m_ObjectHideFlags: 3
 >>>>>>> cb03e584 (feat: add level 1 and shop)
+=======
+  m_ObjectHideFlags: 0
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -51811,7 +52061,7 @@ MonoBehaviour:
 =======
 --- !u!4 &1737545313
 Transform:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -51829,7 +52079,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1737545314
 MonoBehaviour:
-  m_ObjectHideFlags: 27
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -55395,6 +55645,7 @@ MonoBehaviour:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1817711014
 GameObject:
   m_ObjectHideFlags: 17
@@ -55711,6 +55962,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
 >>>>>>> 875d571d (feat: player prefab in level 1)
+=======
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
 --- !u!1 &1819086314
 >>>>>>> cb03e584 (feat: add level 1 and shop)
 GameObject:
@@ -64959,6 +65212,54 @@ MonoBehaviour:
 --- !u!1001 &6521665645412927376
 =======
     Generation: 20
+--- !u!1 &2118423254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118423255}
+  - component: {fileID: 2118423256}
+  m_Layer: 0
+  m_Name: PauseButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118423255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118423254}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 602452950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118423256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118423254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 918c698afb08adc8ba85f9cd76d295b9, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 0
 --- !u!1001 &2130471726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65653,8 +65954,13 @@ SceneRoots:
 =======
   - {fileID: 1815034048}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 1817711017}
 >>>>>>> cb03e584 (feat: add level 1 and shop)
 =======
   - {fileID: 2132546177}
 >>>>>>> 875d571d (feat: player prefab in level 1)
+=======
+  - {fileID: 602452950}
+  - {fileID: 999285956}
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)

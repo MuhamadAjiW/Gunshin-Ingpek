@@ -18,5 +18,4 @@ public class MainMenuScreenController : ScreenController
         base.OnEnable();
     }
 
-
 }

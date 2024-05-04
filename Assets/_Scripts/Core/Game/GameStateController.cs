@@ -8,8 +8,8 @@ public class GameStateController
     private readonly Stack<GameState> gameStateStack = new();
 
     // Events
-    event GameStateChangeEvent OnGameStateChange;
-    event Action OnPausedEvent;
+    public event GameStateChangeEvent OnGameStateChange;
+    public event Action<bool> OnPausedEvent;
 
     // Constructor
     public GameStateController()
@@ -55,7 +55,7 @@ public class GameStateController
         {
             case GameState.RUNNING:
                 PushState(GameState.PAUSED);
-                OnPausedEvent?.Invoke();
+                OnPausedEvent?.Invoke(true);
                 return;
 
             case GameState.CHEAT:
@@ -63,6 +63,9 @@ public class GameStateController
                 return;
 
             case GameState.PAUSED:
+                OnPausedEvent?.Invoke(false);
+                PopState();
+                return;
             case GameState.CUTSCENE:
             case GameState.MENU:
                 PopState();

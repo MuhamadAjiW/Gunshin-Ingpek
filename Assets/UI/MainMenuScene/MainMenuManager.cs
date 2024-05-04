@@ -78,10 +78,10 @@ public class MainMenuManager : MonoBehaviour
         {
             if (OpenedUIDocument is not null)
             {
-                UIManagement.ToggleElementVisible(UIManagement.GetInnerContainer(OpenedUIDocument), false);
+                UIManagement.ToggleUIDocumentVisible(OpenedUIDocument, false);
             }
             LookAtDocument(newDocument, false);
-            UIManagement.ToggleElementVisible(UIManagement.GetInnerContainer(newDocument));
+            UIManagement.ToggleUIDocumentVisible(newDocument);
             OpenedUIDocument = newDocument;
         }
     }

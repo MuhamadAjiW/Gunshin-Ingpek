@@ -18,8 +18,8 @@ public class PlayerInputController
     // Events
     public event Action OnJumpEvent;
     public event Action<bool> OnAimEvent;
-    private bool aim = false;
-    
+
+
     // Constructor
     public void Init(Player player)
     {
@@ -33,15 +33,15 @@ public class PlayerInputController
         movementInputZ = Input.GetAxisRaw("Vertical");
         movementInputScroll = Input.GetAxisRaw("Mouse ScrollWheel");
 
-        if(Input.GetButtonDown("Jump") && player.Grounded)
+        if (Input.GetButtonDown("Jump") && player.Grounded)
         {
             OnJumpEvent?.Invoke();
         }
 
         if (Input.GetKeyDown(GameInput.Instance.aimToggleButton))
         {
-            aim = !aim;
-            OnAimEvent?.Invoke(aim);
+            player.stateController.ToggleIsAiming();
+            OnAimEvent?.Invoke(player.stateController.GetIsAiming());
         }
 
         bool Toggled = Input.GetKey(GameInput.Instance.inputToggleButton);
@@ -57,55 +57,55 @@ public class PlayerInputController
 
     private void HandleUntoggledInputs()
     {
-        if(movementInputScroll != 0)
+        if (movementInputScroll != 0)
         {
             player.EquipWeapon(player.WeaponIndex + (int)(movementInputScroll * 10));
         }
 
-        else if(Input.GetKeyDown(GameInput.Instance.attackButton) && player.Grounded)
+        else if (Input.GetKeyDown(GameInput.Instance.attackButton) && player.Grounded)
         {
             Debug.Log("Player is Attacking");
-            if(player.Weapon == null)
+            if (player.Weapon is null)
             {
                 Debug.Log("Player does not have a weapon");
                 return;
-            }            
+            }
             player.StartCoroutine(HandleAttack());
         }
-        else if(Input.GetKeyDown(GameInput.Instance.attackAlternateButton) && player.Grounded)
+        else if (Input.GetKeyDown(GameInput.Instance.attackAlternateButton) && player.Grounded)
         {
             Debug.Log("Player is Attacking (alternate)");
-            if(player.Weapon == null)
+            if (player.Weapon is null)
             {
                 Debug.Log("Player does not have a weapon");
                 return;
             }
             player.StartCoroutine(HandleAlternateAttack());
         }
-        else if(Input.GetKeyDown(GameInput.Instance.attackSkillButton) && player.Grounded)
+        else if (Input.GetKeyDown(GameInput.Instance.attackSkillButton) && player.Grounded)
         {
-            if(!player.Weapon.data.canSkill)
+            if (!player.Weapon.data.canSkill)
             {
                 return;
             }
-            if(player.Weapon == null)
+            if (player.Weapon == null)
             {
                 Debug.Log("Player does not have a weapon");
                 return;
             }
-            if(aim)
+            if (player.stateController.GetIsAiming())
             {
-                aim = !aim;
-                OnAimEvent?.Invoke(aim);
+                player.stateController.ToggleIsAiming();
+                OnAimEvent?.Invoke(player.stateController.GetIsAiming());
             }
             Debug.Log("Player is Using a skill");
 
             player.StartCoroutine(HandleSkill());
         }
-        else if(Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
+        else if (Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
         {
             Debug.Log("Player is interacting");
-            if(player.stateController.currentInteractables.Count == 0)
+            if (player.stateController.currentInteractables.Count == 0)
             {
                 return;
             }
@@ -122,18 +122,18 @@ public class PlayerInputController
 
     private void HandleToggledInputs()
     {
-        if(movementInputScroll != 0)
+        if (movementInputScroll != 0)
         {
             player.CompanionSelectorIndex += (int)(movementInputScroll * 10);
             Debug.Log($"Selecting companions: {player.CompanionSelectorIndex}");
         }
 
-        else if(Input.GetKeyDown(GameInput.Instance.attackButton))
+        else if (Input.GetKeyDown(GameInput.Instance.attackButton))
         {
             Debug.Log("Player is Activating a companion");
             player.ActivateCompanion(player.CompanionSelectorIndex);
         }
-        else if(Input.GetKeyDown(GameInput.Instance.attackAlternateButton))
+        else if (Input.GetKeyDown(GameInput.Instance.attackAlternateButton))
         {
             Debug.Log("Player is Deactivating a companion");
             player.DeactivateCompanion(player.CompanionSelectorIndex);
@@ -147,7 +147,7 @@ public class PlayerInputController
 
     private IEnumerator HandleAttack()
     {
-        if(!player.Weapon.CanAttack)
+        if (!player.Weapon.CanAttack)
         {
             yield return new WaitForSeconds(0);
         }
@@ -161,9 +161,9 @@ public class PlayerInputController
 
 
         player.animationController.AnimateAttack(player.Weapon.attackType);
-        if(player.Weapon.CanAttack)
+        if (player.Weapon.CanAttack)
         {
-            if(player.Weapon.attackType == AttackType.MELEE 
+            if (player.Weapon.attackType == AttackType.MELEE
                 || player.stateController.weaponState != WeaponState.ATTACK)
             {
                 player.audioController.Play(PlayerAudioController.ATTACK_KEY);
@@ -178,11 +178,11 @@ public class PlayerInputController
 
     private IEnumerator HandleAlternateAttack()
     {
-        if(!player.Weapon.CanAttack)
+        if (!player.Weapon.CanAttack)
         {
             yield return new WaitForSeconds(0);
         }
-        
+
         float delay = player.Weapon.alternateAttackType switch
         {
             AttackType.MELEE => player.model.meleeAnimationDelay,
@@ -192,9 +192,9 @@ public class PlayerInputController
 
 
         player.animationController.AnimateAttack(player.Weapon.alternateAttackType);
-        if(player.Weapon.CanAttack)
+        if (player.Weapon.CanAttack)
         {
-            if(player.Weapon.alternateAttackType == AttackType.MELEE 
+            if (player.Weapon.alternateAttackType == AttackType.MELEE
                 || player.stateController.weaponState != WeaponState.ALTERNATE_ATTACK)
             {
                 player.audioController.Play(PlayerAudioController.ATTACK_KEY);
@@ -214,6 +214,7 @@ public class PlayerInputController
 
         TriggerWeaponState(WeaponState.SKILL);
         yield return new WaitForSeconds(player.model.skillAnimationDelay);
+<<<<<<< HEAD
         player.Weapon.Skill();
 <<<<<<< HEAD
         GameStatistics.Instance.AddSkillsUsed();
@@ -222,6 +223,16 @@ public class PlayerInputController
         Quaternion flatRotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y, player.transform.rotation.eulerAngles.z);
         player.transform.rotation = flatRotation;
 >>>>>>> bcbd8415 (feat: made player prefab, minor bug fixes)
+=======
+
+        if (player.Weapon.Skill())
+        {
+            Quaternion flatRotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y, player.transform.rotation.eulerAngles.z);
+            player.transform.rotation = flatRotation;
+
+            GameStatistics.Instance.AddSkillsUsed();
+        }
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
     }
 
 
@@ -234,11 +245,11 @@ public class PlayerInputController
     private void TriggerWeaponState(WeaponState state)
     {
         player.stateController.SetWeaponState(state);
-        if(attackWindowCoroutine != null)
+        if (attackWindowCoroutine != null)
         {
             player.StopCoroutine(attackWindowCoroutine);
         }
-        
+
         float delay = state switch
         {
             WeaponState.ATTACK => player.Weapon.data.attackInterval,
@@ -246,7 +257,7 @@ public class PlayerInputController
             WeaponState.SKILL => player.Weapon.data.skillInterval,
             _ => 0
         };
-        
+
         attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(delay + attackWindowSize));
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 [Serializable]
 public class PlayerStateController : EntityStateController
@@ -9,6 +10,8 @@ public class PlayerStateController : EntityStateController
     private Player player;
     public List<IInteractable> currentInteractables = new();
     public WeaponState weaponState = WeaponState.IDLE;
+
+    private bool IsAiming = false;
 
     // Contstructor
     public void Init(Player player)
@@ -20,19 +23,19 @@ public class PlayerStateController : EntityStateController
     // Functions
     protected override int DetectState()
     {
-        if(DetectJumping())
+        if (DetectJumping())
         {
             state = PlayerState.JUMPING;
         }
-        else if(DetectFalling())
+        else if (DetectFalling())
         {
             state = PlayerState.FALLING;
         }
-        else if(DetectSprinting())
+        else if (DetectSprinting())
         {
             state = PlayerState.SPRINTING;
         }
-        else if(DetectWalking())
+        else if (DetectWalking())
         {
             state = PlayerState.WALKING;
         }
@@ -41,7 +44,7 @@ public class PlayerStateController : EntityStateController
             state = PlayerState.IDLE;
         }
 
-        if(DetectAttacking())
+        if (DetectAttacking())
         {
             AttackType attackType = weaponState switch
             {
@@ -57,7 +60,7 @@ public class PlayerStateController : EntityStateController
                 _ => PlayerState.NULL
             };
 
-            if((state & PlayerState.WALKING) > 0)
+            if ((state & PlayerState.WALKING) > 0)
             {
                 state &= ~PlayerState.WALKING;
                 state |= PlayerState.IDLE | extraState;
@@ -103,4 +106,21 @@ public class PlayerStateController : EntityStateController
     {
         state = PlayerState.DEAD;
     }
+
+    public bool GetIsAiming()
+    {
+        return IsAiming;
+    }
+
+    public void ToggleIsAiming(bool newIsAiming)
+    {
+        IsAiming = newIsAiming;
+    }
+
+    public void ToggleIsAiming()
+    {
+        ToggleIsAiming(!IsAiming);
+    }
+
+
 }

@@ -14,12 +14,14 @@ public class CombatantEntity : DamageableEntity, IArmed
     private WeaponObject weapon;
     private float attackMultiplier = 1f;
     private string attackLayerCode = EnvironmentConfig.LAYER_ENVIRONMENT_ATTACK;
-    
+
     // Set-Getters
     public List<WeaponObject> WeaponList => weaponList;
     public WeaponObject Weapon => weapon;
     public Transform Orientation => transform;
     public Vector3 WeaponLocation => model.WeaponPivot;
+
+    public event Action<int> OnWeaponChangeEvent;
     public float AttackMultiplier
     {
         get => attackMultiplier;
@@ -30,17 +32,18 @@ public class CombatantEntity : DamageableEntity, IArmed
         get => attackLayerCode;
         set => attackLayerCode = value;
     }
-    public float Damage 
+    public float Damage
     {
-        get {
+        get
+        {
             float finalDamage = baseDamage;
             float modifiers = 1;
-            if(effects.Count > 0)
+            if (effects.Count > 0)
             {
                 for (int i = 0; i < effects.Count; i++)
                 {
                     StatEffect statEffect = effects[i];
-                    if(statEffect.statType != StatEffectType.DAMAGE)
+                    if (statEffect.statType != StatEffectType.DAMAGE)
                     {
                         continue;
                     }
@@ -62,30 +65,30 @@ public class CombatantEntity : DamageableEntity, IArmed
         }
         set => baseDamage = value;
     }
-    
+
     public int WeaponIndex
     {
         get => weaponIndex;
-        set 
+        set
         {
             // Switch requires a constant, so can't use that here
-            if(value == weaponList.Count) weaponIndex = 0;
-            else if(value == -1) weaponIndex = weaponList.Count - 1;
-            else if(-1 < value && value < weaponList.Count) weaponIndex = value;
+            if (value == weaponList.Count) weaponIndex = 0;
+            else if (value == -1) weaponIndex = weaponList.Count - 1;
+            else if (-1 < value && value < weaponList.Count) weaponIndex = value;
             else weaponIndex = 0;
-        } 
+        }
     }
 
     // Constructors
     protected new void Start()
     {
         base.Start();
-        #if STRICT
-        if(WeaponList.Count ==  0)
+#if STRICT
+        if (WeaponList.Count == 0)
         {
             Debug.LogError($"CombatantEntity {name} does not have any initial weapon. How to solve: Consider putting a NoWeapon instead to the list in the class");
         }
-        #endif
+#endif
     }
 
 
@@ -93,38 +96,39 @@ public class CombatantEntity : DamageableEntity, IArmed
     public void SetAttackLayer(string attackLayerCode)
     {
         AttackLayerCode = attackLayerCode;
-        AttackMultiplier = attackLayerCode switch 
+        AttackMultiplier = attackLayerCode switch
         {
             EnvironmentConfig.LAYER_ENEMY_ATTACK => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].enemyDamageMultiplier,
             EnvironmentConfig.LAYER_PLAYER_ATTACK => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerDamageMultiplier,
             _ => 1f
         };
     }
-    
+
     public void EquipWeapon(int index)
     {
-        if(weaponList.Count == 0)
+        if (weaponList.Count == 0)
         {
             return;
         }
-        if(Weapon != null && !Weapon.CanAttack)
+        if (Weapon != null && !Weapon.CanAttack)
         {
             return;
         }
-        
+
         UnequipWeapon();
 
         WeaponIndex = index;
+        OnWeaponChangeEvent?.Invoke(index);
         WeaponObject selectedWeapon = WeaponList[WeaponIndex];
-        
+
         // To handle prefabs
-        if(!selectedWeapon.gameObject.scene.IsValid())
+        if (!selectedWeapon.gameObject.scene.IsValid())
         {
-            if(model.dynamicWeaponPivot != null)
+            if (model.dynamicWeaponPivot != null)
             {
                 selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
                     prefabPath: selectedWeapon.data.prefabPath,
-                    parent: model.dynamicWeaponPivot, 
+                    parent: model.dynamicWeaponPivot,
                     objectName: selectedWeapon.name
                 );
                 WeaponList[WeaponIndex] = selectedWeapon;
@@ -133,7 +137,7 @@ public class CombatantEntity : DamageableEntity, IArmed
             {
                 selectedWeapon = ObjectFactory.CreateObject<WeaponObject>(
                     prefabPath: selectedWeapon.data.prefabPath,
-                    parent: gameObject.transform, 
+                    parent: gameObject.transform,
                     objectName: selectedWeapon.name
                 );
                 WeaponList[WeaponIndex] = selectedWeapon;
@@ -143,7 +147,7 @@ public class CombatantEntity : DamageableEntity, IArmed
 
         selectedWeapon.gameObject.SetActive(true);
         selectedWeapon.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
-        weapon = selectedWeapon;        
+        weapon = selectedWeapon;
         Weapon.transform.localScale = model.weaponScale != Vector3.zero ? model.weaponScale : Vector3.one;
     }
 
@@ -153,7 +157,7 @@ public class CombatantEntity : DamageableEntity, IArmed
         foreach (WeaponObject weapon in WeaponList)
         {
             // We'll also clean null weapons here, add no weapons explicitly
-            if(weapon == null)
+            if (weapon == null)
             {
                 nullObjects.Add(weapon);
             }

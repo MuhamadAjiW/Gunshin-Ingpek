@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     // Attributes
     public Player player;
     public GameCameraController mainCamera;
-    public GameStateController stateController;
+    public GameStateController stateController = new();
 
     // Cheat Attributes
     private float cheatDelayTimer;
@@ -19,6 +19,11 @@ public class GameController : MonoBehaviour
     public bool IsPaused => Time.timeScale == 0;
 
     // Constructor
+    GameController()
+    {
+        stateController = new();
+    }
+
     protected void Awake()
     {
         if (Instance == null)
@@ -34,7 +39,6 @@ public class GameController : MonoBehaviour
             Debug.LogError("No main camera detected in child of GameController. How to resolve: create a camera object as child of GameController");
         }
 #endif
-        stateController = new GameStateController();
     }
 
     // Functions

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class ScreenController : MonoBehaviour
 {
-    [SerializeField] public UIDocument ControlledUIDocument;
+    public UIDocument ControlledUIDocument;
 
     protected VisualElement rootElement;
 
@@ -10,6 +10,5 @@ public class ScreenController : MonoBehaviour
     {
         rootElement = ControlledUIDocument.rootVisualElement;
     }
-
 
 }

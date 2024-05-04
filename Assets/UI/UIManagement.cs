@@ -30,6 +30,12 @@ public class UIManagement : MonoBehaviour
     {
         element.AddToClassList(isVisible ? USSAnimationClasses.Flex : USSAnimationClasses.Hidden);
         element.RemoveFromClassList(isVisible ? USSAnimationClasses.Hidden : USSAnimationClasses.Flex);
-
     }
+
+    public static void ToggleUIDocumentVisible(UIDocument document, bool isVisible = true)
+    {
+        VisualElement innerContainer = GetInnerContainer(document);
+        ToggleElementVisible(innerContainer, isVisible);
+    }
+
 }

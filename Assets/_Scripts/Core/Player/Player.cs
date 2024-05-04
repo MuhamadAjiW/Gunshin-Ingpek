@@ -8,6 +8,7 @@ public class Player : PlayerEntity
     // Static Attributes
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public const string ObjectIdPrefix = "Player";
 =======
     public const string ObjectIdPrefix = "Player"; 
@@ -16,6 +17,9 @@ public class Player : PlayerEntity
 =======
     public const string OBJECT_ID_PREFIX = "Player"; 
 >>>>>>> acb4f76d (feat: Headgoon spawning, mobs stat tweak)
+=======
+    public const string OBJECT_ID_PREFIX = "Player";
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
 
     // Attributes
     public PlayerMovementController movementController;
@@ -32,7 +36,7 @@ public class Player : PlayerEntity
     public int maxIncDamageOrbCount = 15;
 
     // Constructor
-    new void Start()
+    public new void Start()
     {
         gameObject.AddComponent<AudioSource>();
 
@@ -50,6 +54,7 @@ public class Player : PlayerEntity
         SetAttackLayer(EnvironmentConfig.LAYER_PLAYER_ATTACK);
         GameController.Instance.player = this;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
         // TODO: These are for dev, consider deleting
@@ -58,6 +63,9 @@ public class Player : PlayerEntity
 =======
         
 >>>>>>> cc490e85 (feat: mob sounds)
+=======
+
+>>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
         EquipWeapon(0);
 
         int initialIndex = CompanionList.Count;
