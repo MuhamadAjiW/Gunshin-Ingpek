@@ -39,7 +39,7 @@ public class GoonAIController
                     GoToward(patrolRoute[patrolIndex]);
                     if(Vector3.Distance(patrolRoute[patrolIndex].position, goon.transform.position) < 0.1)
                     {
-                        if(patrolIndex < patrolRoute.Count)
+                        if(patrolIndex < patrolRoute.Count - 1)
                         {
                             patrolIndex++;
                         }
