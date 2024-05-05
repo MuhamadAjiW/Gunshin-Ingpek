@@ -7,5 +7,6 @@ public enum GameState
     PAUSED,
     CHEAT,
     OVER,
+    FINISH
 
 }

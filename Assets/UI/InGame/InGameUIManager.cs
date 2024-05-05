@@ -18,8 +18,14 @@ public class InGameUIManager : MonoBehaviour
 
     public void Awake()
     {
+        HideAllDocuments();
         HandleGameStateChange(GameController.stateController.GetState());
         GameController.stateController.OnGameStateChange += (GameStateChangeArgs e) => HandleGameStateChange(e.NewGameState);
+    }
+
+    public void HideAllDocuments()
+    {
+        InGameUIDocuments.ForEach((document) => ToggleUIDocumentVisibility(UIManagement.GetDocumentName(document), false));
     }
 
     public void HandleGameStateChange(GameState gameState)
@@ -27,6 +33,7 @@ public class InGameUIManager : MonoBehaviour
         SetUIDocumentVisibleOnThisState("Crosshair", new List<GameState> { GameState.RUNNING })(gameState);
         SetUIDocumentVisibleOnThisState("PauseMenu", new List<GameState> { GameState.PAUSED })(gameState);
         SetUIDocumentVisibleOnThisState("GameOverScreen", new List<GameState> { GameState.OVER })(gameState);
+        SetUIDocumentVisibleOnThisState("CompletedScreen", new List<GameState> { GameState.FINISH })(gameState);
 
     }
 

@@ -16,9 +16,9 @@ public class UIManagement : MonoBehaviour
     }
 
     // Utils function
-    public static VisualElement GetInnerContainer(UIDocument mainMenuDocument)
+    public static VisualElement GetInnerContainer(UIDocument document)
     {
-        return mainMenuDocument.rootVisualElement.Query<VisualElement>("Container");
+        return document.rootVisualElement.Query<VisualElement>("Container");
     }
 
     public static string GetDocumentName(UIDocument uiDocument)
@@ -35,6 +35,12 @@ public class UIManagement : MonoBehaviour
     public static void ToggleUIDocumentVisible(UIDocument document, bool isVisible = true)
     {
         VisualElement innerContainer = GetInnerContainer(document);
+        if (innerContainer is null)
+        {
+            Debug.LogError("Document has no inner container!");
+            return;
+
+        }
         ToggleElementVisible(innerContainer, isVisible);
     }
 

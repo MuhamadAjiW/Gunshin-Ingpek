@@ -104,7 +104,7 @@ public class GameStateController
             GameState.RUNNING => 1,
             GameState.CUTSCENE => 0,
             GameState.MENU => 0,
-            GameState.OVER => 0,
+            GameState.OVER => 1,
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
         Cursor.lockState = gameState switch
