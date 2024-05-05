@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using _Scripts.Core.Game.Data;
 using UnityEngine;
 
@@ -195,39 +194,33 @@ public class Player : PlayerEntity
 
     private IEnumerator IncSpeedOrbTimeout(float duration, float speedMultiplier)
     {
-        float prevBaseSpeed = BaseSpeed;
-        float actualMultiplier = 1 + speedMultiplier;
+        float prev = Speed;
         if (!isIncSpeedOrbActive)
         {
-            BaseSpeed *= actualMultiplier;
+            StatEffect incSpeed = new("Increase Speed Orb", StatEffectType.SPEED, StatEffectType.MULTIPLICATION, speedMultiplier);
+            effects.Add(incSpeed);
         }
 
-        Debug.Log(id + ": Base Speed increased from " + prevBaseSpeed + " to " + BaseSpeed);
+        Debug.Log(id + ": Speed increased from " + prev + " to " + Speed);
 
         isIncSpeedOrbActive = true;
 
         yield return new WaitForSeconds(duration);
 
-        BaseSpeed /= actualMultiplier;
+        effects.Remove(effects.Find(effect => effect.description == "Increase Speed Orb"));
         isIncSpeedOrbActive = false;
-        Debug.Log(id + ": Increase Speed Orb effect ended. Base Speed decreased to " + BaseSpeed);
+        Debug.Log(id + ": Increase Speed Orb effect ended. Speed decreased to " + Speed);
     }
 
-    public void ActivateIncDamageOrb(float baseDamageMultiplier)
+    public void ActivateIncDamageOrb(float damageMultiplier)
     {
         incDamageOrbCount++;
-        float prevBaseDamage = BaseDamage;
 
-        if (incDamageOrbCount == 1)
-        {
-            BaseDamage *= 1 + baseDamageMultiplier;
-        }
-        else
-        {
-            BaseDamage = BaseDamage / (1 + (incDamageOrbCount - 1) * baseDamageMultiplier) * (1 + incDamageOrbCount * baseDamageMultiplier);
-        }
+        float prev = Damage;
+        StatEffect incDamage = new("Increase Damage Orb", StatEffectType.DAMAGE, StatEffectType.MULTIPLICATION, damageMultiplier);
+        effects.Add(incDamage);
 
-        Debug.Log(id + ": Base Damage increased from " + prevBaseDamage + " to " + BaseDamage);
+        Debug.Log(id + ": Damage increased from " + prev + " to " + Damage);
     }
 =======
     // Switches to the next weapon in the list
