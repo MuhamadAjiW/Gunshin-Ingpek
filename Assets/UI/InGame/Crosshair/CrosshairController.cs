@@ -7,10 +7,6 @@ using UnityEngine.UIElements;
 public class CrosshairController : InGameUIScreenController
 {
 
-    public GameController GameController;
-
-    public Player player;
-
     public enum CrosshairType
     {
         PRIMARY,

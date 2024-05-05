@@ -1,6 +1,9 @@
 using UnityEngine;
 public class InGameUIScreenController : ScreenController
 {
+    public GameController GameController;
+
+    public Player player;
     [SerializeField] public InGameUIManager InGameUIManager;
 
     protected string ControlledUIDocumentName

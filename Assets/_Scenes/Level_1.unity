@@ -20135,9 +20135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ControlledUIDocument: {fileID: 599273587}
-  InGameUIManager: {fileID: 0}
   GameController: {fileID: 1993262142}
   player: {fileID: 1109856210}
+  InGameUIManager: {fileID: 602452951}
 --- !u!1 &602452949
 GameObject:
   m_ObjectHideFlags: 0
@@ -20560,10 +20560,14 @@ MonoBehaviour:
       layers: 33554440
       maskAndChannels: 8
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 90430
 =======
     surfaceParameter: 49786
 >>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
+=======
+    surfaceParameter: 49802
+>>>>>>> 8e20d7df (feat: functional resume button)
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171
@@ -24231,9 +24235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ControlledUIDocument: {fileID: 814281101}
-  InGameUIManager: {fileID: 602452951}
   GameController: {fileID: 1993262142}
   player: {fileID: 1109856210}
+  InGameUIManager: {fileID: 602452951}
   CameraManager: {fileID: 296110134}
 --- !u!1001 &819018435
 PrefabInstance:
@@ -27468,10 +27472,14 @@ MonoBehaviour:
       layers: 33554440
       maskAndChannels: 8
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 90430
 =======
     surfaceParameter: 49786
 >>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
+=======
+    surfaceParameter: 49802
+>>>>>>> 8e20d7df (feat: functional resume button)
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171
@@ -38431,6 +38439,7 @@ MonoBehaviour:
       maskAndChannels: 234881031
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 58076
 =======
     surfaceParameter: 52802
@@ -38438,6 +38447,9 @@ MonoBehaviour:
 =======
     surfaceParameter: 52190
 >>>>>>> 8febb5fc (feat: game over working)
+=======
+    surfaceParameter: 52214
+>>>>>>> 8e20d7df (feat: functional resume button)
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171
@@ -44168,6 +44180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1293417828}
   - component: {fileID: 1293417827}
+  - component: {fileID: 1293417829}
   m_Layer: 0
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -44206,6 +44219,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 602452950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1293417829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293417826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e5f26fca23a4997bcfbb8499e3fe98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControlledUIDocument: {fileID: 1293417827}
+  GameController: {fileID: 1993262142}
+  player: {fileID: 1109856210}
+  InGameUIManager: {fileID: 602452951}
 --- !u!1 &1296548661
 GameObject:
   m_ObjectHideFlags: 0
