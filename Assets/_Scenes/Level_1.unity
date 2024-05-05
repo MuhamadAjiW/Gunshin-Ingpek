@@ -20561,6 +20561,7 @@ MonoBehaviour:
       maskAndChannels: 8
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 90430
 =======
     surfaceParameter: 49786
@@ -20568,6 +20569,9 @@ MonoBehaviour:
 =======
     surfaceParameter: 49802
 >>>>>>> 8e20d7df (feat: functional resume button)
+=======
+    surfaceParameter: 49794
+>>>>>>> 2c9633fe (feat: health bar working)
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171
@@ -27246,6 +27250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 975820966}
   - component: {fileID: 975820967}
+  - component: {fileID: 975820968}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -27284,6 +27289,22 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 7eb6f2038cb5b80ffa79b496413f5a9d, type: 3}
   m_SortingOrder: 0
+--- !u!114 &975820968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975820965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e06b5ce9cbce59a9cb0e993483bb57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControlledUIDocument: {fileID: 975820967}
+  GameController: {fileID: 1993262142}
+  player: {fileID: 1109856210}
+  InGameUIManager: {fileID: 602452951}
 --- !u!1 &977136617
 GameObject:
   m_ObjectHideFlags: 0
@@ -27473,6 +27494,7 @@ MonoBehaviour:
       maskAndChannels: 8
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 90430
 =======
     surfaceParameter: 49786
@@ -27480,6 +27502,9 @@ MonoBehaviour:
 =======
     surfaceParameter: 49802
 >>>>>>> 8e20d7df (feat: functional resume button)
+=======
+    surfaceParameter: 49794
+>>>>>>> 2c9633fe (feat: health bar working)
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171
@@ -38440,6 +38465,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 58076
 =======
     surfaceParameter: 52802
@@ -38450,6 +38476,9 @@ MonoBehaviour:
 =======
     surfaceParameter: 52214
 >>>>>>> 8e20d7df (feat: functional resume button)
+=======
+    surfaceParameter: 52208
+>>>>>>> 2c9633fe (feat: health bar working)
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171
