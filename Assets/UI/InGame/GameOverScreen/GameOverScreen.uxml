@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
+    <ui:VisualElement name="Container" class="overlay" style="flex-grow: 1; align-items: center; justify-content: center;">
+        <ui:Label text="Game Over!" name="GameOverText" style="align-items: center; -unity-text-align: upper-center; font-size: 36px; background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255);" />
+        <ui:VisualElement name="ButtonContainer" style="flex-grow: 0; margin-top: 20px;">
+            <ui:Button text="Return To Main Menu" name="ReturnToMainMenu" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

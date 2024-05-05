@@ -9,7 +9,6 @@ public class GameStateController
 
     // Events
     public event GameStateChangeEvent OnGameStateChange;
-    public event Action<bool> OnPausedEvent;
 
     // Constructor
     public GameStateController()
@@ -17,6 +16,16 @@ public class GameStateController
         gameStateStack.Push(GameState.NULL);
         gameStateStack.Push(GameState.RUNNING);
         OnGameStateChange += LogGameStateEvent;
+    }
+
+
+    public void BindDeathEvent(Player player)
+    {
+        Debug.Log(String.Format("Player is null {0}", player is null));
+        player.OnDeathEvent += () =>
+        {
+            gameStateStack.Push(GameState.OVER);
+        };
     }
 
     // Functions
@@ -51,11 +60,15 @@ public class GameStateController
 
     public void HandleEscape()
     {
-        switch (gameStateStack.Peek())
+        GameState state = GetState();
+        if (state == GameState.OVER)
+        {
+            return;
+        }
+        switch (state)
         {
             case GameState.RUNNING:
                 PushState(GameState.PAUSED);
-                OnPausedEvent?.Invoke(true);
                 return;
 
             case GameState.CHEAT:
@@ -63,7 +76,6 @@ public class GameStateController
                 return;
 
             case GameState.PAUSED:
-                OnPausedEvent?.Invoke(false);
                 PopState();
                 return;
             case GameState.CUTSCENE:
@@ -92,6 +104,7 @@ public class GameStateController
             GameState.RUNNING => 1,
             GameState.CUTSCENE => 0,
             GameState.MENU => 0,
+            GameState.OVER => 0,
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
         Cursor.lockState = gameState switch
@@ -101,6 +114,8 @@ public class GameStateController
             GameState.RUNNING => CursorLockMode.Locked,
             GameState.CUTSCENE => CursorLockMode.Locked,
             GameState.MENU => CursorLockMode.None,
+            GameState.OVER => CursorLockMode.None,
+
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
     }

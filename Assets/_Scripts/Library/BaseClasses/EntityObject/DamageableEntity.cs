@@ -18,29 +18,30 @@ public class DamageableEntity : WorldEntity, IDamageable
 
     // Set-Getters
     public bool Dead => health <= 0;
-    public float MaxHealth 
+    public float MaxHealth
     {
         get => maxHealth;
-        set => maxHealth = value > 0? value : 0;
+        set => maxHealth = value > 0 ? value : 0;
     }
-    public float Health 
+    public float Health
     {
         get => health;
-        set => health = value > 0? (value > MaxHealth? MaxHealth : value) : 0;
+        set => health = value > 0 ? (value > MaxHealth ? MaxHealth : value) : 0;
     }
-    public bool Damageable 
-    { 
-        get => damageable; 
-        set => damageable = value; 
+    public bool Damageable
+    {
+        get => damageable;
+        set => damageable = value;
     }
-    public float DamagedDelay 
+    public float DamagedDelay
     {
         get => damagedDelay;
-        set => damagedDelay = value <= 0? GameConfig.DAMAGED_DELAY_DURATION : value;
+        set => damagedDelay = value <= 0 ? GameConfig.DAMAGED_DELAY_DURATION : value;
     }
 
     // Constructor
-    protected new void Start(){
+    protected new void Start()
+    {
         base.Start();
         OnDamageDelayOverEvent += OnDamageDelayOver;
         OnDamagedEvent += OnDamaged;
@@ -50,7 +51,7 @@ public class DamageableEntity : WorldEntity, IDamageable
     // Functions
     protected new void Update()
     {
-        if(GameController.Instance.IsPaused || Dead)
+        if (GameController.Instance.IsPaused || Dead)
         {
             return;
         }
@@ -59,7 +60,7 @@ public class DamageableEntity : WorldEntity, IDamageable
 
     protected new void FixedUpdate()
     {
-        if(GameController.Instance.IsPaused || Dead)
+        if (GameController.Instance.IsPaused || Dead)
         {
             return;
         }
@@ -69,9 +70,22 @@ public class DamageableEntity : WorldEntity, IDamageable
 
     public float InflictDamage(float damage)
     {
+<<<<<<< HEAD
         Health -= damage;
         OnDamagedEvent?.Invoke();
         if(Dead)
+=======
+        Debug.Log(Dead);
+        if (Dead)
+        {
+            return 0;
+        }
+
+        Health -= damage;
+        OnDamagedEvent?.Invoke();
+
+        if (Dead)
+>>>>>>> 8febb5fc (feat: game over working)
         {
             OnDeathEvent?.Invoke();
         }
@@ -81,6 +95,14 @@ public class DamageableEntity : WorldEntity, IDamageable
 
     public float InflictHeal(float heal)
     {
+<<<<<<< HEAD
+=======
+        if (Dead)
+        {
+            return 0;
+        }
+
+>>>>>>> 8febb5fc (feat: game over working)
         Health += heal;
         OnHealEvent?.Invoke();
 
@@ -89,9 +111,21 @@ public class DamageableEntity : WorldEntity, IDamageable
 
     public float InflictDrainDamage(float damage)
     {
+<<<<<<< HEAD
         Debug.Log($"{name} health is drained by {damage}");
         Health -= damage;
         if(Dead)
+=======
+        if (Dead)
+        {
+            return 0;
+        }
+
+        Debug.Log($"{name} health is drained by {damage}");
+        Health -= damage;
+
+        if (Dead)
+>>>>>>> 8febb5fc (feat: game over working)
         {
             OnDeathEvent?.Invoke();
         }
@@ -120,7 +154,7 @@ public class DamageableEntity : WorldEntity, IDamageable
         Damageable = false;
         StartCoroutine(WaitDamagedDelay());
     }
-    
+
     private void OnDamageDelayOver()
     {
         Damageable = true;

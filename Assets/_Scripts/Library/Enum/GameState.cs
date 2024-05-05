@@ -6,4 +6,6 @@ public enum GameState
     CUTSCENE,
     PAUSED,
     CHEAT,
+    OVER,
+
 }

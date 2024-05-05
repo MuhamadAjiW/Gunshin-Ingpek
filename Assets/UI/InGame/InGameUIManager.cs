@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +18,34 @@ public class InGameUIManager : MonoBehaviour
 
     public void Awake()
     {
-        GameController.stateController.OnPausedEvent += (bool pause) =>
-        {
-            ToggleUIDocumentVisibility("Crosshair", !pause);
-            ToggleUIDocumentVisibility("PauseMenu", pause);
-        };
+        HandleGameStateChange(GameController.stateController.GetState());
+        GameController.stateController.OnGameStateChange += (GameStateChangeArgs e) => HandleGameStateChange(e.NewGameState);
+    }
+
+    public void HandleGameStateChange(GameState gameState)
+    {
+        SetUIDocumentVisibleOnThisState("Crosshair", new List<GameState> { GameState.RUNNING })(gameState);
+        SetUIDocumentVisibleOnThisState("PauseMenu", new List<GameState> { GameState.PAUSED })(gameState);
+        SetUIDocumentVisibleOnThisState("GameOverScreen", new List<GameState> { GameState.OVER })(gameState);
+
     }
 
     public void OnEnable()
     {
-        ToggleUIDocumentVisibility("PauseMenu", false);
+        Debug.Log("In Game UI Documents");
+        foreach (UIDocument document in InGameUIDocuments)
+        {
+            Debug.Log(UIManagement.GetDocumentName(document));
+        }
+    }
+
+    public EventCallback<GameState> SetUIDocumentVisibleOnThisState(string documentName, List<GameState> gameStateWhenDocumentVisible)
+    {
+        return (GameState gameState) =>
+        {
+            ToggleUIDocumentVisibility(documentName, gameStateWhenDocumentVisible.Contains(gameState));
+        };
+
     }
 
 
@@ -37,7 +56,14 @@ public class InGameUIManager : MonoBehaviour
 
     public void ToggleUIDocumentVisibility(string documentName, bool isVisible)
     {
-        UIDocument uiDocument = InGameUIDocuments.Single(document => UIManagement.GetDocumentName(document) == documentName);
+        Debug.Log(String.Format("{0}: {1}", documentName, isVisible));
+        UIDocument uiDocument = InGameUIDocuments.SingleOrDefault(document => UIManagement.GetDocumentName(document) == documentName);
+
+        if (uiDocument is null)
+        {
+            Debug.LogError(String.Format("Toggling non-existent ui document {0}", documentName));
+            return;
+        }
 
         if (isVisible && OpenUIDocuments.SingleOrDefault(document => UIManagement.GetDocumentName(document) == documentName) is null)
         {

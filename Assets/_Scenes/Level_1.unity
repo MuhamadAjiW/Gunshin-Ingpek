@@ -20083,6 +20083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 599273586}
   - component: {fileID: 599273587}
+  - component: {fileID: 599273588}
   m_Layer: 0
   m_Name: Crosshair
   m_TagString: Untagged
@@ -20121,6 +20122,22 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 1cb4c673ddff59d0f8d98585dabc8748, type: 3}
   m_SortingOrder: 0
+--- !u!114 &599273588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599273585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316732689faae36d6a3753878741507f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControlledUIDocument: {fileID: 599273587}
+  InGameUIManager: {fileID: 0}
+  GameController: {fileID: 1993262142}
+  player: {fileID: 1109856210}
 --- !u!1 &602452949
 GameObject:
   m_ObjectHideFlags: 0
@@ -20151,6 +20168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 814281100}
   - {fileID: 2118423255}
   - {fileID: 975820966}
   - {fileID: 599273586}
@@ -20170,6 +20188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InGameUIDocuments:
   - {fileID: 599273587}
+  - {fileID: 814281101}
   - {fileID: 975820967}
   - {fileID: 2118423256}
   CameraManager: {fileID: 296110134}
@@ -24148,6 +24167,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8650726003960717055, guid: 5c6ad4bd4d852e247977bbe07e39adb1, type: 3}
   m_PrefabInstance: {fileID: 492590468}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &814281099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 814281100}
+  - component: {fileID: 814281101}
+  m_Layer: 0
+  m_Name: GameOverScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &814281100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814281099}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 602452950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &814281101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814281099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 918c698afb08adc8ba85f9cd76d295b9, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 2eb39f545862a865d89fc25d1f29aef9, type: 3}
+  m_SortingOrder: 0
 --- !u!1001 &819018435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37208,6 +37275,8 @@ MonoBehaviour:
   baseDamage: 10
   weaponList:
   - {fileID: 5029868015402955001, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
+  - {fileID: 6335313778335870420, guid: 5ff13ee560f16334d998301c389295a3, type: 3}
+  - {fileID: 7437526622663931204, guid: 906fae015101ec14d85ef18648b7d9a3, type: 3}
   companionList: []
   companionActive: 
   animationController:
@@ -38341,10 +38410,14 @@ MonoBehaviour:
       layers: 16777223
       maskAndChannels: 234881031
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 58076
 =======
     surfaceParameter: 52802
 >>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
+=======
+    surfaceParameter: 52190
+>>>>>>> 8febb5fc (feat: game over working)
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 4213782835730287171

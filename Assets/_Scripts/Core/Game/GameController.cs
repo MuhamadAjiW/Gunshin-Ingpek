@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     // Attributes
     public Player player;
     public GameCameraController mainCamera;
-    public GameStateController stateController = new();
+    public GameStateController stateController;
 
     // Cheat Attributes
     private float cheatDelayTimer;
@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
 
     // Set-Getters
     public bool IsPaused => Time.timeScale == 0;
+
+    private bool DeathIsBound = false;
 
     // Constructor
     GameController()
@@ -41,9 +43,20 @@ public class GameController : MonoBehaviour
 #endif
     }
 
+    public void OnEnable()
+    {
+    }
+
+
     // Functions
     protected void Update()
     {
+        if (!DeathIsBound && player is not null)
+        {
+            player.OnDeathEvent += () => { stateController.PushState(GameState.OVER); };
+            DeathIsBound = true;
+        }
+
         if (Input.GetKeyDown(GameInput.Instance.backButton))
         {
             stateController.HandleEscape();

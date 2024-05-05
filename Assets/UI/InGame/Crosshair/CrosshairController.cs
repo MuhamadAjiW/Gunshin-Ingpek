@@ -35,7 +35,6 @@ public class CrosshairController : InGameUIScreenController
     public void ToggleCrosshair(bool visible)
     {
         VisualElement crosshairContainer = rootElement.Query("CrosshairContainer").First();
-        Debug.Log(crosshairContainer);
         if (visible)
         {
             crosshairContainer.RemoveFromClassList(UIManagement.USSAnimationClasses.Hidden);
