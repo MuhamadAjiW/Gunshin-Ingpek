@@ -182,23 +182,22 @@ public class Player : PlayerEntity
         Debug.Log(id + ": Health increased from " + prevHealth + " to " + Health);
     }
 
-    public void ActivateIncSpeedOrb(float duration, float speedMultiplier)
+    public void ActivateIncSpeedOrb(float duration, StatEffect effect)
     {
         if (isIncSpeedOrbActive)
         {
             Debug.Log(id + ": Increase Speed Orb already active. Killing the previous one.");
             StopCoroutine(incSpeedOrbCoroutine);
         }
-        incSpeedOrbCoroutine = StartCoroutine(IncSpeedOrbTimeout(duration, speedMultiplier));
+        incSpeedOrbCoroutine = StartCoroutine(IncSpeedOrbTimeout(duration, effect));
     }
 
-    private IEnumerator IncSpeedOrbTimeout(float duration, float speedMultiplier)
+    private IEnumerator IncSpeedOrbTimeout(float duration, StatEffect effect)
     {
         float prev = Speed;
         if (!isIncSpeedOrbActive)
         {
-            StatEffect incSpeed = new("Increase Speed Orb", StatEffectType.SPEED, StatEffectType.MULTIPLICATION, speedMultiplier);
-            effects.Add(incSpeed);
+            effects.Add(effect);
         }
 
         Debug.Log(id + ": Speed increased from " + prev + " to " + Speed);
@@ -207,18 +206,17 @@ public class Player : PlayerEntity
 
         yield return new WaitForSeconds(duration);
 
-        effects.Remove(effects.Find(effect => effect.description == "Increase Speed Orb"));
+        effects.Remove(effects.Find(effect => effect.statFlag == StatEffectFlag.INC_SPEED_ORB));
         isIncSpeedOrbActive = false;
         Debug.Log(id + ": Increase Speed Orb effect ended. Speed decreased to " + Speed);
     }
 
-    public void ActivateIncDamageOrb(float damageMultiplier)
+    public void ActivateIncDamageOrb(StatEffect effect)
     {
         incDamageOrbCount++;
 
         float prev = Damage;
-        StatEffect incDamage = new("Increase Damage Orb", StatEffectType.DAMAGE, StatEffectType.MULTIPLICATION, damageMultiplier);
-        effects.Add(incDamage);
+        effects.Add(effect);
 
         Debug.Log(id + ": Damage increased from " + prev + " to " + Damage);
     }

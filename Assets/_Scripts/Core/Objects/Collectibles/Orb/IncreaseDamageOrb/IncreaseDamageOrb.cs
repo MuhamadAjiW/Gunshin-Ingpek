@@ -3,29 +3,33 @@ using UnityEngine;
 public class IncreaseDamageOrb : Orb
 {
     // Static Attributes
-    public const string ObjectIdPrefix = "IncreaseDamageOrb";
-    [SerializeField] float baseDamageMultiplier = 0.1f;
+    public const string OBJECT_ID_PREFIX = "IncreaseDamageOrb";
+    private readonly StatEffect effect = new(
+        "Increase Damage Orb",
+        StatEffectType.DAMAGE,
+        StatEffectType.MULTIPLICATION,
+        0.1f
+    );
 
     // Constructor
     protected new void Start()
     {
         base.Start();
-        SetIdPrefix(ObjectIdPrefix);
+        SetIdPrefix(OBJECT_ID_PREFIX);
     }
 
     // Functions
     protected override void OnCollect()
     {
         base.OnCollect();
-        collector.ActivateIncDamageOrb(baseDamageMultiplier);
+        GameController.Instance.player.ActivateIncDamageOrb(effect);
     }
 
     protected override void OnTriggerEnter(Collider otherCollider)
     {
         if
         (
-            otherCollider.transform.parent.gameObject.TryGetComponent(out collector) &&
-            collector.incDamageOrbCount < collector.maxIncDamageOrbCount
+            GameController.Instance.player.incDamageOrbCount < GameController.Instance.player.maxIncDamageOrbCount
         )
         {
             base.OnTriggerEnter(otherCollider);

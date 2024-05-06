@@ -3,7 +3,7 @@ using UnityEngine;
 public class RestoreHealthOrb : Orb
 {
     // Static Attributes
-    public const string ObjectIdPrefix = "RestoreHealthOrb";
+    public const string OBJECT_ID_PREFIX = "RestoreHealthOrb";
 
     // Attributes
     [SerializeField] float healthMultiplier = 0.2f;
@@ -12,13 +12,13 @@ public class RestoreHealthOrb : Orb
     protected new void Start()
     {
         base.Start();
-        SetIdPrefix(ObjectIdPrefix);
+        SetIdPrefix(OBJECT_ID_PREFIX);
     }
 
     // Functions
     protected override void OnCollect()
     {
         base.OnCollect();
-        collector.ActivateRestoreHealthOrb(healthMultiplier);
+        GameController.Instance.player.ActivateRestoreHealthOrb(healthMultiplier);
     }
 }
