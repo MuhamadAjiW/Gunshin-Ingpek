@@ -17,8 +17,6 @@ public partial class HealthBar : VisualElement
 
     VisualElement m_OuterBar;
     VisualElement m_HealthBar;
-    VisualElement m_HealthBarBackground;
-
 
 
     [UxmlAttribute, CreateProperty]

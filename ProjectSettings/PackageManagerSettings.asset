@@ -32,6 +32,11 @@ MonoBehaviour:
   m_RegistryInfoDraft:
     m_Modified: 0
     m_ErrorMessage: 
+<<<<<<< HEAD
     m_UserModificationsInstanceId: -848
     m_OriginalInstanceId: -850
+=======
+    m_UserModificationsInstanceId: -852
+    m_OriginalInstanceId: -854
+>>>>>>> 0da583e2 (feat: initial work on saving multiple slots and visual element)
   m_LoadAssets: 0

@@ -6,14 +6,16 @@ using _Scripts.Core.Game.Data.Position;
 using _Scripts.Core.Game.Data.Story;
 using UnityEngine;
 
-namespace _Scripts.Core.Game.Data
+namespace _Scripts.Core.Game.Data.Saves
 {
-    public class GameSaveData : MonoBehaviour 
+    public class GameSaveData : MonoBehaviour
     {
         // Static Instance
         public static GameSaveData Instance;
 
         // Attributes
+
+        public DateTime writeTime;
         public DifficultyType difficulty = DifficultyType.NORMAL;
         public List<string> events = new();
         // Save the currency of the player
@@ -22,18 +24,17 @@ namespace _Scripts.Core.Game.Data
         public PositionData positionData = new();
         // Save the story state of the player
         public StoryData storyData;
-    
+
         // Constructor
         private void Awake()
         {
-            Instance = this;
             storyData = new StoryData(events);
             DontDestroyOnLoad(gameObject);
         }
 
-        public void SaveGame()
+        public void SaveGame(string path, string name)
         {
-            GameDataWrapper wrapper = new GameDataWrapper
+            GameDataWrapper wrapper = new()
             {
                 difficulty = this.difficulty,
                 events = this.events,
@@ -43,16 +44,18 @@ namespace _Scripts.Core.Game.Data
             };
 
             string json = JsonUtility.ToJson(wrapper, true);
-            File.WriteAllText(Application.persistentDataPath + "/savegame.json", json);
-            Debug.Log("Game saved to " + Application.persistentDataPath + "/savegame.json");
+            string filePath = string.Format("{0}/{1}.json", path, name);
+            File.WriteAllText(filePath, json);
+            Debug.Log("Game saved to " + filePath);
         }
 
-        public void LoadGame()
+        public GameSaveManager.GameLoadResult LoadGame(string path, string name)
         {
-            string path = Application.persistentDataPath + "/savegame.json";
             if (File.Exists(path))
             {
-                string json = File.ReadAllText(path);
+                string filePath = string.Format("{0}/{1}", path, name);
+                writeTime = File.GetLastWriteTime(filePath);
+                string json = File.ReadAllText(filePath);
                 GameDataWrapper wrapper = JsonUtility.FromJson<GameDataWrapper>(json);
 
                 this.difficulty = wrapper.difficulty;
@@ -60,24 +63,16 @@ namespace _Scripts.Core.Game.Data
                 this.currencyData = wrapper.currencyData;
                 this.positionData = wrapper.positionData;
                 this.storyData = wrapper.storyData;
-                Debug.Log("Game loaded from " + path);
+                Debug.Log("Game loaded from " + filePath);
+                return GameSaveManager.GameLoadResult.SUCCESS;
             }
             else
             {
                 Debug.LogError("Save file not found in " + path);
+                return GameSaveManager.GameLoadResult.NO_FILE_FOUND;
             }
         }
-    
 
-    }
 
-    [Serializable]
-    public class GameDataWrapper
-    {
-        public DifficultyType difficulty;
-        public List<String> events;
-        public CurrencyData currencyData;
-        public PositionData positionData;
-        public StoryData storyData;
     }
 }

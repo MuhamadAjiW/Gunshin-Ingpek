@@ -1,4 +1,5 @@
 using _Scripts.Core.Game.Data;
+using _Scripts.Core.Game.Data.Saves;
 using UnityEngine;
 
 public class WorldObject : MonoBehaviour
@@ -6,7 +7,7 @@ public class WorldObject : MonoBehaviour
     // Attributes
     public string id;
     private static int autoIncrement = 0;
-    private int numberId; 
+    private int numberId;
     private string prefix;
     private string layerCode = EnvironmentConfig.LAYER_DEFAULT;
 
@@ -22,8 +23,8 @@ public class WorldObject : MonoBehaviour
     // Constructor
     protected void Start()
     {
-        #if STRICT
-        if(GameController.Instance == null
+#if STRICT
+        if (GameController.Instance == null
          || GameSaveData.Instance == null
          || GameInput.Instance == null
          || EnvironmentManager.Instance == null
@@ -31,7 +32,7 @@ public class WorldObject : MonoBehaviour
         {
             Debug.LogError("The structural controller scripts does not exist in the scene. How to resolve: refer to https://docs.google.com/document/d/14ypRPRArb10h4RO5I6qJBkxmQ-dMVWQy3zJeMVDpSsM/edit#heading=h.rucy43z24dch for the scene's base structure");
         }
-        #endif
+#endif
 
         numberId = autoIncrement;
         id = numberId.ToString();
@@ -51,10 +52,10 @@ public class WorldObject : MonoBehaviour
     protected void SetIdPrefix(string prefix)
     {
         this.prefix = prefix;
-        if(this.prefix == "")
+        if (this.prefix == "")
         {
             id = numberId.ToString();
-        } 
+        }
         else
         {
             id = this.prefix + "_" + id;
