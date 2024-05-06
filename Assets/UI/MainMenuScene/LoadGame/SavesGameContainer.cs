@@ -15,8 +15,6 @@ public partial class SavesGameContainer : VisualElement
 
     private VisualElement m_GameSavesContainer;
 
-    public GameSaveManager gameSavesManager;
-
     public List<GameSaveData> Saves
     {
         get => GameSaveManager.Instance.GetSaves();

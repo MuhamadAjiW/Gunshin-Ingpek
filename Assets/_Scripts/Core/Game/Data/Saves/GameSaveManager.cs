@@ -24,9 +24,13 @@ namespace _Scripts.Core.Game.Data.Saves
         public static GameSaveManager Instance;
 
         public static string SAVE_PATH = Application.persistentDataPath + "/saves";
+
+        public static string STATS_FILE_PATH = Application.persistentDataPath + "/stats.json";
+
         public static int NUMBER_OF_SAVE_SLOT = 3;
 
         private readonly List<GameSaveData> gameSaves = new();
+
 
         public event Action OnGameSavesChange;
 
@@ -60,6 +64,23 @@ namespace _Scripts.Core.Game.Data.Saves
                     OnGameSavesChange?.Invoke();
                 }
             }
+        }
+
+        public void LoadStatistics()
+        {
+            if (File.Exists(STATS_FILE_PATH))
+            {
+                GameStatistics.Instance.Load(File.ReadAllText(STATS_FILE_PATH));
+            }
+            else
+            {
+                Debug.LogError("Statistics file not found");
+            }
+        }
+
+        public void SaveStatistics()
+        {
+            File.WriteAllTextAsync(STATS_FILE_PATH, GameStatistics.Instance.SaveToJson());
         }
 
         public GameSaveResult NewSave()

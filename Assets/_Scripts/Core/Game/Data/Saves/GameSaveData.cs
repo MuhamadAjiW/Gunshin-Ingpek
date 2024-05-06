@@ -51,9 +51,9 @@ namespace _Scripts.Core.Game.Data.Saves
 
         public GameSaveManager.GameLoadResult LoadGame(string path, string name)
         {
-            if (File.Exists(path))
+            string filePath = string.Format("{0}/{1}", path, name);
+            if (File.Exists(filePath))
             {
-                string filePath = string.Format("{0}/{1}", path, name);
                 writeTime = File.GetLastWriteTime(filePath);
                 string json = File.ReadAllText(filePath);
                 GameDataWrapper wrapper = JsonUtility.FromJson<GameDataWrapper>(json);
