@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 <<<<<<< HEAD
@@ -109,6 +110,7 @@ public class PlayerStateController : EntityStateController
     private void OnDeath()
     {
         state = PlayerState.DEAD;
+        player.StartCoroutine(DeathCutscene());
     }
 
     public bool GetIsAiming()
@@ -126,5 +128,16 @@ public class PlayerStateController : EntityStateController
         ToggleIsAiming(!IsAiming);
     }
 
+    private IEnumerator DeathCutscene()
+    {
+        yield return new WaitForSeconds(4);
+        GameController.Instance.StartCutscene(StoryConfig.KEY_DEATH);
+        DialogController.Instance.OnCutsceneFinished += EndGame;
+    }
 
+    private void EndGame()
+    {
+        DialogController.Instance.OnCutsceneFinished -= EndGame;
+        GameController.Instance.stateController.PushState(GameState.OVER);
+    }
 }

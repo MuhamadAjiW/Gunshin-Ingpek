@@ -27,7 +27,7 @@ namespace _Scripts.Core.Game.Data
         private void Awake()
         {
             Instance = this;
-            storyData = new StoryData(StoryConfig.GetStoryEvents());
+            storyData = new StoryData(StoryConfig.STORY_EVENTS);
             DontDestroyOnLoad(gameObject);
         }
 

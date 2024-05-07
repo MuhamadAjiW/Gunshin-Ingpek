@@ -33,6 +33,8 @@ public class DialogController : InGameUIScreenController
         endY += initialY;
     }
 
+
+    // Functions
     public void StartCutscene(CutsceneData cutsceneData)
     {
         GameController.stateController.PushState(GameState.CUTSCENE);
@@ -51,8 +53,8 @@ public class DialogController : InGameUIScreenController
 
             if(cutsceneProgress == currentCutscene.dialogs.Count)
             {
-                OnCutsceneFinished?.Invoke();
                 GameController.stateController.PopState();
+                OnCutsceneFinished?.Invoke();
             }
             else
             {

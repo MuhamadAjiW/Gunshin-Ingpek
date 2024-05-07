@@ -18,8 +18,6 @@ public class GameController : MonoBehaviour
     // Set-Getters
     public bool IsPaused => Time.timeScale == 0;
 
-    private bool DeathIsBound = false;
-
     // Constructor
     GameController()
     {
@@ -51,12 +49,6 @@ public class GameController : MonoBehaviour
     // Functions
     protected void Update()
     {
-        if (!DeathIsBound && player is not null)
-        {
-            player.OnDeathEvent += () => { stateController.PushState(GameState.OVER); };
-            DeathIsBound = true;
-        }
-
         if (Input.GetKeyDown(GameInput.Instance.backButton))
         {
             stateController.HandleEscape();
@@ -101,7 +93,7 @@ public class GameController : MonoBehaviour
 
     public void StartCutscene(string eventCode)
     {
-        CutsceneData cutscene = Resources.Load<CutsceneData>(StoryConfig.STORY_EVENTS[eventCode]);
+        CutsceneData cutscene = Resources.Load<CutsceneData>(StoryConfig.CUTSCENES[eventCode]);
         DialogController.Instance.StartCutscene(cutscene);
     }
 }

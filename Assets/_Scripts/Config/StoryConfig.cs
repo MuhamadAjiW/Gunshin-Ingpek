@@ -14,7 +14,7 @@ public static class StoryConfig
     public const string KEY_DEATH = "EVENT_DEATH";
 
     // Story data
-    public static readonly Dictionary<String, String> STORY_EVENTS = new()
+    public static readonly Dictionary<String, String> CUTSCENES = new()
     {
         { KEY_TEST_EVENT, "Data/Cutscene/Test_Cutscene" },
         { KEY_STORY1, "Data/Cutscene/Story1" },
@@ -26,9 +26,13 @@ public static class StoryConfig
         { KEY_DEATH, "Data/Cutscene/Death" },
     };
 
-    public static List<string> GetStoryEvents()
+    public static readonly List<String> STORY_EVENTS = new()
     {
-        // Return the keys of the STORY_EVENTS dictionary
-        return new List<string>(STORY_EVENTS.Keys);
-    }
+        KEY_STORY1,
+        KEY_STORY2,
+        KEY_STORY3,
+        KEY_STORY4,
+        KEY_STORY5,
+        KEY_STORY6,
+    };
 }
