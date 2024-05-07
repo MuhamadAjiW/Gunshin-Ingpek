@@ -46,6 +46,13 @@ public abstract class Collectible : WorldObject
         Destroy(gameObject);
     }
 
+    public void AddOnCollect(Action onCollect)
+    {
+        OnCollectEvent -= OnCollectEnd;
+        OnCollectEvent += onCollect;
+        OnCollectEvent += OnCollectEnd;
+    }
+
     public void AddOnTimeout(Action onTimeout)
     {
         OnTimeoutEvent -= OnTimeoutEnd;
