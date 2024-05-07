@@ -64,6 +64,8 @@ public class DialogController : InGameUIScreenController
     public void LoadData(DialogData data)
     {
         dialogOverlay.m_Overlay.style.backgroundColor = data.OverlayColor;
+        dialogOverlay.m_Overlay.style.backgroundImage = new StyleBackground(data.OverlayBackground);
+
         dialogOverlay.m_PersonLLabelContainer.visible = data.PersonLActive;
         dialogOverlay.m_PersonLImage.visible = data.PersonLActive;
         dialogOverlay.m_PersonLImage.style.backgroundImage = new StyleBackground(data.PersonLImage);

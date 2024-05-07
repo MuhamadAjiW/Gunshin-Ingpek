@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogData
 {
     public string Text;
+    public Texture2D OverlayBackground;
     public Color OverlayColor;
     public bool PersonLActive;
     public string PersonLName;
