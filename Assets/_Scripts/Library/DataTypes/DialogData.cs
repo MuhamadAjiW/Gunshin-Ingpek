@@ -12,4 +12,5 @@ public class DialogData
     public bool PersonRActive;
     public string PersonRName;
     public Texture2D PersonRImage;
+    public DialogAnimation animation;
 }

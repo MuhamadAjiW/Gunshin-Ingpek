@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - Text: "\u2026 (gelap aja)"
-    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
     PersonLName: 
     PersonLImage: {fileID: 0}
     PersonRActive: 0
     PersonRName: 
     PersonRImage: {fileID: 0}
+    animation: 3
   - Text: ... Huh?
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
@@ -29,3 +30,13 @@ MonoBehaviour:
     PersonRActive: 0
     PersonRName: 
     PersonRImage: {fileID: 0}
+    animation: 1
+  - Text: ... Huh!?!?!??!?
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 1
+    PersonRName: Jeaniqua 2nd
+    PersonRImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    animation: 3

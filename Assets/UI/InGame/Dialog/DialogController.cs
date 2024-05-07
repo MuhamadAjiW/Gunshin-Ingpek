@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,9 +8,16 @@ public class DialogController : InGameUIScreenController
     public static DialogController Instance;
 
     // Attributes
-    Dialog dialogOverlay;
-    CutsceneData currentCutscene;
-    int cutsceneProgress;
+    private Dialog dialogOverlay;
+    private CutsceneData currentCutscene;
+    private int cutsceneProgress;
+
+    // for pseudo animation
+    private float animationSpeed = 10f;
+    private float initialY = 0f;
+    private float endY = -50f;
+    private Coroutine currentAnimationLeft;
+    private Coroutine currentAnimationRight;
 
     // Events
     public event Action OnCutsceneFinished;
@@ -21,7 +27,10 @@ public class DialogController : InGameUIScreenController
     {
         base.OnEnable();
         Instance = this;
-        dialogOverlay = rootElement.Q<Dialog>();    
+        dialogOverlay = rootElement.Q<Dialog>();
+
+        initialY = dialogOverlay.m_PersonLImage.style.top.value.value;
+        endY += initialY;
     }
 
     public void StartCutscene(CutsceneData cutsceneData)
@@ -31,11 +40,11 @@ public class DialogController : InGameUIScreenController
         currentCutscene = cutsceneData;
         cutsceneProgress = -1;
         ProgressCutscene();
-        // dialogOverlay.dataSource = currentCutscene.dialogs[cutsceneProgress];
     }
 
     public void ProgressCutscene()
     {
+        StopAnimation();
         if(cutsceneProgress < currentCutscene.dialogs.Count)
         {
             cutsceneProgress++;
@@ -67,5 +76,101 @@ public class DialogController : InGameUIScreenController
         dialogOverlay.m_PersonRLabelText.text = data.PersonRName;
         
         dialogOverlay.m_MainText.text = data.Text;
+
+        Animate(data.animation);
+    }
+
+    public void StopAnimation()
+    {
+        if (currentAnimationLeft != null)
+        {
+            StopCoroutine(currentAnimationLeft);
+            dialogOverlay.m_PersonLImage.style.top = initialY;
+        }
+        if (currentAnimationRight != null)
+        {
+            StopCoroutine(currentAnimationRight);
+            dialogOverlay.m_PersonRImage.style.top = initialY;
+        }
+    }
+
+    public void Animate(DialogAnimation code)
+    {
+        // StopAnimation();
+        switch (code)
+        {
+            case DialogAnimation.ANIMATE_NONE:
+                return;
+            case DialogAnimation.ANIMATE_LEFT:
+                currentAnimationLeft = StartCoroutine(AnimatePersonCoroutine(DialogAnimation.ANIMATE_LEFT));
+                return;
+            case DialogAnimation.ANIMATE_RIGHT:
+                currentAnimationRight = StartCoroutine(AnimatePersonCoroutine(DialogAnimation.ANIMATE_RIGHT));
+                return;
+            case DialogAnimation.ANIMATE_BOTH:
+                currentAnimationLeft = StartCoroutine(AnimatePersonCoroutine(DialogAnimation.ANIMATE_LEFT));
+                currentAnimationRight = StartCoroutine(AnimatePersonCoroutine(DialogAnimation.ANIMATE_RIGHT));
+                return;
+        }
+    }
+
+    private IEnumerator AnimatePersonCoroutine(DialogAnimation code)
+    {
+        yield return new WaitForSecondsRealtime(0.005f);
+        float targetY = endY;
+        float newY = initialY;
+        switch (code)
+        {
+            case DialogAnimation.ANIMATE_LEFT:
+                while (Mathf.Abs(newY - targetY) > 5f)
+                {
+                    newY = Mathf.Lerp(newY, targetY, 0.05f);
+                    dialogOverlay.m_PersonLImage.style.top = newY;
+
+                    yield return new WaitForSecondsRealtime(0.001f);
+                }
+                dialogOverlay.m_PersonLImage.style.top = targetY;
+                
+                targetY = initialY;
+
+                newY = endY;
+                while (Mathf.Abs(newY - targetY) > 5f)
+                {
+                    newY = Mathf.Lerp(newY, targetY, 0.05f);
+                    dialogOverlay.m_PersonLImage.style.top = newY;
+
+                    yield return new WaitForSecondsRealtime(0.001f);
+                }
+                dialogOverlay.m_PersonLImage.style.top = targetY;
+                break;
+
+            case DialogAnimation.ANIMATE_RIGHT:
+                while (Mathf.Abs(newY - targetY) > 5f)
+                {
+                    newY = Mathf.Lerp(newY, targetY, 0.05f);
+                    dialogOverlay.m_PersonRImage.style.top = newY;
+
+                    yield return new WaitForSecondsRealtime(0.001f);
+                }
+                dialogOverlay.m_PersonRImage.style.top = targetY;
+                
+                targetY = initialY;
+
+                newY = endY;
+                while (Mathf.Abs(newY - targetY) > 5f)
+                {
+                    newY = Mathf.Lerp(newY, targetY, 0.05f);
+                    dialogOverlay.m_PersonRImage.style.top = newY;
+
+                    yield return new WaitForSecondsRealtime(0.001f);
+                }
+                dialogOverlay.m_PersonRImage.style.top = targetY;
+                break;
+            
+            default:
+                yield return null;
+                break;
+        }
+        
     }
 }
