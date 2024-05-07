@@ -22,5 +22,9 @@ public class TestInteractable : InteractableObject
             GameController.Instance.StartCutscene(StoryConfig.KEY_TEST_EVENT);
             GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_TEST_EVENT);
         }
+        else
+        {
+            Debug.Log("You already triggered the test cutscene");
+        }
     }
 }
