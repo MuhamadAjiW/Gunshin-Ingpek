@@ -47,15 +47,9 @@ public class TestInteractable : InteractableObject
             GameController.Instance.StartCutscene(StoryConfig.KEY_STORY6);
             GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY6);
         }
-        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_DEATH))
-        {
-            GameController.Instance.StartCutscene(StoryConfig.KEY_DEATH);
-            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_DEATH);
-        }
         else
         {
             GameController.Instance.StartCutscene(StoryConfig.KEY_TEST_EVENT);
-            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_TEST_EVENT);
         }
     }
 }
