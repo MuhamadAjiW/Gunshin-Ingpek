@@ -35,7 +35,6 @@ public class InGameUIManager : MonoBehaviour
         SetUIDocumentVisibleOnThisState("GameOverScreen", new List<GameState> { GameState.OVER })(gameState);
         SetUIDocumentVisibleOnThisState("CompletedScreen", new List<GameState> { GameState.FINISH })(gameState);
         SetUIDocumentVisibleOnThisState("HealthBar", new List<GameState> { GameState.RUNNING })(gameState);
-
     }
 
     public void OnEnable()
