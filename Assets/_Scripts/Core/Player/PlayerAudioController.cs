@@ -81,6 +81,8 @@ public class PlayerAudioController : AudioController
 
     public void OnDeath()
     {
+        Stop(WALKING_KEY);
+        Stop(RUNNING_KEY);
         Play(DEATH_KEY);
     }
 

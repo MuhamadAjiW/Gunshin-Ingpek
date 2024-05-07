@@ -55,7 +55,7 @@ public class General : BossEntity
     protected IEnumerator DrainPlayerHealth()
     {
         yield return new WaitForSeconds(drainDelay);
-        if (stateController.playerInDebuff)
+        if (stateController.playerInDebuff && !GameController.Instance.player.Dead)
         {
             GameController.Instance.player.InflictDrainDamage(drainDamage);
         }

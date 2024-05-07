@@ -109,7 +109,6 @@ public class PlayerStateController : EntityStateController
     private void OnDeath()
     {
         state = PlayerState.DEAD;
-        SceneManager.LoadScene("DeathCutscene");
     }
 
     public bool GetIsAiming()

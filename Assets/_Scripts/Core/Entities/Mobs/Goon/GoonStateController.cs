@@ -22,64 +22,10 @@ public class GoonStateController : EntityStateController
     // Functions
     protected override int DetectState()
     {
-        // Get movementState
-        int movementState = 0; 
-        if(DetectJumping())
-        {
-            movementState = GoonState.JUMPING;
-        }
-        else if(DetectFalling())
-        {
-            movementState = GoonState.FALLING;
-        }
-        else if(DetectSprinting())
-        {
-            movementState = GoonState.SPRINTING;
-        }
-        else
-        {
-            movementState = GoonState.IDLE;
-        }
-
-        // Get aiState
-        int aiState = 0;
-        if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < attackDistance)
-        {
-            aiState = GoonState.AI_IN_RANGE_STATE;
-        }
-        else if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < detectionDistance)
-        {
-            if(GoonState.GetAIState(state) < GoonState.AI_DETECTED_STATE)
-            {
-                goon.audioController.Play(Goon.AUDIO_CRY_KEY);
-            }
-            goon.aiController.nav.speed = goon.Speed;
-            aiState = GoonState.AI_DETECTED_STATE;
-        }
-        else
-        {
-            goon.aiController.nav.speed = goon.aiController.patrolSpeed;
-            aiState = GoonState.AI_PATROL_STATE;
-        }
-
-        // Get attackState
-        int attackState = 0;
-        if(DetectAttacking())
-        {
-            AttackType attackType = weaponState switch
-            {
-                WeaponState.ATTACK => goon.Weapon.attackType,
-                WeaponState.ALTERNATE_ATTACK => goon.Weapon.alternateAttackType,
-                _ => AttackType.NULL
-            };
-
-            attackState = attackType switch
-            {
-                AttackType.RANGED => GoonState.ATTACK_RANGED,
-                AttackType.MELEE => GoonState.ATTACK_MELEE,
-                _ => GoonState.NULL
-            };
-        }
+        // Get states
+        int movementState = DetectMovementState();
+        int aiState = DetectAIState();
+        int attackState = DetectAttackState();
 
         // Combine states
         state = movementState | aiState | attackState;
@@ -114,6 +60,75 @@ public class GoonStateController : EntityStateController
     private void OnDeath()
     {
         state = GoonState.DEAD;
+    }
+    
+    // State functions
+    private int DetectMovementState()
+    {
+        if(DetectJumping())
+        {
+            return GoonState.JUMPING;
+        }
+        else if(DetectFalling())
+        {
+            return GoonState.FALLING;
+        }
+        else if(DetectSprinting())
+        {
+            return GoonState.SPRINTING;
+        }
+        else
+        {
+            return GoonState.IDLE;
+        }
+    }
+    private int DetectAIState()
+    {
+        if(GameController.Instance.player.Dead)
+        {
+            goon.aiController.nav.speed = goon.aiController.patrolSpeed;
+            return GoonState.AI_PATROL_STATE;
+        }
+
+        if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < attackDistance)
+        {
+            return GoonState.AI_IN_RANGE_STATE;
+        }
+        else if(Vector3.Distance(goon.Position, GameController.Instance.player.Position) < detectionDistance)
+        {
+            if(GoonState.GetAIState(state) < GoonState.AI_DETECTED_STATE)
+            {
+                goon.audioController.Play(Goon.AUDIO_CRY_KEY);
+            }
+            goon.aiController.nav.speed = goon.Speed;
+            return GoonState.AI_DETECTED_STATE;
+        }
+        else
+        {
+            goon.aiController.nav.speed = goon.aiController.patrolSpeed;
+            return GoonState.AI_PATROL_STATE;
+        }
+    }
+    private int DetectAttackState()
+    {
+        int attackState = 0;
+        if(DetectAttacking())
+        {
+            AttackType attackType = weaponState switch
+            {
+                WeaponState.ATTACK => goon.Weapon.attackType,
+                WeaponState.ALTERNATE_ATTACK => goon.Weapon.alternateAttackType,
+                _ => AttackType.NULL
+            };
+
+            attackState = attackType switch
+            {
+                AttackType.RANGED => GoonState.ATTACK_RANGED,
+                AttackType.MELEE => GoonState.ATTACK_MELEE,
+                _ => GoonState.NULL
+            };
+        }
+        return attackState;
     }
 
 

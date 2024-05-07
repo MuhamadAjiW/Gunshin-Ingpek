@@ -29,71 +29,18 @@ public class KingStateController : EntityStateController
     // Functions
     protected override int DetectState()
     {
-        // Get movementState
-        int movementState = 0; 
-        if(DetectJumping())
-        {
-            movementState = KingState.JUMPING;
-        }
-        else if(DetectFalling())
-        {
-            movementState = KingState.FALLING;
-        }
-        else if(DetectSprinting())
-        {
-            movementState = KingState.SPRINTING;
-        }
-        else
-        {
-            movementState = KingState.IDLE;
-        }
-
-        // Get aiState
-        int aiState = 0;
-        if(Vector3.Distance(king.Position, GameController.Instance.player.Position) < attackDistance)
-        {
-            aiState = KingState.AI_IN_RANGE_STATE;
-        }
-        else if(Vector3.Distance(king.Position, GameController.Instance.player.Position) < detectionDistance)
-        {
-            if(KingState.GetAIState(state) < KingState.AI_DETECTED_STATE)
-            {
-                king.audioController.Play(King.AUDIO_CRY_KEY);
-            }
-            king.aiController.nav.speed = king.Speed;
-            aiState = KingState.AI_DETECTED_STATE;
-        }
-        else
-        {
-            king.aiController.nav.speed = king.aiController.patrolSpeed;
-            aiState = KingState.AI_PATROL_STATE;
-        }
-
-        // Get attackState
-        int attackState = 0;
-        if(DetectAttacking())
-        {
-            AttackType attackType = weaponState switch
-            {
-                WeaponState.ATTACK => king.Weapon.attackType,
-                WeaponState.ALTERNATE_ATTACK => king.Weapon.alternateAttackType,
-                _ => AttackType.NULL
-            };
-
-            attackState = attackType switch
-            {
-                AttackType.RANGED => KingState.ATTACK_RANGED,
-                AttackType.MELEE => KingState.ATTACK_MELEE,
-                _ => KingState.NULL
-            };
-        }
+        // Get states
+        int movementState = DetectMovementState();
+        int aiState = DetectAIState();
+        int attackState = DetectAttackState();
 
         // Combine states
         state = movementState | aiState | attackState;
         
         // Additional state
         bool previousDebuff = playerInDebuff;
-        playerInDebuff = Vector3.Distance(king.Position, GameController.Instance.player.Position) < debuffDistance;
+        playerInDebuff = DetectPlayerDebuff();
+
         if(playerInDebuff != previousDebuff)
         {
             if(playerInDebuff == true)
@@ -136,6 +83,84 @@ public class KingStateController : EntityStateController
     private void OnDeath()
     {
         state = KingState.DEAD;
+    }
+
+    // State functions
+    private int DetectMovementState()
+    {
+        if(DetectJumping())
+        {
+            return KingState.JUMPING;
+        }
+        else if(DetectFalling())
+        {
+            return KingState.FALLING;
+        }
+        else if(DetectSprinting())
+        {
+            return KingState.SPRINTING;
+        }
+        else
+        {
+            return KingState.IDLE;
+        }
+    }
+    private int DetectAIState()
+    {
+        if(GameController.Instance.player.Dead)
+        {
+            king.aiController.nav.speed = king.aiController.patrolSpeed;
+            return KingState.AI_PATROL_STATE;
+        }
+
+        if(Vector3.Distance(king.Position, GameController.Instance.player.Position) < attackDistance)
+        {
+            return KingState.AI_IN_RANGE_STATE;
+        }
+        else if(Vector3.Distance(king.Position, GameController.Instance.player.Position) < detectionDistance)
+        {
+            if(KingState.GetAIState(state) < KingState.AI_DETECTED_STATE)
+            {
+                king.audioController.Play(King.AUDIO_CRY_KEY);
+            }
+            king.aiController.nav.speed = king.Speed;
+            return KingState.AI_DETECTED_STATE;
+        }
+        else
+        {
+            king.aiController.nav.speed = king.aiController.patrolSpeed;
+            return KingState.AI_PATROL_STATE;
+        }
+    }
+    private int DetectAttackState()
+    {
+        int attackState = 0;
+        if(DetectAttacking())
+        {
+            AttackType attackType = weaponState switch
+            {
+                WeaponState.ATTACK => king.Weapon.attackType,
+                WeaponState.ALTERNATE_ATTACK => king.Weapon.alternateAttackType,
+                _ => AttackType.NULL
+            };
+
+            attackState = attackType switch
+            {
+                AttackType.RANGED => KingState.ATTACK_RANGED,
+                AttackType.MELEE => KingState.ATTACK_MELEE,
+                _ => KingState.NULL
+            };
+        }
+        return attackState;
+    }
+    private bool DetectPlayerDebuff()
+    {
+        if(GameController.Instance.player.Dead)
+        {
+            return false;
+        }
+
+        return Vector3.Distance(king.Position, GameController.Instance.player.Position) < debuffDistance;
     }
 
 

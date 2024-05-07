@@ -24,70 +24,16 @@ public class GeneralStateController : EntityStateController
     // Functions
     protected override int DetectState()
     {
-        // Get movementState
-        int movementState = 0; 
-        if(DetectJumping())
-        {
-            movementState = GeneralState.JUMPING;
-        }
-        else if(DetectFalling())
-        {
-            movementState = GeneralState.FALLING;
-        }
-        else if(DetectSprinting())
-        {
-            movementState = GeneralState.SPRINTING;
-        }
-        else
-        {
-            movementState = GeneralState.IDLE;
-        }
-
-        // Get aiState
-        int aiState = 0;
-        if(Vector3.Distance(general.Position, GameController.Instance.player.Position) < attackDistance)
-        {
-            aiState = GeneralState.AI_IN_RANGE_STATE;
-        }
-        else if(Vector3.Distance(general.Position, GameController.Instance.player.Position) < detectionDistance)
-        {
-            if(GeneralState.GetAIState(state) < GeneralState.AI_DETECTED_STATE)
-            {
-                general.audioController.Play(General.AUDIO_CRY_KEY);
-            }
-            general.aiController.nav.speed = general.Speed;
-            aiState = GeneralState.AI_DETECTED_STATE;
-        }
-        else
-        {
-            general.aiController.nav.speed = general.aiController.patrolSpeed;
-            aiState = GeneralState.AI_PATROL_STATE;
-        }
-
-        // Get attackState
-        int attackState = 0;
-        if(DetectAttacking())
-        {
-            AttackType attackType = weaponState switch
-            {
-                WeaponState.ATTACK => general.Weapon.attackType,
-                WeaponState.ALTERNATE_ATTACK => general.Weapon.alternateAttackType,
-                _ => AttackType.NULL
-            };
-
-            attackState = attackType switch
-            {
-                AttackType.RANGED => GeneralState.ATTACK_RANGED,
-                AttackType.MELEE => GeneralState.ATTACK_MELEE,
-                _ => GeneralState.NULL
-            };
-        }
+        // Get states
+        int movementState = DetectMovementState();
+        int aiState = DetectAIState();
+        int attackState = DetectAttackState();
 
         // Combine states
         state = movementState | aiState | attackState;
 
         // Additional state
-        playerInDebuff = Vector3.Distance(general.Position, GameController.Instance.player.Position) < debuffDistance;
+        playerInDebuff = DetectPlayerDebuff();
 
         return state;
     }
@@ -121,6 +67,83 @@ public class GeneralStateController : EntityStateController
         state = GeneralState.DEAD;
     }
 
+    // State functions
+    private int DetectMovementState()
+    {
+        if(DetectJumping())
+        {
+            return GeneralState.JUMPING;
+        }
+        else if(DetectFalling())
+        {
+            return GeneralState.FALLING;
+        }
+        else if(DetectSprinting())
+        {
+            return GeneralState.SPRINTING;
+        }
+        else
+        {
+            return GeneralState.IDLE;
+        }
+    }
+    private int DetectAIState()
+    {
+        if(GameController.Instance.player.Dead)
+        {
+            general.aiController.nav.speed = general.aiController.patrolSpeed;
+            return GeneralState.AI_PATROL_STATE;
+        }
+
+        if(Vector3.Distance(general.Position, GameController.Instance.player.Position) < attackDistance)
+        {
+            return GeneralState.AI_IN_RANGE_STATE;
+        }
+        else if(Vector3.Distance(general.Position, GameController.Instance.player.Position) < detectionDistance)
+        {
+            if(GeneralState.GetAIState(state) < GeneralState.AI_DETECTED_STATE)
+            {
+                general.audioController.Play(General.AUDIO_CRY_KEY);
+            }
+            general.aiController.nav.speed = general.Speed;
+            return GeneralState.AI_DETECTED_STATE;
+        }
+        else
+        {
+            general.aiController.nav.speed = general.aiController.patrolSpeed;
+            return GeneralState.AI_PATROL_STATE;
+        }
+    }
+    private int DetectAttackState()
+    {
+        int attackState = 0;
+        if(DetectAttacking())
+        {
+            AttackType attackType = weaponState switch
+            {
+                WeaponState.ATTACK => general.Weapon.attackType,
+                WeaponState.ALTERNATE_ATTACK => general.Weapon.alternateAttackType,
+                _ => AttackType.NULL
+            };
+
+            attackState = attackType switch
+            {
+                AttackType.RANGED => GeneralState.ATTACK_RANGED,
+                AttackType.MELEE => GeneralState.ATTACK_MELEE,
+                _ => GeneralState.NULL
+            };
+        }
+        return attackState;
+    }
+    private bool DetectPlayerDebuff()
+    {
+        if(GameController.Instance.player.Dead)
+        {
+            return false;
+        }
+
+        return Vector3.Distance(general.Position, GameController.Instance.player.Position) < debuffDistance;
+    }
 
     // Debugging functions
     public void VisualizeDetection(MonoBehaviour monoBehaviour)

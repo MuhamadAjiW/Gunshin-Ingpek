@@ -51,12 +51,20 @@ public class King : BossEntity
     // Functions
     protected void RegisterPlayerDebuff()
     {
+        if(GameController.Instance.player.Dead)
+        {
+            return;
+        }
         GameController.Instance.player.effects.Add(damageDebuff);
         GameController.Instance.player.effects.Add(speedDebuff);
     }
 
     protected void UnregisterPlayerDebuff()
     {
+        if(GameController.Instance.player.Dead)
+        {
+            return;
+        }
         GameController.Instance.player.effects.Remove(damageDebuff);
         GameController.Instance.player.effects.Remove(speedDebuff);
     }
@@ -64,7 +72,7 @@ public class King : BossEntity
     protected IEnumerator DrainPlayerHealth()
     {
         yield return new WaitForSeconds(drainDelay);
-        if (stateController.playerInDebuff)
+        if (stateController.playerInDebuff && !GameController.Instance.player.Dead)
         {
             GameController.Instance.player.InflictDrainDamage(drainDamage);
         }

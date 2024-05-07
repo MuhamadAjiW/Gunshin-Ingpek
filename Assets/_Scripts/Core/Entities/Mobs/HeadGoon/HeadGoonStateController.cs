@@ -25,30 +25,48 @@ public class HeadGoonStateController : EntityStateController
     // Functions
     protected override int DetectState()
     {
-        // Get movementState
-        int movementState = 0; 
+        // Get states
+        int movementState = DetectMovementState();
+        int aiState = DetectAIState();
+        int attackState = DetectAttackState();
+
+        // Combine states
+        state = movementState | aiState | attackState;
+
+        return state;
+    }
+
+    // State functions
+    private int DetectMovementState()
+    {
         if(DetectJumping())
         {
-            movementState = HeadGoonState.JUMPING;
+            return HeadGoonState.JUMPING;
         }
         else if(DetectFalling())
         {
-            movementState = HeadGoonState.FALLING;
+            return HeadGoonState.FALLING;
         }
         else if(DetectSprinting())
         {
-            movementState = HeadGoonState.SPRINTING;
+            return HeadGoonState.SPRINTING;
         }
         else
         {
-            movementState = HeadGoonState.IDLE;
+            return HeadGoonState.IDLE;
+        }
+    }
+    private int DetectAIState()
+    {
+        if(GameController.Instance.player.Dead)
+        {
+            headGoon.aiController.nav.speed = headGoon.aiController.patrolSpeed;
+            return HeadGoonState.AI_PATROL_STATE;
         }
 
-        // Get aiState
-        int aiState = 0;
         if(Vector3.Distance(headGoon.Position, GameController.Instance.player.Position) < attackDistance)
         {
-            aiState = HeadGoonState.AI_IN_RANGE_STATE;
+            return HeadGoonState.AI_IN_RANGE_STATE;
         }
         else if(Vector3.Distance(headGoon.Position, GameController.Instance.player.Position) < detectionDistance)
         {
@@ -57,15 +75,16 @@ public class HeadGoonStateController : EntityStateController
                 headGoon.audioController.Play(HeadGoon.AUDIO_CRY_KEY);
             }
             headGoon.aiController.nav.speed = headGoon.Speed;
-            aiState = HeadGoonState.AI_DETECTED_STATE;
+            return HeadGoonState.AI_DETECTED_STATE;
         }
         else
         {
             headGoon.aiController.nav.speed = headGoon.aiController.patrolSpeed;
-            aiState = HeadGoonState.AI_PATROL_STATE;
+            return HeadGoonState.AI_PATROL_STATE;
         }
-
-        // Get attackState
+    }
+    private int DetectAttackState()
+    {
         int attackState = 0;
         if(DetectAttacking())
         {
@@ -78,18 +97,13 @@ public class HeadGoonStateController : EntityStateController
 
             attackState = attackType switch
             {
-                AttackType.RANGED => HeadGoonState.ATTACK_RANGED,
-                AttackType.MELEE => HeadGoonState.ATTACK_MELEE,
+                AttackType.RANGED => KingState.ATTACK_RANGED,
+                AttackType.MELEE => KingState.ATTACK_MELEE,
                 _ => HeadGoonState.NULL
             };
         }
-
-        // Combine states
-        state = movementState | aiState | attackState;
-
-        return state;
+        return attackState;
     }
-
     public void ClearWeaponState()
     {
         weaponState = WeaponState.IDLE;
