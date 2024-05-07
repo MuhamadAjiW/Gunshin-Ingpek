@@ -1,4 +1,5 @@
 using System;
+using _Scripts.Core.Game.Data;
 using UnityEngine;
 
 public class TestInteractable : InteractableObject 
@@ -16,6 +17,10 @@ public class TestInteractable : InteractableObject
     public override void Interact()
     {
         Debug.Log("Test Interactable interacted");
-        GameController.Instance.StartCutscene(StoryConfig.KEY_TEST_EVENT);
+        if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_TEST_EVENT))
+        {
+            GameController.Instance.StartCutscene(StoryConfig.KEY_TEST_EVENT);
+            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_TEST_EVENT);
+        }
     }
 }

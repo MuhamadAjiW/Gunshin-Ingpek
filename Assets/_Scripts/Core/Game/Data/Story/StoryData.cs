@@ -18,6 +18,12 @@ namespace _Scripts.Core.Game.Data.Story
                 progress.Add(false);
             }
         }
+
+        public bool IsEventComplete(String eventId)
+        {
+            int idx = events.FindIndex(0, e => e == eventId);
+            return progress[idx];
+        }
         
         public void CompleteEvent(String eventId)
         {
