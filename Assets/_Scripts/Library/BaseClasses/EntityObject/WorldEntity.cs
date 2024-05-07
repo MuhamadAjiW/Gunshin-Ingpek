@@ -116,7 +116,6 @@ public class WorldEntity : WorldObject, IRigid
         Collider[] groundOverlaps = Physics.OverlapBox(model.Bottom, groundDetectionSize, Quaternion.identity, groundLayers);
         if(!grounded && groundOverlaps.Length != 0)
         {
-            Debug.Log($"{transform.name} is grounded");
             OnGroundedEvent?.Invoke();
         }
         grounded = groundOverlaps.Length != 0;

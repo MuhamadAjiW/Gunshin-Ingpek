@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class InGameUIManager : MonoBehaviour
 {
+    public static InGameUIManager Instance; 
     public List<UIDocument> InGameUIDocuments;
     public CameraManager CameraManager;
 
@@ -17,7 +18,7 @@ public class InGameUIManager : MonoBehaviour
     public Player player;
 
     public void Awake()
-    {
+    {        
         HideAllDocuments();
         HandleGameStateChange(GameController.stateController.GetState());
         GameController.stateController.OnGameStateChange += (GameStateChangeArgs e) => HandleGameStateChange(e.NewGameState);
@@ -35,6 +36,7 @@ public class InGameUIManager : MonoBehaviour
         SetUIDocumentVisibleOnThisState("GameOverScreen", new List<GameState> { GameState.OVER })(gameState);
         SetUIDocumentVisibleOnThisState("CompletedScreen", new List<GameState> { GameState.FINISH })(gameState);
         SetUIDocumentVisibleOnThisState("HealthBar", new List<GameState> { GameState.RUNNING })(gameState);
+        SetUIDocumentVisibleOnThisState("Dialog", new List<GameState> { GameState.CUTSCENE })(gameState);
     }
 
     public void OnEnable()
@@ -84,6 +86,10 @@ public class InGameUIManager : MonoBehaviour
             if (index != -1)
             {
                 OpenUIDocuments.RemoveAt(index);
+            }
+            else
+            {
+                Debug.Log("Failed to remove openuidocuments");
             }
         }
     }

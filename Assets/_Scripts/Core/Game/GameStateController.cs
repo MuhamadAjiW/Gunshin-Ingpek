@@ -79,6 +79,9 @@ public class GameStateController
                 PopState();
                 return;
             case GameState.CUTSCENE:
+                DialogController.Instance.ProgressCutscene();
+                return;
+                
             case GameState.MENU:
                 PopState();
                 return;

@@ -98,4 +98,10 @@ public class GameController : MonoBehaviour
         cheatTriggerIdx = 0;
         cheatDelayTimer = 0f;
     }
+
+    public void StartCutscene(string eventCode)
+    {
+        CutsceneData cutscene = Resources.Load<CutsceneData>(StoryConfig.STORY_EVENTS[eventCode]);
+        DialogController.Instance.StartCutscene(cutscene);
+    }
 }

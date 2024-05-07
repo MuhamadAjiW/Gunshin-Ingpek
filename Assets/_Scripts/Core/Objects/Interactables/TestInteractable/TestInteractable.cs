@@ -16,5 +16,6 @@ public class TestInteractable : InteractableObject
     public override void Interact()
     {
         Debug.Log("Test Interactable interacted");
+        GameController.Instance.StartCutscene(StoryConfig.KEY_TEST_EVENT);
     }
 }
