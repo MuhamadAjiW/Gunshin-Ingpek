@@ -8,8 +8,12 @@ EditorBuildSettings:
   - enabled: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     path: Assets/_Scenes/DeathCutscene.unity
+=======
+    path: Assets/_Scenes/Deprecated/DeathCutscene.unity
+>>>>>>> 14d1a39e (feat: integrated ui and camera blockers to each level)
     guid: 930eadc906c359546a4d2ffc35afd19d
   - enabled: 1
 >>>>>>> e55b0cc9 (add: finish quest cutscene)

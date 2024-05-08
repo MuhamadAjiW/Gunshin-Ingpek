@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class DialogController : InGameUIScreenController
+public class DialogController : ScreenController
 {
     public static DialogController Instance;
 
@@ -37,7 +37,7 @@ public class DialogController : InGameUIScreenController
     // Functions
     public void StartCutscene(CutsceneData cutsceneData)
     {
-        GameController.stateController.PushState(GameState.CUTSCENE);
+        GameController.Instance.stateController.PushState(GameState.CUTSCENE);
 
         currentCutscene = cutsceneData;
         cutsceneProgress = -1;
@@ -53,7 +53,7 @@ public class DialogController : InGameUIScreenController
 
             if(cutsceneProgress == currentCutscene.dialogs.Count)
             {
-                GameController.stateController.PopState();
+                GameController.Instance.stateController.PopState();
                 OnCutsceneFinished?.Invoke();
             }
             else
