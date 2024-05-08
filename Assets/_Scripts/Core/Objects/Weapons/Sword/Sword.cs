@@ -17,11 +17,17 @@ public class Sword : WeaponObject
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position + (transform.forward * 0.5f),
+            scale: transform.lossyScale,
+            rotation: transform.rotation,
             parent: transform,
             objectName: "Sword Hitbox"
         );
 
-        ObjectFactory.DestroyObject(attackHitbox, 0.5f);
+        IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
+        bearerBody?.Rigidbody.AddForce((2 * data.knockbackPower * bearer.Orientation.forward) + bearer.Orientation.up, ForceMode.Impulse);
+
+
+        ObjectFactory.DestroyObject(attackHitbox, 1f);
     }
 
     protected override void OnAttack()
@@ -33,11 +39,13 @@ public class Sword : WeaponObject
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position + (transform.forward * 0.5f),
+            scale: transform.lossyScale,
+            rotation: transform.rotation,
             parent: transform,
             objectName: "Sword Hitbox"
         );
 
-        ObjectFactory.DestroyObject(attackHitbox, 0.5f);
+        ObjectFactory.DestroyObject(attackHitbox, 1f);
     }
 
     protected override void OnSkill()

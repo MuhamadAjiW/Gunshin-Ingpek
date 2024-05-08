@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabPath: Prefabs/Weapons/Rifle/Rifle
   model: {fileID: 5496260497754850104, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
   canSkill: 1
-  baseDamage: 10
+  baseDamage: 40
   knockbackPower: 5
   attackInterval: 0.1
   alternateAttackInterval: 0.5

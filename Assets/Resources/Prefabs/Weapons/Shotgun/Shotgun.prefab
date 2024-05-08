@@ -52,7 +52,7 @@ MonoBehaviour:
   fireRange: 10
   projectileSpeed: 100
   spread: 0.2
-  pelletCount: 10
+  pelletCount: 20
   audioController:
     audios:
     - source: {fileID: 0}

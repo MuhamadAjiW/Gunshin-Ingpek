@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5801067718172810331}
   - component: {fileID: 6785866229548707138}
   - component: {fileID: 2706216368706610780}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TestCollectible
   m_TagString: Collectible
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a318ebd05eb15c4fabf9cbe7355eb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
+  id: 
   TimeToLive: 5
 --- !u!1001 &7563842915129133954
 PrefabInstance:

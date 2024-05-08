@@ -75,9 +75,13 @@ public class Shotgun : WeaponObject
         }
 
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
+<<<<<<< HEAD
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower) + bearer.Orientation.up, ForceMode.Impulse);
 <<<<<<< HEAD
 =======
+=======
+        bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 8) + bearer.Orientation.up, ForceMode.Impulse);
+>>>>>>> 06c3a003 (feat: enemy spawners, weapon adjustments)
 
         if (bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
         {
@@ -154,9 +158,13 @@ public class Shotgun : WeaponObject
         }
 
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
+<<<<<<< HEAD
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower) + bearer.Orientation.up, ForceMode.Impulse);
 <<<<<<< HEAD
 =======
+=======
+        bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 8) + bearer.Orientation.up, ForceMode.Impulse);
+>>>>>>> 06c3a003 (feat: enemy spawners, weapon adjustments)
 
         if (bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
         {

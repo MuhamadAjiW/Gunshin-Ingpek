@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7450111599675763076}
   - component: {fileID: 1431186984326284414}
   - component: {fileID: 8693630229212938488}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: General
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,14 +75,14 @@ NavMeshAgent:
   m_Speed: 10
   m_Acceleration: 20
   avoidancePriority: 50
-  m_AngularSpeed: 360
+  m_AngularSpeed: 90
   m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8693630229212938488
 MonoBehaviour:
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   model: {fileID: 0}
-  knockbackResistance: 0
   baseSpeed: 4
+  knockbackResistance: 0
   jumpForce: 5
   groundLayers:
     serializedVersion: 2
@@ -145,6 +145,8 @@ MonoBehaviour:
       spatialize: 0
   aiController:
     nav: {fileID: 0}
+    patrolSpeed: 3
+    patrolRoute: []
   animationController:
     model: {fileID: 0}
     renderer: {fileID: 0}
