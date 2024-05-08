@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnedCountLimit: 3
-  SpawnDelay: 15
+  SpawnDelay: 60
   PrefabPaths:
   - Prefabs/Mobs/Goon/Goon
   - Prefabs/Mobs/Goon/Goon_Rifle
