@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - Text: "\u2026 (gelap aja)"
-    OverlayBackground: {fileID: 2800000, guid: e5136a1c5aea29d47ab12731462c13c4, type: 3}
+    OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
     PersonLName: 
