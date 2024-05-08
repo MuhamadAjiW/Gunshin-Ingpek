@@ -102,23 +102,26 @@ public class GameStateController
         //TODO: Review cutscenes and menu behaviour
         Time.timeScale = gameState switch
         {
+            GameState.NULL => 0,
             GameState.PAUSED => 0,
             GameState.CHEAT => 0,
             GameState.RUNNING => 1,
             GameState.CUTSCENE => 0,
             GameState.MENU => 0,
+            GameState.FINISH => 0,
             GameState.OVER => 1,
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
         Cursor.lockState = gameState switch
         {
+            GameState.NULL => CursorLockMode.None,
             GameState.PAUSED => CursorLockMode.None,
             GameState.CHEAT => CursorLockMode.None,
             GameState.RUNNING => CursorLockMode.Locked,
             GameState.CUTSCENE => CursorLockMode.Locked,
             GameState.MENU => CursorLockMode.None,
+            GameState.FINISH => CursorLockMode.None,
             GameState.OVER => CursorLockMode.None,
-
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
     }

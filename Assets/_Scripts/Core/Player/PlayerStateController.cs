@@ -131,7 +131,7 @@ public class PlayerStateController : EntityStateController
     private IEnumerator DeathCutscene()
     {
         yield return new WaitForSeconds(4);
-        GameController.Instance.StartCutscene(StoryConfig.KEY_DEATH);
+        GameController.Instance.StartCutscene(StoryConfig.KEY_CUTSCENE_DEATH);
         DialogController.Instance.OnCutsceneFinished += EndGame;
     }
 

@@ -6,5 +6,16 @@ namespace _Scripts.Core.Objects.Interactables
         {
             throw new System.NotImplementedException();
         }
+
+        public override void OnInteractAreaEnter()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void OnInteractAreaExit()
+        {
+            throw new System.NotImplementedException();
+        }
+
     }
 }

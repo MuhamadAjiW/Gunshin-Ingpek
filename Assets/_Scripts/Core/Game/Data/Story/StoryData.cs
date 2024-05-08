@@ -39,6 +39,10 @@ namespace _Scripts.Core.Game.Data.Story
                 Debug.LogError($"Tried completing non event {eventId}. How to resolve: Refer to StoryConfig.cs for valid keys");
                 return;
             }
+            else
+            {
+                GameController.Instance.InvokeEvent(eventId);
+            }
 
             progress[idx] = true;
         }

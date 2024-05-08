@@ -73,7 +73,11 @@ public class Rifle : WeaponObject
             objectName: "Rifle Hitbox"
         );
 
+<<<<<<< HEAD
         ObjectFactory.DestroyObject(attackHitbox, 0.5f);
+=======
+        ObjectFactory.DestroyObject(attackHitbox, 1f);
+>>>>>>> 096b6ef7 (feat: level 1)
     }
 
     protected override void OnSkill()

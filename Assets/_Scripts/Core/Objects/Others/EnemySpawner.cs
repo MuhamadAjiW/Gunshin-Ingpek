@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     // Attributes
     private int SpawnedCount = 0;
     public int SpawnedCountLimit = 3;
-    public float SpawnDelay = 15;
+    public float SpawnDelay = 60;
     public List<String> PrefabPaths = new(){
         "Prefabs/Mobs/Goon/Goon",
         "Prefabs/Mobs/Goon/Goon_Rifle"
@@ -38,7 +38,6 @@ public class EnemySpawner : MonoBehaviour
             EnemyEntity spawnedEnemy;
             if(rng < PrefabPaths.Count)
             {
-                Debug.Log(transform.position);
                 spawnedEnemy = ObjectFactory.CreateEntity<EnemyEntity>(
                     prefabPath: PrefabPaths[rng],
                     position: transform.position + transform.up - transform.right + transform.forward,

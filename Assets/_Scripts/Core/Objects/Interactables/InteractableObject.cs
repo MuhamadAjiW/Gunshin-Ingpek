@@ -7,8 +7,14 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
     public event Action OnInteractAreaExitEvent;
     public event Action OnInteractAreaEnterEvent;
 
-    // Function
+    // Constructor
+    protected void Start()
+    {
+        OnInteractAreaEnterEvent += OnInteractAreaEnter;
+        OnInteractAreaExitEvent += OnInteractAreaExit;
+    }
 
+    // Function
     public void InvokeOnInteractAreaEnterEvent()
     {
         OnInteractAreaEnterEvent?.Invoke();
@@ -21,4 +27,6 @@ public abstract class InteractableObject : MonoBehaviour, IInteractable
 
     // Abstract Functions
     public abstract void Interact();
+    public abstract void OnInteractAreaEnter();
+    public abstract void OnInteractAreaExit();
 }

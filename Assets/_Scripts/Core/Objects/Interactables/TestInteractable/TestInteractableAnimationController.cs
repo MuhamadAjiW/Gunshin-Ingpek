@@ -20,13 +20,11 @@ public class TestInteractableAnimationController : AnimationController
     // Functions
     private void IndicateInteractable()
     {
-        Debug.Log("Test Interactable is interactable now");
         renderer.material.color = Color.yellow;
     }
 
     private void IndicateUninteractable()
     {
-        Debug.Log("Test Interactable is uninteractable now");
         renderer.material.color = Color.white;
     }
 }

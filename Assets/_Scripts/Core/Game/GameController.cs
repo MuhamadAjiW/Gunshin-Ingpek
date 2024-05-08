@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -14,6 +15,9 @@ public class GameController : MonoBehaviour
     private float cheatDelayTimer;
     private const float cheatAllowedDelay = 1f;
     private int cheatTriggerIdx;
+
+    // Events
+    public event Action<string> OnGameEvent;
 
     // Set-Getters
     public bool IsPaused => Time.timeScale == 0;
@@ -85,7 +89,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void ResetCheatInput()
+    private void ResetCheatInput()
     {
         cheatTriggerIdx = 0;
         cheatDelayTimer = 0f;
@@ -95,5 +99,10 @@ public class GameController : MonoBehaviour
     {
         CutsceneData cutscene = Resources.Load<CutsceneData>(StoryConfig.CUTSCENES[eventCode]);
         DialogController.Instance.StartCutscene(cutscene);
+    }
+
+    public void InvokeEvent(string eventName)
+    {
+        OnGameEvent?.Invoke(eventName);
     }
 }

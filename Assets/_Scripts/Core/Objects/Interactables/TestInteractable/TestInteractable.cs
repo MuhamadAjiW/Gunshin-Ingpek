@@ -8,8 +8,9 @@ public class TestInteractable : InteractableObject
     public TestInteractableAnimationController animationController;
     
     // Constructor
-    protected void Start()
+    protected new void Start()
     {
+        base.Start();
         animationController.Init(this);
     }
 
@@ -17,39 +18,49 @@ public class TestInteractable : InteractableObject
     public override void Interact()
     {
         Debug.Log("Test Interactable interacted");
-        if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY1))
+        if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY_1_START_CUTSCENE))
         {
-            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY1);
-            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY1);
+            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_1_START_CUTSCENE);
+            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_1_START_CUTSCENE);
         }
-        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY2))
+        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY_1_END_CUTSCENE))
         {
-            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY2);
-            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY2);
+            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_1_END_CUTSCENE);
+            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_1_END_CUTSCENE);
         }
-        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY3))
+        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY_2_END_CUTSCENE))
         {
-            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY3);
-            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY3);
+            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_2_END_CUTSCENE);
+            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_2_END_CUTSCENE);
         }
-        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY4))
+        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY_3_END_CUTSCENE))
         {
-            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY4);
-            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY4);
+            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_3_END_CUTSCENE);
+            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_3_END_CUTSCENE);
         }
-        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY5))
+        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY_ENDING_CUTSCENE))
         {
-            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY5);
-            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY5);
+            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_ENDING_CUTSCENE);
+            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_ENDING_CUTSCENE);
         }
-        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY6))
+        else if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY_ENDING_AFTER_CUTSCENE))
         {
-            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY6);
-            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY6);
+            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_ENDING_AFTER_CUTSCENE);
+            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_ENDING_AFTER_CUTSCENE);
         }
         else
         {
-            GameController.Instance.StartCutscene(StoryConfig.KEY_TEST_EVENT);
+            GameController.Instance.StartCutscene(StoryConfig.KEY_CUTSCENE_DILUC);
         }
+    }
+
+    public override void OnInteractAreaEnter()
+    {
+        Debug.Log("Test Interactable is interactable now");
+    }
+
+    public override void OnInteractAreaExit()
+    {
+        Debug.Log("Test Interactable is uninteractable now");
     }
 }

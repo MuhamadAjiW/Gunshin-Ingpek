@@ -104,7 +104,7 @@ public class Shotgun : WeaponObject
             objectName: "Shotgun Hitbox"
         );
 
-        ObjectFactory.DestroyObject(attackHitbox, 0.5f);
+        ObjectFactory.DestroyObject(attackHitbox, 1f);
     }
 
     protected override void OnSkill()
