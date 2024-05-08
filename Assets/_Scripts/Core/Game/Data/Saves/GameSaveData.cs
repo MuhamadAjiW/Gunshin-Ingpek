@@ -51,13 +51,18 @@ public class GameSaveData
         Debug.Log("Game saved to " + filePath);
     }
 
-    public GameSaveManager.GameLoadResult LoadGame(string path, string name)
+    public GameSaveManager.GameLoadResult LoadGame(string path)
     {
+<<<<<<< HEAD
         string filePath = string.Format("{0}/{1}", path, name);
         if (File.Exists(filePath))
+=======
+        Debug.Log(path);
+        if (File.Exists(path))
+>>>>>>> bc0f6029 (fix: new game)
         {
-            writeTime = File.GetLastWriteTime(filePath);
-            string json = File.ReadAllText(filePath);
+            writeTime = File.GetLastWriteTime(path);
+            string json = File.ReadAllText(path);
             GameDataWrapper wrapper = JsonUtility.FromJson<GameDataWrapper>(json);
 
             this.difficulty = wrapper.difficulty;
@@ -66,7 +71,7 @@ public class GameSaveData
             this.positionData = wrapper.positionData;
             this.storyData = wrapper.storyData;
             this.playerName = wrapper.playerName;
-            Debug.Log("Game loaded from " + filePath);
+            Debug.Log("Game loaded from " + path);
             return GameSaveManager.GameLoadResult.SUCCESS;
         }
         else

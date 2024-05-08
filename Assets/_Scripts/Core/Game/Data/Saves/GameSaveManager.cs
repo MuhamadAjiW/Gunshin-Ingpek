@@ -66,7 +66,7 @@ public class GameSaveManager : MonoBehaviour
         foreach (string saveFileName in GetAllSavesFileName())
         {
             GameSaveData newSave = new();
-            GameLoadResult loadResult = newSave.LoadGame(SAVE_PATH, saveFileName);
+            GameLoadResult loadResult = newSave.LoadGame(saveFileName);
             if (loadResult.Equals(GameLoadResult.SUCCESS))
             {
                 gameSaves.Add(newSave);
