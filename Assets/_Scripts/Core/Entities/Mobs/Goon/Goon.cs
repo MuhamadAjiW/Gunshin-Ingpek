@@ -45,9 +45,14 @@ public class Goon : EnemyEntity
     private void OnDeath()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         GameStatisticsManager.Instance.AddGoonsKilled();
 >>>>>>> d871ba60 (feat: initial work on statistics element)
+=======
+        GameStatistics.Instance.AddGoonsKilled();
+        GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
+>>>>>>> 6c55d7c6 (feat: level 2)
         StartCoroutine(DeleteBody());
     }
 

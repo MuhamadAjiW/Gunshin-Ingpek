@@ -16,7 +16,7 @@ public class Diluc_LV1 : NPCController
         }
     }
 
-    protected void OnDungeonEnter(string eventId)
+    protected void OnDungeonEnter(string eventId, System.Object info)
     {
         if(eventId == StoryConfig.KEY_STORY_1_ENTER_DUNGEON)
         {

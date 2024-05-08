@@ -11,6 +11,7 @@ public class DialogController : ScreenController
     private Dialog dialogOverlay;
     private CutsceneData currentCutscene;
     private int cutsceneProgress;
+    private bool InCutscene => GameController.Instance.stateController.GetState() == GameState.CUTSCENE;
 
     // for pseudo animation
     private float animationSpeed = 10f;
@@ -174,7 +175,20 @@ public class DialogController : ScreenController
             default:
                 yield return null;
                 break;
+        }   
+    }
+
+    protected void Update()
+    {
+        if(InCutscene)
+        {
+            if(!Input.GetKeyDown(GameInput.Instance.backButton)
+            && !Input.GetKeyDown(GameInput.Instance.attackButton) 
+            && !Input.GetKeyDown(GameInput.Instance.attackAlternateButton) 
+            && Input.anyKeyDown)
+            {
+                ProgressCutscene();
+            }
         }
-        
     }
 }

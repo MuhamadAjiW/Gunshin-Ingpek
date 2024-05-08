@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Level1 : MonoBehaviour
 {
-    void Start()
+    protected void Start()
     {
         if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY_1_START_CUTSCENE))
         {

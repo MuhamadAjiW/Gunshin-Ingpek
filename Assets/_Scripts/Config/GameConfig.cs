@@ -42,4 +42,7 @@ public static class GameConfig
         { DifficultyType.NORMAL, MediumData},
         { DifficultyType.HARD, HardData}
     };
+
+    // Events
+    public const string EVENT_ENEMY_KILLED = "EVENT_ENEMY_KILLED";
 }

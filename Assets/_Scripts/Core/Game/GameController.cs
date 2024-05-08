@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     private int cheatTriggerIdx;
 
     // Events
-    public event Action<string> OnGameEvent;
+    public event Action<string, System.Object> OnGameEvent;
 
     // Set-Getters
     public bool IsPaused => Time.timeScale == 0;
@@ -101,8 +101,9 @@ public class GameController : MonoBehaviour
         DialogController.Instance.StartCutscene(cutscene);
     }
 
-    public void InvokeEvent(string eventName)
+    // TODO: Refactor? issabit a bit barbaric, no?
+    public void InvokeEvent(string eventName, System.Object AdditionalData = null)
     {
-        OnGameEvent?.Invoke(eventName);
+        OnGameEvent?.Invoke(eventName, AdditionalData);
     }
 }

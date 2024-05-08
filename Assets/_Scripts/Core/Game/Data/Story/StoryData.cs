@@ -41,7 +41,7 @@ namespace _Scripts.Core.Game.Data.Story
             }
             else
             {
-                GameController.Instance.InvokeEvent(eventId);
+                GameController.Instance.InvokeEvent(eventId, null);
             }
 
             progress[idx] = true;

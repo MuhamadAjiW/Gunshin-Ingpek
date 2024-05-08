@@ -141,10 +141,14 @@ public class King : BossEntity
         audioController.Play(AUDIO_DIE_KEY);
 <<<<<<< HEAD
         GameStatistics.Instance.AddKingsKilled();
+<<<<<<< HEAD
 >>>>>>> cc490e85 (feat: mob sounds)
 =======
         GameStatisticsManager.Instance.AddKingsKilled();
 >>>>>>> d871ba60 (feat: initial work on statistics element)
+=======
+        GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
+>>>>>>> 6c55d7c6 (feat: level 2)
         StartCoroutine(DeleteBody());
     }
 
