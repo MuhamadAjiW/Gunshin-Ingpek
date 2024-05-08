@@ -46,6 +46,8 @@ public class HeadGoon : EnemyEntity
                 objectName: $"{name}'s Goons"
             );
             goon.OnDeathEvent += OnGoonDeath;
+            goon.stateController.detectionDistance = stateController.detectionDistance;
+            goon.aiController.patrolRoute = aiController.patrolRoute;
             goonCount++;
         }
         yield return new WaitForSeconds(25);

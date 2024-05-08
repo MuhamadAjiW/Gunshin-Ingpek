@@ -37,7 +37,7 @@ public class KingAIController
                 if(patrolRoute.Count > 0)
                 {
                     GoToward(patrolRoute[patrolIndex]);
-                    if(Vector3.Distance(patrolRoute[patrolIndex].position, king.transform.position) < 0.1)
+                    if(Vector3.Distance(patrolRoute[patrolIndex].position, king.transform.position) < 1)
                     {
                         if(patrolIndex < patrolRoute.Count)
                         {

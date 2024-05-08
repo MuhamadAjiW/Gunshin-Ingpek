@@ -115,8 +115,8 @@ MonoBehaviour:
   drainDamage: 0.1
   drainDelay: 1
   stateController:
-    detectionDistance: 20
-    debuffDistance: 15
+    detectionDistance: 30
+    debuffDistance: 20
     attackDistance: 8
     attackCloseDistance: 2
     weaponState: 0

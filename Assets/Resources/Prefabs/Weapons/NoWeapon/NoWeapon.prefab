@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 1f732bd8cfb50da4dad418d1fcdedd01, type: 2}
+  state: 0
+  attackType: 1
+  alternateAttackType: 1

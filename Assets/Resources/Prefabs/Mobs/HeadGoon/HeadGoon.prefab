@@ -113,8 +113,9 @@ MonoBehaviour:
   goonCountLimit: 2
   stateController:
     weaponState: 0
-    detectionDistance: 15
+    detectionDistance: 25
     attackDistance: 5
+    attackCloseDistance: 2
   audioController:
     audios:
     - source: {fileID: 0}

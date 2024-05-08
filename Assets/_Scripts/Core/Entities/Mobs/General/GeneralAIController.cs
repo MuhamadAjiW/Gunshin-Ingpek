@@ -37,9 +37,9 @@ public class GeneralAIController
                 if(patrolRoute.Count > 0)
                 {
                     GoToward(patrolRoute[patrolIndex]);
-                    if(Vector3.Distance(patrolRoute[patrolIndex].position, general.transform.position) < 0.1)
+                    if(Vector3.Distance(patrolRoute[patrolIndex].position, general.transform.position) < 1)
                     {
-                        if(patrolIndex < patrolRoute.Count)
+                        if(patrolIndex < patrolRoute.Count - 1)
                         {
                             patrolIndex++;
                         }

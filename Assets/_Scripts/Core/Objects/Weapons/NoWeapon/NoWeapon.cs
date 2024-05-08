@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class NoWeapon : WeaponObject
 {
     // Constants
@@ -13,7 +15,6 @@ public class NoWeapon : WeaponObject
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position + (transform.forward * 0.5f),
-            scale: transform.localScale,
             rotation: transform.rotation,
             parent: transform,
             objectName: "No Weapon Hitbox"
@@ -24,6 +25,22 @@ public class NoWeapon : WeaponObject
 
     protected override void OnAlternateAttack()
     {
+        AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
+            prefabPath: HITBOX_PREFAB,
+            damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
+            knockbackPower: data.knockbackPower,
+            attackLayerCode: bearer.AttackLayerCode,
+            damageModifier: bearer.AttackMultiplier,
+            knockbackOrigin: transform.position + (transform.forward * 0.5f),
+            rotation: transform.rotation,
+            parent: transform,
+            objectName: "No Weapon Hitbox"
+        );
+
+        IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
+        bearerBody?.Rigidbody.AddForce((2 * data.knockbackPower * bearer.Orientation.forward) + bearer.Orientation.up, ForceMode.Impulse);
+
+        ObjectFactory.DestroyObject(attackHitbox, 1f);
     }
 
     protected override void OnSkill()

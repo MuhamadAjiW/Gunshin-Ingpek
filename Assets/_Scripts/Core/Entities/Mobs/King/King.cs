@@ -106,8 +106,9 @@ public class King : BossEntity
                     objectName: $"{name}'s Goons"
                 );
             }
-            goon.stateController.detectionDistance = stateController.detectionDistance;
             goon.OnDeathEvent += OnGoonDeath;
+            goon.stateController.detectionDistance = stateController.detectionDistance;
+            goon.aiController.patrolRoute = aiController.patrolRoute;
             goonCount++;
         }
         yield return new WaitForSeconds(15);

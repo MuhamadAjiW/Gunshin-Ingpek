@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabPath: Prefabs/Weapons/NoWeapon/NoWeapon
   model: {fileID: 0}
-  baseDamage: 0
-  knockbackPower: 0
-  attackInterval: 0
-  alternateAttackInterval: 0
+  canSkill: 0
+  baseDamage: 5
+  knockbackPower: 5
+  attackInterval: 0.5
+  alternateAttackInterval: 0.5
+  skillInterval: 2

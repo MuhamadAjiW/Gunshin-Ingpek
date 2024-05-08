@@ -116,9 +116,10 @@ MonoBehaviour:
   drainDamage: 0.2
   drainDelay: 1
   stateController:
-    detectionDistance: 25
-    debuffDistance: 15
+    detectionDistance: 35
+    debuffDistance: 20
     attackDistance: 8
+    attackCloseDistance: 2
     weaponState: 0
     playerInDebuff: 0
   audioController:
