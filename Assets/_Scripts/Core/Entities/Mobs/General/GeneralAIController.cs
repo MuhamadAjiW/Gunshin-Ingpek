@@ -58,6 +58,14 @@ public class GeneralAIController
                 Quaternion targetAngle = LookToward(GameController.Instance.player.transform);
                 if(Quaternion.Angle(targetAngle, general.transform.rotation) < 10)
                 {
+                    AlternateAttack();
+                }
+                break;
+            case GeneralState.AI_IN_RANGE_CLOSE_STATE:
+                Stop();
+                targetAngle = LookToward(GameController.Instance.player.transform);
+                if(Quaternion.Angle(targetAngle, general.transform.rotation) < 10)
+                {
                     Attack();
                 }
                 break;

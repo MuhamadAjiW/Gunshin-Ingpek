@@ -61,7 +61,7 @@ public class KingAIController
                     Attack();
                 }
                 break;
-            case HeadGoonState.AI_IN_RANGE_CLOSE_STATE:
+            case KingState.AI_IN_RANGE_CLOSE_STATE:
                 Stop();
                 targetAngle = LookToward(GameController.Instance.player.transform);
                 if(Quaternion.Angle(targetAngle, king.transform.rotation) < 10)

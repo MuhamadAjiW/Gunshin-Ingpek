@@ -117,7 +117,8 @@ MonoBehaviour:
   stateController:
     detectionDistance: 20
     debuffDistance: 15
-    attackDistance: 2
+    attackDistance: 8
+    attackCloseDistance: 2
     weaponState: 0
     playerInDebuff: 0
   audioController:

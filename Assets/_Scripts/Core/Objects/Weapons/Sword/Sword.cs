@@ -4,20 +4,18 @@ using UnityEngine;
 public class Sword : WeaponObject
 {
     // Constants
-    private const string weaponPrefab = "Prefabs/Weapons/Sword/Sword";
-    private const string hitboxPrefab = "Prefabs/Weapons/Hitbox";
+    private const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
 
     // Functions
     protected override void OnAlternateAttack()
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
-            prefabPath: hitboxPrefab,
+            prefabPath: HITBOX_PREFAB,
             damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position + (transform.forward * 0.5f),
-            scale: transform.lossyScale,
             rotation: transform.rotation,
             parent: transform,
             objectName: "Sword Hitbox"
@@ -26,20 +24,18 @@ public class Sword : WeaponObject
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
         bearerBody?.Rigidbody.AddForce((2 * data.knockbackPower * bearer.Orientation.forward) + bearer.Orientation.up, ForceMode.Impulse);
 
-
         ObjectFactory.DestroyObject(attackHitbox, 1f);
     }
 
     protected override void OnAttack()
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
-            prefabPath: hitboxPrefab,
+            prefabPath: HITBOX_PREFAB,
             damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
             knockbackOrigin: transform.position + (transform.forward * 0.5f),
-            scale: transform.lossyScale,
             rotation: transform.rotation,
             parent: transform,
             objectName: "Sword Hitbox"

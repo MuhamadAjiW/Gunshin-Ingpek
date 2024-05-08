@@ -10,7 +10,8 @@ public class GeneralStateController : EntityStateController
     private General general;
     public float detectionDistance = 20f;
     public float debuffDistance = 10f;
-    public float attackDistance = 2f;
+    public float attackDistance = 8f;
+    public float attackCloseDistance = 2f;
     [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
     [HideInInspector] public bool playerInDebuff = false;
 
@@ -95,7 +96,11 @@ public class GeneralStateController : EntityStateController
             return GeneralState.AI_PATROL_STATE;
         }
 
-        if(Vector3.Distance(general.Position, GameController.Instance.player.Position) < attackDistance)
+        if(Vector3.Distance(general.Position, GameController.Instance.player.Position) < attackCloseDistance)
+        {
+            return HeadGoonState.AI_IN_RANGE_CLOSE_STATE;
+        }
+        else if(Vector3.Distance(general.Position, GameController.Instance.player.Position) < attackDistance)
         {
             return GeneralState.AI_IN_RANGE_STATE;
         }
@@ -154,6 +159,8 @@ public class GeneralStateController : EntityStateController
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, debuffDistance);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackCloseDistance);
     }
 
     public void VisualizePatrolRoute(General general)
