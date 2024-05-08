@@ -121,6 +121,11 @@ public partial class GameStatisticsContainer : VisualElement
 
     void GenerateVisualContent(MeshGenerationContext context)
     {
+        if (GameStatisticsManager.Instance is null)
+        {
+            return;
+        }
+
         m_EnemiesKilledText.text = EnemiesKilled.ToString();
         m_ShotsFiredText.text = ShotsFired.ToString();
         m_ShotsHitText.text = ShotsHit.ToString();

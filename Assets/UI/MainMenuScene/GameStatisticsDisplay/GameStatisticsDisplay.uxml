@@ -5,6 +5,7 @@
         <ui:VisualElement name="TitleContainer" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
             <ui:Label text="Your Statistics" name="Title" style="rotate: -5deg; font-size: 48px; translate: 1.5% 25%;" />
         </ui:VisualElement>
+        <GameStatisticsContainer name="GameStatisticsContainer" style="align-self: stretch; width: 100%; align-items: center;" />
         <ui:VisualElement name="BackContainer" style="flex-grow: 1;">
             <ui:Button text="Back" name="back-button" />
         </ui:VisualElement>

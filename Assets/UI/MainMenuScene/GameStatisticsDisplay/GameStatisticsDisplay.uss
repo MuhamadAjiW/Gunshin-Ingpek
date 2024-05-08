@@ -1,0 +1,39 @@
+.enemies-killed-container {
+}
+
+.enemies-killed-text {
+}
+
+.playtime-container {
+}
+
+.playtime-text {
+}
+
+.distance-traveled-container {
+}
+
+.distance-traveled-text {
+}
+
+.shots-fired-container {
+}
+
+.shots-fired-text {
+}
+
+.shots-container {
+    flex-direction: row;
+}
+
+.shots-hit-container {
+}
+
+.shots-hit-text {
+}
+
+.accuracy-container {
+}
+
+.accuracy-text {
+}
