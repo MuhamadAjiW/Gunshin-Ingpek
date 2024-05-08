@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Core.Game.Data;
 using UnityEngine;
 
 public class Level1 : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY_1_START_CUTSCENE))
+        {
+            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_1_START_CUTSCENE);
+            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_1_START_CUTSCENE);
+        }
     }
 }
