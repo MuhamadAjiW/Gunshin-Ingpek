@@ -5,7 +5,7 @@
         <ui:VisualElement name="TitleContainer" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
             <ui:Label text="Settings" name="Title" style="rotate: -5deg; font-size: 48px; translate: 2.5% 20%;" />
         </ui:VisualElement>
-        <ui:VisualElement name="SettingsContainer" style="flex-grow: 1;" />
+        <SettingsContainer style="padding-top: 40px; padding-right: 40px; padding-bottom: 40px; padding-left: 40px;" />
         <ui:VisualElement name="BackContainer" style="flex-grow: 1;">
             <ui:Button text="Back" name="back-button" />
         </ui:VisualElement>

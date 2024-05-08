@@ -25,7 +25,7 @@ public class WorldObject : MonoBehaviour
     {
 #if STRICT
         if (GameController.Instance == null
-         || GameSaveData.Instance == null
+         || GameSaveManager.Instance.GetActiveGameSave() == null
          || GameInput.Instance == null
          || EnvironmentManager.Instance == null
          )

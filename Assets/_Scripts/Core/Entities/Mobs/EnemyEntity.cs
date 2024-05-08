@@ -33,7 +33,7 @@ public abstract class EnemyEntity : CombatantEntity
 
         SetLayer(EnvironmentConfig.LAYER_ENEMY);
         SetAttackLayer(EnvironmentConfig.LAYER_ENEMY_ATTACK);
-        Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].enemyHealthMultiplier;
+        Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveManager.Instance.GetActiveGameSave().difficulty].enemyHealthMultiplier;
         tag = EnvironmentConfig.TAG_ENEMY;
 
         StartCoroutine(SpawnOrbs());

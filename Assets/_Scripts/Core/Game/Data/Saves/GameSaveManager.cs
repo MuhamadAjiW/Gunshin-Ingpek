@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Unity.Properties;
 using UnityEngine;
 
 
@@ -23,14 +24,15 @@ namespace _Scripts.Core.Game.Data.Saves
         // Static Instance
         public static GameSaveManager Instance;
 
-        public static string SAVE_PATH = Application.persistentDataPath + "/saves";
+        private static string SAVE_PATH;
 
-        public static string STATS_FILE_PATH = Application.persistentDataPath + "/stats.json";
+        private static string STATS_FILE_PATH;
 
-        public static int NUMBER_OF_SAVE_SLOT = 3;
+        private static int NUMBER_OF_SAVE_SLOT;
 
-        private readonly List<GameSaveData> gameSaves = new();
+        private List<GameSaveData> gameSaves;
 
+        private GameSaveData activeGameSave;
 
         public event Action OnGameSavesChange;
 
@@ -38,6 +40,11 @@ namespace _Scripts.Core.Game.Data.Saves
         public void Awake()
         {
             Instance = this;
+            activeGameSave = new();
+            SAVE_PATH = Application.persistentDataPath + "/saves";
+            STATS_FILE_PATH = Application.persistentDataPath + "/stats.json";
+            NUMBER_OF_SAVE_SLOT = 3;
+            gameSaves = new();
         }
 
         public string[] GetAllSavesFileName()
@@ -89,13 +96,9 @@ namespace _Scripts.Core.Game.Data.Saves
             {
                 return GameSaveResult.MAX_SAVES_REACHED;
             }
-            else
-            {
-                GameSaveData newSave = new();
-                newSave.SaveGame(SAVE_PATH, Guid.NewGuid().ToString());
-                gameSaves.Add(newSave);
-                return GameSaveResult.SUCCESS;
-            }
+            activeGameSave.SaveGame(SAVE_PATH, Guid.NewGuid().ToString());
+            gameSaves.Add(activeGameSave);
+            return GameSaveResult.SUCCESS;
         }
 
         public int GetNumberOfSaves()
@@ -115,8 +118,14 @@ namespace _Scripts.Core.Game.Data.Saves
             OnGameSavesChange?.Invoke();
         }
 
+        public GameSaveData GetActiveGameSave()
+        {
+            return activeGameSave;
+        }
 
-
-
+        public void ResetActiveGameSave()
+        {
+            activeGameSave = new();
+        }
     }
 }

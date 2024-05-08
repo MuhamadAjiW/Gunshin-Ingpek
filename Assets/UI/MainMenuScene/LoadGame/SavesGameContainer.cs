@@ -8,8 +8,6 @@ using UnityEngine.UIElements;
 [UxmlElement]
 public partial class SavesGameContainer : VisualElement
 {
-
-
     public static readonly string GameSavesContainerUSSClassName = "saves-game-container";
     public static readonly string GameSaveUSSClassName = "save-game";
 

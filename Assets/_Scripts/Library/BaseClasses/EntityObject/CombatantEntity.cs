@@ -99,8 +99,8 @@ public class CombatantEntity : DamageableEntity, IArmed
         AttackLayerCode = attackLayerCode;
         AttackMultiplier = attackLayerCode switch
         {
-            EnvironmentConfig.LAYER_ENEMY_ATTACK => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].enemyDamageMultiplier,
-            EnvironmentConfig.LAYER_PLAYER_ATTACK => GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerDamageMultiplier,
+            EnvironmentConfig.LAYER_ENEMY_ATTACK => GameConfig.DIFFICULTY_MODIFIERS[GameSaveManager.Instance.GetActiveGameSave().difficulty].enemyDamageMultiplier,
+            EnvironmentConfig.LAYER_PLAYER_ATTACK => GameConfig.DIFFICULTY_MODIFIERS[GameSaveManager.Instance.GetActiveGameSave().difficulty].playerDamageMultiplier,
             _ => 1f
         };
     }

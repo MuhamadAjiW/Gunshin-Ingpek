@@ -43,7 +43,7 @@ public class Player : PlayerEntity
 
         base.Start();
         SetIdPrefix(OBJECT_ID_PREFIX);
-        Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveData.Instance.difficulty].playerHealthMultiplier;
+        Health *= GameConfig.DIFFICULTY_MODIFIERS[GameSaveManager.Instance.GetActiveGameSave().difficulty].playerHealthMultiplier;
         stats.Init(this);
         stateController.Init(this);
         inputController.Init(this);

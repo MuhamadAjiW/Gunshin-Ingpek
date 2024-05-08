@@ -6,6 +6,7 @@ using _Scripts.Core.Game.Data.Story;
 
 public class GameDataWrapper
 {
+    public string playerName;
     public DifficultyType difficulty;
     public List<string> events;
     public CurrencyData currencyData;

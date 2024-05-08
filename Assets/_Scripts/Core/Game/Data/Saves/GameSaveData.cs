@@ -8,14 +8,13 @@ using UnityEngine;
 
 namespace _Scripts.Core.Game.Data.Saves
 {
-    public class GameSaveData : MonoBehaviour
+    public class GameSaveData
     {
-        // Static Instance
-        public static GameSaveData Instance;
-
         // Attributes
 
         public DateTime writeTime;
+
+        public string playerName = "";
         public DifficultyType difficulty = DifficultyType.NORMAL;
         public List<string> events = new();
         // Save the currency of the player
@@ -26,10 +25,9 @@ namespace _Scripts.Core.Game.Data.Saves
         public StoryData storyData;
 
         // Constructor
-        private void Awake()
+        public GameSaveData()
         {
             storyData = new StoryData(events);
-            DontDestroyOnLoad(gameObject);
         }
 
         public void SaveGame(string path, string name)
@@ -41,6 +39,7 @@ namespace _Scripts.Core.Game.Data.Saves
                 currencyData = this.currencyData,
                 positionData = this.positionData,
                 storyData = this.storyData,
+                playerName = this.playerName,
             };
 
             string json = JsonUtility.ToJson(wrapper, true);
@@ -63,6 +62,7 @@ namespace _Scripts.Core.Game.Data.Saves
                 this.currencyData = wrapper.currencyData;
                 this.positionData = wrapper.positionData;
                 this.storyData = wrapper.storyData;
+                this.playerName = wrapper.playerName;
                 Debug.Log("Game loaded from " + filePath);
                 return GameSaveManager.GameLoadResult.SUCCESS;
             }

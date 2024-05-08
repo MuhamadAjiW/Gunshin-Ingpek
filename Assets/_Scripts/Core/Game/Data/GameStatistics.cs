@@ -10,9 +10,24 @@ namespace _Scripts.Core.Game.Data
     {
         // Static Instance
         public static GameStatistics Instance;
+<<<<<<< HEAD
 
         // Saved
         public int enemiesKilled = 0;
+=======
+
+        // Saved
+        public int goonsKilled = 0;
+        public int headgoonsKilled = 0;
+        public int generalsKilled = 0;
+        public int kingsKilled = 0;
+
+        public int enemiesKilled
+        {
+            get => goonsKilled + headgoonsKilled + generalsKilled + kingsKilled;
+        }
+
+>>>>>>> 434a8b79 (feat: settings working)
         // Helper for Accuracy
         public int shotsFired = 0;
 
