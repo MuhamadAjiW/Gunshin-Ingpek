@@ -10,5 +10,10 @@ public class GameStatisticsDisplayController : MainMenuScreenController
         base.OnEnable();
 
         MainMenuManager.InitializeBackButton(rootElement);
+
+        GameStatisticsContainer gameStatisticsContainer = rootElement.Query<GameStatisticsContainer>("GameStatisticsContainer");
+
+        gameStatisticsContainer.MarkDirtyRepaint();
+
     }
 }
