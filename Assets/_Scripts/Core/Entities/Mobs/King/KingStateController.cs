@@ -11,6 +11,8 @@ public class KingStateController : EntityStateController
     public float detectionDistance = 25f;
     public float debuffDistance = 12.5f;
     public float attackDistance = 8f;
+    public float attackCloseDistance = 2f;
+
     [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
     [HideInInspector] public bool playerInDebuff = false;
 
@@ -113,7 +115,11 @@ public class KingStateController : EntityStateController
             return KingState.AI_PATROL_STATE;
         }
 
-        if(Vector3.Distance(king.Position, GameController.Instance.player.Position) < attackDistance)
+        if(Vector3.Distance(king.Position, GameController.Instance.player.Position) < attackCloseDistance)
+        {
+            return HeadGoonState.AI_IN_RANGE_CLOSE_STATE;
+        }
+        else if(Vector3.Distance(king.Position, GameController.Instance.player.Position) < attackDistance)
         {
             return KingState.AI_IN_RANGE_STATE;
         }
@@ -173,6 +179,8 @@ public class KingStateController : EntityStateController
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, debuffDistance);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackCloseDistance);
     }
 
     public void VisualizePatrolRoute(King king)

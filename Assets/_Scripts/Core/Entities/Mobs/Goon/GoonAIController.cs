@@ -54,6 +54,7 @@ public class GoonAIController
                 GoToward(GameController.Instance.player.transform);
                 break;
             case GoonState.AI_IN_RANGE_STATE:
+                Stop();
                 Quaternion targetAngle = LookToward(GameController.Instance.player.transform);
                 if(Quaternion.Angle(targetAngle, goon.transform.rotation) < 10)
                 {
@@ -65,14 +66,23 @@ public class GoonAIController
 
     public Quaternion LookToward(Transform target)
     {
-        Vector3 direction = MathUtils.GetDirectionVectorFlat(target.position, goon.Position);
+        Vector3 direction = MathUtils.GetDirectionVectorClamped(target.position, goon.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
         Quaternion look = Quaternion.LookRotation(direction);
         goon.transform.rotation = Quaternion.Slerp(look, goon.transform.rotation, Time.deltaTime);
         return look;
     }
 
+    public void Stop()
+    {
+        nav.enabled = false;
+    }
+
     public void GoToward(Transform target)
     {
+        if(!nav.enabled)
+        {
+            nav.enabled = true;
+        }
         nav.destination = target.position;
     }
 
@@ -175,12 +185,14 @@ public class GoonAIController
 
     private void OnDamaged()
     {
-        nav.velocity = Vector3.zero;
+        if(nav.enabled)
+        {
+            nav.velocity = Vector3.zero;
+        }
     }
 
     private void OnDeath()
     {
-        GoToward(goon.transform);
-        nav.velocity = Vector3.zero;
+        Stop();
     }
 }

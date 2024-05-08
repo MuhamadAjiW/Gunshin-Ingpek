@@ -11,6 +11,7 @@ public class HeadGoonStateController : EntityStateController
     [HideInInspector] public WeaponState weaponState = WeaponState.IDLE;
     public float detectionDistance = 15f;
     public float attackDistance = 5f;
+    public float attackCloseDistance = 1.5f;
 
     // Events
     public event Action OnPlayerEnterDetectionEvent;
@@ -64,7 +65,11 @@ public class HeadGoonStateController : EntityStateController
             return HeadGoonState.AI_PATROL_STATE;
         }
 
-        if(Vector3.Distance(headGoon.Position, GameController.Instance.player.Position) < attackDistance)
+        if(Vector3.Distance(headGoon.Position, GameController.Instance.player.Position) < attackCloseDistance)
+        {
+            return HeadGoonState.AI_IN_RANGE_CLOSE_STATE;
+        }
+        else if(Vector3.Distance(headGoon.Position, GameController.Instance.player.Position) < attackDistance)
         {
             return HeadGoonState.AI_IN_RANGE_STATE;
         }
@@ -141,6 +146,8 @@ public class HeadGoonStateController : EntityStateController
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, detectionDistance);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackDistance);
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(monoBehaviour.transform.position, attackCloseDistance);
     }
 
     public void VisualizePatrolRoute(HeadGoon headGoon)

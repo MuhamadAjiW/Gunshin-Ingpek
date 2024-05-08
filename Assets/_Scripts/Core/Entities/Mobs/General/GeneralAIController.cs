@@ -54,7 +54,7 @@ public class GeneralAIController
                 GoToward(GameController.Instance.player.transform);
                 break;
             case GeneralState.AI_IN_RANGE_STATE:
-                GoToward(general.transform);
+                Stop();
                 Quaternion targetAngle = LookToward(GameController.Instance.player.transform);
                 if(Quaternion.Angle(targetAngle, general.transform.rotation) < 10)
                 {
@@ -66,14 +66,23 @@ public class GeneralAIController
 
     public Quaternion LookToward(Transform target)
     {
-        Vector3 direction = MathUtils.GetDirectionVectorFlat(target.position, general.Position);
+        Vector3 direction = MathUtils.GetDirectionVectorClamped(target.position, general.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
         Quaternion look = Quaternion.LookRotation(direction);
         general.transform.rotation = Quaternion.Slerp(look, general.transform.rotation, Time.deltaTime);
         return look;
     }
 
+    public void Stop()
+    {
+        nav.enabled = false;
+    }
+
     public void GoToward(Transform target)
     {
+        if(!nav.enabled)
+        {
+            nav.enabled = true;
+        }
         nav.destination = target.position;
     }
 
@@ -172,12 +181,14 @@ public class GeneralAIController
 
     private void OnDamaged()
     {
-        nav.velocity /= 2;
+        if(nav.enabled)
+        {
+            nav.velocity /= 2;
+        }
     }
 
     private void OnDeath()
     {
-        GoToward(general.transform);
-        nav.velocity = Vector3.zero;
+        Stop();
     }
 }

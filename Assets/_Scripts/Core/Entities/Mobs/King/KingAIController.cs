@@ -54,11 +54,19 @@ public class KingAIController
                 GoToward(GameController.Instance.player.transform);
                 break;
             case KingState.AI_IN_RANGE_STATE:
-                GoToward(king.transform);
+                Stop();
                 Quaternion targetAngle = LookToward(GameController.Instance.player.transform);
                 if(Quaternion.Angle(targetAngle, king.transform.rotation) < 10)
                 {
                     Attack();
+                }
+                break;
+            case HeadGoonState.AI_IN_RANGE_CLOSE_STATE:
+                Stop();
+                targetAngle = LookToward(GameController.Instance.player.transform);
+                if(Quaternion.Angle(targetAngle, king.transform.rotation) < 10)
+                {
+                    AlternateAttack();
                 }
                 break;
         }
@@ -66,14 +74,23 @@ public class KingAIController
 
     public Quaternion LookToward(Transform target)
     {
-        Vector3 direction = MathUtils.GetDirectionVectorFlat(target.position + target.right / 2, king.Position);
+        Vector3 direction = MathUtils.GetDirectionVectorClamped(target.position + target.right / 2, king.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
         Quaternion look = Quaternion.LookRotation(direction);
         king.transform.rotation = Quaternion.Slerp(look, king.transform.rotation, Time.deltaTime);
         return look;
     }
 
+    public void Stop()
+    {
+        nav.enabled = false;
+    }
+
     public void GoToward(Transform target)
     {
+        if(!nav.enabled)
+        {
+            nav.enabled = true;
+        }
         nav.destination = target.position;
     }
 
@@ -174,12 +191,14 @@ public class KingAIController
 
     private void OnDamaged()
     {
-        nav.velocity /= 2;
+        if(nav.enabled)
+        {
+            nav.velocity /= 2;
+        }
     }
 
     private void OnDeath()
     {
-        GoToward(king.transform);
-        nav.velocity = Vector3.zero;
+        Stop();
     }
 }
