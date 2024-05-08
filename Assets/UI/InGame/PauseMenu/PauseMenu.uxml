@@ -4,6 +4,7 @@
     <ui:VisualElement name="Container" class="root-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.57); align-items: center; justify-content: flex-start;">
         <ui:VisualElement name="PauseMenuContainer" style="flex-grow: 1; justify-content: center;">
             <ui:Button text="Resume" name="Resume" emoji-fallback-support="false" class="button" />
+            <ui:Button text="Save" name="Save" class="button" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

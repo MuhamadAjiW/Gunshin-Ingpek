@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -41,7 +42,15 @@ public class MainMenuController : MainMenuScreenController
 
     private void NewGameCallback(ClickEvent evt)
     {
-        ScenesManager.Instance.LoadNewGame();
+        Debug.Assert(GameSaveManager.Instance is not null);
+        GameSaveManager.GameSaveResult newSaveResult = GameSaveManager.Instance.NewSave();
+        if (newSaveResult == GameSaveManager.GameSaveResult.SUCCESS)
+        {
+            ScenesManager.Instance.LoadNewGame();
+            return;
+        }
+
+        MainMenuManager.DisplayUIDocument("MaximumSavesReached");
     }
 
     private void LoadGameCallback(ClickEvent evt)

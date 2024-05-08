@@ -13,7 +13,7 @@ public class GameStatisticsDisplayController : MainMenuScreenController
 
         GameStatisticsContainer gameStatisticsContainer = rootElement.Query<GameStatisticsContainer>("GameStatisticsContainer");
 
-        gameStatisticsContainer.MarkDirtyRepaint();
+        gameStatisticsContainer.LoadStatistics();
 
     }
 }

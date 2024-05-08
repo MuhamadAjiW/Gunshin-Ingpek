@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Scripts.Core.Game.Data;
-using _Scripts.Core.Game.Data.Saves;
+
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +10,7 @@ using UnityEngine.UIElements;
 [UxmlElement]
 public partial class GameStatisticsContainer : VisualElement
 {
+
     public static readonly string GameStatisticsContainerUSSClassName = "game-statistics-container";
 
     public static readonly string EnemiesKilledContainerUSSClassName = "enemies-killed-container";
@@ -91,6 +92,8 @@ public partial class GameStatisticsContainer : VisualElement
         get => GameStatisticsManager.Instance.Accuracy;
     }
 
+
+
     public GameStatisticsContainer()
     {
         name = "GameStatisticsContainer";
@@ -117,9 +120,10 @@ public partial class GameStatisticsContainer : VisualElement
 
         generateVisualContent += GenerateVisualContent;
 
+
     }
 
-    void GenerateVisualContent(MeshGenerationContext context)
+    public void LoadStatistics()
     {
         if (GameStatisticsManager.Instance is null)
         {
@@ -130,6 +134,10 @@ public partial class GameStatisticsContainer : VisualElement
         m_ShotsFiredText.text = ShotsFired.ToString();
         m_ShotsHitText.text = ShotsHit.ToString();
         m_AccuracyText.text = ShotsAccuracy.ToString();
+    }
+
+    void GenerateVisualContent(MeshGenerationContext context)
+    {
 
     }
 }

@@ -9,7 +9,7 @@ public partial class VolumeSlider : Slider
     public VolumeSlider()
     {
         lowValue = 0;
-        highValue = 120;
+        highValue = 100;
         value = 100;
         generateVisualContent += GenerateVisualContent;
     }

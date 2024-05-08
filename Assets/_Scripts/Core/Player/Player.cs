@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using _Scripts.Core.Game.Data;
-using _Scripts.Core.Game.Data.Saves;
+
 using UnityEngine;
 
 public class Player : PlayerEntity

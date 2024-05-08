@@ -11,5 +11,10 @@ public class LoadGameController : MainMenuScreenController
         base.OnEnable();
 
         MainMenuManager.InitializeBackButton(rootElement);
+
+        GameSavesContainer savesGameContainer = rootElement.Query<GameSavesContainer>("GameSavesContainer");
+
+        savesGameContainer.LoadSave();
+
     }
 }

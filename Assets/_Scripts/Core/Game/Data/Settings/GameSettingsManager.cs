@@ -15,7 +15,9 @@ public class GameSettingsManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
-        SETTINGS_PATH = Application.persistentDataPath + "/settings";
+        Debug.Log("Loaded Settings Manager");
+        SETTINGS_PATH = Application.persistentDataPath + "/settings.json";
+
         gameSettings = new(SETTINGS_PATH);
 
         gameSettings.OnSettingsChanged += SaveSettings;

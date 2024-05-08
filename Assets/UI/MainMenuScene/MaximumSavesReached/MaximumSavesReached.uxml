@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
+    <Style src="project://database/Assets/UI/MainMenuScene/MaximumSavesReached/MaximumSavesReached.uss?fileID=7433441132597879392&amp;guid=412582be2c33d0bcb8a1fc69a60c0bd1&amp;type=3#MaximumSavesReached" />
+    <ui:VisualElement name="Container" class="overlay" style="flex-grow: 1; align-items: center;">
+        <ui:VisualElement name="PromptContainer" style="flex-grow: 1;">
+            <ui:Label text="You&apos;ve reached the amount of maximum save. To make a new game, would you like to delete your oldest save?" name="PromptText" />
+        </ui:VisualElement>
+        <ui:VisualElement name="OptionContainer" style="flex-grow: 1; flex-direction: row; align-items: flex-start; width: auto; height: auto;">
+            <ui:Button text="Yes" name="Yes" class="button" style="width: 100px;" />
+            <ui:Button text="Cancel" name="Cancel" class="button" style="width: 100px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

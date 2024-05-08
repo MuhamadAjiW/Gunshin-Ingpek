@@ -81,6 +81,8 @@ namespace _Scripts.Core.Game.Data
         public void Awake()
         {
             Instance = this;
+            Debug.Log("Loaded Statistics Manager");
+
         }
 
         public void Start()

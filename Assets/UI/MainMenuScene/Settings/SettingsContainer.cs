@@ -1,5 +1,5 @@
 using System;
-using _Scripts.Core.Game.Data.Saves;
+
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -30,6 +30,7 @@ public partial class SettingsContainer : VisualElement
         {
             Debug.Assert(GameSettingsManager.Instance is not null);
             Debug.Assert(GameSettingsManager.Instance.gameSettings is not null);
+            AudioListener.volume = evt.newValue / volumeSlider.highValue;
             GameSettingsManager.Instance.gameSettings.SoundVolume = evt.newValue;
         });
 
