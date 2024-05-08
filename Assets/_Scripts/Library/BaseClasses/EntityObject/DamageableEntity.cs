@@ -5,10 +5,10 @@ using UnityEngine;
 public class DamageableEntity : WorldEntity, IDamageable
 {
     // Attributes
-    private bool damageable = true;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float health;
-    [SerializeField] private float damagedDelay;
+    protected bool damageable = true;
+    [SerializeField] protected float maxHealth;
+    [SerializeField] protected float health;
+    [SerializeField] protected float damagedDelay;
 
     // Events
     public event Action OnDeathEvent;

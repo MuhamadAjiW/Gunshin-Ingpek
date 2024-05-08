@@ -9,6 +9,8 @@ public class CameraMouse : CameraFollowObject
     private Quaternion initialRotation;
     private Vector3 targetPosition;
     private Quaternion targetRotation;
+    private Vector3 mouseUpAxis;
+    private Vector3 mouseRightAxis;
 
     // Constructor
     protected new void Start()
@@ -17,7 +19,9 @@ public class CameraMouse : CameraFollowObject
         base.Start();
         offset = CameraConfig.DEFAULT_CAMERA_OFFSET;
         Cursor.lockState = CursorLockMode.Locked;
-        initialRotation = CameraConfig.DEFAULT_CAMERA_ROTATION;
+        initialRotation = target.transform.rotation;
+        mouseUpAxis = target.transform.right;
+        mouseRightAxis = target.transform.up;
     }
 
     // Functions
@@ -34,8 +38,8 @@ public class CameraMouse : CameraFollowObject
         mouseTurn.y = Mathf.Clamp(mouseTurn.y, -GameConfig.CAMERA_MOUSE_VERTICAL_MAX, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
 
         Quaternion rotation = initialRotation;
-        rotation = Quaternion.AngleAxis(-mouseTurn.y, Vector3.right) * rotation;
-        rotation = Quaternion.AngleAxis(mouseTurn.x, Vector3.up) * rotation;
+        rotation = Quaternion.AngleAxis(-mouseTurn.y, mouseUpAxis) * rotation;
+        rotation = Quaternion.AngleAxis(mouseTurn.x, mouseRightAxis) * rotation;
 
 
         targetPosition = target.position + rotation * offset;

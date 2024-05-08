@@ -211,6 +211,7 @@ public class PlayerInputController
     {
         player.audioController.Play(PlayerAudioController.SKILL_KEY);
         player.animationController.AnimateSkill();
+        player.Damageable = false;
 
         TriggerWeaponState(WeaponState.SKILL);
         yield return new WaitForSeconds(player.model.skillAnimationDelay);
@@ -230,7 +231,12 @@ public class PlayerInputController
             Quaternion flatRotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y, player.transform.rotation.eulerAngles.z);
             player.transform.rotation = flatRotation;
 
+<<<<<<< HEAD
             GameStatisticsManager.Instance.AddSkillsUsed();
+=======
+            GameStatistics.Instance.AddSkillsUsed();
+            player.Damageable = true;
+>>>>>>> b4e37aa1 (fix: camera, skill)
         }
 >>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
     }
