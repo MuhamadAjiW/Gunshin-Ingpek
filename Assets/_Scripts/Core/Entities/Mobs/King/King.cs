@@ -35,7 +35,10 @@ public class King : BossEntity
         animationController.Init(this);
 
         EquipWeapon(0);
+<<<<<<< HEAD
         ActivateAllCompanions();
+=======
+>>>>>>> d871ba60 (feat: initial work on statistics element)
 
         OnDeathEvent += OnDeath;
         StartCoroutine(SpawnGoons());
@@ -128,8 +131,12 @@ public class King : BossEntity
 <<<<<<< HEAD
 =======
         audioController.Play(AUDIO_DIE_KEY);
+<<<<<<< HEAD
         GameStatistics.Instance.AddKingsKilled();
 >>>>>>> cc490e85 (feat: mob sounds)
+=======
+        GameStatisticsManager.Instance.AddKingsKilled();
+>>>>>>> d871ba60 (feat: initial work on statistics element)
         StartCoroutine(DeleteBody());
     }
 

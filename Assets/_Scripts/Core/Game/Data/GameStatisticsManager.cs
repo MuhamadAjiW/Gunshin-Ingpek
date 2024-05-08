@@ -1,35 +1,50 @@
 using System;
 using System.Collections;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace _Scripts.Core.Game.Data
 {
     [Serializable]
-    public class GameStatistics : MonoBehaviour
+    public class GameStatisticsManager : MonoBehaviour
     {
         // Static Instance
+<<<<<<< HEAD:Assets/_Scripts/Core/Game/Data/GameStatistics.cs
         public static GameStatistics Instance;
 <<<<<<< HEAD
 
         // Saved
         public int enemiesKilled = 0;
 =======
+=======
+        public static GameStatisticsManager Instance;
+>>>>>>> d871ba60 (feat: initial work on statistics element):Assets/_Scripts/Core/Game/Data/GameStatisticsManager.cs
 
         // Saved
+        // [DontCreateProperty]
         public int goonsKilled = 0;
+        // [DontCreateProperty]
         public int headgoonsKilled = 0;
+        // [DontCreateProperty]
         public int generalsKilled = 0;
+        // [DontCreateProperty]
         public int kingsKilled = 0;
 
-        public int enemiesKilled
+        public int EnemiesKilled
         {
             get => goonsKilled + headgoonsKilled + generalsKilled + kingsKilled;
         }
 
 >>>>>>> 434a8b79 (feat: settings working)
         // Helper for Accuracy
+        // [DontCreateProperty]
         public int shotsFired = 0;
+<<<<<<< HEAD:Assets/_Scripts/Core/Game/Data/GameStatistics.cs
+=======
+        // [DontCreateProperty]
+        public int shotsHit = 0;
+>>>>>>> d871ba60 (feat: initial work on statistics element):Assets/_Scripts/Core/Game/Data/GameStatisticsManager.cs
 
         public int shotsHit = 0;
         // Saved
@@ -37,6 +52,7 @@ namespace _Scripts.Core.Game.Data
 
         public int DistanceTraveled { get; set; }
         // Helper for PlaytimeFormatted
+        [DontCreateProperty]
         public int playtime = 0;
         private int _playTimeHour;
         private int _playTimeMinute;
@@ -62,20 +78,12 @@ namespace _Scripts.Core.Game.Data
         public int PetsOwned { get; set; }
 
         // Constructor
-        private void Awake()
+        public void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Instance = this;
         }
 
-        private void Start()
+        public void Start()
         {
             StartCoroutine(RecordTimeRoutine());
         }
@@ -117,7 +125,7 @@ namespace _Scripts.Core.Game.Data
 
         public void Load(string json)
         {
-            GameStatistics data = JsonUtility.FromJson<GameStatistics>(json);
+            GameStatisticsManager data = JsonUtility.FromJson<GameStatisticsManager>(json);
             if (data != null)
             {
                 enemiesKilled = data.enemiesKilled;

@@ -30,7 +30,7 @@ public class HeadGoon : EnemyEntity
         animationController.Init(this);
 
         EquipWeapon(0);
-        
+
         OnDeathEvent += OnDeath;
         StartCoroutine(SpawnGoons());
     }
@@ -38,8 +38,8 @@ public class HeadGoon : EnemyEntity
     // Functions
     protected IEnumerator SpawnGoons()
     {
-        if(goonCount < goonCountLimit && !Dead)
-        {            
+        if (goonCount < goonCountLimit && !Dead)
+        {
             Goon goon = ObjectFactory.CreateEntity<Goon>(
                 prefabPath: GOON_PREFAB,
                 position: transform.position + transform.up,
@@ -49,7 +49,7 @@ public class HeadGoon : EnemyEntity
             goonCount++;
         }
         yield return new WaitForSeconds(25);
-        if(!Dead)
+        if (!Dead)
         {
             StartCoroutine(SpawnGoons());
         }
@@ -74,6 +74,10 @@ public class HeadGoon : EnemyEntity
 
     private void OnDeath()
     {
+<<<<<<< HEAD
+=======
+        GameStatisticsManager.Instance.AddHeadGoonsKilled();
+>>>>>>> d871ba60 (feat: initial work on statistics element)
         StartCoroutine(DeleteBody());
     }
 
@@ -82,7 +86,7 @@ public class HeadGoon : EnemyEntity
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
-    
+
     // Debugging functions
     protected new void OnDrawGizmosSelected()
     {

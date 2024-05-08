@@ -29,7 +29,10 @@ public class General : BossEntity
         animationController.Init(this);
 
         EquipWeapon(0);
+<<<<<<< HEAD
         ActivateAllCompanions();
+=======
+>>>>>>> d871ba60 (feat: initial work on statistics element)
 
         OnDeathEvent += OnDeath;
         StartCoroutine(DrainPlayerHealth());
@@ -68,8 +71,12 @@ public class General : BossEntity
 <<<<<<< HEAD
 =======
         audioController.Play(AUDIO_DIE_KEY);
+<<<<<<< HEAD
         GameStatistics.Instance.AddGeneralsKilled();
 >>>>>>> cc490e85 (feat: mob sounds)
+=======
+        GameStatisticsManager.Instance.AddGeneralsKilled();
+>>>>>>> d871ba60 (feat: initial work on statistics element)
         StartCoroutine(DeleteBody());
     }
 

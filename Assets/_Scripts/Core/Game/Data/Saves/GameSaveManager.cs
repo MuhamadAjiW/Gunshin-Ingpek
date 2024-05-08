@@ -57,8 +57,6 @@ namespace _Scripts.Core.Game.Data.Saves
             return gameSaves;
         }
 
-
-
         public void LoadSaves()
         {
             foreach (string saveFileName in GetAllSavesFileName())
@@ -77,7 +75,7 @@ namespace _Scripts.Core.Game.Data.Saves
         {
             if (File.Exists(STATS_FILE_PATH))
             {
-                GameStatistics.Instance.Load(File.ReadAllText(STATS_FILE_PATH));
+                GameStatisticsManager.Instance.Load(File.ReadAllText(STATS_FILE_PATH));
             }
             else
             {
@@ -87,7 +85,7 @@ namespace _Scripts.Core.Game.Data.Saves
 
         public void SaveStatistics()
         {
-            File.WriteAllTextAsync(STATS_FILE_PATH, GameStatistics.Instance.SaveToJson());
+            File.WriteAllTextAsync(STATS_FILE_PATH, GameStatisticsManager.Instance.SaveToJson());
         }
 
         public GameSaveResult NewSave()

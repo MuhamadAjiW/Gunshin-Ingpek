@@ -12,7 +12,7 @@ public class Goon : EnemyEntity
     public AudioController audioController;
     public GoonAIController aiController;
     public GoonAnimationController animationController;
-    
+
     // Constructor
     new protected void Start()
     {
@@ -25,7 +25,7 @@ public class Goon : EnemyEntity
         animationController.Init(this);
 
         EquipWeapon(0);
-        
+
         OnDeathEvent += OnDeath;
     }
 
@@ -44,6 +44,10 @@ public class Goon : EnemyEntity
 
     private void OnDeath()
     {
+<<<<<<< HEAD
+=======
+        GameStatisticsManager.Instance.AddGoonsKilled();
+>>>>>>> d871ba60 (feat: initial work on statistics element)
         StartCoroutine(DeleteBody());
     }
 

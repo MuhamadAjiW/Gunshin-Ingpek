@@ -230,7 +230,7 @@ public class PlayerInputController
             Quaternion flatRotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y, player.transform.rotation.eulerAngles.z);
             player.transform.rotation = flatRotation;
 
-            GameStatistics.Instance.AddSkillsUsed();
+            GameStatisticsManager.Instance.AddSkillsUsed();
         }
 >>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
     }

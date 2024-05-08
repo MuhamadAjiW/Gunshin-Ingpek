@@ -8,12 +8,12 @@ public class Shotgun : WeaponObject
     private const string PROJECTILE_PREFAB = "Prefabs/Weapons/Shotgun/ShotgunProjectile";
     private const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
     public const string SHOT_AUDIO_KEY = "Shoot";
-    
+
     // Attribute
     public float fireRange = 100;
-    public float projectileSpeed = 100; 
-    public float spread = 0.2f; 
-    public int pelletCount = 10; 
+    public float projectileSpeed = 100;
+    public float spread = 0.2f;
+    public int pelletCount = 10;
     public AudioController audioController;
 
     // Constructor
@@ -76,6 +76,15 @@ public class Shotgun : WeaponObject
 
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower) + bearer.Orientation.up, ForceMode.Impulse);
+<<<<<<< HEAD
+=======
+
+        if (bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
+        {
+            GameStatisticsManager.Instance.AddShotsFired();
+            attackProjectile.OnDamageEvent += GameStatisticsManager.Instance.AddShotsHit;
+        }
+>>>>>>> d871ba60 (feat: initial work on statistics element)
     }
 
     protected override void OnAlternateAttack()
@@ -146,5 +155,14 @@ public class Shotgun : WeaponObject
 
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower) + bearer.Orientation.up, ForceMode.Impulse);
+<<<<<<< HEAD
+=======
+
+        if (bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
+        {
+            GameStatisticsManager.Instance.AddShotsFired();
+            attackProjectile.OnDamageEvent += GameStatisticsManager.Instance.AddShotsHit;
+        }
+>>>>>>> d871ba60 (feat: initial work on statistics element)
     }
 }
