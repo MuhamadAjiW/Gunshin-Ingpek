@@ -28,7 +28,7 @@ public class GameSaveManager : MonoBehaviour
 
     private static int NUMBER_OF_SAVE_SLOT;
 
-    private List<GameSaveData> gameSaves;
+    public List<GameSaveData> gameSaves;
 
     private GameSaveData activeGameSave;
     private int activeGameSaveIndex = -1;
