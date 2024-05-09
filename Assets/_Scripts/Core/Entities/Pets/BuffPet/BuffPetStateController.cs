@@ -1,9 +1,6 @@
 using System;
 using UnityEngine;
 
-using System.Collections.Generic;
-using Unity.VisualScripting;
-
 [Serializable]
 public class BuffPetStateController : PetStateController<BuffPet>
 {
@@ -27,11 +24,11 @@ public class BuffPetStateController : PetStateController<BuffPet>
     }
 
     // Debugging functions
-    public void VisualizeDetection(MonoBehaviour monoBehaviour)
+    public void VisualizeDetection()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(monoBehaviour.transform.position, avoidDistance);
+        Gizmos.DrawWireSphere(pet.transform.position, avoidDistance);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(monoBehaviour.transform.position, maxDistFromOwner);
+        Gizmos.DrawWireSphere(pet.Owner.CompanionController.transform.position, maxDistFromOwner);
     }
 }

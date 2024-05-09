@@ -51,7 +51,8 @@ public class Rifle : WeaponObject
 <<<<<<< HEAD
 =======
 
-        if (bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
+        // Won't count shots fired by pets
+        if (bearer is Player && bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
         {
             GameStatisticsManager.Instance.AddShotsFired();
             attackProjectile.OnDamageEvent += GameStatisticsManager.Instance.AddShotsHit;

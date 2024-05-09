@@ -82,7 +82,8 @@ public class Shotgun : WeaponObject
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 8) + bearer.Orientation.up, ForceMode.Impulse);
 >>>>>>> 06c3a003 (feat: enemy spawners, weapon adjustments)
 
-        if (bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
+        // Won't count shots fired by pets
+        if (bearer is Player && bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
         {
             GameStatisticsManager.Instance.AddShotsFired();
             attackProjectile.OnDamageEvent += GameStatisticsManager.Instance.AddShotsHit;

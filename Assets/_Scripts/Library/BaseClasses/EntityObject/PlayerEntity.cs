@@ -55,8 +55,7 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
 
         selectedCompanion.gameObject.SetActive(true);
 
-        // TODO: Set possible spawn locations for companions, for now it will spawn on the left
-        selectedCompanion.transform.position = transform.position - new Vector3(1.2f, 0, 0);
+        selectedCompanion.transform.position = transform.position - new Vector3((index + 1) * 1.2f, 0, 0);
         companionActive[CompanionSelectorIndex] = true;
         selectedCompanion.Assign(this);
     }

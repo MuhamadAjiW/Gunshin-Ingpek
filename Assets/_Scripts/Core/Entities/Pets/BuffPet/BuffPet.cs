@@ -86,6 +86,6 @@ public class BuffPet : Companion
     protected new void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
-        stateController.VisualizeDetection(this);
+        stateController.VisualizeDetection();
     }
 }

@@ -87,10 +87,21 @@ public class General : BossEntity
     private IEnumerator DeleteBody()
     {
         yield return new WaitForSeconds(2);
+<<<<<<< HEAD
         // foreach (Companion companion in CompanionList)
         // {
         //     Destroy(companion.gameObject);
         // }
+=======
+
+        // Destroy all companions, because it's not the child of this entity
+        foreach (Companion companion in CompanionList)
+        {
+            Destroy(companion.gameObject);
+        }
+
+        GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
+>>>>>>> de05d9f0 (feat: pet related behavior tuning)
         Destroy(gameObject);
     }
 
