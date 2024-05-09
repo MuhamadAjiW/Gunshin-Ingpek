@@ -67,7 +67,7 @@ public class MainMenuManager : MonoBehaviour
         DisplayUIDocument("MainMenu", withTransition, true);
     }
 
-    public void DisplayUIDocument(string displayedDocumentName, bool withTransition = false, bool reverseTransition = false)
+    public void DisplayUIDocument(string displayedDocumentName, bool withTransition = false, bool reverseTransition = false, bool lookAt = true, bool isOverlay = false)
     {
         UIDocument newDocument = MainMenuUIDocuments.Find(document => document.ToString().Split(" ")[0] == displayedDocumentName);
         if (withTransition)
@@ -76,11 +76,15 @@ public class MainMenuManager : MonoBehaviour
         }
         else
         {
-            if (OpenedUIDocument is not null)
+            if ((OpenedUIDocument is not null) && !isOverlay)
             {
                 UIManagement.ToggleUIDocumentVisible(OpenedUIDocument, false);
             }
-            LookAtDocument(newDocument, false);
+
+            if (lookAt)
+            {
+                LookAtDocument(newDocument, false);
+            }
             UIManagement.ToggleUIDocumentVisible(newDocument);
             OpenedUIDocument = newDocument;
         }

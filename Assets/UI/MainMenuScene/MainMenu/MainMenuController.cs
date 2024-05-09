@@ -50,7 +50,9 @@ public class MainMenuController : MainMenuScreenController
             return;
         }
 
-        MainMenuManager.DisplayUIDocument("MaximumSavesReached");
+        Debug.Log("Opening Maximum Saves Prompt");
+
+        MainMenuManager.DisplayUIDocument("MaximumSavesReached", false, false, false, true);
     }
 
     private void LoadGameCallback(ClickEvent evt)
