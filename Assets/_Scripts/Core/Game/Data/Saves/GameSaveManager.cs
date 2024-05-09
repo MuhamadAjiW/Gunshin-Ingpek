@@ -143,6 +143,8 @@ public class GameSaveManager : MonoBehaviour
         activeGameSaveIndex = index;
         SetActiveGameSaveFromGameSaves(index);
         // Do loading shit
+        GameController.Instance.player.transform.position = Instance.gameSaves[activeGameSaveIndex].positionData.point;
+        
     }
 
     public void OverrideSave()
@@ -150,7 +152,6 @@ public class GameSaveManager : MonoBehaviour
         gameSaves.RemoveAt(0);
         gameSaves.Add(activeGameSave);
         activeGameSaveIndex = 0;
-        // Do loading shit
     }
 
     public void PersistActiveSave()
