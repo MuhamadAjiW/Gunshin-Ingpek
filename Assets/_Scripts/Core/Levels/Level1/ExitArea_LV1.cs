@@ -15,6 +15,7 @@ public class ExitInteractable_LV1 : InteractableObject
         {
             GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_1_END_CUTSCENE);
             GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_1_END_CUTSCENE);
+            GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(Level1.QUEST_REWARD, Level1.QUEST_NAME);
             EventManager.Instance.SetShop(0, true);
             StartCoroutine(ShopTimeout());
         }

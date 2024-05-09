@@ -6,6 +6,8 @@ using UnityEngine;
 public class Level3 : MonoBehaviour
 {
     public static float SHOP_TIMEOUT = 60f;
+    public static int QUEST_REWARD = 200;
+    public static string QUEST_NAME = "Castle Raid";
 
     public int goonValue = 1;
     public int headGoonValue = 5;
@@ -25,11 +27,14 @@ public class Level3 : MonoBehaviour
         {
             GameController.Instance.OnGameEvent += OnGameEvent;
         }
-        
-        if (enemySpawners != null)
+        if (GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_3_END_CUTSCENE))
         {
-            enemySpawners.SetActive(false);
+            if (enemySpawners != null)
+            {
+                enemySpawners.SetActive(false);
+            }
         }
+        
         if (mobs != null)
         {
             mobs.SetActive(false);
@@ -96,6 +101,7 @@ public class Level3 : MonoBehaviour
                 DialogController.Instance.OnCutsceneFinished += EndLevel;
 =======
                 GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_3_END_CUTSCENE);
+                GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(Level2.QUEST_REWARD, Level2.QUEST_NAME);
                 EventManager.Instance.SetShop(2, true);
                 StartCoroutine(ShopTimeout());
 

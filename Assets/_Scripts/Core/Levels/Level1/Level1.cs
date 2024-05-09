@@ -6,6 +6,8 @@ using UnityEngine;
 public class Level1 : MonoBehaviour
 {
     public static float SHOP_TIMEOUT = 60f;
+    public static int QUEST_REWARD = 100;
+    public static string QUEST_NAME = "Escape dungeon";
 
     protected void Start()
     {

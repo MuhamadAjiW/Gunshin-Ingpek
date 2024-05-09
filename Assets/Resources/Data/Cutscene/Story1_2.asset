@@ -43,7 +43,17 @@ MonoBehaviour:
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 1
-  - Text: Lanjut
+  - Text: Jeaniqua mendapatkan 100 Mora
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 0
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 1
+  - Text: Lanjut jalan ye
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0

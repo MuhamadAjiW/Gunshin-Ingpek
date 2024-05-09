@@ -43,7 +43,17 @@ MonoBehaviour:
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
-  - Text: Ke Tahta dan duelin bosno
+  - Text: Jeaniqua mendapatkan 200 Mora
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 0
+    PersonRName: Asterrope
+    PersonRImage: {fileID: 2800000, guid: e5136a1c5aea29d47ab12731462c13c4, type: 3}
+    animation: 2
+  - Text: Lanjut ke Tahta dan duelin bosno
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0

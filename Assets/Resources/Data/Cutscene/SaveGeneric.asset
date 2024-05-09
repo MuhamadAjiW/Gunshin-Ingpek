@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SaveGeneric
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: Save?
+  - Text: Game Saved
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
