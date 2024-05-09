@@ -38,6 +38,7 @@ public class HeadGoon : EnemyEntity
     // Functions
     protected IEnumerator SpawnGoons()
     {
+        yield return new WaitForSeconds(25);
         if (goonCount < goonCountLimit && !Dead)
         {
             Goon goon = ObjectFactory.CreateEntity<Goon>(
@@ -50,7 +51,6 @@ public class HeadGoon : EnemyEntity
             goon.aiController.patrolRoute = aiController.patrolRoute;
             goonCount++;
         }
-        yield return new WaitForSeconds(25);
         if (!Dead)
         {
             StartCoroutine(SpawnGoons());

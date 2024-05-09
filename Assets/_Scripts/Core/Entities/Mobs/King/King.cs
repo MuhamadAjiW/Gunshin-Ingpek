@@ -85,6 +85,7 @@ public class King : BossEntity
 
     protected IEnumerator SpawnGoons()
     {
+        yield return new WaitForSeconds(15);
         if (goonCount < goonCountLimit && !Dead)
         {
             int rng = UnityEngine.Random.Range(0, 2);
@@ -111,7 +112,6 @@ public class King : BossEntity
             goon.aiController.patrolRoute = aiController.patrolRoute;
             goonCount++;
         }
-        yield return new WaitForSeconds(15);
         if (!Dead)
         {
             StartCoroutine(SpawnGoons());
