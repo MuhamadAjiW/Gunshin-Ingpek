@@ -14,6 +14,8 @@ public class PlayerInputController
     [HideInInspector] public bool movementInputJump;
     protected float attackWindowSize = 0.3f;
     protected Coroutine attackWindowCoroutine;
+    protected LayerMask enemyLayer;
+    public float enemyCloseRange = 1f;
 
     // Events
     public event Action OnJumpEvent;
@@ -24,6 +26,7 @@ public class PlayerInputController
     public void Init(Player player)
     {
         this.player = player;
+        enemyLayer = LayerMask.GetMask(EnvironmentConfig.LAYER_ENEMY);
     }
 
     // Functions
@@ -109,6 +112,20 @@ public class PlayerInputController
             {
                 return;
             }
+
+            Collider[] hitColliders = Physics.OverlapSphere(player.transform.position, enemyCloseRange, enemyLayer);
+
+            if(hitColliders.Length > 0)
+            {
+                return;
+            }
+
+            if (player.stateController.currentInteractables.Count == 0)
+            {
+                return;
+            }
+
+
 
             IInteractable interactable = player.stateController.currentInteractables[^1];
             interactable.Interact();
@@ -265,5 +282,12 @@ public class PlayerInputController
         };
 
         attackWindowCoroutine = player.StartCoroutine(HandleAttackWindow(delay + attackWindowSize));
+    }
+
+    // Debug purposes
+    public void VisualizeEnemyRange(Player player)
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(player.transform.position, enemyCloseRange);
     }
 }

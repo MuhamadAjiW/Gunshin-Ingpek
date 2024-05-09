@@ -183,6 +183,8 @@ public class Player : PlayerEntity
             location.y += movementController.stairMaxHeight / 2 + movementController.stairDetectionBottomOffset;
             Gizmos.DrawWireCube(location, new(movementController.stairDetectionDistance, movementController.stairMaxHeight, movementController.stairDetectionDistance));
         }
+
+        inputController.VisualizeEnemyRange(this);
     }
 
     // Orb Functions

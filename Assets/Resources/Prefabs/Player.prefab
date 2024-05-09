@@ -100,6 +100,7 @@ MonoBehaviour:
     movementInputZ: 0
     movementInputScroll: 0
     movementInputJump: 0
+    enemyCloseRange: 10
   stateController:
     weaponState: 0
   audioController:
