@@ -7,8 +7,9 @@ public class EventManager : BaseObjectManager
 {
     // Static instance
     public static EventManager Instance;
-    [SerializeField] private List<Shopkeeper> Shops;
-    [SerializeField] private List<SavePoint> SavePoints;
+    public List<Shopkeeper> Shops;
+    public List<SavePoint> SavePoints;
+    public List<WeaponObject> WeaponPool;
 
     // Constructor
     protected void Awake()

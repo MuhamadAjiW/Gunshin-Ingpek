@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab745433a46a65d468c9546d4610a4f9, type: 3}
+  m_Name: Tutorial3
+  m_EditorClassIdentifier: 
+  dialogs:
+  - Text: Atos kang
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 0
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 1
+  - Text: Okeh sok ieu aya shotgun keur ngajebred barudak hok rada dienjoy
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 2
+  - Text: Siap a hanupis
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 1
+  - Text: Jeaniqua mendapatkan shotgun
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 0
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 0

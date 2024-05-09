@@ -11,17 +11,22 @@ public class Diluc_NPC : NPCController
         if (GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_END_CUTSCENE))
         {
             controlledNPC.transform.SetPositionAndRotation(positions[2].position, positions[2].rotation);
+            return;
         }
+<<<<<<< HEAD
         else if (GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_ENTER_DUNGEON))
 >>>>>>> ffe29481 (feat: base interactables for shop and save)
+=======
+        if (GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_ENTER_DUNGEON))
+>>>>>>> 9d6f4213 (feat: finished tutorial)
         {
             controlledNPC.transform.SetPositionAndRotation(positions[1].position, positions[1].rotation);
-        }
-        else
-        {
-            controlledNPC.transform.SetPositionAndRotation(positions[0].position, positions[0].rotation);
             GameController.Instance.OnGameEvent += KeepTrack;
+            return;
         }
+        
+        controlledNPC.transform.SetPositionAndRotation(positions[0].position, positions[0].rotation);
+        GameController.Instance.OnGameEvent += KeepTrack;
     }
 
     protected void KeepTrack(string eventId, System.Object info)

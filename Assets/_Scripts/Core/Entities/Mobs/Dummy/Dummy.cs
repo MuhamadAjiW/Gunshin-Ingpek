@@ -18,5 +18,11 @@ public class Dummy : EnemyEntity
         stateController.Init(this);
         animationController.Init(this);
         audioController.Init(this);
+        OnDeathEvent += OnDeath;
+    }
+
+    private void OnDeath()
+    {
+        GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Story1_1
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: "\u2026 (gelap aja)"
+  - Text: "\u2026"
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0

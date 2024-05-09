@@ -4,7 +4,8 @@ using UnityEngine;
 public class Sword : WeaponObject
 {
     // Constants
-    private const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
+    public const string PLAYER_PREFAB = "Prefabs/Weapons/Sword/Sword";
+    public const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
 
     // Functions
     protected override void OnAlternateAttack()

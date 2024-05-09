@@ -3,8 +3,10 @@ using UnityEngine;
 public class Rifle : WeaponObject
 {
     // Constants
-    private const string PROJECTILE_PREFAB = "Prefabs/Weapons/Rifle/RifleProjectile";
-    private const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
+    public const string PLAYER_PREFAB = "Prefabs/Weapons/Rifle/Rifle";
+    public const string PLAYER_PREFAB_HIGH_DAMAGE = "Prefabs/Weapons/Rifle/Rifle_High_Damage";
+    public const string PROJECTILE_PREFAB = "Prefabs/Weapons/Rifle/RifleProjectile";
+    public const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
     public const string SHOT_AUDIO_KEY = "Shoot";
 
     // Attribute

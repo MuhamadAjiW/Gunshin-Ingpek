@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - Text: "\u2026"
+    OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
     PersonLName: 
@@ -23,6 +24,7 @@ MonoBehaviour:
     PersonRImage: {fileID: 0}
     animation: 3
   - Text: ... Huh?
+    OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
@@ -31,7 +33,8 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 1
-  - Text: ... Ngapain lu kocak!?!?!??!?
+  - Text: ... Nanaonan maneh!?!?!??!?
+    OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua

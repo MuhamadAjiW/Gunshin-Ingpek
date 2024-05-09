@@ -4,6 +4,13 @@ using System.Collections.Generic;
 // Configs should only contain constants and static readonly classes
 public static class StoryConfig
 {
+    // Tutorial
+    public const string KEY_TUTORIAL_START = "EVENT_TUTORIAL_0";
+    public const string KEY_TUTORIAL_1 = "EVENT_TUTORIAL_1";
+    public const string KEY_TUTORIAL_2 = "EVENT_TUTORIAL_2";
+    public const string KEY_TUTORIAL_FINAL = "EVENT_TUTORIAL_3";
+    
+
     // Level 1
     public const string KEY_STORY_1_START_CUTSCENE = "EVENT_STORY1_1";
     public const string KEY_STORY_1_ENTER_DUNGEON = "EVENT_STORY1_2";
@@ -39,6 +46,12 @@ public static class StoryConfig
         { KEY_CUTSCENE_SHOP, "Data/Cutscene/ShopGeneric" },
         { KEY_CUTSCENE_SAVE, "Data/Cutscene/SaveGeneric" },
 
+        // Tutorial
+        { KEY_TUTORIAL_START, "Data/Cutscene/Tutorial0" },
+        { KEY_TUTORIAL_1, "Data/Cutscene/Tutorial1" },
+        { KEY_TUTORIAL_2, "Data/Cutscene/Tutorial2" },
+        { KEY_TUTORIAL_FINAL, "Data/Cutscene/Tutorial3" },
+
         // Story cutscenes
         { KEY_STORY_1_START_CUTSCENE, "Data/Cutscene/Story1_1" },
         { KEY_STORY_1_END_CUTSCENE, "Data/Cutscene/Story1_2" },
@@ -53,6 +66,19 @@ public static class StoryConfig
 
     public static readonly List<String> EVENTS = new()
     {
+        // Non story cutscene 
+        KEY_CUTSCENE_SHOP,
+        KEY_CUTSCENE_SAVE,
+        KEY_CUTSCENE_DILUC,
+        KEY_CUTSCENE_DEATH,
+
+        // Tutorial
+        KEY_TUTORIAL_START,
+        KEY_TUTORIAL_1,
+        KEY_TUTORIAL_2,
+        KEY_TUTORIAL_FINAL,
+
+        // Story
         KEY_STORY_1_START_CUTSCENE,
         KEY_STORY_1_ENTER_DUNGEON,
         KEY_STORY_1_END_CUTSCENE,
@@ -63,8 +89,5 @@ public static class StoryConfig
         KEY_STORY_4_START_CUTSCENE,
         KEY_STORY_ENDING_CUTSCENE,
         KEY_STORY_ENDING_AFTER_CUTSCENE,
-
-        KEY_CUTSCENE_SHOP,
-        KEY_CUTSCENE_SAVE
     };
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 public class Shotgun : WeaponObject
 {
     // Constants
-    private const string PROJECTILE_PREFAB = "Prefabs/Weapons/Shotgun/ShotgunProjectile";
-    private const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
+    public const string PLAYER_PREFAB = "Prefabs/Weapons/Shotgun/Shotgun";
+    public const string PROJECTILE_PREFAB = "Prefabs/Weapons/Shotgun/ShotgunProjectile";
+    public const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
     public const string SHOT_AUDIO_KEY = "Shoot";
 
     // Attribute
