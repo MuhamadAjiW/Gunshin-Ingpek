@@ -107,6 +107,11 @@ public class PlayerInputController
         }
         else if (Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
         {
+
+            if (player.stateController.GetIsAiming())
+            {
+                return;
+            }
             Debug.Log("Player is interacting");
             if (player.stateController.currentInteractables.Count == 0)
             {
@@ -115,7 +120,7 @@ public class PlayerInputController
 
             Collider[] hitColliders = Physics.OverlapSphere(player.transform.position, enemyCloseRange, enemyLayer);
 
-            if(hitColliders.Length > 0)
+            if (hitColliders.Length > 0)
             {
                 return;
             }
