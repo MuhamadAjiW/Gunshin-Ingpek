@@ -33,6 +33,17 @@ public abstract class Companion : DamageableEntity
         };
     }
 
+    public static Companion NewCompanionByType(Type type)
+    {
+        return type switch
+        {
+            Type.HEALING => new HealingCompanion(),
+            Type.DAMAGE => new HealingCompanion(),
+            Type.INCREASE => new HealingCompanion(),
+            _ => new(),
+        };
+    }
+
     public string TypeName
     {
         get => GetCompanionTypeNameFromEnum(type);

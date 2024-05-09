@@ -1,5 +1,20 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
     <Style src="project://database/Assets/UI/InGame/Shop/Shop.uss?fileID=7433441132597879392&amp;guid=32cb86584eff2bc8ca1d9d1eb86a7980&amp;type=3#Shop" />
-    <ui:VisualElement name="Container" class="overlay" style="flex-grow: 1;" />
+    <ui:VisualElement name="Container" class="overlay" style="flex-grow: 1; flex-direction: row; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px;">
+        <PetCounter />
+        <ui:VisualElement name="ShopContainer" style="flex-grow: 1; align-items: flex-end; flex-direction: column;">
+            <CurrencyContainer>
+                <Bindings>
+                    <ui:DataBinding property="Currency" binding-mode="ToTarget" data-source-type="_Scripts.Core.Game.Data.Currency.CurrencyData, Assembly-CSharp" data-source-path="balance" />
+                </Bindings>
+            </CurrencyContainer>
+            <PetCatalog />
+            <ui:VisualElement name="ButtonContainer" style="flex-grow: 1; justify-content: flex-end;">
+                <ui:Label text="No Pet Selected!" name="NoPetSelectedLabel" style="align-items: flex-end; -unity-text-align: upper-right; visibility: hidden;" />
+                <ui:Button text="Buy" name="BuyPetButton" class="button" />
+                <ui:Button text="Exit Shop" name="ExitShopButton" class="button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

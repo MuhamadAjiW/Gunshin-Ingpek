@@ -13,9 +13,9 @@ public class HealthBarController : InGameUIScreenController
         rootElement.Q<HealthBar>().dataSource = player;
         PetCounter petCounter = rootElement.Q<PetCounter>();
 
-        player.OnCompanionAggregationChange += (() =>
+        player.OnCompanionAggregationChange += () =>
         {
             petCounter.CompanionAggregation = player.CompanionAggregation;
-        });
+        };
     }
 }

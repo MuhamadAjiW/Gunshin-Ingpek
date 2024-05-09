@@ -5325,17 +5325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e57b66e76eeafd4bb8ea101ee7598ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 1
-  events: []
-  currencyData:
-    balance: 0
-    transactions: []
-  positionData:
-    level: 1
-    point: {x: 0, y: 0, z: 0}
-  storyData:
-    events: []
-    progress: 
 --- !u!4 &354420149
 Transform:
   m_ObjectHideFlags: 0
@@ -30092,13 +30081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699af7536f1e4c5584c4d74309a3eea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goonsKilled: 0
-  headgoonsKilled: 0
-  generalsKilled: 0
-  kingsKilled: 0
-  shotsFired: 0
-  shotsHit: 0
-  playtime: 0
 --- !u!4 &1815034048
 Transform:
   m_ObjectHideFlags: 0

@@ -35,5 +35,11 @@ public class PauseMenuController : InGameUIScreenController
                 GameSaveManager.Instance?.PersistActiveSave();
             }
         });
+
+        Button shopButton = rootElement.Query<Button>("Shop");
+        shopButton.RegisterCallback((ClickEvent evt) =>
+        {
+            GameController.Instance.stateController.PushState(GameState.SHOPPING);
+        });
     }
 }
