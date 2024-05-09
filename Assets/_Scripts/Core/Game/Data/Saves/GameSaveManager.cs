@@ -31,7 +31,7 @@ public class GameSaveManager : MonoBehaviour
     public List<GameSaveData> gameSaves;
 
     private GameSaveData activeGameSave;
-    private int activeGameSaveIndex = -1;
+    public int activeGameSaveIndex = -1;
 
 
     public event Action OnGameSavesChange;
