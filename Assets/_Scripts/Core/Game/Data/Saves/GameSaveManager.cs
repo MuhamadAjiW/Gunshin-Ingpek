@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using _Scripts.Core.Game.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSaveManager : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class GameSaveManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         Debug.Log("Loaded Saves Manager");
         Debug.Assert(Instance is not null);
         activeGameSave = new();
@@ -100,8 +103,15 @@ public class GameSaveManager : MonoBehaviour
         {
             return GameSaveResult.MAX_SAVES_REACHED;
         }
+<<<<<<< HEAD
+=======
+        
+        activeGameSaveIndex = gameSaves.Count;
+>>>>>>> d93e8bd0 (fix: save, load)
         activeGameSave.SaveGame(SAVE_PATH);
         gameSaves.Add(activeGameSave);
+
+        Debug.LogWarning($"Save Index: {activeGameSaveIndex}");
         return GameSaveResult.SUCCESS;
     }
 
@@ -142,10 +152,8 @@ public class GameSaveManager : MonoBehaviour
     {
         activeGameSaveIndex = index;
         SetActiveGameSaveFromGameSaves(index);
-        // Do loading shit
-        GameController.Instance.player.transform.position = Instance.gameSaves[activeGameSaveIndex].positionData.point;
-        GameController.Instance.player.companionList = new List<Companion>(Instance.gameSaves[activeGameSaveIndex].petData.Select(Companion.NewCompanionByType));
-        Instance.gameSaves[activeGameSaveIndex].weaponPoolIndex.ForEach(e => GameController.Instance.player.weaponList.Add(EventManager.Instance.WeaponPool[e]));
+        ScenesManager.Instance.LoadNewGame();
+        SceneManager.sceneLoaded += LoadGame;
     }
 
     public void OverrideSave()
@@ -158,6 +166,18 @@ public class GameSaveManager : MonoBehaviour
     public void PersistActiveSave()
     {
         gameSaves.ElementAt(activeGameSaveIndex).SaveGame(SAVE_PATH);
+    }
+
+    private void LoadGame(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= LoadGame;
+
+        GameController.Instance.player.transform.position = Instance.gameSaves[activeGameSaveIndex].positionData.point;
+        GameController.Instance.player.companionList = new List<Companion>(Instance.gameSaves[activeGameSaveIndex].petData.Select(Companion.NewCompanionByType));
+
+        Debug.Assert(GameController.Instance.player.weaponList != null);
+        Debug.Assert(Instance.gameSaves[activeGameSaveIndex].weaponPoolIndex != null);
+        Instance.gameSaves[activeGameSaveIndex].weaponPoolIndex.ForEach(e => GameController.Instance.player.weaponList.Add(EventManager.Instance.WeaponPool[e]));
     }
 
 }

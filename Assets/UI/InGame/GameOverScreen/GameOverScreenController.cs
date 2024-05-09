@@ -18,8 +18,11 @@ public class GameOverScreenController : InGameUIScreenController
     public new void OnEnable()
     {
         base.OnEnable();
+
+        Button returnToMainMenu = rootElement.Query<Button>("ReturnToMainMenu");
+        returnToMainMenu.RegisterCallback((ClickEvent evt) =>
+        {
+            ScenesManager.Instance.LoadMainMenu();
+        });
     }
-
-
-
 }
