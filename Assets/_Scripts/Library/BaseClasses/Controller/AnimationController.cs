@@ -37,4 +37,14 @@ public abstract class AnimationController
         renderer = model.GetComponent<Renderer>();
         #endif
     }
+
+    public void OnBecameInvisible()
+    {
+        animator.enabled = false;
+    }
+    
+    public void OnBecameVisible()
+    {
+        animator.enabled = true;
+    }
 }

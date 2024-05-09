@@ -101,4 +101,13 @@ public class General : BossEntity
         stateController.VisualizeDetection(this);
         stateController.VisualizePatrolRoute(this);
     }
+    protected void OnBecameInvisible()
+    {
+        animationController.OnBecameInvisible();
+    }
+    
+    protected void OnBecameVisible()
+    {
+        animationController.OnBecameVisible();
+    }
 }
