@@ -13,8 +13,8 @@ public class StartInteractable_LV3 : InteractableObject
     {
         if (!GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_3_START_CUTSCENE))
         {
-            GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_3_START_CUTSCENE);
             GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_3_START_CUTSCENE);
+            GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_3_START_CUTSCENE);
         }
     }
 
