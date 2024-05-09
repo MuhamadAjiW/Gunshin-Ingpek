@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public partial class GameSaveCard : VisualElement
@@ -17,7 +18,7 @@ public partial class GameSaveCard : VisualElement
             AddToClassList(className);
         });
 
-        indexText.text = index.ToString();
+        indexText.text = (index + 1).ToString();
         saveTimeText.text = gameSaveData.writeTime.ToString();
 
         Add(indexText);
@@ -25,6 +26,7 @@ public partial class GameSaveCard : VisualElement
 
         RegisterCallback((ClickEvent evt) =>
         {
+            Debug.Log(String.Format("Try loading save with index ${0}", indexText.text));
             // Load the save game
             GameSaveManager.Instance?.LoadExistingSave(index);
         }

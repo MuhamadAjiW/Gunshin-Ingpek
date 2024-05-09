@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
+    <Style src="project://database/Assets/UI/InGame/Shop/Shop.uss?fileID=7433441132597879392&amp;guid=32cb86584eff2bc8ca1d9d1eb86a7980&amp;type=3#Shop" />
+    <ui:VisualElement name="Container" class="overlay" style="flex-grow: 1;" />
+</ui:UXML>

@@ -10,8 +10,14 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
     private int companionSelectorIndex;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     protected event Action OnCompanionListChange;
+=======
+    public event Action OnCompanionListChange;
+    public event Action OnCompanionAggregationChange;
+
+>>>>>>> dcc146fa (feat: initial work on pet counter)
 
 >>>>>>> 42daf667 (feat: added companion aggregation)
     // Set-Getters
@@ -19,7 +25,7 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
     public List<bool> CompanionActive => companionActive;
     public MonoBehaviour CompanionController => this;
 
-    public Dictionary<string, int> CompanionAggregation;
+    public Dictionary<Companion.Type, int> CompanionAggregation;
 
     public new void Start()
     {
@@ -112,25 +118,26 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
 
     public void UpdateCompanionAggregation()
     {
-        Dictionary<string, int> aggregation = new();
+        Dictionary<Companion.Type, int> aggregation = new();
 
         companionList.ForEach(companion =>
         {
-            string name = companion.TypeName;
-            if (aggregation.ContainsKey(name))
+            Companion.Type type = companion.type;
+            if (aggregation.ContainsKey(type))
             {
-                int oldValue = aggregation.GetValueOrDefault(name);
-                aggregation.Remove(name);
-                aggregation.Add(name, oldValue + 1);
+                int oldValue = aggregation.GetValueOrDefault(type);
+                aggregation.Remove(type);
+                aggregation.Add(type, oldValue + 1);
 
             }
             else
             {
-                aggregation.Add(name, 1);
+                aggregation.Add(type, 1);
             }
         });
 
         CompanionAggregation = aggregation;
+        OnCompanionAggregationChange?.Invoke();
 
     }
 

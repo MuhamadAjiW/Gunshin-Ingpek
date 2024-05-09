@@ -16,7 +16,7 @@
 
 .outer-bar {
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: rgb(70, 70, 70);
     padding-top: 12px;
     padding-right: 12px;
@@ -28,4 +28,16 @@
 
 .health-bar-background {
     text-shadow: 0 0 0 rgb(233, 58, 58);
+}
+
+.pet-counter-container {
+}
+
+.pet-counter-card {
+}
+
+.pet-counter-card-pet-name {
+}
+
+.pet-counter-card-count {
 }

@@ -11,4 +11,13 @@ public class TextElementWithClassAndName : TextElement
             AddToClassList(className);
         });
     }
+
+    public TextElementWithClassAndName(List<string> classes)
+    {
+        this.name = name;
+        classes.ForEach((className) =>
+        {
+            AddToClassList(className);
+        });
+    }
 }
