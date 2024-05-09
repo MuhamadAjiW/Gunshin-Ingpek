@@ -11,6 +11,7 @@
 }
 
 .pet-counter-card {
+    color: rgb(255, 255, 255);
 }
 
 .pet-counter-container {

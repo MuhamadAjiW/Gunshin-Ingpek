@@ -21,7 +21,7 @@ public partial class CurrencyContainer : VisualElement
         set
         {
             m_currency = value;
-            MarkDirtyRepaint();
+            UpdateText();
         }
     }
 
@@ -35,8 +35,12 @@ public partial class CurrencyContainer : VisualElement
         generateVisualContent += GenerateVisualContent;
     }
 
-    void GenerateVisualContent(MeshGenerationContext context)
+    void UpdateText()
     {
         currencyLabel.text = Currency.ToString();
+    }
+
+    void GenerateVisualContent(MeshGenerationContext context)
+    {
     }
 }

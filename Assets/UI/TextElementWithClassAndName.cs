@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
-public class TextElementWithClassAndName : TextElement
+public class TextElementWithClassAndName : Label
 {
     public TextElementWithClassAndName(string name, List<string> classes)
     {

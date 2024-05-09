@@ -122,6 +122,7 @@ public class GameStateController
             GameState.MENU => 0,
             GameState.FINISH => 0,
             GameState.OVER => 1,
+            GameState.SHOPPING => 0,
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
         Cursor.lockState = gameState switch
@@ -134,6 +135,7 @@ public class GameStateController
             GameState.MENU => CursorLockMode.None,
             GameState.FINISH => CursorLockMode.None,
             GameState.OVER => CursorLockMode.None,
+            GameState.SHOPPING => CursorLockMode.None,
             _ => throw new Exception("Invalid gameState pushed to GameStateController, please refer to enum GameState for valid states"),
         };
     }

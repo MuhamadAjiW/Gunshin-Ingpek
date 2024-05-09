@@ -31,6 +31,7 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
     {
         base.Start();
         UpdateCompanionAggregation();
+        OnCompanionAggregationChange?.Invoke();
         OnCompanionListChange += UpdateCompanionAggregation;
     }
 
@@ -107,6 +108,7 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
         CompanionList.Add(companion);
         CompanionActive.Add(true);
         OnCompanionListChange?.Invoke();
+        Debug.Log("Companion added");
     }
 
     public void DeleteCompanion(int index)
@@ -114,21 +116,23 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
         CompanionActive.RemoveAt(index);
         CompanionList.RemoveAt(index);
         OnCompanionListChange?.Invoke();
+        Debug.Log("Companion deleted");
     }
 
     public void UpdateCompanionAggregation()
     {
+        Debug.Log("Companion aggregation updated");
         Dictionary<Companion.Type, int> aggregation = new();
 
         companionList.ForEach(companion =>
         {
             Companion.Type type = companion.type;
+            Debug.Log(type);
             if (aggregation.ContainsKey(type))
             {
                 int oldValue = aggregation.GetValueOrDefault(type);
                 aggregation.Remove(type);
                 aggregation.Add(type, oldValue + 1);
-
             }
             else
             {
@@ -136,6 +140,9 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
             }
         });
 
+
+
+        Debug.Log(String.Format("[Update companion aggregation player entity] Companion Aggregation Count: {0}", aggregation.Keys.Count));
         CompanionAggregation = aggregation;
         OnCompanionAggregationChange?.Invoke();
 

@@ -51,17 +51,12 @@ public partial class PetCounterCard : VisualElement
         petNameText = new(String.Format("PetCounterCardPetName-{0}", type.ToString()), new List<string> { "pet-counter-card-pet-name" });
         countText = new(String.Format("PetCounterCardCount-{0}", type.ToString()), new List<string> { "pet-counter-card-count" });
 
-        generateVisualContent += GenerateVisualContent;
-    }
+        petNameText.text = Companion.GetCompanionTypeNameFromEnum(type);
+        countText.text = initialCount.ToString();
 
-    public void SetCount(int newValue)
-    {
-        count = newValue;
-        MarkDirtyRepaint();
-    }
+        Add(petNameText);
+        Add(countText);
 
-    void GenerateVisualContent(MeshGenerationContext context)
-    {
         if (count <= 0)
         {
             style.display = DisplayStyle.None;
@@ -70,6 +65,27 @@ public partial class PetCounterCard : VisualElement
         {
             style.display = DisplayStyle.Flex;
         }
+
+        generateVisualContent += GenerateVisualContent;
+    }
+
+    public void SetCount(int newValue)
+    {
+        Debug.Log(String.Format("Set count, {0}: {1}", CompanionType.ToString(), newValue));
+        count = newValue;
+        countText.text = count.ToString();
+        if (count <= 0)
+        {
+            style.display = DisplayStyle.None;
+        }
+        else
+        {
+            style.display = DisplayStyle.Flex;
+        }
+    }
+
+    void GenerateVisualContent(MeshGenerationContext context)
+    {
 
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 [UxmlElement]
@@ -31,8 +32,6 @@ public partial class PetCatalog : GroupBox
             radioButton.AddToClassList(PetCatalogRadioButtonUSSClassName);
             Add(radioButtons.GetValueOrDefault(type));
         }
-
-
 
 
 

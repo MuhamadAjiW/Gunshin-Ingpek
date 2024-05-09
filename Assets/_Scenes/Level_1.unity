@@ -6426,6 +6426,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &428640110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9185448617627687764, guid: e2a5a02652110cb4e854896b35e3e3a8, type: 3}
+  m_PrefabInstance: {fileID: 1192897399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &428821658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19471,7 +19482,7 @@ PrefabInstance:
     - target: {fileID: 1975411453341629045, guid: e2a5a02652110cb4e854896b35e3e3a8, type: 3}
       propertyPath: 'InGameUIDocuments.Array.data[6]'
       value: 
-      objectReference: {fileID: 1192897401}
+      objectReference: {fileID: 428640110}
     - target: {fileID: 4143927285025605791, guid: e2a5a02652110cb4e854896b35e3e3a8, type: 3}
       propertyPath: player
       value: 
@@ -19582,17 +19593,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac43af0d27e494184ae4f3bb55e7d567, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1192897401 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2079950599921141088, guid: e2a5a02652110cb4e854896b35e3e3a8, type: 3}
-  m_PrefabInstance: {fileID: 1192897399}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1201596590 stripped

@@ -20,7 +20,10 @@ public partial class PetCounter : VisualElement
         set
         {
             m_CompanionAggregation = value;
+            Debug.Log("Pet counter companion aggregation value changed");
+            Debug.Log(String.Format("[Pet counter setter] Companion Aggregation Count: {0}", value.Keys.Count));
             MarkDirtyRepaint();
+            UpdatePetCounterCards();
         }
     }
 
@@ -38,12 +41,19 @@ public partial class PetCounter : VisualElement
         generateVisualContent += GenerateVisualContent;
     }
 
-    void GenerateVisualContent(MeshGenerationContext context)
+    void UpdatePetCounterCards()
     {
+        Debug.Log("Update pet counter cards");
+        Debug.Log(String.Format("Companion Aggregation Count: {0}", CompanionAggregation.Keys.Count));
         foreach (var entry in CompanionAggregation)
         {
+            Debug.Log(String.Format("Generate Visual Content Pet Counter. {0}: {1}", entry.Key, entry.Value));
             PetCounterCard card = CompanionAggregationCards.GetValueOrDefault(entry.Key);
             card.SetCount(entry.Value);
         }
+    }
+
+    void GenerateVisualContent(MeshGenerationContext context)
+    {
     }
 }
