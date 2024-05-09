@@ -80,9 +80,19 @@ namespace _Scripts.Core.Game.Data
         // Constructor
         public void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
+
+            if (Instance == this)
+            {
+                return;
+            }
+
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            
+
             Debug.Log("Loaded Statistics Manager");
         }
 

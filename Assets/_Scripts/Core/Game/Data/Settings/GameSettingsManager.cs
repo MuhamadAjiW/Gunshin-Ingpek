@@ -14,6 +14,16 @@ public class GameSettingsManager : MonoBehaviour
 
     public void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        if (Instance == this)
+        {
+            return;
+        }
+
         Instance = this;
         Debug.Log("Loaded Settings Manager");
         SETTINGS_PATH = Application.persistentDataPath + "/settings.json";

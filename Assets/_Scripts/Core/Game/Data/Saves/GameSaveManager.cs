@@ -40,6 +40,16 @@ public class GameSaveManager : MonoBehaviour
     // Constructor
     public void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        if (Instance == this)
+        {
+            return;
+        }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
@@ -104,8 +114,12 @@ public class GameSaveManager : MonoBehaviour
             return GameSaveResult.MAX_SAVES_REACHED;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
+=======
+
+>>>>>>> 56798ab4 (feat: add guard in awake function of singletons to keep singleton single)
         activeGameSaveIndex = gameSaves.Count;
 >>>>>>> d93e8bd0 (fix: save, load)
         activeGameSave.SaveGame(SAVE_PATH);
