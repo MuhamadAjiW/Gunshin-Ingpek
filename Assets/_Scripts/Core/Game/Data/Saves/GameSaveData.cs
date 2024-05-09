@@ -93,5 +93,18 @@ public class GameSaveData
         }
     }
 
+    public void Delete(string path)
+    {
+        if (File.Exists(path))
+        {
+            File.Delete($"{path}/{id}");
+            return;
+        }
+
+        Debug.LogError("The file to be deleted not available!");
+
+
+    }
+
 
 }
