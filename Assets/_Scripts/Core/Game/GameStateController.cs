@@ -16,6 +16,7 @@ public class GameStateController
         gameStateStack.Push(GameState.NULL);
         gameStateStack.Push(GameState.RUNNING);
         OnGameStateChange += LogGameStateEvent;
+        OnGameStateChange += GameStateChangeSideEffect;
     }
 
 
@@ -58,6 +59,17 @@ public class GameStateController
         );
     }
 
+    public void GameStateChangeSideEffect(GameStateChangeArgs e)
+    {
+        GameState newState = e.NewGameState;
+
+        if (newState == GameState.OVER)
+        {
+            GameSaveManager.Instance.PersistStatistics();
+        }
+
+    }
+
     public void HandleEscape()
     {
         GameState state = GetState();
@@ -81,7 +93,7 @@ public class GameStateController
             case GameState.CUTSCENE:
                 DialogController.Instance.ProgressCutscene();
                 return;
-                
+
             case GameState.MENU:
                 PopState();
                 return;

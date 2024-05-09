@@ -89,7 +89,7 @@ public class GameSaveManager : MonoBehaviour
         }
     }
 
-    public void SaveStatistics()
+    public void PersistStatistics()
     {
         File.WriteAllTextAsync(STATS_FILE_PATH, GameStatisticsManager.Instance.SaveToJson());
     }
