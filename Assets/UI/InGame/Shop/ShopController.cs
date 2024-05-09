@@ -39,9 +39,6 @@ public class ShopController : InGameUIScreenController
 
         currencyContainer = rootElement.Query<CurrencyContainer>();
 
-        Debug.Assert(GameSaveManager.Instance != null);
-        Debug.Assert(GameSaveManager.Instance.GetActiveGameSave() != null);
-
         currencyContainer.dataSource = GameSaveManager.Instance.GetActiveGameSave().currencyData;
 
         // currencyData = new();

@@ -19,6 +19,11 @@ namespace _Scripts.Core.Game.Data.Currency
 
         public void AddTransaction(int amount, string description)
         {
+            if(balance + amount < 0)
+            {
+                return;
+            }
+            
             transactions.Add(new Transaction { amount = amount, description = description });
             balance += amount;
         }

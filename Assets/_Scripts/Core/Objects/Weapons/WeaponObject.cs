@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class WeaponObject : MonoBehaviour 
 {
     // Attributes
+    public int poolIndex;
     public WeaponData data;
     public WeaponState state;
     public AttackType attackType;

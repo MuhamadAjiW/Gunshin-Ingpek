@@ -11,6 +11,8 @@ public class Level1 : MonoBehaviour
     {
         if(!GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_START_CUTSCENE))
         {
+            GameController.Instance.player.weaponList.Add(EventManager.Instance.WeaponPool[1]);
+
             GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_1_START_CUTSCENE);
             GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_1_START_CUTSCENE);
 
@@ -24,6 +26,12 @@ public class Level1 : MonoBehaviour
             {
                 GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_TUTORIAL_FINAL);
                 GameController.Instance.player.weaponList.Add(EventManager.Instance.WeaponPool[4]);
+                
+                Debug.Log("Logging weapon indices");
+                foreach (WeaponObject weapons in GameController.Instance.player.weaponList)
+                {
+                    Debug.Log(weapons.poolIndex);
+                }
             }
         }
     }

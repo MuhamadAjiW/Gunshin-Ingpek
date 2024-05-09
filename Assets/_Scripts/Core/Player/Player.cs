@@ -57,6 +57,7 @@ public class Player : PlayerEntity
         GameController.Instance.player = this;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
         // TODO: These are for dev, consider deleting
@@ -68,6 +69,9 @@ public class Player : PlayerEntity
 =======
 
 >>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
+=======
+        
+>>>>>>> da34ded8 (feat: integrated shop with shopkeeper)
         EquipWeapon(0);
 
         int initialIndex = CompanionList.Count;

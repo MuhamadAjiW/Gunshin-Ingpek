@@ -118,7 +118,6 @@ public class CombatantEntity : DamageableEntity, IArmed
         UnequipWeapon();
 
         WeaponIndex = index;
-        OnWeaponChangeEvent?.Invoke(index);
         WeaponObject selectedWeapon = WeaponList[WeaponIndex];
 
         // To handle prefabs
@@ -131,6 +130,7 @@ public class CombatantEntity : DamageableEntity, IArmed
                     parent: model.dynamicWeaponPivot,
                     objectName: selectedWeapon.name
                 );
+                selectedWeapon.poolIndex = WeaponList[WeaponIndex].poolIndex;
                 WeaponList[WeaponIndex] = selectedWeapon;
             }
             else
@@ -140,11 +140,13 @@ public class CombatantEntity : DamageableEntity, IArmed
                     parent: gameObject.transform,
                     objectName: selectedWeapon.name
                 );
+                selectedWeapon.poolIndex = WeaponList[WeaponIndex].poolIndex;
                 WeaponList[WeaponIndex] = selectedWeapon;
                 // selectedWeapon.transform.localPosition = WeaponLocation;
             }
         }
 
+        OnWeaponChangeEvent?.Invoke(selectedWeapon.poolIndex);
         selectedWeapon.gameObject.SetActive(true);
         selectedWeapon.gameObject.layer = LayerMask.NameToLayer(AttackLayerCode);
         weapon = selectedWeapon;

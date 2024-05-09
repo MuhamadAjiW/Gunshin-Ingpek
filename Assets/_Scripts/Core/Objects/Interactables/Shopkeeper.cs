@@ -28,6 +28,7 @@ namespace _Scripts.Core.Objects.Interactables
                 return;
             }
             GameController.Instance.StartCutscene(StoryConfig.KEY_CUTSCENE_SHOP);
+            DialogController.Instance.OnCutsceneFinished += Shop;
         }
 
         public override void OnInteractAreaEnter()
@@ -43,6 +44,12 @@ namespace _Scripts.Core.Objects.Interactables
             this.active = active;
             keeper.SetActive(active);
             area.enabled = active;
+        }
+
+        private void Shop()
+        {
+            DialogController.Instance.OnCutsceneFinished -= Shop;
+            GameController.Instance.stateController.PushState(GameState.SHOPPING);
         }
     }
 }

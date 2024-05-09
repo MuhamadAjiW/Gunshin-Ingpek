@@ -16,6 +16,11 @@ public class EventManager : BaseObjectManager
     {
         Instance = this;
         ManagerName = "Event Manager";
+
+        for (int i = 0; i < WeaponPool.Count; i++)
+        {
+            WeaponPool[i].poolIndex = i;
+        }
     }
 
     public void SetShop(int index, bool active)
