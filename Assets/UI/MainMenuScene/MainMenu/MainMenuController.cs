@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class MainMenuController : MainMenuScreenController
 {
+
+    private VisualElement MaxSavesContainer;
     public new void OnEnable()
     {
         base.OnEnable();
@@ -23,8 +25,34 @@ public class MainMenuController : MainMenuScreenController
         Button gameStaticsticsDisplayButton = rootElement.Query<Button>("game-statistics-button").First();
         gameStaticsticsDisplayButton.RegisterCallback(BlockCallbackInTransition(GameStatisticsDisplayCallback));
 
-        Button exitButton = rootElement.Query<Button>("exit-game-button").First();
-        exitButton.RegisterCallback(BlockCallbackInTransition(ExitCallback));
+        // Button exitButton = rootElement.Query<Button>("exit-game-button").First();
+        // exitButton.RegisterCallback(BlockCallbackInTransition(ExitCallback));
+
+        // Setup max saves reached
+
+        Debug.Log("MainMenu Controller Enable");
+
+        MaxSavesContainer = rootElement.Query<VisualElement>("MaxSavesContainer");
+
+        Debug.Log(MaxSavesContainer.childCount);
+
+        Button yesButton = rootElement.Query<Button>("Yes");
+        Button cancelButton = rootElement.Query<Button>("Cancel");
+
+        yesButton.RegisterCallback((ClickEvent evt) =>
+        {
+            GameSaveManager.Instance?.OverrideSave();
+            ScenesManager.Instance.LoadNewGame();
+        });
+
+        cancelButton.RegisterCallback((ClickEvent evt) =>
+        {
+            UIManagement.ToggleElementVisible(MaxSavesContainer, false);
+        });
+
+        UIManagement.ToggleElementVisible(MaxSavesContainer, false);
+
+
     }
 
     private EventCallback<ClickEvent> BlockCallbackInTransition(EventCallback<ClickEvent> callback)
@@ -50,9 +78,8 @@ public class MainMenuController : MainMenuScreenController
             return;
         }
 
-        Debug.Log("Opening Maximum Saves Prompt");
+        UIManagement.ToggleElementVisible(MaxSavesContainer, true);
 
-        MainMenuManager.DisplayUIDocument("MaximumSavesReached", false, false, false, true);
     }
 
     private void LoadGameCallback(ClickEvent evt)

@@ -12,5 +12,14 @@
             <ui:Button text="Game Statistics" name="game-statistics-button" class="main-menu-button" style="width: auto;" />
             <ui:Button text="Exit" name="exit-button" emoji-fallback-support="true" class="main-menu-button" style="width: auto;" />
         </ui:VisualElement>
+        <ui:VisualElement name="MaxSavesContainer" class="overlay" style="flex-grow: 1; position: absolute; top: 0; left: 0; right: 0; bottom: 0; align-items: center; justify-content: center;">
+            <ui:VisualElement name="PromptContainer" style="flex-grow: 1; justify-content: center;">
+                <ui:Label text="You&apos;ve reached the amount of maximum save. To make a new game, would you like to delete your oldest save?" name="PromptText" />
+            </ui:VisualElement>
+            <ui:VisualElement name="OptionContainer" style="flex-grow: 1; flex-direction: row; align-items: center; width: auto; height: auto;">
+                <ui:Button text="Yes" name="Yes" class="button" style="width: 100px;" />
+                <ui:Button text="Cancel" name="Cancel" class="button" style="width: 100px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
