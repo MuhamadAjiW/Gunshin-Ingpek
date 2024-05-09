@@ -104,8 +104,13 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
+<<<<<<< HEAD
   maxHealth: 5000
   health: 5000
+=======
+  maxHealth: 6000
+  health: 6000
+>>>>>>> b0d746e4 (feat: removed test stuff)
   damagedDelay: 0.5
   baseDamage: 20
   weaponList:

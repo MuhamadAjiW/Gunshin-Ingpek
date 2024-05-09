@@ -13,10 +13,12 @@ public class Level3 : MonoBehaviour
 
     private int killCounter = 0;
     public GameObject enemySpawners;
+    public GameObject mobs;
 
     protected void Start()
     {
         enemySpawners = transform.Find("EnemySpawners").gameObject;
+        mobs = transform.Find("Mobs").gameObject;
         if(!GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_3_START_CUTSCENE))
         {
             GameController.Instance.OnGameEvent += OnGameEvent;
@@ -25,6 +27,10 @@ public class Level3 : MonoBehaviour
         if (enemySpawners != null)
         {
             enemySpawners.SetActive(false);
+        }
+        if (mobs != null)
+        {
+            mobs.SetActive(false);
         }
     }
 
@@ -38,6 +44,22 @@ public class Level3 : MonoBehaviour
             if (enemySpawners != null)
             {
                 enemySpawners.SetActive(true);
+            }
+            if (mobs != null)
+            {
+                mobs.SetActive(true);
+                
+                Transform[] childTransforms = new Transform[mobs.transform.childCount];
+                for (int i = 0; i < mobs.transform.childCount; i++)
+                {
+                    childTransforms[i] = mobs.transform.GetChild(i);
+                }
+
+                // Reparent the children to anotherGameObject
+                foreach (Transform childTransform in childTransforms)
+                {
+                    childTransform.SetParent(EntityManager.Instance.transform);
+                }
             }
         }
     }
@@ -77,7 +99,14 @@ public class Level3 : MonoBehaviour
                 {
                     enemySpawners.SetActive(false);
                 }
+<<<<<<< HEAD
 >>>>>>> da7b0d1c (feat: level 2 and 3):Assets/_Scripts/Core/Levels/Level3/Level3.cs
+=======
+                if (mobs != null)
+                {
+                    mobs.SetActive(false);
+                }
+>>>>>>> b0d746e4 (feat: removed test stuff)
             }
         }
     }
