@@ -2,16 +2,17 @@ using System;
 using UnityEngine;
 
 using System.Collections.Generic;
+using System.Linq;
 
 [Serializable]
 public class AttackingPetStateController : PetStateController<AttackingPet>
 {
     // Attributes
-    public float followDistance = 15f;
-    public float attackDistance = 7f;
+    public float followDistance = 6f;
+    public float attackDistance = 3f;
     [HideInInspector] public List<EnemyEntity> attackEnemies = new();
     [HideInInspector] public List<EnemyEntity> followEnemies = new();
-    public EnemyEntity nearest;
+    [HideInInspector] public EnemyEntity nearest;
     protected LayerMask enemyLayer;
 
     // Constructor
@@ -26,6 +27,9 @@ public class AttackingPetStateController : PetStateController<AttackingPet>
     {
         Collider[] attackCollider = Physics.OverlapSphere(pet.transform.position, attackDistance, enemyLayer);
         Collider[] followCollider = Physics.OverlapSphere(pet.transform.position, followDistance, enemyLayer);
+
+        attackCollider = FilterCollider(attackCollider);
+        followCollider = FilterCollider(followCollider);
 
 
         if (attackCollider.Length > 0)
@@ -66,10 +70,13 @@ public class AttackingPetStateController : PetStateController<AttackingPet>
         return nearestEnemy;
     }
 
+    private Collider[] FilterCollider(Collider[] colliders)
+    {
+        return colliders.Where(collider => collider.transform.parent.TryGetComponent<EnemyEntity>(out var col) && col.Health != 0).ToArray();
+    }
+
     public EnemyEntity GetNearestEnemyFromCollider(Collider[] colliders)
     {
-        if (colliders.Length == 0) return null;
-
         EnemyEntity nearestEnemy = colliders[0].transform.parent.GetComponent<EnemyEntity>();
         float nearestDistance = Vector3.Distance(pet.transform.position, nearestEnemy.transform.position);
         foreach (Collider collider in colliders)
@@ -85,13 +92,6 @@ public class AttackingPetStateController : PetStateController<AttackingPet>
 
         return nearestEnemy;
     }
-
-    public void RemoveAllNullEnemies()
-    {
-        attackEnemies.RemoveAll(enemy => enemy == null);
-        followEnemies.RemoveAll(enemy => enemy == null);
-    }
-
 
     // Debugging functions
     public void VisualizeDetection(MonoBehaviour monoBehaviour)

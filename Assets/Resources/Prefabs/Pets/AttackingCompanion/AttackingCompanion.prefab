@@ -85,17 +85,20 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   damagedDelay: 1
+  poolIndex: 0
   data: {fileID: 11400000, guid: f3fb5272211aa5940945695bdd8153ac, type: 2}
+  type: 0
   aiController:
     pet: {fileID: 0}
     nav: {fileID: 0}
     defaultStoppingDistance: 2
   stateController:
     pet: {fileID: 0}
-    followDistance: 15
-    attackDistance: 7
+    followDistance: 6
+    attackDistance: 3
     attackEnemies: []
     followEnemies: []
+    nearest: {fileID: 0}
   weaponSlot: {fileID: 5029868015402955001, guid: 1a7698227caac3d429dceb8aa5056502, type: 3}
 --- !u!195 &-7945226845773130425
 NavMeshAgent:

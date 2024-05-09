@@ -8,7 +8,7 @@ public abstract class PetAIController<T> where T : Companion
     // Attributes
     public T pet;
     [HideInInspector] public NavMeshAgent nav;
-    public float defaultStoppingDistance = 2;
+    public float defaultStoppingDistance = 1;
 
     // Constructor
     public void Init(T pet)
