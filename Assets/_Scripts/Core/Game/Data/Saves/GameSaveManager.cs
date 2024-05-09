@@ -115,11 +115,15 @@ public class GameSaveManager : MonoBehaviour
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 =======
 
 >>>>>>> 56798ab4 (feat: add guard in awake function of singletons to keep singleton single)
+=======
+
+>>>>>>> 5bc01392 (feat: added delete all saves)
         activeGameSaveIndex = gameSaves.Count;
 >>>>>>> d93e8bd0 (fix: save, load)
         activeGameSave.SaveGame(SAVE_PATH);
@@ -172,9 +176,20 @@ public class GameSaveManager : MonoBehaviour
 
     public void OverrideSave()
     {
+        gameSaves.ElementAt(0).Delete(SAVE_PATH);
         gameSaves.RemoveAt(0);
         gameSaves.Add(activeGameSave);
         activeGameSaveIndex = 0;
+    }
+
+    public void DeleteAllSaves()
+    {
+        gameSaves.ForEach((save) =>
+        {
+            save.Delete(SAVE_PATH);
+        });
+
+        gameSaves = new();
     }
 
     public void PersistActiveSave()
