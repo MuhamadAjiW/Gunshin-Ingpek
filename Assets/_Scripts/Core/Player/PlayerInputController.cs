@@ -120,12 +120,6 @@ public class PlayerInputController
                 return;
             }
 
-            if (player.stateController.currentInteractables.Count == 0)
-            {
-                return;
-            }
-
-
 
             IInteractable interactable = player.stateController.currentInteractables[^1];
             interactable.Interact();

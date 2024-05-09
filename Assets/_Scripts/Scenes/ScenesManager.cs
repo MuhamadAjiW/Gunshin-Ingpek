@@ -22,7 +22,7 @@ public class ScenesManager : MonoBehaviour
     {
         SplashScreen,
         MainMenu,
-        Level_1,
+        World,
     }
 
     public Scene[] SceneList
@@ -56,7 +56,7 @@ public class ScenesManager : MonoBehaviour
 
     public void LoadNewGame()
     {
-        LoadScene(Scene.Level_1);
+        LoadScene(Scene.World);
     }
 
     public void LoadMainMenu()
