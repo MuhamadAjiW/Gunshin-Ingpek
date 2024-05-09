@@ -38,13 +38,15 @@ public abstract class AnimationController
         #endif
     }
 
-    public void OnBecameInvisible()
+    public void DetectVisibility()
     {
-        animator.enabled = false;
-    }
-    
-    public void OnBecameVisible()
-    {
-        animator.enabled = true;
+        if(renderer.isVisible)
+        {
+            animator.enabled = true;
+        }
+        else
+        {
+            animator.enabled = false;
+        }
     }
 }

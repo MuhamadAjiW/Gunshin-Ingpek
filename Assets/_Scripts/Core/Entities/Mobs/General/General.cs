@@ -46,8 +46,8 @@ public class General : BossEntity
 
     protected override void FixedUpdateAction()
     {
+        animationController?.DetectVisibility();
         aiController?.Action();
-
         Vector3 dampVelocity = new();
         Rigidbody.velocity = Vector3.SmoothDamp(Rigidbody.velocity, Vector3.zero, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);
     }
@@ -100,14 +100,5 @@ public class General : BossEntity
         base.OnDrawGizmosSelected();
         stateController.VisualizeDetection(this);
         stateController.VisualizePatrolRoute(this);
-    }
-    protected void OnBecameInvisible()
-    {
-        animationController.OnBecameInvisible();
-    }
-    
-    protected void OnBecameVisible()
-    {
-        animationController.OnBecameVisible();
     }
 }

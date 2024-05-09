@@ -145,6 +145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Samachurl
       objectReference: {fileID: 0}
+    - target: {fileID: 1641012949902859301, guid: 58643f34523bb274cb58db3e88e85e32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2573593648422686466, guid: 58643f34523bb274cb58db3e88e85e32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0

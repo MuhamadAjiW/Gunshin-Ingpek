@@ -944,6 +944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mitachurl
       objectReference: {fileID: 0}
+    - target: {fileID: 8921967183058121480, guid: 81c44879de657e5428326709ff0560e7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 8987166026499047902, guid: 81c44879de657e5428326709ff0560e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -56.077423

@@ -69,6 +69,7 @@ public class HeadGoon : EnemyEntity
 
     protected override void FixedUpdateAction()
     {
+        animationController?.DetectVisibility();
         aiController?.Action();
         Vector3 dampVelocity = new();
         Rigidbody.velocity = Vector3.SmoothDamp(Rigidbody.velocity, Vector3.zero, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);

@@ -205,6 +205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lawachurl
       objectReference: {fileID: 0}
+    - target: {fileID: 5900935957900607347, guid: bbed15692147b514885bae647e1979ae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
