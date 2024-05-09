@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Level3 : MonoBehaviour
 {
-    public static float SHOP_TIMEOUT = 30f;
+    public static float SHOP_TIMEOUT = 60f;
 
     public int goonValue = 1;
     public int headGoonValue = 5;

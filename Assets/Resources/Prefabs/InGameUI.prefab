@@ -363,6 +363,7 @@ MonoBehaviour:
   - {fileID: 4632968919097063709}
   - {fileID: 1410622693298638851}
   - {fileID: 2079950599921141088}
+  - {fileID: 9185448617627687764}
   CameraManager: {fileID: 0}
   GameController: {fileID: 0}
   player: {fileID: 0}

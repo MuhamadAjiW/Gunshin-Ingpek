@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Level1 : MonoBehaviour
 {
-    public static float SHOP_TIMEOUT = 30f;
+    public static float SHOP_TIMEOUT = 60f;
 
     protected void Start()
     {

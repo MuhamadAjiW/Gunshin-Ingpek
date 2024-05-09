@@ -83,6 +83,16 @@ MonoBehaviour:
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+  - Text: Aim pencet E
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 2
   - Text: Scroll wheel ganti senjata
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
