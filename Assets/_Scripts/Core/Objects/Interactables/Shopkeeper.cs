@@ -4,17 +4,16 @@ namespace _Scripts.Core.Objects.Interactables
     {
         public override void Interact()
         {
-            throw new System.NotImplementedException();
+            // _TODO: Integrate with actual shop
+            GameController.Instance.StartCutscene(StoryConfig.KEY_CUTSCENE_SHOP);
         }
 
         public override void OnInteractAreaEnter()
         {
-            throw new System.NotImplementedException();
         }
 
         public override void OnInteractAreaExit()
         {
-            throw new System.NotImplementedException();
         }
 
     }

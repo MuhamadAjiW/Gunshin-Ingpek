@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &2964358494867643936
 Transform:
@@ -70,6 +70,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2964358494867643936}
     m_Modifications:
+    - target: {fileID: 434724961729864158, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729026932911981006, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137848914779349959, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5119875216050280834, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -85,6 +97,14 @@ PrefabInstance:
     - target: {fileID: 5496260497754850104, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
       propertyPath: m_Name
       value: SteampunkGunModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496260497754850104, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129439373964057738, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

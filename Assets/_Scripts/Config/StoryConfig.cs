@@ -21,6 +21,8 @@ public static class StoryConfig
 
     // Other cutscenes
     public const string KEY_CUTSCENE_DILUC = "EVENT_DILUC";
+    public const string KEY_CUTSCENE_SHOP = "EVENT_SHOP";
+    public const string KEY_CUTSCENE_SAVE = "EVENT_SAVE";
     public const string KEY_CUTSCENE_DEATH = "EVENT_DEATH";
 
     // Story data
@@ -29,6 +31,8 @@ public static class StoryConfig
         // Non story cutscene
         { KEY_CUTSCENE_DILUC, "Data/Cutscene/Test_Cutscene" },
         { KEY_CUTSCENE_DEATH, "Data/Cutscene/Death" },
+        { KEY_CUTSCENE_SHOP, "Data/Cutscene/ShopGeneric" },
+        { KEY_CUTSCENE_SAVE, "Data/Cutscene/SaveGeneric" },
 
         // Story cutscenes
         { KEY_STORY_1_START_CUTSCENE, "Data/Cutscene/Story1" },
@@ -39,7 +43,7 @@ public static class StoryConfig
         { KEY_STORY_ENDING_AFTER_CUTSCENE, "Data/Cutscene/Story6" },
     };
 
-    public static readonly List<String> STORY_EVENTS = new()
+    public static readonly List<String> EVENTS = new()
     {
         KEY_STORY_1_START_CUTSCENE,
         KEY_STORY_1_ENTER_DUNGEON,
@@ -48,5 +52,8 @@ public static class StoryConfig
         KEY_STORY_3_END_CUTSCENE,
         KEY_STORY_ENDING_CUTSCENE,
         KEY_STORY_ENDING_AFTER_CUTSCENE,
+
+        KEY_CUTSCENE_SHOP,
+        KEY_CUTSCENE_SAVE
     };
 }

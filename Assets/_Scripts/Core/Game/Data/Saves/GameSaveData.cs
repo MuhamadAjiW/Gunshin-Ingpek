@@ -30,7 +30,11 @@ public class GameSaveData
     public GameSaveData()
     {
         id = Guid.NewGuid().ToString();
+<<<<<<< HEAD
         storyData = new StoryData(events);
+=======
+        storyData = new StoryData(StoryConfig.EVENTS);
+>>>>>>> ffe29481 (feat: base interactables for shop and save)
     }
 
     public void SaveGame(string path)
