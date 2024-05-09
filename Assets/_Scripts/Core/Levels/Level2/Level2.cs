@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Level2 : MonoBehaviour
 {
+    public static float SHOP_TIMEOUT = 30f;
+
     public int goonValue = 1;
     public int headGoonValue = 5;
     public int generalValue = 20;
@@ -94,6 +96,8 @@ public class Level2 : MonoBehaviour
                 DialogController.Instance.OnCutsceneFinished += EndLevel;
 =======
                 GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_2_END_CUTSCENE);
+                EventManager.Instance.SetShop(1, true);
+                StartCoroutine(ShopTimeout());
 
                 if (enemySpawners != null)
                 {
@@ -109,5 +113,12 @@ public class Level2 : MonoBehaviour
 >>>>>>> b0d746e4 (feat: removed test stuff)
             }
         }
+    }
+
+
+    private IEnumerator ShopTimeout()
+    {
+        yield return new WaitForSeconds(Level2.SHOP_TIMEOUT);
+        EventManager.Instance.SetShop(0, false);
     }
 }

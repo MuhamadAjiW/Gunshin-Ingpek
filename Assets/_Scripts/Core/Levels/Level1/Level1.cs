@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Level1 : MonoBehaviour
 {
+    public static float SHOP_TIMEOUT = 30f;
+
     protected void Start()
     {
         if(!GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_START_CUTSCENE))

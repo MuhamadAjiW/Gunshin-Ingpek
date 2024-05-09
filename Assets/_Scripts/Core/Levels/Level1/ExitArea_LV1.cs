@@ -15,10 +15,18 @@ public class ExitInteractable_LV1 : InteractableObject
         {
             GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_1_END_CUTSCENE);
             GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_1_END_CUTSCENE);
+            EventManager.Instance.SetShop(0, true);
+            StartCoroutine(ShopTimeout());
         }
     }
 
     public override void OnInteractAreaExit()
     {
+    }
+
+    private IEnumerator ShopTimeout()
+    {
+        yield return new WaitForSeconds(Level1.SHOP_TIMEOUT);
+        EventManager.Instance.SetShop(0, false);
     }
 }

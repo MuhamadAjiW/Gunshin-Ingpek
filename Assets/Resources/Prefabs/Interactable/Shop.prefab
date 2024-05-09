@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0fb461d43c42cdbc522e94a22511eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
+  keeper: {fileID: 6788186558920594829}
+  area: {fileID: 6294435933100231256}
 --- !u!65 &6294435933100231256
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1401,7 +1404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199187118923983453, guid: a77e43de487a5654383931d9749f602c, type: 3}
       propertyPath: m_Name
-      value: Amber
+      value: Keeper
       objectReference: {fileID: 0}
     - target: {fileID: 5199187118923983453, guid: a77e43de487a5654383931d9749f602c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1819,6 +1822,11 @@ PrefabInstance:
 --- !u!4 &3225410171531304662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4238370900938137862, guid: a77e43de487a5654383931d9749f602c, type: 3}
+  m_PrefabInstance: {fileID: 1590688308118896592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6788186558920594829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5199187118923983453, guid: a77e43de487a5654383931d9749f602c, type: 3}
   m_PrefabInstance: {fileID: 1590688308118896592}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4633317466241216660
