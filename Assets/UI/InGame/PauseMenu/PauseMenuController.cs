@@ -41,5 +41,12 @@ public class PauseMenuController : InGameUIScreenController
         {
             GameController.Instance.stateController.PushState(GameState.SHOPPING);
         });
+
+        Button returnToMainMenuButton = rootElement.Query<Button>("ReturnToMainMenu");
+
+        returnToMainMenuButton.RegisterCallback((ClickEvent evt) =>
+        {
+            ScenesManager.Instance.LoadMainMenu();
+        });
     }
 }
