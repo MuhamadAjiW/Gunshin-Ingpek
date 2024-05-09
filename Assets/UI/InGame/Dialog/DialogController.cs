@@ -14,7 +14,6 @@ public class DialogController : ScreenController
     private bool InCutscene => GameController.Instance.stateController.GetState() == GameState.CUTSCENE;
 
     // for pseudo animation
-    private float animationSpeed = 10f;
     private float initialY = 0f;
     private float endY = -50f;
     private Coroutine currentAnimationLeft;
@@ -127,9 +126,9 @@ public class DialogController : ScreenController
         switch (code)
         {
             case DialogAnimation.ANIMATE_LEFT:
-                while (Mathf.Abs(newY - targetY) > 5f)
+                while (Mathf.Abs(newY - targetY) > 10f)
                 {
-                    newY = Mathf.Lerp(newY, targetY, 0.05f);
+                    newY = Mathf.Lerp(newY, targetY, 0.08f);
                     dialogOverlay.m_PersonLImage.style.top = newY;
 
                     yield return new WaitForSecondsRealtime(0.001f);
@@ -139,9 +138,9 @@ public class DialogController : ScreenController
                 targetY = initialY;
 
                 newY = endY;
-                while (Mathf.Abs(newY - targetY) > 5f)
+                while (Mathf.Abs(newY - targetY) > 10f)
                 {
-                    newY = Mathf.Lerp(newY, targetY, 0.05f);
+                    newY = Mathf.Lerp(newY, targetY, 0.08f);
                     dialogOverlay.m_PersonLImage.style.top = newY;
 
                     yield return new WaitForSecondsRealtime(0.001f);
@@ -150,9 +149,9 @@ public class DialogController : ScreenController
                 break;
 
             case DialogAnimation.ANIMATE_RIGHT:
-                while (Mathf.Abs(newY - targetY) > 5f)
+                while (Mathf.Abs(newY - targetY) > 10f)
                 {
-                    newY = Mathf.Lerp(newY, targetY, 0.05f);
+                    newY = Mathf.Lerp(newY, targetY, 0.08f);
                     dialogOverlay.m_PersonRImage.style.top = newY;
 
                     yield return new WaitForSecondsRealtime(0.001f);
@@ -162,9 +161,9 @@ public class DialogController : ScreenController
                 targetY = initialY;
 
                 newY = endY;
-                while (Mathf.Abs(newY - targetY) > 5f)
+                while (Mathf.Abs(newY - targetY) > 10f)
                 {
-                    newY = Mathf.Lerp(newY, targetY, 0.05f);
+                    newY = Mathf.Lerp(newY, targetY, 0.08f);
                     dialogOverlay.m_PersonRImage.style.top = newY;
 
                     yield return new WaitForSecondsRealtime(0.001f);

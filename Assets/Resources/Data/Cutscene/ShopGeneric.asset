@@ -20,6 +20,6 @@ MonoBehaviour:
     PersonLName: 
     PersonLImage: {fileID: 0}
     PersonRActive: 1
-    PersonRName: Culid
+    PersonRName: Ember
     PersonRImage: {fileID: 2800000, guid: 2f07bada09833694586643a9c3d06f4f, type: 3}
     animation: 2

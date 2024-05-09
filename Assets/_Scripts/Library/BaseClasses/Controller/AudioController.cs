@@ -51,4 +51,30 @@ public class AudioController
 
         audio.source.Stop();
     }
+
+    public void Mute (string name)
+    {
+        Audio audio = Array.Find(audios, audio => audio.name == name);
+        
+        if(audio == null)
+        {
+            Debug.LogWarning($"Audio not found: {name}");
+            return;
+        }
+
+        audio.source.volume = 0;
+    }
+
+    public void Unmute (string name)
+    {
+        Audio audio = Array.Find(audios, audio => audio.name == name);
+        
+        if(audio == null)
+        {
+            Debug.LogWarning($"Audio not found: {name}");
+            return;
+        }
+
+        audio.source.volume = 1;
+    }
 }

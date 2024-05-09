@@ -54,6 +54,7 @@ public class PlayerAudioController : AudioController
         player.OnDeathEvent += OnDeath;
         player.inputController.OnJumpEvent += OnJump;
         player.stateController.OnStateChangeEvent += OnStateChange;
+        GameController.Instance.stateController.OnGameStateChange += OnGameStateChange;
     }
 
     public new string Play(string key)
@@ -71,6 +72,24 @@ public class PlayerAudioController : AudioController
         {
             string audioName = key + i;
             base.Stop(audioName);
+        }
+    }
+
+    public new void Mute(string key)
+    {
+        for (int i = 1; i < audioAmount[key] + 1; i++)
+        {
+            string audioName = key + i;
+            base.Mute(audioName);
+        }
+    }
+
+    public new void Unmute(string key)
+    {
+        for (int i = 1; i < audioAmount[key] + 1; i++)
+        {
+            string audioName = key + i;
+            base.Unmute(audioName);
         }
     }
 
@@ -115,5 +134,18 @@ public class PlayerAudioController : AudioController
         {
             Play(WALKING_KEY);
         };
+    }
+
+    public void OnGameStateChange(GameStateChangeArgs e)
+    {
+        switch (e.NewGameState)
+        {
+            case GameState.RUNNING:
+                break;
+            default:
+                Stop(RUNNING_KEY);
+                Stop(WALKING_KEY);
+                break;
+        }
     }
 }

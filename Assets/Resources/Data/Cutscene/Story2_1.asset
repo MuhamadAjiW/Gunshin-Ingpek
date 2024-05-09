@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab745433a46a65d468c9546d4610a4f9, type: 3}
+  m_Name: Story2_1
+  m_EditorClassIdentifier: 
+  dialogs:
+  - Text: Aya naon blud
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 1
+  - Text: Kepo sia
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 2
+  - Text: Eh kehed
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 1
+  - Text: Any*ng eta barudak keur nanaonan
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 3
+  - Text: Maneh dek ngarusuh barudaknya anjjjj
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 3
+  - Text: Oke bunuh warga yang banyak (up to 100)
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 0
