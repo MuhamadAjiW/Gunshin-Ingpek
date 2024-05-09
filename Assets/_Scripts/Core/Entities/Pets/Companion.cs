@@ -1,6 +1,11 @@
 using System;
+<<<<<<< HEAD
 using System.Collections;
+=======
+using Unity.VisualScripting;
+>>>>>>> 42daf667 (feat: added companion aggregation)
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public abstract class Companion : DamageableEntity
 {
@@ -16,6 +21,22 @@ public abstract class Companion : DamageableEntity
     public CompanionData data;
 
     public Type type;
+
+    public static string GetCompanionTypeNameFromEnum(Type type)
+    {
+        return type switch
+        {
+            Type.HEALING => "Healer",
+            Type.DAMAGE => "Damage dealer",
+            Type.INCREASE => "Increaser",
+            _ => "Not valid companion!",
+        };
+    }
+
+    public string TypeName
+    {
+        get => GetCompanionTypeNameFromEnum(type);
+    }
 
 
     // Getter-Setter

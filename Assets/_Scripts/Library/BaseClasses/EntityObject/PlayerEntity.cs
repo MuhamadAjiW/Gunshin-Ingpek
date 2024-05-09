@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +9,26 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
     public List<bool> companionActive = new();
     private int companionSelectorIndex;
 
+<<<<<<< HEAD
+=======
+    protected event Action OnCompanionListChange;
+
+>>>>>>> 42daf667 (feat: added companion aggregation)
     // Set-Getters
     public List<Companion> CompanionList => companionList;
     public List<bool> CompanionActive => companionActive;
     public MonoBehaviour CompanionController => this;
+
+    public Dictionary<string, int> CompanionAggregation;
+
+    public new void Start()
+    {
+        base.Start();
+        UpdateCompanionAggregation();
+        OnCompanionListChange += UpdateCompanionAggregation;
+    }
+
+
     public int CompanionSelectorIndex
     {
         get => companionSelectorIndex;
@@ -55,7 +72,12 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
 
         selectedCompanion.gameObject.SetActive(true);
 
+<<<<<<< HEAD
         selectedCompanion.transform.position = transform.position - new Vector3((index + 1) * 1.2f, 0, 0);
+=======
+        // TODO: Set possible spawn locations for companions, for now it will spawn on the left
+        selectedCompanion.transform.position = transform.position - new Vector3(-0.5f, 0, 0);
+>>>>>>> 42daf667 (feat: added companion aggregation)
         companionActive[CompanionSelectorIndex] = true;
         selectedCompanion.Assign(this);
     }
@@ -77,13 +99,39 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
     public void AddCompanion(Companion companion)
     {
         CompanionList.Add(companion);
-        CompanionActive.Add(false);
+        CompanionActive.Add(true);
+        OnCompanionListChange?.Invoke();
     }
 
     public void DeleteCompanion(int index)
     {
         CompanionActive.RemoveAt(index);
         CompanionList.RemoveAt(index);
+        OnCompanionListChange?.Invoke();
+    }
+
+    public void UpdateCompanionAggregation()
+    {
+        Dictionary<string, int> aggregation = new();
+
+        companionList.ForEach(companion =>
+        {
+            string name = companion.TypeName;
+            if (aggregation.ContainsKey(name))
+            {
+                int oldValue = aggregation.GetValueOrDefault(name);
+                aggregation.Remove(name);
+                aggregation.Add(name, oldValue + 1);
+
+            }
+            else
+            {
+                aggregation.Add(name, 1);
+            }
+        });
+
+        CompanionAggregation = aggregation;
+
     }
 
     public void ActivateAllCompanions()

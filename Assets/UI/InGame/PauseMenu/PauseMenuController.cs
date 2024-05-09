@@ -22,7 +22,12 @@ public class PauseMenuController : InGameUIScreenController
         });
 
         Button saveButton = rootElement.Query<Button>("Resume");
-        resumeButton.RegisterCallback((ClickEvent evt) =>
+        // Insert condition on which player can save the game
+        if (false)
+        {
+            saveButton.style.display = DisplayStyle.None;
+        }
+        saveButton.RegisterCallback((ClickEvent evt) =>
         {
             // Change for whatever condition player is allowed to save
             if (true)

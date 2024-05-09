@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using _Scripts.Core.Game.Data;
 
 using UnityEngine;
@@ -72,7 +73,7 @@ public class Player : PlayerEntity
         int initialIndex = CompanionList.Count;
         for (int i = 0; i < initialIndex; i++)
         {
-            CompanionActive.Add(false);
+            CompanionActive.Add(true);
         }
 
         CompanionList.AddRange(EntityManager.Instance.GetComponentsInChildren<Companion>());
@@ -81,7 +82,10 @@ public class Player : PlayerEntity
             CompanionActive.Add(CompanionList[i].gameObject.activeSelf);
         }
 
+<<<<<<< HEAD
         ActivateAllCompanions();
+=======
+>>>>>>> 42daf667 (feat: added companion aggregation)
     }
 
     // Functions
