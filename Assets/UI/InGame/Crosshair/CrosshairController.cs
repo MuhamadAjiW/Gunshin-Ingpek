@@ -9,9 +9,12 @@ public class CrosshairController : InGameUIScreenController
 
     public enum CrosshairType
     {
-        PRIMARY,
-        SECONDARY,
-        TERTIARY
+        NOWEAPON,
+        RIFLE,
+        RIFLEHIGHDAMAGE,
+        SHOTGUN,
+        SWORD
+
     }
 
     public void Awake()
@@ -46,13 +49,14 @@ public class CrosshairController : InGameUIScreenController
     public void ToggleCrosshairOnWeapon(int index)
     {
 
-        string crosshairName = CrosshairType.PRIMARY.ToString();
-        crosshairName = index switch
+        string crosshairName = index switch
         {
-            0 => CrosshairType.TERTIARY.ToString(),
-            1 => CrosshairType.PRIMARY.ToString(),
-            2 => CrosshairType.SECONDARY.ToString(),
-            _ => CrosshairType.PRIMARY.ToString(),
+            0 => CrosshairType.NOWEAPON.ToString(),
+            1 => CrosshairType.RIFLE.ToString(),
+            2 => CrosshairType.RIFLEHIGHDAMAGE.ToString(),
+            3 => CrosshairType.SHOTGUN.ToString(),
+            4 => CrosshairType.SWORD.ToString(),
+            _ => CrosshairType.NOWEAPON.ToString(),
         };
         List<VisualElement> crosshairsToHid = rootElement.Query(className: "crosshair").Where(crosshair => crosshair.name != crosshairName).ToList();
         crosshairsToHid.ForEach((crosshair) =>
