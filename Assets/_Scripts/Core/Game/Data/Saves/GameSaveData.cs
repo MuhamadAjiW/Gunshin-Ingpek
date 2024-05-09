@@ -50,7 +50,8 @@ public class GameSaveData
             storyData = this.storyData,
             playerName = this.playerName,
             petData = this.petData,
-            weaponPoolIndex = this.weaponPoolIndex
+            weaponPoolIndex = this.weaponPoolIndex,
+            id = this.id
         };
 
         string json = JsonUtility.ToJson(wrapper, true);
@@ -81,6 +82,7 @@ public class GameSaveData
             this.playerName = wrapper.playerName;
             this.petData = wrapper.petData;
             this.weaponPoolIndex = wrapper.weaponPoolIndex;
+            this.id = wrapper.id;
             Debug.Log("Game loaded from " + path);
             return GameSaveManager.GameLoadResult.SUCCESS;
         }
