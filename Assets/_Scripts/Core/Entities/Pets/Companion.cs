@@ -4,8 +4,19 @@ using UnityEngine;
 
 public abstract class Companion : DamageableEntity
 {
+
+    public enum Type
+    {
+        HEALING,
+        DAMAGE,
+        INCREASE
+    }
+
     // Attributes
     public CompanionData data;
+
+    public Type type;
+
 
     // Getter-Setter
     public IAccompaniable Owner { get; set; }
