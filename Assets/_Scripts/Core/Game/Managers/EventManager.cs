@@ -10,6 +10,7 @@ public class EventManager : BaseObjectManager
     public List<Shopkeeper> Shops;
     public List<SavePoint> SavePoints;
     public List<WeaponObject> WeaponPool;
+    public List<Companion> CompanionPool;
 
     // Constructor
     protected void Awake()
@@ -21,11 +22,16 @@ public class EventManager : BaseObjectManager
         {
             WeaponPool[i].poolIndex = i;
         }
+
+        for (int i = 0; i < CompanionPool.Count; i++)
+        {
+            CompanionPool[i].poolIndex = i;
+        }
     }
 
     public void SetShop(int index, bool active)
     {
-        if(index >= Shops.Count)
+        if (index >= Shops.Count)
         {
             Debug.LogWarning("Shop index out of bounds");
             return;

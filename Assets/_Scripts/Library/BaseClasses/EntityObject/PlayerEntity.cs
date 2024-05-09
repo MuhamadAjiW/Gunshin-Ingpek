@@ -103,11 +103,15 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
         Debug.Log($"Deactivating Companion {selectedCompanion.name}");
     }
 
-    public void AddCompanion(Companion companion)
+    public void AddCompanion(Companion companion, Companion.Type type)
     {
-        CompanionList.Add(companion);
-        CompanionActive.Add(true);
-        GameSaveManager.Instance.gameSaves[GameSaveManager.Instance.activeGameSaveIndex].petData.Add(companion.type);
+        companionList.Add(companion);
+        companionActive.Add(false);
+        ActivateAllCompanions();
+
+        Debug.Log($"Adding companion {companion.name} with type {type}");
+
+        GameSaveManager.Instance.gameSaves[GameSaveManager.Instance.activeGameSaveIndex].petData.Add(type);
         OnCompanionListChange?.Invoke();
         Debug.Log("Companion added");
     }
