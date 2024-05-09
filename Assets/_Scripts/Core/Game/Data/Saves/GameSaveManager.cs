@@ -144,7 +144,8 @@ public class GameSaveManager : MonoBehaviour
         SetActiveGameSaveFromGameSaves(index);
         // Do loading shit
         GameController.Instance.player.transform.position = Instance.gameSaves[activeGameSaveIndex].positionData.point;
-        
+        GameController.Instance.player.companionList = new List<Companion>(Instance.gameSaves[activeGameSaveIndex].petData.Select(Companion.NewCompanionByType));
+        Instance.gameSaves[activeGameSaveIndex].weaponPoolIndex.ForEach(e => GameController.Instance.player.weaponList.Add(EventManager.Instance.WeaponPool[e]));
     }
 
     public void OverrideSave()

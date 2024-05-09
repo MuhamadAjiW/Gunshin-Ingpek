@@ -107,6 +107,7 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
     {
         CompanionList.Add(companion);
         CompanionActive.Add(true);
+        GameSaveManager.Instance.gameSaves[GameSaveManager.Instance.activeGameSaveIndex].petData.Add(companion.type);
         OnCompanionListChange?.Invoke();
         Debug.Log("Companion added");
     }
@@ -115,6 +116,7 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
     {
         CompanionActive.RemoveAt(index);
         CompanionList.RemoveAt(index);
+        GameSaveManager.Instance.gameSaves[GameSaveManager.Instance.activeGameSaveIndex].petData.RemoveAt(index);
         OnCompanionListChange?.Invoke();
         Debug.Log("Companion deleted");
     }

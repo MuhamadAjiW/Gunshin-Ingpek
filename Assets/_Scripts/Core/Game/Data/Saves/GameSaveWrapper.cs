@@ -12,4 +12,6 @@ public class GameDataWrapper
     public CurrencyData currencyData;
     public PositionData positionData;
     public StoryData storyData;
+    public List<Companion.Type> petData;
+    public List<int> weaponPoolIndex;
 }

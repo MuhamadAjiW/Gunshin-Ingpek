@@ -23,6 +23,8 @@ public class GameSaveData
     public PositionData positionData = new();
     // Save the story state of the player
     public StoryData storyData;
+    public List<Companion.Type> petData;
+    public List<int> weaponPoolIndex;
 
     public string id;
 
@@ -47,6 +49,7 @@ public class GameSaveData
             positionData = this.positionData,
             storyData = this.storyData,
             playerName = this.playerName,
+            petData = this.petData
         };
 
         string json = JsonUtility.ToJson(wrapper, true);
@@ -75,6 +78,7 @@ public class GameSaveData
             this.positionData = wrapper.positionData;
             this.storyData = wrapper.storyData;
             this.playerName = wrapper.playerName;
+            this.petData = wrapper.petData;
             Debug.Log("Game loaded from " + path);
             return GameSaveManager.GameLoadResult.SUCCESS;
         }
