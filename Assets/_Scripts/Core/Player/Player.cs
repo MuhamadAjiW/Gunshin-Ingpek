@@ -79,6 +79,8 @@ public class Player : PlayerEntity
         {
             CompanionActive.Add(CompanionList[i].gameObject.activeSelf);
         }
+
+        ActivateAllCompanions();
     }
 
     // Functions

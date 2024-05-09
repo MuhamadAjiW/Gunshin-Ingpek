@@ -35,7 +35,8 @@ public class King : BossEntity
         animationController.Init(this);
 
         EquipWeapon(0);
-        
+        ActivateAllCompanions();
+
         OnDeathEvent += OnDeath;
         StartCoroutine(SpawnGoons());
         StartCoroutine(DrainPlayerHealth());
@@ -50,7 +51,7 @@ public class King : BossEntity
         GameController.Instance.player.effects.Add(damageDebuff);
         GameController.Instance.player.effects.Add(speedDebuff);
     }
-    
+
     protected void UnregisterPlayerDebuff()
     {
         GameController.Instance.player.effects.Remove(damageDebuff);
@@ -65,7 +66,7 @@ public class King : BossEntity
             GameController.Instance.player.InflictDrainDamage(drainDamage);
         }
 
-        if(!Dead)
+        if (!Dead)
         {
             StartCoroutine(DrainPlayerHealth());
         }
@@ -73,12 +74,12 @@ public class King : BossEntity
 
     protected IEnumerator SpawnGoons()
     {
-        if(goonCount < goonCountLimit && !Dead)
+        if (goonCount < goonCountLimit && !Dead)
         {
             int rng = UnityEngine.Random.Range(0, 2);
-            
+
             Goon goon;
-            if(rng == 0)
+            if (rng == 0)
             {
                 goon = ObjectFactory.CreateEntity<Goon>(
                     prefabPath: GOON_RIFLE_PREFAB,
@@ -86,7 +87,8 @@ public class King : BossEntity
                     objectName: $"{name}'s Goons"
                 );
             }
-            else{
+            else
+            {
                 goon = ObjectFactory.CreateEntity<Goon>(
                     prefabPath: GOON_PREFAB,
                     position: transform.position + transform.up,
@@ -98,7 +100,7 @@ public class King : BossEntity
             goonCount++;
         }
         yield return new WaitForSeconds(15);
-        if(!Dead)
+        if (!Dead)
         {
             StartCoroutine(SpawnGoons());
         }
@@ -134,6 +136,10 @@ public class King : BossEntity
     private IEnumerator DeleteBody()
     {
         yield return new WaitForSeconds(2);
+        // foreach (Companion companion in CompanionList)
+        // {
+        //     Destroy(companion.gameObject);
+        // }
         Destroy(gameObject);
     }
 

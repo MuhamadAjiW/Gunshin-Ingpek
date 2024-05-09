@@ -29,7 +29,8 @@ public class General : BossEntity
         animationController.Init(this);
 
         EquipWeapon(0);
-        
+        ActivateAllCompanions();
+
         OnDeathEvent += OnDeath;
         StartCoroutine(DrainPlayerHealth());
     }
@@ -47,7 +48,7 @@ public class General : BossEntity
         Vector3 dampVelocity = new();
         Rigidbody.velocity = Vector3.SmoothDamp(Rigidbody.velocity, Vector3.zero, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);
     }
-    
+
     protected IEnumerator DrainPlayerHealth()
     {
         yield return new WaitForSeconds(drainDelay);
@@ -56,7 +57,7 @@ public class General : BossEntity
             GameController.Instance.player.InflictDrainDamage(drainDamage);
         }
 
-        if(!Dead)
+        if (!Dead)
         {
             StartCoroutine(DrainPlayerHealth());
         }
@@ -75,6 +76,10 @@ public class General : BossEntity
     private IEnumerator DeleteBody()
     {
         yield return new WaitForSeconds(2);
+        // foreach (Companion companion in CompanionList)
+        // {
+        //     Destroy(companion.gameObject);
+        // }
         Destroy(gameObject);
     }
 
