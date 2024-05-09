@@ -48,6 +48,8 @@ public class AttackingPet : Companion, IArmed
 
         aiController.Init(this);
         stateController.Init(this);
+
+        type = Type.DAMAGE;
     }
 
     private void EquipWeapon()

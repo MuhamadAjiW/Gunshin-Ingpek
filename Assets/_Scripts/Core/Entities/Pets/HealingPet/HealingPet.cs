@@ -24,6 +24,7 @@ public class HealingPet : Companion
         SetIdPrefix(OBJECT_ID_PREFIX);
         SetLayer(EnvironmentConfig.LAYER_PLAYER); // Healing pet is from player's side
 
+        type = Type.HEALING;
         OnHealOwnerEvent += Heal;
 
         aiController.Init(this);

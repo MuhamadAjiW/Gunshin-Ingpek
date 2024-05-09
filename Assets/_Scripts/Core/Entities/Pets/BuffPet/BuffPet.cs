@@ -22,6 +22,7 @@ public class BuffPet : Companion
         stateController.Init(this);
 
         IncreaseDamage();
+        type = Type.INCREASE;
     }
 
     // Function
