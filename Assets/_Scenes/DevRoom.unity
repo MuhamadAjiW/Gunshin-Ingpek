@@ -5223,51 +5223,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464623400}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &574010110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 574010112}
-  - component: {fileID: 574010111}
-  m_Layer: 0
-  m_Name: GameSaveManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &574010111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574010110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b7dd8bdd25ac8d491abc96d38eaf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeGameSaveIndex: -1
---- !u!4 &574010112
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574010110}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -51.1379, y: 3.9086382, z: 49.587833}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &580745003
 GameObject:
 >>>>>>> 388ba517 (fix: bug with maximum saves)
@@ -40599,7 +40554,11 @@ Transform:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
+<<<<<<< HEAD
     surfaceParameter: 50200
+=======
+    surfaceParameter: 50666
+>>>>>>> aa5615a8 (fix: scenes manager error in dev room)
     meshQueryIndex: 2
     subMeshQueryIndex: 0
     geometryHashValue: -1365392548276624071
@@ -42746,7 +42705,11 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
+<<<<<<< HEAD
     surfaceParameter: 50224
+=======
+    surfaceParameter: 50666
+>>>>>>> aa5615a8 (fix: scenes manager error in dev room)
     meshQueryIndex: 2
     subMeshQueryIndex: 0
     geometryHashValue: -1365392548276624071
@@ -45769,6 +45732,7 @@ GameObject:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     surfaceParameter: 53172
     meshQueryIndex: 8
 =======
@@ -45785,6 +45749,9 @@ GameObject:
 =======
     surfaceParameter: 51034
 >>>>>>> 14d1a39e (feat: integrated ui and camera blockers to each level)
+=======
+    surfaceParameter: 51514
+>>>>>>> aa5615a8 (fix: scenes manager error in dev room)
     meshQueryIndex: 0
 >>>>>>> 01a091b6 (fix: goon spawning name, patrol visualization, headgoons sounds)
     subMeshQueryIndex: 0
@@ -54741,8 +54708,13 @@ Transform:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
+<<<<<<< HEAD
     surfaceParameter: 48484
     meshQueryIndex: 9
+=======
+    surfaceParameter: 50982
+    meshQueryIndex: 1
+>>>>>>> aa5615a8 (fix: scenes manager error in dev room)
     subMeshQueryIndex: 0
     geometryHashValue: -2774585206094123893
     surfaceHashValue: 8429986782490831525
@@ -57087,9 +57059,97 @@ Transform:
   m_GameObject: {fileID: 1993262141}
 >>>>>>> 6c8684c5 (feat: added mitachurl, samachurl, lawachurl model. Animation still glitchy though)
   serializedVersion: 2
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.15895213, y: -0.040370755, z: 0.15492955, w: 0.9742183}
   m_LocalPosition: {x: -3.352761e-10, y: 0.000000002058223, z: 0.00022645302}
   m_LocalScale: {x: 1.0000001, y: 0.9999997, z: 0.99999994}
+=======
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 296110129}
+  - {fileID: 1835324898}
+  - {fileID: 580745004}
+  - {fileID: 954295820}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2012910004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012910006}
+  - component: {fileID: 2012910005}
+  m_Layer: 0
+  m_Name: ScenesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2012910005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012910004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dad55a555e8c9718807280ab97fed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingScreen: {fileID: 4608723408205958242}
+  MinimumTransitionTimeSeconds: 0
+--- !u!4 &2012910006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012910004}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -51.1379, y: 3.9086382, z: 49.587833}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2016902677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016902678}
+  - component: {fileID: 2016902679}
+  m_Layer: 0
+  m_Name: Stairs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2016902678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016902677}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -11, y: 0, z: -27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> aa5615a8 (fix: scenes manager error in dev room)
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7583271404782120909}
@@ -73246,6 +73306,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2a5a02652110cb4e854896b35e3e3a8, type: 3}
+--- !u!114 &4608723408205958242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 47419240839385305, guid: e2a5a02652110cb4e854896b35e3e3a8, type: 3}
+  m_PrefabInstance: {fileID: 4608723408205958241}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6388430732250035799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75880,7 +75951,11 @@ SceneRoots:
 =======
   - {fileID: 45123353}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 52d6aab9 (feat: animation optimization)
 =======
   - {fileID: 574010112}
 >>>>>>> 388ba517 (fix: bug with maximum saves)
+=======
+  - {fileID: 2012910006}
+>>>>>>> aa5615a8 (fix: scenes manager error in dev room)
