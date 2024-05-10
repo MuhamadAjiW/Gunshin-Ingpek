@@ -52,6 +52,14 @@ public class AudioController
         audio.source.Stop();
     }
 
+    public void StopAll ()
+    {
+        foreach (Audio audio in audios)
+        {
+            audio.source.Stop();
+        }
+    }
+
     public void Mute (string name)
     {
         Audio audio = Array.Find(audios, audio => audio.name == name);

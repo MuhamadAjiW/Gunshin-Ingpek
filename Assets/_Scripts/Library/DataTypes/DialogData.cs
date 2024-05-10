@@ -14,4 +14,5 @@ public class DialogData
     public string PersonRName;
     public Texture2D PersonRImage;
     public DialogAnimation animation;
+    public Audio audio;
 }

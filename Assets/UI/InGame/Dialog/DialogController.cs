@@ -59,6 +59,10 @@ public class DialogController : ScreenController
             else
             {
                 LoadData(currentCutscene.dialogs[cutsceneProgress]);
+                if(currentCutscene.dialogs[cutsceneProgress].audio.source != null)
+                {
+                    GameAudioController.Instance.PlayOnce(currentCutscene.dialogs[cutsceneProgress].audio);
+                }
             }
         }
     }
