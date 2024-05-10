@@ -92,16 +92,19 @@ public class CheatCommand
                     GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_1_START_CUTSCENE);
                     GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_1_ENTER_DUNGEON);
                     GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_1_END_CUTSCENE);
+                    GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(Level1.QUEST_REWARD, Level1.QUEST_NAME);
                     GameController.Instance.player.transform.position = new Vector3(-33.1f, 0.073f, 190.17f); // Teleport to start of level 2
                 } else if (currentLevel == 2)
                 {
                     GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_2_START_CUTSCENE);
                     GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_2_END_CUTSCENE);
+                    GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(Level2.QUEST_REWARD, Level2.QUEST_NAME);
                     GameController.Instance.player.transform.position = new Vector3(-206.1f, 0.073f, 239.76f); // Teleport to start of level 3
                 } else if (currentLevel == 3)
                 {
                     GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_3_START_CUTSCENE);
                     GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_3_END_CUTSCENE);
+                    GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(Level3.QUEST_REWARD, Level3.QUEST_NAME);
                     GameController.Instance.player.transform.position = new Vector3(-231.13f, 0.073f, 179.6f); // Teleport to start of level 4
                 } else if (currentLevel == 4)
                 {

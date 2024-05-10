@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AttackingPet : Companion, IArmed
@@ -91,5 +92,24 @@ public class AttackingPet : Companion, IArmed
     {
         base.OnDrawGizmosSelected();
         stateController.VisualizeDetection(this);
+    }
+
+    protected override IEnumerator DeleteBody()
+    {
+
+        yield return new WaitForSeconds(2);
+
+        // Remove from companion list
+        int index = GameController.Instance.player.companionList.IndexOf(this);
+        if (index == GameController.Instance.player.CompanionSelectorIndex)
+        {
+            GameController.Instance.player.CompanionSelectorIndex = 0;
+        }
+
+        GameController.Instance.player.companionList.RemoveAt(index);
+        GameController.Instance.player.companionActive.RemoveAt(index);
+
+        Destroy(gameObject);
+
     }
 }

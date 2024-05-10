@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BuffPet : Companion
@@ -88,5 +89,24 @@ public class BuffPet : Companion
     {
         base.OnDrawGizmosSelected();
         stateController.VisualizeDetection();
+    }
+
+    protected override IEnumerator DeleteBody()
+    {
+
+        yield return new WaitForSeconds(2);
+
+        // Remove from companion list
+        int index = (Owner as BossEntity).companionList.IndexOf(this);
+        if (index == (Owner as BossEntity).CompanionSelectorIndex)
+        {
+            GameController.Instance.player.CompanionSelectorIndex = 0;
+        }
+
+        (Owner as BossEntity).companionList.RemoveAt(index);
+        (Owner as BossEntity).companionActive.RemoveAt(index);
+
+        Destroy(gameObject);
+
     }
 }

@@ -59,6 +59,8 @@ public class HealingPet : Companion
 #endif
     }
 
+
+
     protected new void OnEnable()
     {
         base.OnEnable();
@@ -77,5 +79,24 @@ public class HealingPet : Companion
         aiController?.Action();
         Vector3 dampVelocity = new();
         Rigidbody.velocity = Vector3.SmoothDamp(Rigidbody.velocity, Vector3.zero, ref dampVelocity, GameConfig.MOVEMENT_SMOOTHING);
+    }
+
+    protected override IEnumerator DeleteBody()
+    {
+
+        yield return new WaitForSeconds(2);
+
+        // Remove from companion list
+        int index = GameController.Instance.player.companionList.IndexOf(this);
+        if (index == GameController.Instance.player.CompanionSelectorIndex)
+        {
+            GameController.Instance.player.CompanionSelectorIndex = 0;
+        }
+
+        GameController.Instance.player.companionList.RemoveAt(index);
+        GameController.Instance.player.companionActive.RemoveAt(index);
+
+        Destroy(gameObject);
+
     }
 }

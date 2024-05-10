@@ -112,10 +112,19 @@ public class DamageableEntity : WorldEntity, IDamageable
     public float InflictDrainDamage(float damage)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         Debug.Log($"{name} health is drained by {damage}");
         Health -= damage;
         if(Dead)
 =======
+=======
+        if (this is Player && GameController.Instance.cheatController.NO_DAMAGE)
+        {
+            Debug.Log("NO_DAMAGE cheat is active. Draining damage is not inflicted.");
+            return Health;
+        }
+
+>>>>>>> f006296e (fix: some pet and cheat errors)
         if (Dead)
         {
             return 0;
