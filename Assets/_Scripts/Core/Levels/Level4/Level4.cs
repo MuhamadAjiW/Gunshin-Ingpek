@@ -64,24 +64,26 @@ public class Level4 : MonoBehaviour
             if(info is King)
             {
                 GameController.Instance.OnGameEvent -= CountDeaths;
+<<<<<<< HEAD
                 GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_ENDING_CUTSCENE);
                 GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_ENDING_CUTSCENE);
                 DialogController.Instance.OnCutsceneFinished += EndLevel;
+=======
+                GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_ENDING_CUTSCENE, EndLevel);
+                GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_ENDING_CUTSCENE);
+>>>>>>> e57a0f1c (refactor: improved dialog callbacks)
             }
         }
     }
 
     public void EndLevel()
     {
-        DialogController.Instance.OnCutsceneFinished -= EndLevel;
-        GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_ENDING_AFTER_CUTSCENE);
+        GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_ENDING_AFTER_CUTSCENE, EndGame);
         GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_ENDING_AFTER_CUTSCENE);
-        DialogController.Instance.OnCutsceneFinished += EndGame;
     }
 
     public void EndGame()
     {
-        DialogController.Instance.OnCutsceneFinished -= EndGame;
         GameController.Instance.stateController.PopState();
         GameController.Instance.stateController.PushState(GameState.FINISH);
     }

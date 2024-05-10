@@ -103,6 +103,12 @@ public class GameController : MonoBehaviour
         DialogController.Instance.StartCutscene(cutscene);
     }
 
+    public void StartCutscene(string eventCode, Action callback)
+    {
+        CutsceneData cutscene = Resources.Load<CutsceneData>(StoryConfig.CUTSCENES[eventCode]);
+        DialogController.Instance.StartCutscene(cutscene, callback);
+    }
+
     // TODO: Refactor? issabit a bit barbaric, no?
     public void InvokeEvent(string eventName, System.Object AdditionalData = null)
     {

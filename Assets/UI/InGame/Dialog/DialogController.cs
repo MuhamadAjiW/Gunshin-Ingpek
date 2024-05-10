@@ -20,7 +20,7 @@ public class DialogController : ScreenController
     private Coroutine currentAnimationRight;
 
     // Events
-    public event Action OnCutsceneFinished;
+    private event Action OnCutsceneFinished;
 
     // Constructor
     public new void OnEnable()
@@ -38,6 +38,16 @@ public class DialogController : ScreenController
     public void StartCutscene(CutsceneData cutsceneData)
     {
         GameController.Instance.stateController.PushState(GameState.CUTSCENE);
+
+        currentCutscene = cutsceneData;
+        cutsceneProgress = -1;
+        ProgressCutscene();
+    }
+
+    public void StartCutscene(CutsceneData cutsceneData, Action callback)
+    {
+        GameController.Instance.stateController.PushState(GameState.CUTSCENE);
+        AddCallback(callback);
 
         currentCutscene = cutsceneData;
         cutsceneProgress = -1;
@@ -65,6 +75,19 @@ public class DialogController : ScreenController
                 }
             }
         }
+    }
+
+    // Functions
+    public void AddCallback(Action callback)
+    {
+        void RemoveCallback()
+        {
+            OnCutsceneFinished -= callback;
+            OnCutsceneFinished -= RemoveCallback;
+        }
+
+        OnCutsceneFinished += callback;
+        OnCutsceneFinished += RemoveCallback;
     }
 
     public void LoadData(DialogData data)

@@ -21,7 +21,7 @@ public class Level1 : MonoBehaviour
             // _TODO: Add guard to detect whether the player has finished the game before
             if(GameSaveManager.Instance.GetActiveGameSave().difficulty != DifficultyType.HARD)
             {
-                DialogController.Instance.OnCutsceneFinished += Tutorial;
+                DialogController.Instance.AddCallback(Tutorial);
                 GameController.Instance.OnGameEvent += OnDummyDeath;
             }
             else
@@ -40,7 +40,6 @@ public class Level1 : MonoBehaviour
 
     public void Tutorial()
     {
-        DialogController.Instance.OnCutsceneFinished -= Tutorial;
         GameController.Instance.StartCutscene(StoryConfig.KEY_TUTORIAL_START);
         GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_TUTORIAL_START);
     }
