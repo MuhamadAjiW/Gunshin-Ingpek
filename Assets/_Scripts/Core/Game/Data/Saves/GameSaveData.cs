@@ -55,7 +55,7 @@ public class GameSaveData
         };
 
         string json = JsonUtility.ToJson(wrapper, true);
-        string filePath = string.Format("{0}/{1}.json", path, id);
+        string filePath = string.Format($"{path}/{id}.json");
         File.WriteAllText(filePath, json);
         Debug.Log("Game saved to " + filePath);
     }
@@ -95,9 +95,12 @@ public class GameSaveData
 
     public void Delete(string path)
     {
-        if (File.Exists(path))
+        string filePath = $"{path}/{id}.json";
+        Debug.Log($"Deleting {filePath}");
+
+        if (File.Exists(filePath))
         {
-            File.Delete($"{path}/{id}");
+            File.Delete(filePath);
             return;
         }
 

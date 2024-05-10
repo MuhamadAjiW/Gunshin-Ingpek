@@ -179,6 +179,7 @@ public class GameSaveManager : MonoBehaviour
         gameSaves.ElementAt(0).Delete(SAVE_PATH);
         gameSaves.RemoveAt(0);
         gameSaves.Add(activeGameSave);
+        activeGameSave.SaveGame(SAVE_PATH);
         activeGameSaveIndex = 0;
     }
 
