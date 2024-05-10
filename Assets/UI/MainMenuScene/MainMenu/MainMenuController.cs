@@ -52,6 +52,8 @@ public class MainMenuController : MainMenuScreenController
 
         UIManagement.ToggleElementVisible(MaxSavesContainer, false);
 
+        GameSaveManager.Instance.LoadStatistics();
+
 
     }
 

@@ -37,19 +37,20 @@ public partial class GameStatisticsContainer : VisualElement
     public static readonly string ShotsFiredTextUSSClassName = "shots-fired-text";
 
     private VisualElementWithClassAndName m_ShotsFiredContainer = new("ShotsFiredContainer", new List<string> { "statistics-container", ShotsFiredContainerUSSClassName });
-    private TextElementWithClassAndName m_ShotsFiredText = new("ShotsFiredContainer", new List<string> { ShotsFiredTextUSSClassName, "statistics-text" });
+    private TextElementWithClassAndName m_ShotsFiredText = new("ShotsFiredText", new List<string> { ShotsFiredTextUSSClassName, "statistics-text" });
 
     public static readonly string ShotsHitContainerUSSClassName = "shots-hit-container";
     public static readonly string ShotsHitTextUSSClassName = "shots-hit-text";
     private VisualElementWithClassAndName m_ShotsHitContainer = new("ShotsHitContainer", new List<string> { "statistics-container", ShotsHitContainerUSSClassName });
-    private TextElementWithClassAndName m_ShotsHitText = new("", new List<string> { "statistics-text", ShotsHitTextUSSClassName });
+    private TextElementWithClassAndName m_ShotsHitText = new("ShotsHitText", new List<string> { "statistics-text", ShotsHitTextUSSClassName });
 
 
     public static readonly string AccuracyContainerUSSClassName = "accuracy-container";
     public static readonly string AccuracyTextUSSClassName = "accuracy-text";
     private VisualElementWithClassAndName m_AccuracyContainer = new("AccuracyContainer", new List<string> { "statistics-container", AccuracyContainerUSSClassName });
 
-    private TextElementWithClassAndName m_AccuracyText = new("AccuracyContainer", new List<string> { AccuracyTextUSSClassName, "statistics-text" });
+    private TextElementWithClassAndName m_AccuracyText = new("AccuracyText", new List<string> { AccuracyTextUSSClassName, "statistics-text" });
+
 
     // Statistics
     public int EnemiesKilled
@@ -92,6 +93,16 @@ public partial class GameStatisticsContainer : VisualElement
         get => GameStatisticsManager.Instance.Accuracy;
     }
 
+    public float Playtime
+    {
+        get => GameStatisticsManager.Instance.playtime;
+    }
+
+    public float DistanceTraveled
+    {
+        get => GameStatisticsManager.Instance.DistanceTraveled;
+    }
+
 
 
     public GameStatisticsContainer()
@@ -100,19 +111,60 @@ public partial class GameStatisticsContainer : VisualElement
         AddToClassList(GameStatisticsContainerUSSClassName);
 
         // Setup layouts
+        m_DistanceTraveledContainer.Add(new TextElementWithClassAndName("DistanceTraveledInfoText", new List<string> { "statistics-info-text" })
+        {
+            text = "Distance Traveled: "
+        }
+        );
+        m_DistanceTraveledContainer.Add(m_DistanceTraveledText);
+
+        m_DistanceTraveledContainer.Add(new TextElementWithClassAndName("PlaytimeInfoText", new List<string> { "statistics-info-text" })
+        {
+            text = "Playtime: "
+        }
+        );
+        m_PlaytimeContainer.Add(m_PlaytimeText);
+
+        m_EnemiesKilledContainer.Add(new TextElementWithClassAndName("EnemiesKilledInfoText", new List<string> { "statistics-info-text" })
+        {
+            text = "Enemies Killed: "
+        }
+
+        );
         m_EnemiesKilledContainer.Add(m_EnemiesKilledText);
+
+        m_ShotsFiredContainer.Add(new TextElementWithClassAndName("ShotsFiredInfoText", new List<string> { "statistics-info-text" })
+        {
+            text = "Shots Fired: "
+        }
+        );
         m_ShotsFiredContainer.Add(m_ShotsFiredText);
+
+        m_ShotsHitContainer.Add(new TextElementWithClassAndName("ShotsHitInfoText", new List<string> { "statistics-info-text" })
+        {
+            text = "Shots Hit: "
+        }
+        );
         m_ShotsHitContainer.Add(m_ShotsHitText);
+
+        m_AccuracyContainer.Add(new TextElementWithClassAndName("AccuracyInfoText", new List<string> { "statistics-info-text" })
+        {
+            text = "Accuracy: "
+        });
         m_AccuracyContainer.Add(m_AccuracyText);
 
         m_ShotsContainer.Add(m_ShotsFiredContainer);
         m_ShotsContainer.Add(m_ShotsHitContainer);
         m_ShotsContainer.Add(m_AccuracyContainer);
 
+        Add(m_PlaytimeContainer);
+        Add(m_DistanceTraveledContainer);
         Add(m_EnemiesKilledContainer);
         Add(m_ShotsContainer);
 
         // Setup initial text
+        m_DistanceTraveledText.text = 0.ToString();
+        m_PlaytimeText.text = 0.ToString();
         m_EnemiesKilledText.text = 0.ToString();
         m_ShotsFiredText.text = 0.ToString();
         m_ShotsHitText.text = 0.ToString();

@@ -95,10 +95,13 @@ public class GameSaveManager : MonoBehaviour
         if (File.Exists(STATS_FILE_PATH))
         {
             GameStatisticsManager.Instance.Load(File.ReadAllText(STATS_FILE_PATH));
+            Debug.Log("Statistics file loaded");
         }
         else
         {
-            Debug.LogError("Statistics file not found");
+
+            Debug.LogWarning("Statistics file not found. Making new statistics file");
+            PersistStatistics();
         }
     }
 

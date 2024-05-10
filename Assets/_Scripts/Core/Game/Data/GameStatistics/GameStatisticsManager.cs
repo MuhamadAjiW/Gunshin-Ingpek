@@ -138,7 +138,7 @@ namespace _Scripts.Core.Game.Data
 
         public void Load(string json)
         {
-            GameStatisticsManager data = JsonUtility.FromJson<GameStatisticsManager>(json);
+            GameStatisticsWrapper data = JsonUtility.FromJson<GameStatisticsWrapper>(json);
             if (data != null)
             {
                 enemiesKilled = data.enemiesKilled;
@@ -154,6 +154,20 @@ namespace _Scripts.Core.Game.Data
 
         public string SaveToJson()
         {
+            GameStatisticsWrapper wrapper = new()
+            {
+                goonsKilled = this.goonsKilled,
+                headgoonsKilled = this.headgoonsKilled,
+                generalsKilled = this.generalsKilled,
+                kingsKilled = this.kingsKilled,
+                shotsFired = this.shotsFired,
+                shotsHit = this.shotsHit,
+                DistanceTraveled = this.DistanceTraveled,
+                PlaytimeFormatted = this.PlaytimeFormatted,
+                SkillsUsed = this.SkillsUsed,
+                OrbsCollected = this.OrbsCollected,
+                PetsOwned = this.PetsOwned,
+            };
             return JsonUtility.ToJson(this);
         }
 
