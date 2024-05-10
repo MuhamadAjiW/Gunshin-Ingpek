@@ -21,7 +21,7 @@ public class PauseMenuController : InGameUIScreenController
             GameController.stateController.PopState();
         });
 
-        Button saveButton = rootElement.Query<Button>("Resume");
+        Button saveButton = rootElement.Query<Button>("Save");
         // Insert condition on which player can save the game
         if (false)
         {
@@ -29,11 +29,8 @@ public class PauseMenuController : InGameUIScreenController
         }
         saveButton.RegisterCallback((ClickEvent evt) =>
         {
-            // Change for whatever condition player is allowed to save
-            if (true)
-            {
-                GameSaveManager.Instance?.PersistActiveSave();
-            }
+            Debug.Log("Save Button clicked");
+            GameSaveManager.Instance?.SaveGame();
         });
 
         Button shopButton = rootElement.Query<Button>("Shop");
