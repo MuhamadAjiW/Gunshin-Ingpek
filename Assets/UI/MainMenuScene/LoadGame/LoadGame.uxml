@@ -1,12 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
-    <Style src="project://database/Assets/UI/MainMenuScene/LoadGame/LoadGame.uss?fileID=7433441132597879392&amp;guid=338340960f881e19f89fa0f8920df934&amp;type=3#LoadGame" />
     <ui:VisualElement name="Container" class="container" style="flex-grow: 1; align-items: flex-start;">
         <ui:VisualElement name="TitleContainer" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
             <ui:Label text="Load Saves" name="Title" style="rotate: -5deg; font-size: 48px; translate: 2.5% 20%;" />
         </ui:VisualElement>
         <GameSavesContainer />
         <ui:VisualElement name="BackContainer" style="flex-grow: 1;">
+            <ui:Button text="Delete All Saves" name="DeleteAllSavesButton" />
             <ui:Button text="Back" name="back-button" />
         </ui:VisualElement>
     </ui:VisualElement>

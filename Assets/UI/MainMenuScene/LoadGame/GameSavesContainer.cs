@@ -16,9 +16,6 @@ public partial class GameSavesContainer : VisualElement
     private TextElementWithClassAndName m_NoSavesText = new("NoSavesText", new List<string> { NoSavesTextUSSClassName });
 
 
-    private bool saveLoaded = false;
-
-
     public List<GameSaveData> Saves
     {
         get => GameSaveManager.Instance.GetSaves();
@@ -37,10 +34,15 @@ public partial class GameSavesContainer : VisualElement
 
     public void LoadSave()
     {
-        if (GameSaveManager.Instance is not null && !saveLoaded)
+        Clear();
+        if (GameSaveManager.Instance is not null)
         {
+            Debug.Log($"Save: {Saves.Count}");
+
             if (Saves.Count <= 0)
             {
+                m_NoSavesText.text = "No Save Yet!";
+                Debug.Log("No saves!");
                 Add(m_NoSavesText);
             }
             else
@@ -54,7 +56,6 @@ public partial class GameSavesContainer : VisualElement
                     i++;
                 }
             }
-            saveLoaded = true;
         }
 
     }

@@ -6,15 +6,42 @@ using UnityEngine.UIElements;
 public class LoadGameController : MainMenuScreenController
 {
 
+    GameSavesContainer GameSavesContainer;
+
+    Button DeleteAllSavesButton;
+
     public new void OnEnable()
     {
         base.OnEnable();
 
         MainMenuManager.InitializeBackButton(rootElement);
 
-        GameSavesContainer savesGameContainer = rootElement.Query<GameSavesContainer>("GameSavesContainer");
+        GameSavesContainer = rootElement.Query<GameSavesContainer>("GameSavesContainer");
 
-        savesGameContainer.LoadSave();
+        DeleteAllSavesButton = rootElement.Query<Button>("DeleteAllSavesButton");
+
+        SetupSaves();
+        DeleteAllSavesButton.RegisterCallback((ClickEvent evt) =>
+        {
+            GameSaveManager.Instance.DeleteAllSaves();
+            SetupSaves();
+        });
+
+
+    }
+
+    public void SetupSaves()
+    {
+        GameSavesContainer.LoadSave();
+        if (GameSavesContainer.Saves.Count <= 0)
+        {
+            DeleteAllSavesButton.style.display = DisplayStyle.None;
+        }
+        else
+        {
+            DeleteAllSavesButton.style.display = DisplayStyle.Flex;
+        }
+
 
     }
 }
