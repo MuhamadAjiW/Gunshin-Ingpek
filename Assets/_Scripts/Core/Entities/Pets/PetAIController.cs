@@ -35,17 +35,28 @@ public abstract class PetAIController<T> where T : Companion
 
     public void GoToward(Transform target)
     {
+        if (!nav.enabled)
+        {
+            nav.enabled = true;
+        }
         nav.destination = target.position;
     }
 
     public void GoToward(Vector3 position)
     {
+        if (!nav.enabled)
+        {
+            nav.enabled = true;
+        }
         nav.destination = position;
     }
 
     private void OnDamaged()
     {
-        nav.velocity = Vector3.zero;
+        if (nav.enabled)
+        {
+            nav.velocity = Vector3.zero;
+        }
     }
 
     private void OnDeath()

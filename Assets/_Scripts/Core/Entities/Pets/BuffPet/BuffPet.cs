@@ -24,6 +24,9 @@ public class BuffPet : Companion
 
         IncreaseDamage();
         type = Type.INCREASE;
+
+        aiController.nav.enabled = false;
+        transform.position = spawnPosition;
     }
 
     // Function
@@ -107,6 +110,5 @@ public class BuffPet : Companion
         (Owner as BossEntity).companionActive.RemoveAt(index);
 
         Destroy(gameObject);
-
     }
 }

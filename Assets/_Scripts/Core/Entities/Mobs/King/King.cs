@@ -36,9 +36,12 @@ public class King : BossEntity
 
         EquipWeapon(0);
 <<<<<<< HEAD
+<<<<<<< HEAD
         ActivateAllCompanions();
 =======
 >>>>>>> d871ba60 (feat: initial work on statistics element)
+=======
+>>>>>>> 69341d05 (fix: pet navmeshagent kejedot)
 
         OnDeathEvent += OnDeath;
         StartCoroutine(SpawnGoons());

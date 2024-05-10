@@ -11,7 +11,7 @@ public class AttackingPetAIController : PetAIController<AttackingPet>
 
         if (currState == AttackingPetState.AI_ATTACK_STATE)
         {
-            Debug.Log($"{pet.id}: ATTACKING {pet.stateController.nearest.name}");
+            // Debug.Log($"{pet.id}: ATTACKING {pet.stateController.nearest.name}");
             pet.aiController.nav.stoppingDistance = 3;
             EnemyEntity target = pet.stateController.nearest;
             Quaternion targetAngle = LookToward(target.transform);
@@ -22,14 +22,14 @@ public class AttackingPetAIController : PetAIController<AttackingPet>
         }
         else if (currState == AttackingPetState.AI_FOLLOW_STATE)
         {
-            Debug.Log($"{pet.id}: FOLLOWING {pet.stateController.nearest.name}");
+            // Debug.Log($"{pet.id}: FOLLOWING {pet.stateController.nearest.name}");
             pet.aiController.nav.stoppingDistance = 3;
             EnemyEntity target = pet.stateController.nearest;
             GoToward(target.transform);
         }
         else // AI_IDLE_STATE
         {
-            Debug.Log($"{pet.id}: IDLE");
+            // Debug.Log($"{pet.id}: IDLE");
             pet.aiController.nav.stoppingDistance = 1;
             LookToward(GameController.Instance.player.transform);
             GoToward(GameController.Instance.player.transform);

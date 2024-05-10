@@ -48,8 +48,10 @@ public class AttackingPet : Companion, IArmed
         EquipWeapon();
 
         aiController.Init(this);
-        stateController.Init(this);
+        aiController.nav.enabled = false;
+        transform.position = spawnPosition;
 
+        stateController.Init(this);
         type = Type.DAMAGE;
     }
 

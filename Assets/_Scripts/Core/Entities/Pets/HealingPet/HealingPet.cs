@@ -28,6 +28,8 @@ public class HealingPet : Companion
         OnHealOwnerEvent += Heal;
 
         aiController.Init(this);
+        aiController.nav.enabled = false;
+        transform.position = spawnPosition;
     }
 
     // Function

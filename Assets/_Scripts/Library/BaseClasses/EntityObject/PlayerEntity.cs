@@ -81,11 +81,15 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
         selectedCompanion.gameObject.SetActive(true);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         selectedCompanion.transform.position = transform.position - new Vector3((index + 1) * 1.2f, 0, 0);
 =======
         // TODO: Set possible spawn locations for companions, for now it will spawn on the left
         selectedCompanion.transform.position = transform.position - new Vector3(-0.5f, 0, 0);
 >>>>>>> 42daf667 (feat: added companion aggregation)
+=======
+        selectedCompanion.spawnPosition = transform.position - new Vector3((index + 1) * 1.2f, 0, 0);
+>>>>>>> 69341d05 (fix: pet navmeshagent kejedot)
         companionActive[CompanionSelectorIndex] = true;
         selectedCompanion.Assign(this);
     }

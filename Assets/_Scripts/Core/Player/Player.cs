@@ -301,12 +301,18 @@ public class Player : PlayerEntity
 
             if (companion is AttackingPet)
             {
-                (companion as AttackingPet).aiController.nav.Warp(destination);
+                AttackingPet comp = companion as AttackingPet;
+                comp.aiController.nav.enabled = false;
+                comp.transform.position = destination;
+                comp.aiController.nav.enabled = true;
             }
 
             if (companion is HealingPet)
             {
-                (companion as HealingPet).aiController.nav.Warp(destination);
+                HealingPet comp = companion as HealingPet;
+                comp.aiController.nav.enabled = false;
+                comp.transform.position = destination;
+                comp.aiController.nav.enabled = true;
             }
         }
     }

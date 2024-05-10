@@ -22,6 +22,7 @@ public abstract class Companion : DamageableEntity
     public CompanionData data;
 
     public Type type;
+    public Vector3 spawnPosition;
 
     public static string GetCompanionTypeNameFromEnum(Type type)
     {

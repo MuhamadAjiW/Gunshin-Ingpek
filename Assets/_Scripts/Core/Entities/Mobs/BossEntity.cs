@@ -24,6 +24,7 @@ public abstract class BossEntity : EnemyEntity, IAccompaniable
             else companionSelectorIndex = 0;
         }
     }
+    protected bool isStarted = false;
 
     // Functions
 
@@ -35,6 +36,12 @@ public abstract class BossEntity : EnemyEntity, IAccompaniable
         for (int i = 0; i < initialIndex; i++)
         {
             CompanionActive.Add(false);
+        }
+
+        if (!isStarted)
+        {
+            ActivateAllCompanions();
+            isStarted = true;
         }
     }
 
@@ -67,7 +74,7 @@ public abstract class BossEntity : EnemyEntity, IAccompaniable
 
         selectedCompanion.gameObject.SetActive(true);
 
-        selectedCompanion.transform.position = transform.position - new Vector3((index + 1) * 1.2f, 0, 0);
+        selectedCompanion.spawnPosition = transform.position - new Vector3((index + 1) * 1.2f, 0, 0);
         companionActive[CompanionSelectorIndex] = true;
         selectedCompanion.Assign(this);
     }
@@ -94,6 +101,14 @@ public abstract class BossEntity : EnemyEntity, IAccompaniable
         Debug.Log($"Deactivating Companion {selectedCompanion.name}");
     }
 
+    public void DeactivateAllCompanions()
+    {
+        for (int i = 0; i < companionList.Count; i++)
+        {
+            DeactivateCompanion(i);
+        }
+    }
+
     public void AddCompanion(Companion companion)
     {
         CompanionList.Add(companion);
@@ -104,5 +119,25 @@ public abstract class BossEntity : EnemyEntity, IAccompaniable
     {
         CompanionActive.RemoveAt(index);
         CompanionList.RemoveAt(index);
+    }
+
+    protected void OnEnable()
+    {
+        Debug.Log("OnEnable: Enabling all companions. isStarted: " + isStarted);
+
+        if (isStarted)
+        {
+            ActivateAllCompanions();
+        }
+    }
+
+    protected void OnDisable()
+    {
+        Debug.Log("OnDisable: Disabling all companions. isStarted: " + isStarted);
+
+        if (isStarted)
+        {
+            DeactivateAllCompanions();
+        }
     }
 }
