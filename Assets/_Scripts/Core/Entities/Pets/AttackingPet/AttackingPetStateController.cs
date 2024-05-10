@@ -10,6 +10,7 @@ public class AttackingPetStateController : PetStateController<AttackingPet>
     // Attributes
     public float followDistance = 6f;
     public float attackDistance = 3f;
+    public float maxDistFromOwner = 7f;
     [HideInInspector] public List<EnemyEntity> attackEnemies = new();
     [HideInInspector] public List<EnemyEntity> followEnemies = new();
     [HideInInspector] public EnemyEntity nearest;
@@ -25,6 +26,13 @@ public class AttackingPetStateController : PetStateController<AttackingPet>
     // Functions
     protected override int DetectState()
     {
+        // Prevent from stucking in the same state
+        if (Vector3.Distance(pet.transform.position, pet.Owner.CompanionController.transform.position) > maxDistFromOwner)
+        {
+            state = AttackingPetState.AI_IDLE_STATE;
+            return AttackingPetState.AI_IDLE_STATE;
+        }
+
         Collider[] attackCollider = Physics.OverlapSphere(pet.transform.position, attackDistance, enemyLayer);
         Collider[] followCollider = Physics.OverlapSphere(pet.transform.position, followDistance, enemyLayer);
 

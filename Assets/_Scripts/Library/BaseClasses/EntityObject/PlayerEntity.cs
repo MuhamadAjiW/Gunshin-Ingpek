@@ -173,7 +173,10 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
 
         for (int i = 0; i < companionList.Count; i++)
         {
-            Destroy(companionList[i].gameObject);
+            Companion comp = companionList[i];
+            companionList.RemoveAt(i);
+            companionActive.RemoveAt(i);
+            Destroy(comp.gameObject);
         }
     }
 }
