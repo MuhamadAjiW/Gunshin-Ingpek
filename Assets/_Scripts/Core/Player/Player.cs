@@ -58,6 +58,7 @@ public class Player : PlayerEntity
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
         // TODO: These are for dev, consider deleting
@@ -72,6 +73,9 @@ public class Player : PlayerEntity
 =======
         
 >>>>>>> da34ded8 (feat: integrated shop with shopkeeper)
+=======
+
+>>>>>>> b4a2bfd4 (fix: teleport logic in cheat)
         EquipWeapon(0);
 
         int initialIndex = CompanionList.Count;
@@ -244,6 +248,7 @@ public class Player : PlayerEntity
 
         Debug.Log(id + ": Damage increased from " + prev + " to " + Damage);
     }
+<<<<<<< HEAD
 =======
     // Switches to the next weapon in the list
 =======
@@ -286,4 +291,24 @@ public class Player : PlayerEntity
     }
 
 >>>>>>> 919d0e86 (add: weapon switching)
+=======
+
+    public void TeleportAllCompanions(Vector3 destination)
+    {
+        foreach (var companion in CompanionList)
+        {
+            Debug.Log($"Warping {companion.name} to {destination}");
+
+            if (companion is AttackingPet)
+            {
+                (companion as AttackingPet).aiController.nav.Warp(destination);
+            }
+
+            if (companion is HealingPet)
+            {
+                (companion as HealingPet).aiController.nav.Warp(destination);
+            }
+        }
+    }
+>>>>>>> b4a2bfd4 (fix: teleport logic in cheat)
 }
