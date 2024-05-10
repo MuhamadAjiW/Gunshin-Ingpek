@@ -59,7 +59,9 @@ public class ShopController : InGameUIScreenController
             Companion newCompanion = Companion.NewCompanionByType(newCompanionType);
 
             GameController.Instance.player.AddCompanion(newCompanion, newCompanionType);
-            GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(-10, "Buy pet");
+
+            int price = GameController.Instance.cheatController.MOTHERLODE ? 0 : 10;
+            GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(-price, "Buy pet");
             Debug.Log(String.Format("Number of companion ${0}", GameController.Instance.player.CompanionList.Count));
 
         });

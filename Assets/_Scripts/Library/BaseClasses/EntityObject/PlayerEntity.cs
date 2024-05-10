@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerEntity : CombatantEntity, IAccompaniable
 {
@@ -159,6 +160,16 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
         for (int i = 0; i < companionList.Count; i++)
         {
             ActivateCompanion(i);
+        }
+    }
+
+    public IEnumerator KillAllCompanions()
+    {
+        yield return new WaitForSeconds(2);
+
+        for (int i = 0; i < companionList.Count; i++)
+        {
+            Destroy(companionList[i].gameObject);
         }
     }
 }

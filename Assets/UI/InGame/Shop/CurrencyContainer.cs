@@ -1,6 +1,7 @@
-using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.Properties;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 [UxmlElement]
@@ -37,6 +38,12 @@ public partial class CurrencyContainer : VisualElement
 
     void UpdateText()
     {
+        if (GameController.Instance != null && GameController.Instance.cheatController.MOTHERLODE)
+        {
+            currencyLabel.text = "MOTHERLODE!! " + Currency.ToString();
+            return;
+        }
+
         currencyLabel.text = Currency.ToString();
     }
 

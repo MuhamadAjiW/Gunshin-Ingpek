@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public Player player;
     public GameCameraController mainCamera;
     public GameStateController stateController;
+    public GameCheatController cheatController;
 
     // Cheat Attributes
     private float cheatDelayTimer;
@@ -26,6 +27,7 @@ public class GameController : MonoBehaviour
     GameController()
     {
         stateController = new();
+        cheatController = new();
     }
 
     protected void Awake()

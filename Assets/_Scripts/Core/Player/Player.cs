@@ -80,6 +80,7 @@ public class Player : PlayerEntity
             CompanionActive.Add(true);
         }
 
+<<<<<<< HEAD
         CompanionList.AddRange(EntityManager.Instance.GetComponentsInChildren<Companion>());
         for (int i = initialIndex; i < CompanionList.Count; i++)
         {
@@ -87,6 +88,8 @@ public class Player : PlayerEntity
         }
 
 <<<<<<< HEAD
+=======
+>>>>>>> 40925012 (feat: cheats)
         ActivateAllCompanions();
 =======
 >>>>>>> 42daf667 (feat: added companion aggregation)

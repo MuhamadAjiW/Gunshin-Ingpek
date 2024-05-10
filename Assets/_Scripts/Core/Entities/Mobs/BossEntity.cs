@@ -36,12 +36,6 @@ public abstract class BossEntity : EnemyEntity, IAccompaniable
         {
             CompanionActive.Add(false);
         }
-
-        CompanionList.AddRange(EntityManager.Instance.GetComponentsInChildren<Companion>());
-        for (int i = initialIndex; i < CompanionList.Count; i++)
-        {
-            CompanionActive.Add(CompanionList[i].gameObject.activeSelf);
-        }
     }
 
     public void ActivateCompanion(int index)
