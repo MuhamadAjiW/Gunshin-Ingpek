@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class GameSettingsManager : MonoBehaviour
@@ -17,6 +18,7 @@ public class GameSettingsManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
 
         if (Instance == this)
@@ -28,7 +30,7 @@ public class GameSettingsManager : MonoBehaviour
         Debug.Log("Loaded Settings Manager");
         SETTINGS_PATH = Application.persistentDataPath + "/settings.json";
 
-        gameSettings = new(SETTINGS_PATH);
+        LoadSettings();
 
         gameSettings.OnSettingsChanged += SaveSettings;
     }
@@ -36,6 +38,11 @@ public class GameSettingsManager : MonoBehaviour
     public void SaveSettings()
     {
         File.WriteAllTextAsync(SETTINGS_PATH, gameSettings.SaveToJson());
+    }
+
+    public void LoadSettings()
+    {
+        gameSettings = new(SETTINGS_PATH);
     }
 
 }

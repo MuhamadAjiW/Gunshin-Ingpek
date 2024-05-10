@@ -13,7 +13,6 @@ public partial class SettingsContainer : VisualElement
     public DifficultyDropdown difficultyDropdown;
     public VolumeSlider volumeSlider;
 
-
     public SettingsContainer()
     {
         name = "SettingsContainer";
@@ -52,5 +51,13 @@ public partial class SettingsContainer : VisualElement
 
     void GenerateVisualContent(MeshGenerationContext context)
     {
+    }
+
+    public void Setup()
+    {
+        Debug.Assert(GameSettingsManager.Instance);
+        Debug.Assert(GameSettingsManager.Instance.gameSettings is not null);
+        volumeSlider.value = GameSettingsManager.Instance.gameSettings.SoundVolume;
+        nameField.SetName(GameSaveManager.Instance.GetActiveGameSave().playerName);
     }
 }
