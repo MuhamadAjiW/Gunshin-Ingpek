@@ -31,6 +31,7 @@ public class GameSaveData
     // Constructor
     public GameSaveData()
     {
+        writeTime = DateTime.Now;
         id = Guid.NewGuid().ToString();
 <<<<<<< HEAD
         storyData = new StoryData(events);
@@ -73,7 +74,6 @@ public class GameSaveData
             writeTime = File.GetLastWriteTime(path);
             string json = File.ReadAllText(path);
             GameDataWrapper wrapper = JsonUtility.FromJson<GameDataWrapper>(json);
-
             this.difficulty = wrapper.difficulty;
             this.events = wrapper.events;
             this.currencyData = wrapper.currencyData;
