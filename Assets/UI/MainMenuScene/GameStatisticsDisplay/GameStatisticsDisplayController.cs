@@ -16,5 +16,7 @@ public class GameStatisticsDisplayController : MainMenuScreenController
         GameSaveManager.Instance.LoadStatistics();
         gameStatisticsContainer.LoadStatistics();
 
+        gameStatisticsContainer.ListenToChange();
+
     }
 }

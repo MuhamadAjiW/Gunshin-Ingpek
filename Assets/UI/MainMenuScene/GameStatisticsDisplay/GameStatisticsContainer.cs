@@ -118,7 +118,7 @@ public partial class GameStatisticsContainer : VisualElement
         );
         m_DistanceTraveledContainer.Add(m_DistanceTraveledText);
 
-        m_DistanceTraveledContainer.Add(new TextElementWithClassAndName("PlaytimeInfoText", new List<string> { "statistics-info-text" })
+        m_PlaytimeContainer.Add(new TextElementWithClassAndName("PlaytimeInfoText", new List<string> { "statistics-info-text" })
         {
             text = "Playtime: "
         }
@@ -177,15 +177,23 @@ public partial class GameStatisticsContainer : VisualElement
 
     public void LoadStatistics()
     {
+
         if (GameStatisticsManager.Instance is null)
         {
             return;
         }
 
+        m_DistanceTraveledText.text = DistanceTraveled.ToString();
+        m_PlaytimeText.text = Playtime.ToString();
         m_EnemiesKilledText.text = EnemiesKilled.ToString();
         m_ShotsFiredText.text = ShotsFired.ToString();
         m_ShotsHitText.text = ShotsHit.ToString();
         m_AccuracyText.text = ShotsAccuracy.ToString();
+    }
+
+    public void ListenToChange()
+    {
+        GameStatisticsManager.Instance.OnGameStatisticsPersisted += LoadStatistics;
     }
 
     void GenerateVisualContent(MeshGenerationContext context)

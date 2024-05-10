@@ -77,12 +77,15 @@ namespace _Scripts.Core.Game.Data
         public int OrbsCollected { get; set; }
         public int PetsOwned { get; set; }
 
+        public event Action OnGameStatisticsPersisted;
+
         // Constructor
         public void Awake()
         {
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
+                return;
             }
 
             if (Instance == this)
@@ -168,6 +171,7 @@ namespace _Scripts.Core.Game.Data
                 OrbsCollected = this.OrbsCollected,
                 PetsOwned = this.PetsOwned,
             };
+            OnGameStatisticsPersisted?.Invoke();
             return JsonUtility.ToJson(this);
         }
 

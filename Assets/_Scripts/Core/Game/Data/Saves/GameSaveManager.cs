@@ -43,6 +43,7 @@ public class GameSaveManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
 
         if (Instance == this)

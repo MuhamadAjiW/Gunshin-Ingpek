@@ -9,6 +9,8 @@ public class GameOverScreenController : InGameUIScreenController
 
     public CameraManager CameraManager;
 
+    public GameStatisticsContainer gameStatisticsContainer;
+
 
     public void Awake()
     {
@@ -24,5 +26,10 @@ public class GameOverScreenController : InGameUIScreenController
         {
             ScenesManager.Instance.LoadMainMenu();
         });
+
+        gameStatisticsContainer = rootElement.Query<GameStatisticsContainer>();
+
+        gameStatisticsContainer.ListenToChange();
+
     }
 }
