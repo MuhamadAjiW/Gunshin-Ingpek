@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
     <Style src="project://database/Assets/UI/SplashScreen/SplashScreen.uss?fileID=7433441132597879392&amp;guid=a30fc5c87b0d08c5ab1881e37181adb6&amp;type=3#SplashScreen" />
-    <ui:VisualElement name="Container" class="root-container" style="flex-grow: 1; align-items: stretch; flex-direction: column; -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); padding-top: 45px; padding-right: 45px; padding-bottom: 45px; padding-left: 45px; display: flex;">
-        <ui:VisualElement name="TextContainer" style="flex-grow: 1; -unity-text-align: upper-center; justify-content: center;">
-            <ui:Label text="Splashing So Hard Right Now" name="Title" enable-rich-text="true" style="background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); font-size: 28px; -unity-text-align: upper-center;" />
+    <ui:VisualElement name="Container" class="root-container" style="flex-grow: 1; align-items: stretch; flex-direction: column; -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgb(114, 57, 179); padding-top: 45px; padding-right: 45px; padding-bottom: 45px; padding-left: 45px; display: flex;">
+        <ui:VisualElement name="TextContainer" style="flex-grow: 1; -unity-text-align: upper-center; justify-content: flex-end;">
+            <ui:Label text="Ready To Make An Impék?" name="Title" enable-rich-text="true" class="has-texr" style="background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); font-size: 36px; -unity-text-align: upper-center; -unity-font-style: bold;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

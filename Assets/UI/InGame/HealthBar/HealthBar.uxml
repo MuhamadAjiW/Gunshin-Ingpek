@@ -7,6 +7,6 @@
                 <ui:DataBinding property="Health" binding-mode="ToTarget" data-source-type="Player, Assembly-CSharp" data-source-path="health" />
             </Bindings>
         </HealthBar>
-        <PetCounter data-source-type="Player" />
+        <PetCounter data-source-type="Player" class="has-text" />
     </ui:VisualElement>
 </ui:UXML>

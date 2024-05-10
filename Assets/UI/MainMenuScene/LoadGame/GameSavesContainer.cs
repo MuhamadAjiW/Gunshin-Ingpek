@@ -11,9 +11,12 @@ public partial class GameSavesContainer : VisualElement
     public static readonly string GameSavesContainerUSSClassName = "game-saves-container";
 
     public static readonly string NoSavesTextUSSClassName = "no-saves-text";
-    public static readonly List<string> GameSaveCardUSSClassNameList = new() { "game-save-card" };
+    public static readonly List<string> GameSaveCardUSSClassNameList = new() { "game-save-card", "has-text", "rounded" };
 
-    private TextElementWithClassAndName m_NoSavesText = new("NoSavesText", new List<string> { NoSavesTextUSSClassName });
+    private TextElementWithClassAndName m_NoSavesText = new("NoSavesText", new List<string> { NoSavesTextUSSClassName, "info-prompt-text" })
+    {
+        text = "No Save Yet!"
+    };
 
 
     public List<GameSaveData> Saves
@@ -28,6 +31,12 @@ public partial class GameSavesContainer : VisualElement
         name = "GameSavesContainer";
         AddToClassList(GameSavesContainerUSSClassName);
 
+        Add(m_NoSavesText);
+        Add(new GameSaveCard(new GameSaveData()
+        {
+            writeTime = DateTime.Now
+        }, 0, GameSaveCardUSSClassNameList));
+
         generateVisualContent += GenerateVisualContent;
 
     }
@@ -41,7 +50,6 @@ public partial class GameSavesContainer : VisualElement
 
             if (Saves.Count <= 0)
             {
-                m_NoSavesText.text = "No Save Yet!";
                 Debug.Log("No saves!");
                 Add(m_NoSavesText);
             }

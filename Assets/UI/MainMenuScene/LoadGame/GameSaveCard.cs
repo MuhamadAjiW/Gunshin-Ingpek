@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UIElements;
 
 public partial class GameSaveCard : VisualElement
@@ -8,6 +9,8 @@ public partial class GameSaveCard : VisualElement
 
     TextElement indexText = new();
     TextElement saveTimeText = new();
+
+    public static string InnerTextUSSClassName = "game-save-card-text";
 
 
     public GameSaveCard(GameSaveData gameSaveData, int index, List<string> classes)
@@ -21,7 +24,12 @@ public partial class GameSaveCard : VisualElement
         indexText.text = (index + 1).ToString();
         saveTimeText.text = gameSaveData.writeTime.ToString();
 
+        indexText.AddToClassList(InnerTextUSSClassName);
+        saveTimeText.AddToClassList(InnerTextUSSClassName);
         Add(indexText);
+        VisualElement spacer = new();
+        spacer.AddToClassList("spacer");
+        Add(spacer);
         Add(saveTimeText);
 
         RegisterCallback((ClickEvent evt) =>

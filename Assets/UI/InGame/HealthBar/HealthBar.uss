@@ -5,13 +5,17 @@
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
-    background-color: rgb(221, 60, 60);
+    background-color: rgb(198, 38, 46);
     width: 0;
     height: 30px;
     transition-duration: 0.25s;
     transition-delay: 0.25s;
     transition-timing-function: ease-in-out;
     transition-property: width;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 .outer-bar {
@@ -24,6 +28,10 @@
     padding-left: 12px;
     width: 600px;
     --outer-bar-width: 600px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
 .health-bar-background {
@@ -34,6 +42,10 @@
 }
 
 .pet-counter-card {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 .pet-counter-card-pet-name {

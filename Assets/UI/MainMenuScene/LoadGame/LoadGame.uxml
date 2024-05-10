@@ -1,13 +1,14 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
-    <ui:VisualElement name="Container" class="container" style="flex-grow: 1; align-items: flex-start;">
+    <Style src="project://database/Assets/UI/MainMenuScene/LoadGame/LoadGame.uss?fileID=7433441132597879392&amp;guid=75662ccdee61039588cc80a750b8ad24&amp;type=3#LoadGame" />
+    <ui:VisualElement name="Container" class="container main-menu-container padded-container main-menu-overlay" style="flex-grow: 1; align-items: flex-start;">
         <ui:VisualElement name="TitleContainer" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
-            <ui:Label text="Load Saves" name="Title" style="rotate: -5deg; font-size: 48px; translate: 2.5% 20%;" />
+            <ui:Label text="Load Saves" name="Title" class="main-menu-screen-title rotated" style="font-size: 48px; translate: 2.5% 20%;" />
         </ui:VisualElement>
-        <GameSavesContainer />
-        <ui:VisualElement name="BackContainer" style="flex-grow: 1;">
-            <ui:Button text="Delete All Saves" name="DeleteAllSavesButton" />
-            <ui:Button text="Back" name="back-button" />
+        <GameSavesContainer class="rounded rotated" style="width: auto; align-items: center; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px; align-self: center; margin-top: 32px; margin-right: 32px; margin-bottom: 32px; margin-left: 32px;" />
+        <ui:Button text="Delete All Saves" name="DeleteAllSavesButton" class="button has-texr cancel-button rounded rotated" style="align-self: center;" />
+        <ui:VisualElement name="BackContainer" style="flex-grow: 1; justify-content: flex-end;">
+            <ui:Button text="Back" name="back-button" class="rounded cancel-button button has-texr main-menu-back-button" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

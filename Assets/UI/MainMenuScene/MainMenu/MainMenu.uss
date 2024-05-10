@@ -1,5 +1,14 @@
+.main-menu-button:hover {
+    rotate: -15deg;
+    transition-property: rotate;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+}
+
 .main-menu-button {
     font-size: 28px;
+    margin-right: 16px;
+    margin-left: 16px;
 }
 
 .shake-start {

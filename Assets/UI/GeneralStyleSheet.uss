@@ -1,3 +1,8 @@
+.left-right-spaced {
+    margin-right: 24px;
+    margin-left: 24px;
+}
+
 .root-container {
     flex-grow: 1;
     width: 100%;
@@ -5,6 +10,22 @@
 }
 
 .button {
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    transition-property: background-color, color;
+    transition-duration: 0.2s, 0.2s;
+    -unity-font-style: bold;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.do-button {
+    background-color: rgb(104, 183, 35);
+    text-shadow: 0 0 0 rgb(255, 255, 255);
 }
 
 .transform-transition-container {
@@ -12,8 +33,17 @@
     transition-duration: 0.25s;
 }
 
+.normal-text {
+    font-size: 20px;
+    -unity-font-style: bold;
+}
+
 .exiting {
     translate: -100% 0;
+}
+
+.has-text {
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Unity.ttf?fileID=12800000&guid=f4eec857a4fdf2f43be0e9f3d1a984e7&type=3#Unity");
 }
 
 .entering {
@@ -33,5 +63,123 @@
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.69);
+    background-color: rgba(39, 52, 69, 0.83);
+}
+
+.normal-button {
+    background-color: rgb(114, 57, 179);
+    -unity-font-style: bold;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    transition-duration: 0.2s;
+}
+
+.cancel-button {
+    background-color: rgb(198, 38, 46);
+    color: rgb(255, 255, 255);
+}
+
+.rounded {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.main-menu-container {
+}
+
+.rounded {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.main-menu-screen-title {
+    font-size: 36px;
+    -unity-font-style: bold;
+    color: rgb(155, 219, 77);
+}
+
+.padded-container {
+    padding-top: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+    padding-left: 32px;
+}
+
+.cancel-button {
+    background-color: rgb(198, 38, 46);
+    color: rgb(255, 255, 255);
+}
+
+.has-texr {
+}
+
+.main-menu-overlay {
+    background-image: none;
+    background-color: rgba(13, 82, 191, 0.29);
+}
+
+.bottom-above-spaced {
+    margin-top: 24px;
+    margin-right: 0;
+    margin-bottom: 24px;
+    margin-left: 0;
+}
+
+.info-prompt-text {
+    font-size: 36px;
+    -unity-font-style: bold;
+}
+
+.spacer {
+    width: initial;
+    flex-grow: 1;
+}
+
+.cancel-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(198, 38, 46);
+}
+
+.main-menu-back-button {
+    rotate: -10deg;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+}
+
+.main-menu-screen-title {
+    font-size: 36px;
+    -unity-font-style: bold;
+    color: rgb(155, 219, 77);
+}
+
+.main-menu-back-button:hover {
+    rotate: 0;
+    scale: 1.2 1.2;
+}
+
+.normal-button:hover {
+    scale: 1.2 1.2;
+    rotate: 10deg;
+    color: rgb(114, 57, 179);
+    background-color: rgb(255, 255, 255);
+}
+
+.rotated {
+    rotate: -10deg;
+}
+
+.main-menu-overlay {
+    background-image: none;
+    background-color: rgba(13, 82, 191, 0.29);
+}
+
+.has-text {
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Unity.ttf?fileID=12800000&guid=f4eec857a4fdf2f43be0e9f3d1a984e7&type=3#Unity");
 }

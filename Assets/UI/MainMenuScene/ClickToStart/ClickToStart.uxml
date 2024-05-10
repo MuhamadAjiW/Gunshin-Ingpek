@@ -4,7 +4,7 @@
     <ui:VisualElement name="Container" class="root-container" style="flex-grow: 1; align-items: stretch; flex-direction: column; background-color: rgba(0, 0, 0, 0);">
         <ui:VisualElement name="BackContainer" style="flex-grow: 1; padding-top: 45px; padding-right: 45px; padding-bottom: 45px; padding-left: 45px; background-color: rgba(0, 0, 0, 0);">
             <ui:VisualElement name="spacer" style="flex-grow: 1;" />
-            <ui:Label text="Click To Start" name="ClickToStartText" style="font-size: 28px; color: rgb(255, 255, 255); -unity-text-align: upper-center;" />
+            <ui:Label text="Click To Start" name="ClickToStartText" class="has-texr info-prompt-text" style="font-size: 28px; color: rgb(255, 255, 255); -unity-text-align: upper-center;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

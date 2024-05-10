@@ -1,6 +1,26 @@
 .enemies-killed-container {
 }
 
+.statistics-container {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: rgb(77, 77, 77);
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    font-size: 18px;
+}
+
 .enemies-killed-text {
 }
 
@@ -27,13 +47,27 @@
 }
 
 .shots-hit-container {
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
 }
 
 .shots-hit-text {
 }
 
 .accuracy-container {
+    margin-top: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    margin-left: 8px;
 }
 
 .accuracy-text {
+}
+
+.statistics-container:hover {
+    color: rgb(77, 77, 77);
+    background-color: rgb(255, 255, 255);
+    scale: 1.1 1.1;
 }
