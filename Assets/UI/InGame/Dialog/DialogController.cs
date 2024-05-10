@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class DialogController : ScreenController
@@ -31,6 +32,8 @@ public class DialogController : ScreenController
 
         initialY = dialogOverlay.m_PersonLImage.style.top.value.value;
         endY += initialY;
+
+        GameInput.Instance.BindCallback(GameInput.Instance.AnyAction, KeyPress);
     }
 
 
@@ -204,17 +207,11 @@ public class DialogController : ScreenController
         }   
     }
 
-    protected void Update()
+    private void KeyPress(InputAction.CallbackContext context)
     {
         if(InCutscene)
         {
-            if(!Input.GetKeyDown(GameInput.Instance.backButton)
-            && !Input.GetKeyDown(GameInput.Instance.attackButton) 
-            && !Input.GetKeyDown(GameInput.Instance.attackAlternateButton) 
-            && Input.anyKeyDown)
-            {
-                ProgressCutscene();
-            }
+            ProgressCutscene();
         }
     }
 }

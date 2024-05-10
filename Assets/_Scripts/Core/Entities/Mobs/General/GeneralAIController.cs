@@ -96,7 +96,7 @@ public class GeneralAIController
 
     public void Attack()
     {
-        if(general.Weapon == null)
+        if(general.Weapon == null || !general.Weapon.CanAttack)
         {
             return;
         }
@@ -105,7 +105,7 @@ public class GeneralAIController
 
     public void AlternateAttack()
     {
-        if(general.Weapon == null)
+        if(general.Weapon == null || !general.Weapon.CanAttack)
         {
             return;
         }

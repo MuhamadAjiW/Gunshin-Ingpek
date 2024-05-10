@@ -96,7 +96,7 @@ public class KingAIController
 
     public void Attack()
     {
-        if(king.Weapon == null)
+        if(king.Weapon == null || !king.Weapon.CanAttack)
         {
             return;
         }
@@ -106,7 +106,7 @@ public class KingAIController
 
     public void AlternateAttack()
     {
-        if(king.Weapon == null)
+        if(king.Weapon == null || !king.Weapon.CanAttack)
         {
             return;
         }

@@ -112,7 +112,7 @@ MonoBehaviour:
   health: 6000
 >>>>>>> b0d746e4 (feat: removed test stuff)
   damagedDelay: 0.5
-  baseDamage: 20
+  baseDamage: 6
   weaponList:
   - {fileID: 6335313778335870420, guid: cdda51714cd51004d8db48ed3c887bfd, type: 3}
   companionList: []

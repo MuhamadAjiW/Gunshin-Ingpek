@@ -31,8 +31,8 @@ public class PlayerMovementController
             return;
         }
 
-        float inputX = player.inputController.movementInputX;
-        float inputZ = player.inputController.movementInputZ;
+        float inputX = player.inputController.movementInput.x;
+        float inputZ = player.inputController.movementInput.y;
 
         SnapshotCameraOrientation();
 

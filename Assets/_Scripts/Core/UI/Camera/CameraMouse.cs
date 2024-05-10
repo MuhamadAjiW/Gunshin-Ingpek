@@ -4,7 +4,7 @@ public class CameraMouse : CameraFollowObject
 {
     
     // Attributes
-    public float mouseSensitivity = 1f;
+    public float mouseSensitivity = 0.2f;
     private Vector2 mouseTurn;
     private Quaternion initialRotation;
     private Vector3 targetPosition;
@@ -32,8 +32,9 @@ public class CameraMouse : CameraFollowObject
             return;
         }
 
-        mouseTurn.x += Input.GetAxis("Mouse X");
-        mouseTurn.y += Input.GetAxis("Mouse Y");
+        Vector2 mouseInput = GameInput.Instance.LookAction.ReadValue<Vector2>() * mouseSensitivity;
+        mouseTurn.x += mouseInput.x;
+        mouseTurn.y += mouseInput.y;
 
         mouseTurn.y = Mathf.Clamp(mouseTurn.y, -GameConfig.CAMERA_MOUSE_VERTICAL_MAX, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
 

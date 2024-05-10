@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class GameController : MonoBehaviour
     // Cheat Attributes
     private float cheatDelayTimer;
     private const float cheatAllowedDelay = 1f;
-    private int cheatTriggerIdx;
+    private float cheatTrigger1;
+    private float cheatTrigger2;
 
     // Events
     public event Action<string, System.Object> OnGameEvent;
@@ -45,56 +47,20 @@ public class GameController : MonoBehaviour
             Debug.LogError("No main camera detected in child of GameController. How to resolve: create a camera object as child of GameController");
         }
 #endif
+        GameInput.Instance.BindCallback(GameInput.Instance.CancelAction, stateController.HandleEscape);
     }
-
-    public void OnEnable()
-    {
-    }
-
 
     // Functions
     protected void Update()
     {
-        if (Input.GetKeyDown(GameInput.Instance.backButton))
-        {
-            stateController.HandleEscape();
-        }
-
         if (stateController.GetState() == GameState.RUNNING)
         {
-            // only open cheat console if game is running
-            cheatDelayTimer += Time.deltaTime;
-            if (cheatDelayTimer > cheatAllowedDelay)
-            {
-                ResetCheatInput();
-            }
-
-            if (Input.anyKeyDown)
-            {
-                // Debug.Log("Key pressed: " + Input.inputString);
-                if (Input.GetKeyDown(GameInput.Instance.cheatTriggerButton[cheatTriggerIdx]))
-                {
-                    cheatTriggerIdx++;
-                    cheatDelayTimer = 0f;
-                }
-                else
-                {
-                    ResetCheatInput();
-                }
-            }
-
-            if (cheatTriggerIdx == GameInput.Instance.cheatTriggerButton.Count)
+            if (GameInput.Instance.Cheat1Action.ReadValue<float>() > 0 &&
+                GameInput.Instance.Cheat2Action.ReadValue<float>() > 0)
             {
                 stateController.PushState(GameState.CHEAT);
-                ResetCheatInput();
             }
         }
-    }
-
-    private void ResetCheatInput()
-    {
-        cheatTriggerIdx = 0;
-        cheatDelayTimer = 0f;
     }
 
     public void StartCutscene(string eventCode)
@@ -113,5 +79,9 @@ public class GameController : MonoBehaviour
     public void InvokeEvent(string eventName, System.Object AdditionalData = null)
     {
         OnGameEvent?.Invoke(eventName, AdditionalData);
+    }
+
+    protected void OnDestroy() {
+        GameInput.Instance.ClearListeners();
     }
 }

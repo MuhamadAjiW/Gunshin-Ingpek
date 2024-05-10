@@ -111,11 +111,23 @@
       "url": "https://packages.unity.com"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
 =======
 >>>>>>> 5488cd99 (feat: incorporated jean textures and maps)
 =======
 >>>>>>> cb03e584 (feat: add level 1 and shop)
+=======
+    "com.unity.inputsystem": {
+      "version": "1.7.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> 1cc993db (feat: overhauled inputs)
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 1,

@@ -107,7 +107,7 @@ MonoBehaviour:
   maxHealth: 1000
   health: 1000
   damagedDelay: 0.5
-  baseDamage: 10
+  baseDamage: 6
   weaponList:
   - {fileID: 7437526622663931204, guid: 9557126a4feee8a4496bbe7f48b9c52b, type: 3}
   companionList: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabPath: Prefabs/Weapons/Rifle/Rifle_Goon
   model: {fileID: 5496260497754850104, guid: 58848d2b6288668499387b1fe67a5a66, type: 3}
   canSkill: 1
-  baseDamage: 5
+  baseDamage: 2
   knockbackPower: 5
   attackInterval: 0.5
   alternateAttackInterval: 0.5

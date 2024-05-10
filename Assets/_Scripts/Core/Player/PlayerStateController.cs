@@ -89,11 +89,11 @@ public class PlayerStateController : EntityStateController
     }
     private bool DetectWalking()
     {
-        return Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0;
+        return GameInput.Instance.MoveAction.ReadValue<Vector2>() != Vector2.zero;
     }
     private bool DetectSprinting()
     {
-        return (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) && Input.GetKey(GameInput.Instance.sprintButton);
+        return GameInput.Instance.MoveAction.ReadValue<Vector2>() != Vector2.zero && GameInput.Instance.SprintAction.ReadValue<float>() > 0;
     }
     private bool DetectJumping()
     {

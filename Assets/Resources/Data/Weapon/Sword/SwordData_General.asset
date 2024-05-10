@@ -15,8 +15,8 @@ MonoBehaviour:
   prefabPath: Prefabs/Weapons/Sword/Sword_General
   model: {fileID: 4462867912151492675, guid: f0d081d1ef8077d4f96b0a13bc2e425c, type: 3}
   canSkill: 1
-  baseDamage: 10
+  baseDamage: 5
   knockbackPower: 10
   attackInterval: 0.5
-  alternateAttackInterval: 0.5
+  alternateAttackInterval: 1
   skillInterval: 1

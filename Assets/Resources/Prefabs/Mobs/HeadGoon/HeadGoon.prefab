@@ -107,7 +107,7 @@ MonoBehaviour:
   maxHealth: 400
   health: 400
   damagedDelay: 0.5
-  baseDamage: 5
+  baseDamage: 2
   weaponList:
   - {fileID: 6335313778335870420, guid: bc3753eda3e32b74db6d5ab08c9b7368, type: 3}
   goonCountLimit: 2

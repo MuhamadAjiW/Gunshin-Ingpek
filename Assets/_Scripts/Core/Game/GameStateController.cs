@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameStateController
 {
@@ -70,7 +71,12 @@ public class GameStateController
 
     }
 
-    public void HandleEscape()
+    public void HandleEscape(InputAction.CallbackContext context)
+    {
+        Escape();
+    }
+
+    public void Escape()
     {
         GameState state = GetState();
         if (state == GameState.OVER)

@@ -220,7 +220,11 @@ public class GameSaveManager : MonoBehaviour
         SceneManager.sceneLoaded -= LoadGame;
 
         GameController.Instance.player.transform.position = Instance.gameSaves[activeGameSaveIndex].positionData.point;
-        GameController.Instance.player.companionList = new List<Companion>(Instance.gameSaves[activeGameSaveIndex].petData.Select(Companion.NewCompanionByType));
+        
+        if(Instance.gameSaves[activeGameSaveIndex].petData != null)
+        {
+            GameController.Instance.player.companionList = new List<Companion>(Instance.gameSaves[activeGameSaveIndex].petData.Select(Companion.NewCompanionByType));
+        }
 
         Debug.Assert(GameController.Instance.player.weaponList != null);
         Debug.Assert(Instance.gameSaves[activeGameSaveIndex].weaponPoolIndex != null);

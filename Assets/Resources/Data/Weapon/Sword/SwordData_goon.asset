@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabPath: Prefabs/Weapons/Sword/Sword_Goon
   model: {fileID: 4462867912151492675, guid: f0d081d1ef8077d4f96b0a13bc2e425c, type: 3}
   canSkill: 1
-  baseDamage: 5
+  baseDamage: 2
   knockbackPower: 5
   attackInterval: 0.5
   alternateAttackInterval: 0.5

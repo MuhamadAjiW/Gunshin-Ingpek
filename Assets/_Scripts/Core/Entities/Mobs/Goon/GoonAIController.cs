@@ -88,7 +88,7 @@ public class GoonAIController
 
     public void Attack()
     {
-        if(goon.Weapon == null)
+        if(goon.Weapon == null || !goon.Weapon.CanAttack)
         {
             return;
         }
@@ -97,7 +97,7 @@ public class GoonAIController
 
     public void AlternateAttack()
     {
-        if(goon.Weapon == null)
+        if(goon.Weapon == null || !goon.Weapon.CanAttack)
         {
             return;
         }

@@ -17,6 +17,6 @@ MonoBehaviour:
   canSkill: 1
   baseDamage: 150
   knockbackPower: 10
-  attackInterval: 0.4
+  attackInterval: 0.2
   alternateAttackInterval: 0.5
   skillInterval: 0.8

@@ -107,7 +107,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   damagedDelay: 0.5
-  baseDamage: 5
+  baseDamage: 2
   weaponList:
   - {fileID: 7437526622663931204, guid: 62a4313c03f1e154882c937338e3578e, type: 3}
   stateController:

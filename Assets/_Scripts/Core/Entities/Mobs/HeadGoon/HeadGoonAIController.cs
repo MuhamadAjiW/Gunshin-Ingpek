@@ -97,7 +97,7 @@ public class HeadGoonAIController
 
     public void Attack()
     {
-        if(headGoon.Weapon == null)
+        if(headGoon.Weapon == null || !headGoon.Weapon.CanAttack)
         {
             return;
         }
@@ -106,7 +106,7 @@ public class HeadGoonAIController
 
     public void AlternateAttack()
     {
-        if(headGoon.Weapon == null)
+        if(headGoon.Weapon == null || !headGoon.Weapon.CanAttack)
         {
             return;
         }

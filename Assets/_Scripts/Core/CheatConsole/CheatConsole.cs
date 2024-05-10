@@ -57,7 +57,7 @@ public class CheatConsole : MonoBehaviour
         if (e.isKey && e.keyCode == KeyCode.Escape)
         {
             textInput = "";
-            GameController.Instance.stateController.HandleEscape();
+            GameController.Instance.stateController.Escape();
         }
     }
 

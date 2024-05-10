@@ -2,14 +2,14 @@ using System;
 using System.Collections;
 using _Scripts.Core.Game.Data;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public class PlayerInputController
 {
     // Attributes
     private Player player;
-    [HideInInspector] public float movementInputX;
-    [HideInInspector] public float movementInputZ;
+    [HideInInspector] public Vector2 movementInput;
     [HideInInspector] public float movementInputScroll;
     [HideInInspector] public bool movementInputJump;
     protected float attackWindowSize = 0.3f;
@@ -27,147 +27,134 @@ public class PlayerInputController
     {
         this.player = player;
         enemyLayer = LayerMask.GetMask(EnvironmentConfig.LAYER_ENEMY);
+
+        GameInput.Instance.BindCallback(GameInput.Instance.JumpAction, Jump);
+        GameInput.Instance.BindCallback(GameInput.Instance.AimAction, Aim);
+        GameInput.Instance.BindCallback(GameInput.Instance.FireAction, Attack);
+        GameInput.Instance.BindCallback(GameInput.Instance.AlternateFireAction, AlternateAttack);
+        GameInput.Instance.BindCallback(GameInput.Instance.SkillAction, Skill);
+        GameInput.Instance.BindCallback(GameInput.Instance.InteractAction, Interact);
+        GameInput.Instance.BindCallback(GameInput.Instance.WeaponSwitchAction, SwitchWeapon);
+
     }
 
     // Functions
     public void HandleInputs()
     {
-        movementInputX = Input.GetAxisRaw("Horizontal");
-        movementInputZ = Input.GetAxisRaw("Vertical");
-        movementInputScroll = Input.GetAxisRaw("Mouse ScrollWheel");
+        movementInput = GameInput.Instance.MoveAction.ReadValue<Vector2>();
+    }
 
-        if (Input.GetButtonDown("Jump") && player.Grounded)
+    private void Jump(InputAction.CallbackContext context)
+    {
+        if(GameController.Instance.stateController.GetState() == GameState.RUNNING 
+            && player.Grounded)
         {
             OnJumpEvent?.Invoke();
         }
+    }
 
-        if (Input.GetKeyDown(GameInput.Instance.aimToggleButton))
+    private void Aim(InputAction.CallbackContext context)
+    {
+        if (GameController.Instance.stateController.GetState() != GameState.RUNNING)
+        {
+            return;
+        }
+        
+        player.stateController.ToggleIsAiming();
+        OnAimEvent?.Invoke(player.stateController.GetIsAiming());
+    }
+
+    private void Attack(InputAction.CallbackContext context)
+    {
+        if(GameController.Instance.stateController.GetState() != GameState.RUNNING
+         || !player.Grounded 
+         || player.Weapon == null 
+         || !player.Weapon.CanAttack)
+        {
+            return;
+        }
+        player.StartCoroutine(HandleAttack());
+    }
+
+    private void AlternateAttack(InputAction.CallbackContext context)
+    {
+        if(GameController.Instance.stateController.GetState() != GameState.RUNNING
+        || !player.Grounded 
+        || player.Weapon == null 
+        || !player.Weapon.CanAttack)
+        {
+            return;
+        }
+        player.StartCoroutine(HandleAlternateAttack());
+    }
+
+    private void Skill(InputAction.CallbackContext context)
+    {
+        if(GameController.Instance.stateController.GetState() != GameState.RUNNING
+        || !player.Grounded 
+        || player.Weapon == null 
+        || !player.Weapon.data.canSkill 
+        || !player.Weapon.CanAttack)
+        {
+            return;
+        }
+        if (player.stateController.GetIsAiming())
         {
             player.stateController.ToggleIsAiming();
             OnAimEvent?.Invoke(player.stateController.GetIsAiming());
         }
-
-        bool Toggled = Input.GetKey(GameInput.Instance.inputToggleButton);
-        if (Toggled)
-        {
-            HandleToggledInputs();
-        }
-        else
-        {
-            HandleUntoggledInputs();
-        }
-    }
-
-    private void HandleUntoggledInputs()
-    {
-        if (movementInputScroll != 0)
-        {
-            player.EquipWeapon(player.WeaponIndex + (int)(movementInputScroll * 10));
-        }
-
-        else if (Input.GetKeyDown(GameInput.Instance.attackButton) && player.Grounded)
-        {
-            Debug.Log("Player is Attacking");
-            if (player.Weapon is null)
-            {
-                Debug.Log("Player does not have a weapon");
-                return;
-            }
-            player.StartCoroutine(HandleAttack());
-        }
-        else if (Input.GetKeyDown(GameInput.Instance.attackAlternateButton) && player.Grounded)
-        {
-            Debug.Log("Player is Attacking (alternate)");
-            if (player.Weapon is null)
-            {
-                Debug.Log("Player does not have a weapon");
-                return;
-            }
-            player.StartCoroutine(HandleAlternateAttack());
-        }
-        else if (Input.GetKeyDown(GameInput.Instance.attackSkillButton) && player.Grounded)
-        {
-            if (!player.Weapon.data.canSkill)
-            {
-                return;
-            }
-            if (player.Weapon == null)
-            {
-                Debug.Log("Player does not have a weapon");
-                return;
-            }
-            if (player.stateController.GetIsAiming())
-            {
-                player.stateController.ToggleIsAiming();
-                OnAimEvent?.Invoke(player.stateController.GetIsAiming());
-            }
-            Debug.Log("Player is Using a skill");
-
-            player.StartCoroutine(HandleSkill());
-        }
-        else if (Input.GetKeyDown(GameInput.Instance.interactButton) && player.Grounded)
-        {
-
-            if (player.stateController.GetIsAiming())
-            {
-                return;
-            }
-            Debug.Log("Player is interacting");
-            if (player.stateController.currentInteractables.Count == 0)
-            {
-                return;
-            }
-
-            Collider[] hitColliders = Physics.OverlapSphere(player.transform.position, enemyCloseRange, enemyLayer);
-
-            if (hitColliders.Length > 0)
-            {
-                return;
-            }
-
-
-            IInteractable interactable = player.stateController.currentInteractables[^1];
-            interactable.Interact();
-        }
+<<<<<<< HEAD
         else if (Input.GetKeyDown(GameInput.Instance.switchWeaponButton))
         {
             player.SwitchWeapon();
             Debug.Log("Weapon switch else if PlayerInputController.cs"); 
         }
+=======
+        player.StartCoroutine(HandleSkill());
+>>>>>>> 1cc993db (feat: overhauled inputs)
     }
 
-    private void HandleToggledInputs()
+    private void Interact(InputAction.CallbackContext context)
     {
-        if (movementInputScroll != 0)
+        if(GameController.Instance.stateController.GetState() != GameState.RUNNING
+        || !player.Grounded 
+        || player.stateController.GetIsAiming() 
+        || player.stateController.currentInteractables.Count == 0)
         {
-            player.CompanionSelectorIndex += (int)(movementInputScroll * 10);
-            Debug.Log($"Selecting companions: {player.CompanionSelectorIndex}");
+            return;
         }
 
-        else if (Input.GetKeyDown(GameInput.Instance.attackButton))
+        Collider[] hitColliders = Physics.OverlapSphere(player.transform.position, enemyCloseRange, enemyLayer);
+        if (hitColliders.Length > 0)
         {
-            Debug.Log("Player is Activating a companion");
-            player.ActivateCompanion(player.CompanionSelectorIndex);
+            return;
         }
-        else if (Input.GetKeyDown(GameInput.Instance.attackAlternateButton))
-        {
-            Debug.Log("Player is Deactivating a companion");
-            player.DeactivateCompanion(player.CompanionSelectorIndex);
-        }
+<<<<<<< HEAD
         else if (Input.GetKeyDown(GameInput.Instance.switchWeaponButton))
         {
             player.SwitchWeapon();
             Debug.Log("Weapon switch else if PlayerInputController.cs"); 
         }
+=======
+
+        IInteractable interactable = player.stateController.currentInteractables[^1];
+        interactable.Interact();
+>>>>>>> 1cc993db (feat: overhauled inputs)
     }
 
+    private void SwitchWeapon(InputAction.CallbackContext context)
+    {
+        if(GameController.Instance.stateController.GetState() != GameState.RUNNING)
+        {
+            return;
+        }
+        player.EquipWeapon(player.WeaponIndex + 1);
+    }
+
+
+    // Coroutines
     private IEnumerator HandleAttack()
     {
-        if (!player.Weapon.CanAttack)
-        {
-            yield return new WaitForSeconds(0);
-        }
-
         float delay = player.Weapon.attackType switch
         {
             AttackType.MELEE => player.model.meleeAnimationDelay,
@@ -194,11 +181,6 @@ public class PlayerInputController
 
     private IEnumerator HandleAlternateAttack()
     {
-        if (!player.Weapon.CanAttack)
-        {
-            yield return new WaitForSeconds(0);
-        }
-
         float delay = player.Weapon.alternateAttackType switch
         {
             AttackType.MELEE => player.model.meleeAnimationDelay,

@@ -3,8 +3,6 @@ using UnityEngine;
 public class CameraSkill_1 : CameraFollowObject
 {
     // Attributes
-    public float mouseSensitivity = 1f;
-    private Quaternion initialRotation;
     private Vector3 targetPosition;
     private Quaternion targetRotation;
     private int stage = 0;
