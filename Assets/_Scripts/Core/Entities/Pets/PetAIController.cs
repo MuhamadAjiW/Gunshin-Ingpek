@@ -38,6 +38,11 @@ public abstract class PetAIController<T> where T : Companion
         nav.destination = target.position;
     }
 
+    public void GoToward(Vector3 position)
+    {
+        nav.destination = position;
+    }
+
     private void OnDamaged()
     {
         nav.velocity = Vector3.zero;
