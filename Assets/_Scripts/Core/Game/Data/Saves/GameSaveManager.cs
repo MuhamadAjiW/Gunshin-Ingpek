@@ -192,7 +192,20 @@ public class GameSaveManager : MonoBehaviour
         gameSaves = new();
     }
 
-    public void PersistActiveSave()
+    public void SaveGame()
+    {
+        // Saving side effects
+        GameController.Instance.player.Health = GameController.Instance.player.MaxHealth;
+        GameController.Instance.StartCutscene(StoryConfig.KEY_CUTSCENE_SAVE);
+        Instance.activeGameSave.positionData.point = GameController.Instance.player.transform.position;
+        Instance.activeGameSave.weaponPoolIndex =
+            new List<int>(GameController.Instance.player.weaponList.Where(e => e.poolIndex != 0).Select(
+            (e) => e.poolIndex));
+
+        PersistActiveSave();
+    }
+
+    private void PersistActiveSave()
     {
         gameSaves.ElementAt(activeGameSaveIndex).SaveGame(SAVE_PATH);
     }
