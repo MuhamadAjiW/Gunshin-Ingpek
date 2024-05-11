@@ -13,6 +13,8 @@ public partial class CurrencyContainer : VisualElement
 
     public TextElementWithClassAndName currencyLabel = new("CurrencyLabel", new List<string> { "currency-label" });
 
+    public TextElementWithClassAndName currencyLabelIcon = new("CurrencyLabelIcon", new List<string> { "currency-label-icon" });
+
     public int m_currency;
 
     [UxmlAttribute, CreateProperty]
@@ -31,6 +33,8 @@ public partial class CurrencyContainer : VisualElement
         name = "CurrencyContainer";
 
         currencyLabel.text = 0.ToString();
+        currencyLabelIcon.text = "🪙";
+        Add(currencyLabelIcon);
         Add(currencyLabel);
 
         generateVisualContent += GenerateVisualContent;
@@ -40,12 +44,13 @@ public partial class CurrencyContainer : VisualElement
     {
         if (GameController.Instance != null && GameController.Instance.cheatController.MOTHERLODE)
         {
-            currencyLabel.text = "MOTHERLODE!! " + Currency.ToString();
+            currencyLabel.text = "♾️";
             return;
         }
 
         currencyLabel.text = Currency.ToString();
     }
+
 
     void GenerateVisualContent(MeshGenerationContext context)
     {

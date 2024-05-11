@@ -42,10 +42,6 @@
     translate: -100% 0;
 }
 
-.has-text {
-    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Unity.ttf?fileID=12800000&guid=f4eec857a4fdf2f43be0e9f3d1a984e7&type=3#Unity");
-}
-
 .entering {
     translate: 100% 0;
 }
@@ -75,6 +71,10 @@
     border-bottom-color: rgba(0, 0, 0, 0);
     color: rgb(255, 255, 255);
     transition-duration: 0.2s;
+}
+
+.has-text {
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Unity.ttf?fileID=12800000&guid=f4eec857a4fdf2f43be0e9f3d1a984e7&type=3#Unity");
 }
 
 .cancel-button {
@@ -132,11 +132,6 @@
     margin-left: 0;
 }
 
-.info-prompt-text {
-    font-size: 36px;
-    -unity-font-style: bold;
-}
-
 .spacer {
     width: initial;
     flex-grow: 1;
@@ -180,6 +175,7 @@
     background-color: rgba(13, 82, 191, 0.29);
 }
 
-.has-text {
-    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Unity.ttf?fileID=12800000&guid=f4eec857a4fdf2f43be0e9f3d1a984e7&type=3#Unity");
+.info-prompt-text {
+    font-size: 36px;
+    -unity-font-style: bold;
 }

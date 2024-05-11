@@ -6,12 +6,12 @@
     padding-bottom: 0;
     padding-left: 0;
     background-color: rgb(198, 38, 46);
-    width: 0;
-    height: 30px;
+    width: 30px;
+    height: auto;
     transition-duration: 0.25s;
     transition-delay: 0.25s;
     transition-timing-function: ease-in-out;
-    transition-property: width;
+    transition-property: height;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
@@ -19,19 +19,20 @@
 }
 
 .outer-bar {
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: flex-end;
     background-color: rgb(70, 70, 70);
     padding-top: 12px;
     padding-right: 12px;
     padding-bottom: 12px;
     padding-left: 12px;
-    width: 600px;
+    width: auto;
     --outer-bar-width: 600px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
+    height: 300px;
 }
 
 .health-bar-background {
@@ -46,10 +47,35 @@
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
+    flex-direction: row;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    justify-content: center;
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    margin-bottom: 12px;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .pet-counter-card-pet-name {
+    color: rgb(255, 255, 255);
 }
 
 .pet-counter-card-count {
+    color: rgb(255, 255, 255);
+}
+
+.healer {
+    background-color: rgb(28, 193, 193);
+}
+
+.damage-dealer {
+    background-color: rgb(223, 43, 43);
+}
+
+.increaser {
+    background-color: rgb(106, 90, 205);
 }

@@ -35,7 +35,7 @@ public partial class PetCounter : VisualElement
         AddToClassList(PetCounterContainerUSSClassName);
         foreach (Companion.Type companionType in Enum.GetValues(typeof(Companion.Type)))
         {
-            CompanionAggregationCards.Add(companionType, new PetCounterCard(companionType, 0));
+            CompanionAggregationCards.Add(companionType, new PetCounterCard(companionType, 5));
             Add(CompanionAggregationCards.GetValueOrDefault(companionType));
         }
         generateVisualContent += GenerateVisualContent;

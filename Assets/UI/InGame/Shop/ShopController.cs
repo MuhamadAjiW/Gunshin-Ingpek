@@ -81,5 +81,23 @@ public class ShopController : InGameUIScreenController
             PetCounter.CompanionAggregation = player.CompanionAggregation;
         };
 
+        PetCatalog.OnSelectedCompanionTypeChange += ToggleBuyButtonActive;
+
+    }
+
+    void ToggleBuyButtonActive(Companion.Type? selectedType)
+    {
+        BuyButton.SetEnabled(selectedType is not null);
+
+        if (selectedType is null)
+        {
+            BuyButton.RemoveFromClassList("do-button");
+            BuyButton.AddToClassList("disabled");
+        }
+        else
+        {
+            BuyButton.AddToClassList("do-button");
+            BuyButton.RemoveFromClassList("disabled");
+        }
     }
 }

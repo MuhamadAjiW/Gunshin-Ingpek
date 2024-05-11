@@ -32,7 +32,18 @@ public partial class PetCounterCard : VisualElement
     private TextElementWithClassAndName petNameText;
     private TextElementWithClassAndName countText;
 
+    private Dictionary<Companion.Type, List<string>> companionUSSClassName = new() {
+        {Companion.Type.DAMAGE, new List<string> {"damage-dealer"}},
+        {Companion.Type.HEALING, new List<string> {"healer"}},
+        {Companion.Type.INCREASE, new List<string> {"increaser"}},
 
+    };
+
+    private Dictionary<Companion.Type, string> companionEmoji = new() {
+        {Companion.Type.DAMAGE, "🤜"},
+        {Companion.Type.HEALING, "💊"},
+        {Companion.Type.INCREASE, "💪"},
+    };
 
     public PetCounterCard()
     {
@@ -48,10 +59,20 @@ public partial class PetCounterCard : VisualElement
         CompanionType = type;
         count = initialCount;
 
+        if (companionUSSClassName.GetValueOrDefault(type) is not null)
+        {
+            foreach (string className in companionUSSClassName.GetValueOrDefault(type))
+            {
+                AddToClassList(className);
+
+            }
+        }
+
+
         petNameText = new(String.Format("PetCounterCardPetName-{0}", type.ToString()), new List<string> { "pet-counter-card-pet-name" });
         countText = new(String.Format("PetCounterCardCount-{0}", type.ToString()), new List<string> { "pet-counter-card-count" });
 
-        petNameText.text = Companion.GetCompanionTypeNameFromEnum(type);
+        petNameText.text = companionEmoji.GetValueOrDefault(type);
         countText.text = initialCount.ToString();
 
         Add(petNameText);

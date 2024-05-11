@@ -58,7 +58,7 @@ public partial class HealthBar : VisualElement
 
     void GenerateVisualContent(MeshGenerationContext context)
     {
-        m_HealthBar.style.width = Length.Percent(Health);
+        m_HealthBar.style.height = Length.Percent(Health);
         // m_HealthBarBackground.style.width = Length.Percent(Health);
     }
 }
