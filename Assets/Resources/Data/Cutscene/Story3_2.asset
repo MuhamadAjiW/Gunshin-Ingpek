@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Story3_2
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: Jeaniqua dan Culid pun berhasil mendapatkan kunci dari penjaga istana.
+  - Text: Jeaniqua dan Culid pun berhasil mencuri kunci dari penjaga istana yang
+      sudah dibunuh.
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
@@ -23,6 +24,32 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Jeaniqua mendapatkan 200 Mora!
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 0
+    PersonRName: Asterrope
+    PersonRImage: {fileID: 2800000, guid: e5136a1c5aea29d47ab12731462c13c4, type: 3}
+    animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Bej*r cape jg bro
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -33,6 +60,14 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: "Tahan\u2026 hbs ni lawan si bos"
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -43,23 +78,30 @@ MonoBehaviour:
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
-  - Text: Jeaniqua mendapatkan 200 Mora
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Jeaniqua dan Culid pun berjalan menuju singgahsana Asterrope (dajjal ultra
+      mega jumbo).
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
     PersonLName: 
     PersonLImage: {fileID: 0}
     PersonRActive: 0
-    PersonRName: Asterrope
-    PersonRImage: {fileID: 2800000, guid: e5136a1c5aea29d47ab12731462c13c4, type: 3}
-    animation: 2
-  - Text: Lanjut ke Tahta dan duelin bosno
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 0
-    PersonLName: 
-    PersonLImage: {fileID: 0}
-    PersonRActive: 0
-    PersonRName: Asterrope
-    PersonRImage: {fileID: 2800000, guid: e5136a1c5aea29d47ab12731462c13c4, type: 3}
-    animation: 2
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0

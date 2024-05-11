@@ -13,94 +13,201 @@ MonoBehaviour:
   m_Name: Tutorial2
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: Hah? maneh lupa? Tolol
+  - Text: Hah? Geus poho deui? Sia pikun apa kumaha si
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Tembak mouse kanan/kiri by default
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Aim pencet E
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Scroll wheel buat ganti senjata
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
-  - Text: Kalo punya companion tar langsung aktif, beli companion nanti kalo ada
-      shop
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Kalo punya pet tar langsung aktif, beli pet nanti kalo ada shop
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: F buat skill
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Q Interact kalo ada yang menarik
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Ga berlaku kalo settingannya diganti
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Gih sono cobain ke dummy di tengah map
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Omongannya sama persis copas y
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeanique
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Heeh dev na pamalesan kieu euy
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0

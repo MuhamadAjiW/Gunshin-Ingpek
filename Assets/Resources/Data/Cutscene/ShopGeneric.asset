@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShopGeneric
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: Enjing teteh bade meser?
+  - Text: Enjing teteh bade meser naon?
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
@@ -23,3 +23,11 @@ MonoBehaviour:
     PersonRName: Ember
     PersonRImage: {fileID: 2800000, guid: 2f07bada09833694586643a9c3d06f4f, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Story4_1
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: "Ooo jd klen yg ngrusuh\u2026 by1 dek"
+  - Text: "Ooo jd klen yg ngrusuh\u2026 By1 dek"
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
@@ -23,13 +23,47 @@ MonoBehaviour:
     PersonRName: Asterrope
     PersonRImage: {fileID: 2800000, guid: e5136a1c5aea29d47ab12731462c13c4, type: 3}
     animation: 2
-  - Text: By1 dek
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Kasi paham Jen
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: 'Misi kaopat: Bunuh Asterrope (ultra mega jumbo dajjal beranak)!'
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
     PersonLName: 
     PersonLImage: {fileID: 0}
     PersonRActive: 0
-    PersonRName: Asterrope
-    PersonRImage: {fileID: 2800000, guid: e5136a1c5aea29d47ab12731462c13c4, type: 3}
-    animation: 2
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0

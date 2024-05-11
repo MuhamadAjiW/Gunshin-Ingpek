@@ -23,47 +23,87 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 1
-  - Text: Kepo sia
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Kepo pisan maneh
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Eh kehed
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
     PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 1
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
     animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Any*ng eta barudak keur nanaonan
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
-    animation: 3
+    animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Maneh dek ngarusuh barudaknya anjjjj
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
     PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 1
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
-    animation: 3
-  - Text: Oke bunuh warga yang banyak (up to 100)
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: 'Misi kadua: Maehan 100 budak dajjal!'
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
@@ -73,3 +113,11 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0

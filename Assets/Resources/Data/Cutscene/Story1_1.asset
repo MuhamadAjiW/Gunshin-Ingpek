@@ -23,6 +23,14 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 0
+    audio:
+      source: {fileID: 0}
+      name: silence
+      clip: {fileID: 8300000, guid: fda7d30387c11534287ef681b436c057, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      spatialize: 0
   - Text: "Poek pisan\u2026 Di mana ieu teh?"
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -33,6 +41,14 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 1
+    audio:
+      source: {fileID: 0}
+      name: nature-walk
+      clip: {fileID: 8300000, guid: 671d611c0278ed9439b159cfa9f3f639, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      spatialize: 0
   - Text: '*sruk sruk*'
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -43,7 +59,52 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Dungeon teh.
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 1
+    PersonRName: '?'
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Buset. Kobisa? Maneh saha deui?
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Nami abdi Culid. Jadi kita teh dijebak di sini sama si prabu Asterrope.
+      Ayo kita balas dendam yu.
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
@@ -53,38 +114,33 @@ MonoBehaviour:
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
-  - Text: Buset. Kobisa?
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Oooo... Gtw siapa si tp gas aja
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
     PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 1
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
     animation: 1
-  - Text: Jadi kita teh dijebak di sini sama si raja Asterrope. Ayo kita balas dendam
-      yu.
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 1
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
-    animation: 2
-  - Text: Gtw siapa si tp gas aja
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 1
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
-    animation: 1
-  - Text: Ya jadi coba keluar dari dungeon ini
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: 'Misi kahiji: Kaluar ti Dungeon!'
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
@@ -94,3 +150,11 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Story4_2
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: Asterrope maot
+  - Text: Asterrope (ultra mega jumbo dajjal) pun berhasil dibunuh.
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
@@ -23,6 +23,14 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Ezi dek. musik?
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -33,7 +41,51 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 1
-  - Text: Cetas ctas (Recall2 taunting)
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Hahay
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Hahay
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Hahay
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
@@ -43,36 +95,32 @@ MonoBehaviour:
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 3
-  - Text: Cetas ctas (Recall2 taunting)
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 1
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
-    animation: 3
-  - Text: Cetas ctas (Recall2 taunting)
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 1
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
-    animation: 3
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: "Aaaw cakit beut\u2013"
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
     PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 1
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
     animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Seseorang tiba-tiba menusuk Jeaniqua dengan pedang dari belakang!
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -83,6 +131,14 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Hahahha! Maot siah!!!
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -93,6 +149,32 @@ MonoBehaviour:
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Omaygad jadi selama ini kamu jahat... Kcw bgtsi
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: "Jeaniqua pun mati\u2026"
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -103,3 +185,11 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0

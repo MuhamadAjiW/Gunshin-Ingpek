@@ -13,7 +13,43 @@ MonoBehaviour:
   m_Name: Tutorial0
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: "\u2026"
+  - Text: Naon ieu?
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 1}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Tutor dek
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 1}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Ooo nyageus atuh mana
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
@@ -23,53 +59,65 @@ MonoBehaviour:
     PersonRName: 
     PersonRImage: {fileID: 0}
     animation: 0
-  - Text: Apa?
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: 'Interact ke aing make tombol Interact (Default: Q)'
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
     PersonLName: 
     PersonLImage: {fileID: 0}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Oajasi
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 1}
+    PersonLActive: 1
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
     PersonRActive: 0
     PersonRName: 
     PersonRImage: {fileID: 0}
-    animation: 0
-  - Text: Oh, Tutorial?
+    animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Nub maneh
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
     PersonLName: 
     PersonLImage: {fileID: 0}
-    PersonRActive: 0
-    PersonRName: 
-    PersonRImage: {fileID: 0}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 0
-  - Text: 'Interact ke Culid dengan tombol Interact (Default: Q)'
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 1}
-    PersonLActive: 0
-    PersonLName: 
-    PersonLImage: {fileID: 0}
-    PersonRActive: 0
-    PersonRName: 
-    PersonRImage: {fileID: 0}
-    animation: 0
-  - Text: ...
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 1}
-    PersonLActive: 0
-    PersonLName: 
-    PersonLImage: {fileID: 0}
-    PersonRActive: 0
-    PersonRName: 
-    PersonRImage: {fileID: 0}
-    animation: 0
-  - Text: Nub
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 1}
-    PersonLActive: 0
-    PersonLName: 
-    PersonLImage: {fileID: 0}
-    PersonRActive: 0
-    PersonRName: 
-    PersonRImage: {fileID: 0}
-    animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0

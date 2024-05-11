@@ -13,16 +13,25 @@ MonoBehaviour:
   m_Name: Story2_2
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: Jeaniqua dan Culid pun mendapat info lokasi keraton dari barudak
+  - Text: Jeaniqua dan Culid pun berhasil memenuhi misi. Jeaniqua mendapatkan 150
+      Mora (Culid nteu beban soalnya)
     OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 1}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
-    PersonLName: 
-    PersonLImage: {fileID: 0}
+    PersonLName: Jeaniqua
+    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
     PersonRActive: 0
-    PersonRName: 
-    PersonRImage: {fileID: 0}
-    animation: 0
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    animation: 1
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Alhamdulillah
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -33,6 +42,14 @@ MonoBehaviour:
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Beungeut sia alhamdulillah
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -43,16 +60,50 @@ MonoBehaviour:
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 1
-  - Text: Hayu kana karaton
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Jeaniqua dan Culid pun mencuri info lokasi keraton dari barudak dajjal.
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 1}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 0
+    PersonRName: 
+    PersonRImage: {fileID: 0}
+    animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Hayu ah kana karaton
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
     animation: 2
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: Beungeut sia ku aing karaton
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
@@ -60,10 +111,18 @@ MonoBehaviour:
     PersonLName: Jeaniqua
     PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
     PersonRActive: 0
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRName: 
+    PersonRImage: {fileID: 0}
     animation: 1
-  - Text: Jeaniqua mendapatkan 150 Mora
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
+  - Text: Jeaniqua dan Culid pun pergi menuju keraton.
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
@@ -72,14 +131,12 @@ MonoBehaviour:
     PersonRActive: 0
     PersonRName: Culid
     PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
-    animation: 1
-  - Text: Lanjut ke keraton
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 0
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 0
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
-    animation: 1
+    animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
