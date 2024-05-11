@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/UI/MainMenuScene/Settings/Settings.uss?fileID=7433441132597879392&amp;guid=ea448f37a68108020bc7aeabcbcb2f6a&amp;type=3#Settings" />
     <ui:VisualElement name="Container" class="root-container padded-container main-menu-overlay" style="flex-grow: 1; align-items: flex-start; flex-direction: column;">
         <ui:VisualElement name="TitleContainer" class="has-text" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
-            <ui:Label text="Settings" name="Title" class="main-menu-screen-title rotated" style="font-size: 48px; translate: 2.5% 20%;" />
+            <ui:Label text="Settings" name="Title" class="main-menu-screen-title rotated normal-button" style="font-size: 48px; translate: 2.5% 20%; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; padding-left: 12px;" />
         </ui:VisualElement>
         <ui:VisualElement name="SetttingsContainer" class="has-text rotated" style="flex-grow: 1; align-self: center;">
             <ui:TextField label="Player Name" placeholder-text="filler text" name="PlayerNameField" class="bottom-above-spaced" />

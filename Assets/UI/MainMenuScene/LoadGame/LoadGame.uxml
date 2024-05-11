@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/UI/MainMenuScene/LoadGame/LoadGame.uss?fileID=7433441132597879392&amp;guid=75662ccdee61039588cc80a750b8ad24&amp;type=3#LoadGame" />
     <ui:VisualElement name="Container" class="container main-menu-container padded-container main-menu-overlay" style="flex-grow: 1; align-items: flex-start;">
         <ui:VisualElement name="TitleContainer" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
-            <ui:Label text="Load Saves" name="Title" class="main-menu-screen-title rotated" style="font-size: 48px; translate: 2.5% 20%;" />
+            <ui:Label text="Load Saves" name="Title" class="main-menu-screen-title rotated normal-button" style="font-size: 48px; translate: 2.5% 20%; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; padding-left: 12px;" />
         </ui:VisualElement>
         <GameSavesContainer class="rounded rotated" style="width: auto; align-items: center; padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px; align-self: center; margin-top: 32px; margin-right: 32px; margin-bottom: 32px; margin-left: 32px;" />
         <ui:Button text="Delete All Saves" name="DeleteAllSavesButton" class="button has-texr cancel-button rounded rotated" style="align-self: center;" />

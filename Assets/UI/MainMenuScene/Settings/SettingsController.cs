@@ -10,7 +10,7 @@ public class SettingsController : MainMenuScreenController
 
     SettingsContainer settingsContainer;
 
-    public NameField nameField;
+    public TextField nameField;
     public DropdownField difficultyDropdown;
     public Slider volumeSlider;
 
@@ -21,7 +21,7 @@ public class SettingsController : MainMenuScreenController
         MainMenuManager.InitializeBackButton(rootElement);
 
         // Setup name field
-        nameField = rootElement.Query<NameField>("PlayerNameField");
+        nameField = rootElement.Query<TextField>("PlayerNameField");
 
         nameField.RegisterCallback<ChangeEvent<string>>((evt) =>
         {
@@ -56,6 +56,7 @@ public class SettingsController : MainMenuScreenController
             Debug.Assert(GameSettingsManager.Instance is not null);
             Debug.Assert(GameSettingsManager.Instance.gameSettings is not null);
             AudioListener.volume = evt.newValue / volumeSlider.highValue;
+            Debug.Log($"Volume in callback: {AudioListener.volume}");
             GameSettingsManager.Instance.gameSettings.SoundVolume = evt.newValue;
         });
 
@@ -68,6 +69,8 @@ public class SettingsController : MainMenuScreenController
         Debug.Assert(GameSettingsManager.Instance);
         Debug.Assert(GameSettingsManager.Instance.gameSettings is not null);
         volumeSlider.value = GameSettingsManager.Instance.gameSettings.SoundVolume;
-        nameField.SetName(GameSaveManager.Instance.GetActiveGameSave().playerName);
+        AudioListener.volume = volumeSlider.value;
+        Debug.Log($"Volume in setup: {AudioListener.volume}");
+        nameField.SetValueWithoutNotify(GameSaveManager.Instance.GetActiveGameSave().playerName);
     }
 }

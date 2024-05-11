@@ -17,7 +17,7 @@ public partial class PetCatalog : GroupBox
 
     public static readonly string PetCatalogOptionSelectedUSSClassName = "pet-catalog-option-selected";
 
-    public Companion.Type? selectedCompanionType = Companion.Type.DAMAGE;
+    public Companion.Type? selectedCompanionType = null;
 
     public event Action<Companion.Type?> OnSelectedCompanionTypeChange;
 
@@ -70,6 +70,7 @@ public partial class PetCatalog : GroupBox
             petOptionButton.RegisterCallback((ClickEvent evt) =>
             {
                 selectedCompanionType = type;
+                evt.StopPropagation();
                 OnSelectedCompanionTypeChange?.Invoke(type);
             });
         }
@@ -79,6 +80,12 @@ public partial class PetCatalog : GroupBox
         OnSelectedCompanionTypeChange += RerenderCatalogOption;
 
         generateVisualContent += GenerateVisualContent;
+    }
+
+    public void ResetSelectedPetType()
+    {
+        selectedCompanionType = null;
+        OnSelectedCompanionTypeChange?.Invoke(null);
     }
 
     void GenerateVisualContent(MeshGenerationContext context)

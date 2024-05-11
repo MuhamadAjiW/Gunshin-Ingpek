@@ -51,7 +51,6 @@ public class ShopController : InGameUIScreenController
         {
             if (PetCatalog.selectedCompanionType is null)
             {
-                NoPetSelectedText.style.visibility = Visibility.Visible;
                 return;
             }
             NoPetSelectedText.style.visibility = Visibility.Hidden;
@@ -62,6 +61,8 @@ public class ShopController : InGameUIScreenController
             GameController.Instance.player.AddCompanion(newCompanion, newCompanionType);
 
             int price = GameController.Instance.cheatController.MOTHERLODE ? 0 : 10;
+            Debug.Log($"Price of companion: {price}");
+
             GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(-price, "Buy pet");
             Debug.Log(String.Format("Number of companion ${0}", GameController.Instance.player.CompanionList.Count));
 
@@ -82,6 +83,15 @@ public class ShopController : InGameUIScreenController
         };
 
         PetCatalog.OnSelectedCompanionTypeChange += ToggleBuyButtonActive;
+
+        VisualElement container = UIManagement.GetInnerContainer(ControlledUIDocument);
+
+        container.RegisterCallback((ClickEvent evt) =>
+        {
+            PetCatalog.ResetSelectedPetType();
+        });
+
+
 
     }
 

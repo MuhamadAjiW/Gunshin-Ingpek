@@ -231,4 +231,9 @@ public class GameSaveManager : MonoBehaviour
         Instance.gameSaves[activeGameSaveIndex].weaponPoolIndex.ForEach(e => GameController.Instance.player.weaponList.Add(EventManager.Instance.WeaponPool[e]));
     }
 
+    public void DeleteActiveGameSave()
+    {
+        DeleteSave(activeGameSaveIndex);
+    }
+
 }

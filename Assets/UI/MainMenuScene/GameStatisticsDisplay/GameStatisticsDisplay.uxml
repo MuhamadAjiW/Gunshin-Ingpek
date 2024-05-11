@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
     <Style src="project://database/Assets/UI/MainMenuScene/GameStatisticsDisplay/GameStatisticsDisplay.uss?fileID=7433441132597879392&amp;guid=ef9264b1b90c7f76e9cb71200220ec16&amp;type=3#GameStatisticsDisplay" />
-    <ui:VisualElement name="Container" class="containter padded-container main-menu-container" style="flex-grow: 1; align-items: flex-start;">
+    <ui:VisualElement name="Container" class="containter padded-container main-menu-container main-menu-overlay" style="flex-grow: 1; align-items: flex-start;">
         <ui:VisualElement name="TitleContainer" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
-            <ui:Label text="Your Statistics" name="Title" class="has-texr main-menu-screen-title rotated" style="font-size: 48px; translate: 1.5% 25%;" />
+            <ui:Label text="Your Statistics" name="Title" class="has-texr main-menu-screen-title rotated normal-button" style="font-size: 48px; translate: 1.5% 25%; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; padding-left: 12px;" />
         </ui:VisualElement>
         <GameStatisticsContainer name="GameStatisticsContainer" class="has-texr rotated" style="align-self: center;" />
         <ui:VisualElement name="BackContainer" style="flex-grow: 1; justify-content: flex-end;">

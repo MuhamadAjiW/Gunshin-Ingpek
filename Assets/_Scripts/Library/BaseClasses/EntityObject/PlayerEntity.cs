@@ -115,9 +115,9 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
         ActivateAllCompanions();
 
         Debug.Log($"Adding companion {companion.name} with type {type}");
+        OnCompanionListChange?.Invoke();
 
         GameSaveManager.Instance.gameSaves[GameSaveManager.Instance.activeGameSaveIndex].petData.Add(type);
-        OnCompanionListChange?.Invoke();
         Debug.Log("Companion added");
     }
 

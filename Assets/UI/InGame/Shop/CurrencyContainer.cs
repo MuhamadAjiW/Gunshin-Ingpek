@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Diagnostics;
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -47,6 +46,8 @@ public partial class CurrencyContainer : VisualElement
             currencyLabel.text = "♾️";
             return;
         }
+
+        // Debug.Log($"Updating currency text: {Currency.ToString()}");
 
         currencyLabel.text = Currency.ToString();
     }

@@ -8,6 +8,7 @@
     padding-left: 8px;
     transition-property: rotate;
     transition-duration: 0.2s;
+    margin-bottom: 12px;
 }
 
 .game-saves-container {
@@ -23,7 +24,7 @@
 }
 
 #NoSavesText {
-    color: rgb(237, 83, 83);
+    color: rgb(0, 0, 0);
 }
 
 .game-save-card:hover {

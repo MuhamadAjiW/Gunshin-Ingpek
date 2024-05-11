@@ -66,6 +66,7 @@ public class GameStateController
 
         if (newState == GameState.OVER)
         {
+            GameSaveManager.Instance.DeleteActiveGameSave();
             GameSaveManager.Instance.PersistStatistics();
         }
 
