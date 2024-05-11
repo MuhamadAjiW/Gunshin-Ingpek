@@ -43,6 +43,7 @@ public class MainMenuManager : MonoBehaviour
             }
         }
         DisplayUIDocument("ClickToStart");
+        GameAudioController.Instance.audioController.Play("ost");
     }
 
     public void InitializeBackButton(VisualElement rootElement)
@@ -153,4 +154,7 @@ public class MainMenuManager : MonoBehaviour
         yield return null;
     }
 
+    private void OnDestroy() {
+        GameAudioController.Instance.audioController.StopAll();
+    }
 }
