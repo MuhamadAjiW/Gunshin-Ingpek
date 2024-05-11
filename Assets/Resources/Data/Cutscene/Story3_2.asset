@@ -39,8 +39,8 @@ MonoBehaviour:
     PersonLName: 
     PersonLImage: {fileID: 0}
     PersonRActive: 0
-    PersonRName: Asterrope
-    PersonRImage: {fileID: 2800000, guid: e5136a1c5aea29d47ab12731462c13c4, type: 3}
+    PersonRName: 
+    PersonRImage: {fileID: 0}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLImage: {fileID: 2800000, guid: e163f5cc9e0f47d45b61a3e18e77e6ed, type: 3}
     PersonRActive: 0
     PersonRName: 
     PersonRImage: {fileID: 0}
@@ -71,12 +71,12 @@ MonoBehaviour:
   - Text: "Tahan\u2026 hbs ni lawan si bos"
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 6187fcd1a75cde949b3c399d7f8d8d22, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}

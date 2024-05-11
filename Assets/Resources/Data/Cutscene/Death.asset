@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Death
   m_EditorClassIdentifier: 
   dialogs:
-  - Text: Nub bet yaampun... Skill issue bgtsi
+  - Text: Nub bet yaampun... Dahla co
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 1}
     PersonLActive: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 480b51b5056c2794d9e7ca6fe4791a50, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}

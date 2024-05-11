@@ -36,7 +36,7 @@ MonoBehaviour:
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLImage: {fileID: 2800000, guid: 5aed9c505e8ddf74993ba83dd49df01a, type: 3}
     PersonRActive: 0
     PersonRName: 
     PersonRImage: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLImage: {fileID: 2800000, guid: 5aed9c505e8ddf74993ba83dd49df01a, type: 3}
     PersonRActive: 0
     PersonRName: 
     PersonRImage: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: fafe1631175d6e744befed985bae809b, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -90,10 +90,10 @@ MonoBehaviour:
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLImage: {fileID: 2800000, guid: 5aed9c505e8ddf74993ba83dd49df01a, type: 3}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: fafe1631175d6e744befed985bae809b, type: 3}
     animation: 3
     audio:
       source: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLImage: {fileID: 2800000, guid: e163f5cc9e0f47d45b61a3e18e77e6ed, type: 3}
     PersonRActive: 0
     PersonRName: 
     PersonRImage: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 480b51b5056c2794d9e7ca6fe4791a50, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLImage: {fileID: 2800000, guid: e163f5cc9e0f47d45b61a3e18e77e6ed, type: 3}
     PersonRActive: 0
     PersonRName: 
     PersonRImage: {fileID: 0}
@@ -175,11 +175,29 @@ MonoBehaviour:
       pitch: 0
       loop: 0
       spatialize: 0
+  - Text: Yey aing jadi raja baru
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: 30befe1381426574baad5b0c3e8c4fd6, type: 3}
+    animation: 0
+    audio:
+      source: {fileID: 0}
+      name: 
+      clip: {fileID: 0}
+      volume: 0
+      pitch: 0
+      loop: 0
+      spatialize: 0
   - Text: "Jeaniqua pun mati\u2026"
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
-    PersonLName: Jeaniqua
+    PersonLName: 
     PersonLImage: {fileID: 0}
     PersonRActive: 0
     PersonRName: 

@@ -21,7 +21,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 480b51b5056c2794d9e7ca6fe4791a50, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -39,7 +39,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 322c45eabb1c07b4da01b48acb04d7f4, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 322c45eabb1c07b4da01b48acb04d7f4, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
       pitch: 0
       loop: 0
       spatialize: 0
-  - Text: Scroll wheel buat ganti senjata
+  - Text: R buat ganti senjata
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 322c45eabb1c07b4da01b48acb04d7f4, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 480b51b5056c2794d9e7ca6fe4791a50, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 322c45eabb1c07b4da01b48acb04d7f4, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 480b51b5056c2794d9e7ca6fe4791a50, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 322c45eabb1c07b4da01b48acb04d7f4, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -165,7 +165,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: c5c8da19b28f9f54c8dd5118fea1c351, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
@@ -180,7 +180,7 @@ MonoBehaviour:
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 1
     PersonLName: Jeanique
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
+    PersonLImage: {fileID: 2800000, guid: 54421df90b82a8847a717e01f3e8d6a7, type: 3}
     PersonRActive: 0
     PersonRName: 
     PersonRImage: {fileID: 0}
@@ -201,7 +201,7 @@ MonoBehaviour:
     PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: 4caf32b37ded1b747ad5407b49a921d2, type: 3}
     animation: 1
     audio:
       source: {fileID: 0}
