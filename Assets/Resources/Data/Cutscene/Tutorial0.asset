@@ -25,10 +25,10 @@ MonoBehaviour:
     animation: 1
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: why
+      clip: {fileID: 8300000, guid: 7287331f62527d3409d6a8b5523e0757, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Tutor dek
@@ -79,10 +79,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Oajasi
@@ -115,9 +115,9 @@ MonoBehaviour:
     animation: 0
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: negative-beeps
+      clip: {fileID: 8300000, guid: c9518cd041668944a841b4b85634a3d4, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0

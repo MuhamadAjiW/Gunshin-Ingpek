@@ -25,10 +25,10 @@ MonoBehaviour:
     animation: 0
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: whoosh
+      clip: {fileID: 8300000, guid: 4fc7426fd346eba4aa2a51c45a239f0f, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Jeaniqua mendapatkan 100 Mora!
@@ -43,10 +43,10 @@ MonoBehaviour:
     animation: 0
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: cute-level-up-3
+      clip: {fileID: 8300000, guid: 701bf0cb1b710734fa702fb13e5ed986, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Alhamdulillah rejeki budak soleh emang euy
@@ -79,10 +79,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: failure-drum
+      clip: {fileID: 8300000, guid: ee4587729f2697a4da161b135f59a6d7, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Heeh lah
@@ -115,9 +115,9 @@ MonoBehaviour:
     animation: 1
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: walk-forest
+      clip: {fileID: 8300000, guid: 19271dff773302a4a91ad924793c46d5, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0

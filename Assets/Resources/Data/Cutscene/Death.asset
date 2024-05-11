@@ -25,8 +25,8 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
+      name: failure-drum
+      clip: {fileID: 8300000, guid: ee4587729f2697a4da161b135f59a6d7, type: 3}
       volume: 1
       pitch: 1
       loop: 0

@@ -25,10 +25,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: male-sigh
+      clip: {fileID: 8300000, guid: b19eec978d53ee549bfaae4872b73646, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Tembak mouse kanan/kiri by default
@@ -43,10 +43,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Aim pencet E
@@ -61,10 +61,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: R buat ganti senjata
@@ -79,10 +79,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Kalo punya pet tar langsung aktif, beli pet nanti kalo ada shop
@@ -97,10 +97,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: F buat skill
@@ -115,10 +115,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Q Interact kalo ada yang menarik
@@ -133,10 +133,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Ga berlaku kalo settingannya diganti
@@ -169,10 +169,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Omongannya sama persis copas y
@@ -205,9 +205,9 @@ MonoBehaviour:
     animation: 1
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: failure-drum
+      clip: {fileID: 8300000, guid: ee4587729f2697a4da161b135f59a6d7, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0

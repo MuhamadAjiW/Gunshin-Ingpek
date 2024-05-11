@@ -25,10 +25,10 @@ MonoBehaviour:
     animation: 0
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: silence
+      clip: {fileID: 8300000, guid: fda7d30387c11534287ef681b436c057, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: ... Huh?
@@ -43,10 +43,10 @@ MonoBehaviour:
     animation: 1
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: why
+      clip: {fileID: 8300000, guid: 7287331f62527d3409d6a8b5523e0757, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: ... Nanaonan maneh!?!?!??!?
@@ -61,9 +61,9 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: whoosh
+      clip: {fileID: 8300000, guid: 4fc7426fd346eba4aa2a51c45a239f0f, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0

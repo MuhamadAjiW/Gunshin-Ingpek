@@ -25,10 +25,10 @@ MonoBehaviour:
     animation: 1
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: ping
+      clip: {fileID: 8300000, guid: 0bf33f8113def2442930995c18379eba, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Okeh sok ieu aya shotgun keur ngajebred barudak hok rada dienjoy
@@ -79,9 +79,9 @@ MonoBehaviour:
     animation: 0
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: magic-sparkle
+      clip: {fileID: 8300000, guid: ca5fb7d6d3b299c4e87b462639db2094, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0

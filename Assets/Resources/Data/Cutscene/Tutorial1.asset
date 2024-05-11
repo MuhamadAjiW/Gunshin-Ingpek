@@ -25,10 +25,10 @@ MonoBehaviour:
     animation: 1
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: why
+      clip: {fileID: 8300000, guid: 7287331f62527d3409d6a8b5523e0757, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Ya jadi gini
@@ -61,10 +61,10 @@ MonoBehaviour:
     animation: 0
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: chirp
+      clip: {fileID: 8300000, guid: 94011802a59b6e645bf971ac8f17681e, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: ...
@@ -79,10 +79,10 @@ MonoBehaviour:
     animation: 0
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: chirp
+      clip: {fileID: 8300000, guid: 94011802a59b6e645bf971ac8f17681e, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Buru b*ngsat
@@ -108,17 +108,17 @@ MonoBehaviour:
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
     PersonLName: 
-    PersonLImage: {fileID: 2800000, guid: d120c1bcfd34bff41b0c2ce84ebbd3e1, type: 3}
+    PersonLImage: {fileID: 0}
     PersonRActive: 1
     PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
+    PersonRImage: {fileID: 2800000, guid: d120c1bcfd34bff41b0c2ce84ebbd3e1, type: 3}
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Tembak mouse kanan/kiri by default
@@ -133,13 +133,31 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Aim pencet E
+    OverlayBackground: {fileID: 0}
+    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
+    PersonLActive: 0
+    PersonLName: 
+    PersonLImage: {fileID: 0}
+    PersonRActive: 1
+    PersonRName: Culid
+    PersonRImage: {fileID: 2800000, guid: d120c1bcfd34bff41b0c2ce84ebbd3e1, type: 3}
+    animation: 2
+    audio:
+      source: {fileID: 0}
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      spatialize: 0
+  - Text: Pencet R ganti senjata
     OverlayBackground: {fileID: 0}
     OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
     PersonLActive: 0
@@ -151,28 +169,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
-      loop: 0
-      spatialize: 0
-  - Text: Pencet R ganti senjata
-    OverlayBackground: {fileID: 0}
-    OverlayColor: {r: 0, g: 0, b: 0, a: 0.6313726}
-    PersonLActive: 1
-    PersonLName: Jeaniqua
-    PersonLImage: {fileID: 2800000, guid: 0298547b3ec5e894a80dcc5475f21101, type: 3}
-    PersonRActive: 1
-    PersonRName: Culid
-    PersonRImage: {fileID: 2800000, guid: 1768c51611981a84caa31a9da9db9e60, type: 3}
-    animation: 2
-    audio:
-      source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Kalo punya pet tar langsung aktif, beli pet nanti kalo ada shop
@@ -187,10 +187,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: F buat skill
@@ -205,10 +205,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Q Interact kalo ada yang menarik, seperti gweh
@@ -223,10 +223,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Najez bt
@@ -241,10 +241,10 @@ MonoBehaviour:
     animation: 1
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: failure-drum
+      clip: {fileID: 8300000, guid: ee4587729f2697a4da161b135f59a6d7, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Ga berlaku kalo settingannya diganti
@@ -277,9 +277,9 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0

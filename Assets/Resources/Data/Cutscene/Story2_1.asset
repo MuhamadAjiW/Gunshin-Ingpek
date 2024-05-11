@@ -25,10 +25,10 @@ MonoBehaviour:
     animation: 1
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: why
+      clip: {fileID: 8300000, guid: 7287331f62527d3409d6a8b5523e0757, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Kepo pisan maneh
@@ -79,10 +79,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: deep-monster-growl
+      clip: {fileID: 8300000, guid: a373babd094d0fa4abee92b640df38b6, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Maneh dek ngarusuh barudaknya anjjjj
@@ -97,10 +97,10 @@ MonoBehaviour:
     animation: 1
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: snarls-and-growls
+      clip: {fileID: 8300000, guid: 8c0a7bd5c2739a947ac8ed6488b3e588, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: 'Misi kadua: Maehan 100 budak dajjal!'
@@ -115,9 +115,9 @@ MonoBehaviour:
     animation: 0
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: cinematic-boom
+      clip: {fileID: 8300000, guid: 53da12bbc4b0a624099975634da7ea4c, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
