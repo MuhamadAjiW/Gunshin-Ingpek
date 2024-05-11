@@ -17,5 +17,5 @@ Dalam permainan ini, tokoh anda tiba-tiba dipindahkan ke Isekai dengan karakter-
 | Kenneth Ezekiel Suprantoni        | 13521089 | _Save_, _load_, statistik, _initial map_, _Android build_, _enemy_.                                                                                   |
 | Chiquita Ahsanunnisa              | 13521129 | _Companion_, _orb_, _cheat_, _story & lore_.                                                                                                          |
 | Fatih Nararya Rashadyfa Ilhamsyah | 13521060 | _Save_, _load_, _settings_, statistik, _user interface_ (kecuali dialog), _scene management_.                                                         | 25        |
-| Vanessa Rebecca Wiyono            | 13521151 | _Story cutscene_.                                                                                                                                     |
+| Vanessa Rebecca Wiyono            | 13521151 | _weapons_, _Story cutscene_.                                                                                                                                     |
 | Habibi Galang Trianda             | 10023457 |                                                                                                                                                       |
