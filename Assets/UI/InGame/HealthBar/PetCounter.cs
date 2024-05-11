@@ -21,7 +21,7 @@ public partial class PetCounter : VisualElement
         {
             m_CompanionAggregation = value;
             Debug.Log("Pet counter companion aggregation value changed");
-            // Debug.Log(String.Format("[Pet counter setter] Companion Aggregation Count: {0}", value.Keys.Count));
+            Debug.Log(String.Format("[Pet counter setter] Companion Aggregation Count: {0}", value.Keys.Count));
             MarkDirtyRepaint();
             UpdatePetCounterCards();
         }

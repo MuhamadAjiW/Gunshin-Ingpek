@@ -111,6 +111,7 @@ public class GameSaveManager : MonoBehaviour
         File.WriteAllTextAsync(STATS_FILE_PATH, GameStatisticsManager.Instance.SaveToJson());
     }
 
+    // _TODO: Return to this
     public GameSaveResult NewSave()
     {
         if (gameSaves.Count >= NUMBER_OF_SAVE_SLOT)
@@ -127,7 +128,11 @@ public class GameSaveManager : MonoBehaviour
 >>>>>>> 56798ab4 (feat: add guard in awake function of singletons to keep singleton single)
 =======
 
+<<<<<<< HEAD
 >>>>>>> 5bc01392 (feat: added delete all saves)
+=======
+        activeGameSave = new();
+>>>>>>> 4c5786b0 (fix: bunch of major bugs)
         activeGameSaveIndex = gameSaves.Count;
 >>>>>>> d93e8bd0 (fix: save, load)
         activeGameSave.SaveGame(SAVE_PATH);

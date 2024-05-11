@@ -9,6 +9,7 @@ EditorBuildSettings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     path: Assets/_Scenes/DeathCutscene.unity
 =======
@@ -17,6 +18,8 @@ EditorBuildSettings:
     guid: 930eadc906c359546a4d2ffc35afd19d
   - enabled: 1
 >>>>>>> e55b0cc9 (add: finish quest cutscene)
+=======
+>>>>>>> 4c5786b0 (fix: bunch of major bugs)
     path: Assets/_Scenes/SplashScreen.unity
     guid: 060ec6bae157d9df88b16ac218f05d80
   - enabled: 1

@@ -25,8 +25,8 @@ public class MainMenuController : MainMenuScreenController
         Button gameStaticsticsDisplayButton = rootElement.Query<Button>("game-statistics-button").First();
         gameStaticsticsDisplayButton.RegisterCallback(BlockCallbackInTransition(GameStatisticsDisplayCallback));
 
-        // Button exitButton = rootElement.Query<Button>("exit-game-button").First();
-        // exitButton.RegisterCallback(BlockCallbackInTransition(ExitCallback));
+        Button exitButton = rootElement.Query<Button>("exit-button").First();
+        exitButton.RegisterCallback(BlockCallbackInTransition(ExitCallback));
 
         // Setup max saves reached
 
@@ -72,7 +72,7 @@ public class MainMenuController : MainMenuScreenController
 
     private void NewGameCallback(ClickEvent evt)
     {
-        Debug.Assert(GameSaveManager.Instance is not null);
+        Debug.Assert(GameSaveManager.Instance != null);
         GameSaveManager.GameSaveResult newSaveResult = GameSaveManager.Instance.NewSave();
         if (newSaveResult == GameSaveManager.GameSaveResult.SUCCESS)
         {

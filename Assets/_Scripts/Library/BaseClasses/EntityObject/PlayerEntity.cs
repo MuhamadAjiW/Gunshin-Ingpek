@@ -26,7 +26,7 @@ public class PlayerEntity : CombatantEntity, IAccompaniable
     public List<bool> CompanionActive => companionActive;
     public MonoBehaviour CompanionController => this;
 
-    public Dictionary<Companion.Type, int> CompanionAggregation;
+    public Dictionary<Companion.Type, int> CompanionAggregation = new();
 
     public new void Start()
     {

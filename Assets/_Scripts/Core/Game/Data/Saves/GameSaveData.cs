@@ -23,8 +23,8 @@ public class GameSaveData
     public PositionData positionData = new();
     // Save the story state of the player
     public StoryData storyData;
-    public List<Companion.Type> petData;
-    public List<int> weaponPoolIndex;
+    public List<Companion.Type> petData = new();
+    public List<int> weaponPoolIndex = new();
 
     public string id;
 
@@ -42,6 +42,7 @@ public class GameSaveData
 
     public void SaveGame(string path)
     {
+        Debug.Log("Saving game 0...");
         GameDataWrapper wrapper = new()
         {
             difficulty = this.difficulty,
@@ -56,8 +57,14 @@ public class GameSaveData
         };
 
         string json = JsonUtility.ToJson(wrapper, true);
+        Debug.Log("Saving game 1...");
+
         string filePath = string.Format($"{path}/{id}.json");
+        Debug.Log("Saving game 2...");
+
         File.WriteAllText(filePath, json);
+
+        Debug.Log("Saving game 3...");
         Debug.Log("Game saved to " + filePath);
     }
 

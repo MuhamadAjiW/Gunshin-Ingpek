@@ -53,7 +53,7 @@ public class SettingsController : MainMenuScreenController
 
         volumeSlider.RegisterCallback<ChangeEvent<float>>((evt) =>
         {
-            Debug.Assert(GameSettingsManager.Instance is not null);
+            Debug.Assert(GameSettingsManager.Instance != null);
             Debug.Assert(GameSettingsManager.Instance.gameSettings is not null);
             AudioListener.volume = evt.newValue / volumeSlider.highValue;
             Debug.Log($"Volume in callback: {AudioListener.volume}");
@@ -69,7 +69,7 @@ public class SettingsController : MainMenuScreenController
         Debug.Assert(GameSettingsManager.Instance);
         Debug.Assert(GameSettingsManager.Instance.gameSettings is not null);
         volumeSlider.value = GameSettingsManager.Instance.gameSettings.SoundVolume;
-        AudioListener.volume = volumeSlider.value;
+        AudioListener.volume = volumeSlider.value / volumeSlider.highValue;
         Debug.Log($"Volume in setup: {AudioListener.volume}");
         nameField.SetValueWithoutNotify(GameSaveManager.Instance.GetActiveGameSave().playerName);
     }
