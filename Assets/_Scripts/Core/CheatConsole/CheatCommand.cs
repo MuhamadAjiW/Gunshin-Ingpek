@@ -115,7 +115,7 @@ public class CheatCommand
                     GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(Level3.QUEST_REWARD, Level3.QUEST_NAME);
                     
                     // Teleport to start of level 4
-                    Vector3 position = new(-231.13f, 0.073f, 179.6f);
+                    Vector3 position = new(-245.13f, 3.685f, 195.6f);
                     GameController.Instance.player.transform.position = position;
                     GameController.Instance.player.TeleportAllCompanions(position);
                 } else if (currentLevel == 4)
