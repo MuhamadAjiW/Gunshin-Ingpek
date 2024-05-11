@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -100,5 +101,10 @@ public class MainMenuController : MainMenuScreenController
 
     private void ExitCallback(ClickEvent evt)
     {
+        if (EditorApplication.isPlaying)
+        {
+            EditorApplication.isPlaying = false;
+        }
+        Application.Quit();
     }
 }
