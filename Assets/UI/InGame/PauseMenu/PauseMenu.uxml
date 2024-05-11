@@ -4,8 +4,6 @@
     <ui:VisualElement name="Container" class="root-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.57); align-items: center; justify-content: center;">
         <ui:VisualElement name="PauseMenuContainer" class="rotated" style="flex-grow: 1; justify-content: center;">
             <ui:Button text="Resume" name="Resume" emoji-fallback-support="false" class="button rounded bottom-above-spaced normal-button" />
-            <ui:Button text="Save" name="Save" class="button rounded bottom-above-spaced normal-button" />
-            <ui:Button text="Shop" name="Shop" class="button rounded bottom-above-spaced normal-button" />
             <ui:Button text="Return To Main Menu" name="ReturnToMainMenu" class="rounded bottom-above-spaced button normal-button" />
         </ui:VisualElement>
     </ui:VisualElement>
