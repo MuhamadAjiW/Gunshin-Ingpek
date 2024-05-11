@@ -8,7 +8,7 @@ public class GameAudioController : MonoBehaviour
 
     protected void Awake()
     {
-        if(Instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
@@ -17,6 +17,11 @@ public class GameAudioController : MonoBehaviour
 
         DontDestroyOnLoad(this);
         audioController.Init(this);
+    }
+
+    public static bool IsValidAudio(Audio audio)
+    {
+        return audio != null && audio.clip != null;
     }
 
     public void PlayOnce(Audio audio, float volume = 1)
@@ -44,7 +49,7 @@ public class GameAudioController : MonoBehaviour
         audio.spatialize = false;
 
         audio.Play();
-        
+
         StartCoroutine(DeleteClipWhenComplete(audio));
     }
 

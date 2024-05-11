@@ -19,6 +19,7 @@ public class DialogController : ScreenController
     private float endY = -50f;
     private Coroutine currentAnimationLeft;
     private Coroutine currentAnimationRight;
+    private static Audio currentAudio;
 
     // Events
     private event Action OnCutsceneFinished;
@@ -60,11 +61,11 @@ public class DialogController : ScreenController
     public void ProgressCutscene()
     {
         StopAnimation();
-        if(cutsceneProgress < currentCutscene.dialogs.Count)
+        if (cutsceneProgress < currentCutscene.dialogs.Count)
         {
             cutsceneProgress++;
 
-            if(cutsceneProgress == currentCutscene.dialogs.Count)
+            if (cutsceneProgress == currentCutscene.dialogs.Count)
             {
                 GameController.Instance.stateController.PopState();
                 OnCutsceneFinished?.Invoke();
@@ -72,9 +73,16 @@ public class DialogController : ScreenController
             else
             {
                 LoadData(currentCutscene.dialogs[cutsceneProgress]);
-                if(currentCutscene.dialogs[cutsceneProgress].audio.source != null)
+                if (GameAudioController.IsValidAudio(currentCutscene.dialogs[cutsceneProgress].audio))
                 {
-                    GameAudioController.Instance.PlayOnce(currentCutscene.dialogs[cutsceneProgress].audio);
+                    Debug.Log("Cutscene: Playing audio");
+                    currentAudio = currentCutscene.dialogs[cutsceneProgress].audio;
+                    GameAudioController.Instance.PlayOnce(currentAudio);
+                }
+                else
+                {
+                    Debug.Log("Cutscene: No audio");
+                    currentAudio = null;
                 }
             }
         }
@@ -108,7 +116,7 @@ public class DialogController : ScreenController
         dialogOverlay.m_PersonRImage.visible = data.PersonRActive;
         dialogOverlay.m_PersonRImage.style.backgroundImage = new StyleBackground(data.PersonRImage);
         dialogOverlay.m_PersonRLabelText.text = data.PersonRName;
-        
+
         dialogOverlay.m_MainText.text = data.Text;
 
         Animate(data.animation);
@@ -164,7 +172,7 @@ public class DialogController : ScreenController
                     yield return new WaitForSecondsRealtime(0.001f);
                 }
                 dialogOverlay.m_PersonLImage.style.top = targetY;
-                
+
                 targetY = initialY;
 
                 newY = endY;
@@ -187,7 +195,7 @@ public class DialogController : ScreenController
                     yield return new WaitForSecondsRealtime(0.001f);
                 }
                 dialogOverlay.m_PersonRImage.style.top = targetY;
-                
+
                 targetY = initialY;
 
                 newY = endY;
@@ -200,17 +208,24 @@ public class DialogController : ScreenController
                 }
                 dialogOverlay.m_PersonRImage.style.top = targetY;
                 break;
-            
+
             default:
                 yield return null;
                 break;
-        }   
+        }
     }
 
     private void KeyPress(InputAction.CallbackContext context)
     {
-        if(InCutscene)
+        if (InCutscene)
         {
+            Debug.Log("Cutscene: In cutscene");
+            if (currentAudio != null)
+            {
+                Debug.Log("Cutscene: Stopping current audio");
+                Destroy(currentAudio.source);
+                GameAudioController.Instance.StopAllCoroutines();
+            }
             ProgressCutscene();
         }
     }

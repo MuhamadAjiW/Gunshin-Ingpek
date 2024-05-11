@@ -151,10 +151,10 @@ MonoBehaviour:
     animation: 2
     audio:
       source: {fileID: 0}
-      name: 
-      clip: {fileID: 0}
-      volume: 0
-      pitch: 0
+      name: swipe
+      clip: {fileID: 8300000, guid: fb9422424cdecad4196e684e4852c918, type: 3}
+      volume: 1
+      pitch: 1
       loop: 0
       spatialize: 0
   - Text: Gih sono cobain ke dummy di tengah map
