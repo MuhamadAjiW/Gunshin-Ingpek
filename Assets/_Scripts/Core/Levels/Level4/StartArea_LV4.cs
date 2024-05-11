@@ -10,7 +10,7 @@ public class StartInteractable_LV4 : InteractableObject
     {
         if (!GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_4_START_CUTSCENE))
         {
-            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_4_START_CUTSCENE);
+            GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_4_START_CUTSCENE, () => GameAudioController.Instance.audioController.Play("ost"));
             GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_4_START_CUTSCENE);
         }
         

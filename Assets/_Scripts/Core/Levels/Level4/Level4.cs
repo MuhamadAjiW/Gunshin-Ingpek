@@ -78,6 +78,7 @@ public class Level4 : MonoBehaviour
 
     public void EndLevel()
     {
+        GameAudioController.Instance.audioController.Stop("ost");
         GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_ENDING_AFTER_CUTSCENE, EndGame);
         GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_ENDING_AFTER_CUTSCENE);
     }

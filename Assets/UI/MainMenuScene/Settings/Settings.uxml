@@ -5,7 +5,7 @@
         <ui:VisualElement name="TitleContainer" class="has-text" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start;">
             <ui:Label text="Settings" name="Title" class="main-menu-screen-title rotated normal-button" style="font-size: 48px; translate: 2.5% 20%; padding-top: 12px; padding-right: 12px; padding-bottom: 12px; padding-left: 12px;" />
         </ui:VisualElement>
-        <ui:VisualElement name="SetttingsContainer" class="has-text rotated" style="flex-grow: 1; align-self: center;">
+        <ui:VisualElement name="SettingsContainer" class="has-text rotated" style="flex-grow: 1; align-self: center;">
             <ui:TextField label="Player Name" placeholder-text="filler text" name="PlayerNameField" class="bottom-above-spaced" />
             <ui:DropdownField label="Difficulty" name="DifficultyDropdown" />
             <ui:Slider label="Sound Volume" value="42" high-value="100" name="VolumeSlider" class="bottom-above-spaced" />

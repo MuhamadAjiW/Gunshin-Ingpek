@@ -54,8 +54,6 @@ public class MainMenuController : MainMenuScreenController
         UIManagement.ToggleElementVisible(MaxSavesContainer, false);
 
         GameSaveManager.Instance.LoadStatistics();
-
-
     }
 
     private EventCallback<ClickEvent> BlockCallbackInTransition(EventCallback<ClickEvent> callback)
@@ -101,10 +99,10 @@ public class MainMenuController : MainMenuScreenController
 
     private void ExitCallback(ClickEvent evt)
     {
-        if (EditorApplication.isPlaying)
-        {
-            EditorApplication.isPlaying = false;
-        }
+        // if (EditorApplication.isPlaying)
+        // {
+        //     EditorApplication.isPlaying = false;
+        // }
         Application.Quit();
     }
 }

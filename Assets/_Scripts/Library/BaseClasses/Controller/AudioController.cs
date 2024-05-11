@@ -56,7 +56,10 @@ public class AudioController
     {
         foreach (Audio audio in audios)
         {
-            audio.source.Stop();
+            if(audio.source != null)
+            {
+                audio.source.Stop();
+            }
         }
     }
 

@@ -31,7 +31,9 @@ public class SettingsController : MainMenuScreenController
 
         // Setup difficulty dropdown
 
-        difficultyDropdown = rootElement.Query<DropdownField>("DifficultyDropdown");
+        VisualElement settingsContainer = rootElement.Query<VisualElement>("SettingsContainer");
+        difficultyDropdown = settingsContainer.Query<DropdownField>("DifficultyDropdown");
+        
 
         difficultyDropdown.RegisterCallback<ChangeEvent<string>>((evt) =>
         {
