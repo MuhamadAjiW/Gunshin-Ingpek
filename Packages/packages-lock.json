@@ -37,11 +37,7 @@
     },
     "com.unity.collections": {
       "version": "1.4.0",
-<<<<<<< HEAD
-      "depth": 3,
-=======
       "depth": 1,
->>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.6.6",
@@ -95,29 +91,13 @@
       },
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    "com.unity.ide.vscode": {
-      "version": "1.2.4",
-=======
     "com.unity.ide.vscode": {
       "version": "1.2.1",
->>>>>>> cb03e584 (feat: add level 1 and shop)
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
-=======
->>>>>>> 5488cd99 (feat: incorporated jean textures and maps)
-=======
->>>>>>> cb03e584 (feat: add level 1 and shop)
-=======
     "com.unity.inputsystem": {
       "version": "1.7.0",
       "depth": 0,
@@ -127,7 +107,6 @@
       },
       "url": "https://packages.unity.com"
     },
->>>>>>> 1cc993db (feat: overhauled inputs)
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 1,
@@ -137,11 +116,7 @@
     },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.4",
-<<<<<<< HEAD
-      "depth": 4,
-=======
       "depth": 2,
->>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -166,8 +141,6 @@
         "com.unity.rendering.light-transport": "1.0.0"
       }
     },
-<<<<<<< HEAD
-=======
     "com.unity.render-pipelines.high-definition": {
       "version": "16.0.6",
       "depth": 0,
@@ -194,7 +167,6 @@
         "com.unity.render-pipelines.core": "16.0.6"
       }
     },
->>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
     "com.unity.render-pipelines.universal": {
       "version": "16.0.6",
       "depth": 0,
@@ -218,11 +190,7 @@
     },
     "com.unity.searcher": {
       "version": "4.9.2",
-<<<<<<< HEAD
-      "depth": 2,
-=======
       "depth": 1,
->>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -236,19 +204,13 @@
     },
     "com.unity.shadergraph": {
       "version": "16.0.6",
-<<<<<<< HEAD
-      "depth": 1,
-=======
       "depth": 0,
->>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
       "source": "builtin",
       "dependencies": {
         "com.unity.render-pipelines.core": "16.0.6",
         "com.unity.searcher": "4.9.2"
       }
     },
-<<<<<<< HEAD
-=======
     "com.unity.terrain-tools": {
       "version": "5.1.1",
       "depth": 0,
@@ -259,7 +221,6 @@
       },
       "url": "https://packages.unity.com"
     },
->>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
     "com.unity.test-framework": {
       "version": "1.3.9",
       "depth": 0,
@@ -579,3 +540,4 @@
     }
   }
 }
+
