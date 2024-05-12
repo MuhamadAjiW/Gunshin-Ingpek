@@ -1,3 +1,4 @@
+using _Scripts.Core.Game.Data;
 using UnityEngine;
 
 public class Rifle : WeaponObject
@@ -10,17 +11,10 @@ public class Rifle : WeaponObject
     public const string SHOT_AUDIO_KEY = "Shoot";
 
     // Attribute
-<<<<<<< HEAD
-    public float fireRange = 200;
-    public float projectileSpeed = 100; 
-=======
     public float fireRange = 20;
     public float projectileSpeed = 100;
->>>>>>> d871ba60 (feat: initial work on statistics element)
     public AudioController audioController;
 
-    // public MonoBehaviour CompanionController => this;
-    
     // Constructor
     protected new void Start()
     {
@@ -50,8 +44,6 @@ public class Rifle : WeaponObject
 
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 16) + bearer.Orientation.up, ForceMode.Impulse);
-<<<<<<< HEAD
-=======
 
         // Won't count shots fired by pets
         if (bearer is Player && bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
@@ -59,7 +51,6 @@ public class Rifle : WeaponObject
             GameStatisticsManager.Instance.AddShotsFired();
             attackProjectile.OnDamageEvent += GameStatisticsManager.Instance.AddShotsHit;
         }
->>>>>>> d871ba60 (feat: initial work on statistics element)
     }
 
     protected override void OnAlternateAttack()
@@ -75,11 +66,7 @@ public class Rifle : WeaponObject
             objectName: "Rifle Hitbox"
         );
 
-<<<<<<< HEAD
-        ObjectFactory.DestroyObject(attackHitbox, 0.5f);
-=======
         ObjectFactory.DestroyObject(attackHitbox, 1f);
->>>>>>> 096b6ef7 (feat: level 1)
     }
 
     protected override void OnSkill()
@@ -101,18 +88,13 @@ public class Rifle : WeaponObject
         attackProjectile.speed = projectileSpeed;
         attackProjectile.direction = bearer.Orientation.forward;
 
-        ObjectFactory.DestroyObject(attackProjectile, 2f);
-
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 16) + bearer.Orientation.up, ForceMode.Impulse);
-<<<<<<< HEAD
-=======
 
         if (bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
         {
             GameStatisticsManager.Instance.AddShotsFired();
             attackProjectile.OnDamageEvent += GameStatisticsManager.Instance.AddShotsHit;
         }
->>>>>>> d871ba60 (feat: initial work on statistics element)
     }
 }

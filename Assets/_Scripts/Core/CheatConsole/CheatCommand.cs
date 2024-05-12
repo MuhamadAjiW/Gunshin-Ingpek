@@ -32,16 +32,6 @@ public class CheatCommand
     }
 
     public static readonly Dictionary<string, Action> cheatCommands = new(){
-<<<<<<< HEAD
-        { "no_damage", () => { throw new NotImplementedException(); }},
-        { "1_hit_kill", () => { throw new NotImplementedException(); }},
-        { "motherlode", () => { throw new NotImplementedException(); }},
-        { "x2_speed", () => { GameController.Instance.player.BaseSpeed *= 2; }},
-        { "full_hp_pet", () => { throw new NotImplementedException(); }},
-        { "kill_pet", () => { throw new NotImplementedException(); }},
-        { "orb", () => { throw new NotImplementedException(); }},
-        { "skip", () => { throw new NotImplementedException(); }},
-=======
         { "no_damage",
             () => {
                 GameController.Instance.cheatController.NO_DAMAGE = true;
@@ -130,6 +120,5 @@ public class CheatCommand
                 }
             }
         },
->>>>>>> 40925012 (feat: cheats)
     };
 }

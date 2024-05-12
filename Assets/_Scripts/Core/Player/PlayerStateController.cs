@@ -2,11 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
 using UnityEngine.Animations;
-=======
 using UnityEngine.SceneManagement;
->>>>>>> ef999f90 (fix: death cutscene)
 
 [Serializable]
 public class PlayerStateController : EntityStateController

@@ -1,3 +1,4 @@
+using _Scripts.Core.Game.Data;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -75,13 +76,7 @@ public class Shotgun : WeaponObject
         }
 
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
-<<<<<<< HEAD
-        bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower) + bearer.Orientation.up, ForceMode.Impulse);
-<<<<<<< HEAD
-=======
-=======
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 8) + bearer.Orientation.up, ForceMode.Impulse);
->>>>>>> 06c3a003 (feat: enemy spawners, weapon adjustments)
 
         // Won't count shots fired by pets
         if (bearer is Player && bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
@@ -89,7 +84,6 @@ public class Shotgun : WeaponObject
             GameStatisticsManager.Instance.AddShotsFired();
             attackProjectile.OnDamageEvent += GameStatisticsManager.Instance.AddShotsHit;
         }
->>>>>>> d871ba60 (feat: initial work on statistics element)
     }
 
     protected override void OnAlternateAttack()
@@ -159,19 +153,12 @@ public class Shotgun : WeaponObject
         }
 
         IRigid bearerBody = bearer.Orientation.gameObject.GetComponent<IRigid>();
-<<<<<<< HEAD
-        bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower) + bearer.Orientation.up, ForceMode.Impulse);
-<<<<<<< HEAD
-=======
-=======
         bearerBody?.Rigidbody.AddForce(-(bearer.Orientation.forward * data.knockbackPower / 8) + bearer.Orientation.up, ForceMode.Impulse);
->>>>>>> 06c3a003 (feat: enemy spawners, weapon adjustments)
 
         if (bearer.AttackLayerCode == EnvironmentConfig.LAYER_PLAYER_ATTACK)
         {
             GameStatisticsManager.Instance.AddShotsFired();
             attackProjectile.OnDamageEvent += GameStatisticsManager.Instance.AddShotsHit;
         }
->>>>>>> d871ba60 (feat: initial work on statistics element)
     }
 }

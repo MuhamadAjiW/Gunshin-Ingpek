@@ -10,16 +10,7 @@ namespace _Scripts.Core.Game.Data
     public class GameStatisticsManager : MonoBehaviour
     {
         // Static Instance
-<<<<<<< HEAD:Assets/_Scripts/Core/Game/Data/GameStatistics.cs
-        public static GameStatistics Instance;
-<<<<<<< HEAD
-
-        // Saved
-        public int enemiesKilled = 0;
-=======
-=======
         public static GameStatisticsManager Instance;
->>>>>>> d871ba60 (feat: initial work on statistics element):Assets/_Scripts/Core/Game/Data/GameStatisticsManager.cs
 
         // Saved
         // [DontCreateProperty]
@@ -36,17 +27,12 @@ namespace _Scripts.Core.Game.Data
             get => goonsKilled + headgoonsKilled + generalsKilled + kingsKilled;
         }
 
->>>>>>> 434a8b79 (feat: settings working)
         // Helper for Accuracy
         // [DontCreateProperty]
         public int shotsFired = 0;
-<<<<<<< HEAD:Assets/_Scripts/Core/Game/Data/GameStatistics.cs
-=======
         // [DontCreateProperty]
         public int shotsHit = 0;
->>>>>>> d871ba60 (feat: initial work on statistics element):Assets/_Scripts/Core/Game/Data/GameStatisticsManager.cs
 
-        public int shotsHit = 0;
         // Saved
         public float Accuracy => shotsFired > 0 ? (float)shotsHit / shotsFired * 100 : 0;
 
@@ -104,9 +90,21 @@ namespace _Scripts.Core.Game.Data
             StartCoroutine(RecordTimeRoutine());
         }
 
-        public void AddEnemiesKilled()
+        public void AddGoonsKilled()
         {
-            enemiesKilled++;
+            goonsKilled++;
+        }
+        public void AddHeadGoonsKilled()
+        {
+            headgoonsKilled++;
+        }
+        public void AddGeneralsKilled()
+        {
+            generalsKilled++;
+        }
+        public void AddKingsKilled()
+        {
+            kingsKilled++;
         }
 
         public void AddShotsFired()
@@ -144,7 +142,10 @@ namespace _Scripts.Core.Game.Data
             GameStatisticsWrapper data = JsonUtility.FromJson<GameStatisticsWrapper>(json);
             if (data != null)
             {
-                enemiesKilled = data.enemiesKilled;
+                goonsKilled = data.goonsKilled;
+                headgoonsKilled = data.headgoonsKilled;
+                generalsKilled = data.generalsKilled;
+                kingsKilled = data.kingsKilled;
                 shotsFired = data.shotsFired;
                 shotsHit = data.shotsHit;
                 DistanceTraveled = data.DistanceTraveled;

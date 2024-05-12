@@ -103,15 +103,7 @@ public class PlayerInputController
             player.stateController.ToggleIsAiming();
             OnAimEvent?.Invoke(player.stateController.GetIsAiming());
         }
-<<<<<<< HEAD
-        else if (Input.GetKeyDown(GameInput.Instance.switchWeaponButton))
-        {
-            player.SwitchWeapon();
-            Debug.Log("Weapon switch else if PlayerInputController.cs"); 
-        }
-=======
         player.StartCoroutine(HandleSkill());
->>>>>>> 1cc993db (feat: overhauled inputs)
     }
 
     private void Interact(InputAction.CallbackContext context)
@@ -129,17 +121,9 @@ public class PlayerInputController
         {
             return;
         }
-<<<<<<< HEAD
-        else if (Input.GetKeyDown(GameInput.Instance.switchWeaponButton))
-        {
-            player.SwitchWeapon();
-            Debug.Log("Weapon switch else if PlayerInputController.cs"); 
-        }
-=======
 
         IInteractable interactable = player.stateController.currentInteractables[^1];
         interactable.Interact();
->>>>>>> 1cc993db (feat: overhauled inputs)
     }
 
     private void SwitchWeapon(InputAction.CallbackContext context)
@@ -176,7 +160,6 @@ public class PlayerInputController
         TriggerWeaponState(WeaponState.ATTACK);
         yield return new WaitForSeconds(delay);
         player.Weapon.Attack();
-        GameStatistics.Instance.AddShotsFired();
     }
 
     private IEnumerator HandleAlternateAttack()
@@ -202,7 +185,6 @@ public class PlayerInputController
         TriggerWeaponState(WeaponState.ALTERNATE_ATTACK);
         yield return new WaitForSeconds(delay);
         player.Weapon.AlternateAttack();
-        GameStatistics.Instance.AddShotsFired();
     }
 
     private IEnumerator HandleSkill()
@@ -213,30 +195,15 @@ public class PlayerInputController
 
         TriggerWeaponState(WeaponState.SKILL);
         yield return new WaitForSeconds(player.model.skillAnimationDelay);
-<<<<<<< HEAD
-        player.Weapon.Skill();
-<<<<<<< HEAD
-        GameStatistics.Instance.AddSkillsUsed();
-=======
-
-        Quaternion flatRotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y, player.transform.rotation.eulerAngles.z);
-        player.transform.rotation = flatRotation;
->>>>>>> bcbd8415 (feat: made player prefab, minor bug fixes)
-=======
 
         if (player.Weapon.Skill())
         {
             Quaternion flatRotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y, player.transform.rotation.eulerAngles.z);
             player.transform.rotation = flatRotation;
 
-<<<<<<< HEAD
             GameStatisticsManager.Instance.AddSkillsUsed();
-=======
-            GameStatistics.Instance.AddSkillsUsed();
             player.Damageable = true;
->>>>>>> b4e37aa1 (fix: camera, skill)
         }
->>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
     }
 
 

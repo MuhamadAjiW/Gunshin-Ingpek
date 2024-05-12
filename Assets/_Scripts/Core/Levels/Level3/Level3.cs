@@ -73,33 +73,29 @@ public class Level3 : MonoBehaviour
 
     private void CountDeaths(string eventId, System.Object info)
     {
-        if(eventId == GameConfig.EVENT_ENEMY_KILLED)
+        if (eventId == GameConfig.EVENT_ENEMY_KILLED)
         {
-            if(info is Goon)
+            if (info is Goon)
             {
-                killCounter += goonValue;                
+                killCounter += goonValue;
             }
-            else if(info is HeadGoon)
+            else if (info is HeadGoon)
             {
                 killCounter += headGoonValue;
             }
-            else if(info is General)
+            else if (info is General)
             {
                 killCounter += generalValue;
             }
-            else if(info is King)
+            else if (info is King)
             {
                 killCounter += kingValue;
             }
 
-            if(killCounter >= killLimit)
+            if (killCounter >= killLimit)
             {
                 GameController.Instance.OnGameEvent -= CountDeaths;
                 GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_3_END_CUTSCENE);
-<<<<<<< HEAD:Assets/_Scripts/Core/Levels/Level3.cs
-                GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_3_END_CUTSCENE);
-                DialogController.Instance.OnCutsceneFinished += EndLevel;
-=======
                 GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_3_END_CUTSCENE);
                 GameSaveManager.Instance.GetActiveGameSave().currencyData.AddTransaction(Level2.QUEST_REWARD, Level2.QUEST_NAME);
                 EventManager.Instance.SetShop(2, true);
@@ -109,14 +105,10 @@ public class Level3 : MonoBehaviour
                 {
                     enemySpawners.SetActive(false);
                 }
-<<<<<<< HEAD
->>>>>>> da7b0d1c (feat: level 2 and 3):Assets/_Scripts/Core/Levels/Level3/Level3.cs
-=======
                 if (mobs != null)
                 {
                     mobs.SetActive(false);
                 }
->>>>>>> b0d746e4 (feat: removed test stuff)
             }
         }
     }

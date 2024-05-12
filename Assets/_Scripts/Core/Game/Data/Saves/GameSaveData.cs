@@ -33,11 +33,7 @@ public class GameSaveData
     {
         writeTime = DateTime.Now;
         id = Guid.NewGuid().ToString();
-<<<<<<< HEAD
-        storyData = new StoryData(events);
-=======
         storyData = new StoryData(StoryConfig.EVENTS);
->>>>>>> ffe29481 (feat: base interactables for shop and save)
     }
 
     public void SaveGame(string path)
@@ -70,13 +66,8 @@ public class GameSaveData
 
     public GameSaveManager.GameLoadResult LoadGame(string path)
     {
-<<<<<<< HEAD
-        string filePath = string.Format("{0}/{1}", path, name);
-        if (File.Exists(filePath))
-=======
         Debug.Log(path);
         if (File.Exists(path))
->>>>>>> bc0f6029 (fix: new game)
         {
             writeTime = File.GetLastWriteTime(path);
             string json = File.ReadAllText(path);

@@ -59,19 +59,13 @@ public class Level4 : MonoBehaviour
 
     private void CountDeaths(string eventId, System.Object info)
     {
-        if(eventId == GameConfig.EVENT_ENEMY_KILLED)
+        if (eventId == GameConfig.EVENT_ENEMY_KILLED)
         {
-            if(info is King)
+            if (info is King)
             {
                 GameController.Instance.OnGameEvent -= CountDeaths;
-<<<<<<< HEAD
-                GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_ENDING_CUTSCENE);
-                GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_ENDING_CUTSCENE);
-                DialogController.Instance.OnCutsceneFinished += EndLevel;
-=======
                 GameController.Instance.StartCutscene(StoryConfig.KEY_STORY_ENDING_CUTSCENE, EndLevel);
                 GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_ENDING_CUTSCENE);
->>>>>>> e57a0f1c (refactor: improved dialog callbacks)
             }
         }
     }

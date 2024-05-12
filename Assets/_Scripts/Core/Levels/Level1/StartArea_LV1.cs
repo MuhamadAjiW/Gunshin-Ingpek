@@ -11,9 +11,9 @@ public class StartInteractable_LV1 : InteractableObject
 
     public override void OnInteractAreaEnter()
     {
-        if(!GameSaveData.Instance.storyData.IsEventComplete(StoryConfig.KEY_STORY_1_ENTER_DUNGEON))
+        if (!GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_ENTER_DUNGEON))
         {
-            GameSaveData.Instance.storyData.CompleteEvent(StoryConfig.KEY_STORY_1_ENTER_DUNGEON);
+            GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_1_ENTER_DUNGEON);
         }
     }
 

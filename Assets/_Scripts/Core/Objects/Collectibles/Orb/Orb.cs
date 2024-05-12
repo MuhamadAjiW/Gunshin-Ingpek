@@ -19,8 +19,8 @@ public abstract class Orb : Collectible
 
     protected override void OnCollect()
     {
-        GameStatistics.Instance.AddOrbsCollected();
-        Debug.Log(id + ": Collected. Current orbs collected: " + GameStatistics.Instance.OrbsCollected);
+        GameStatisticsManager.Instance.AddOrbsCollected();
+        Debug.Log(id + ": Collected. Current orbs collected: " + GameStatisticsManager.Instance.OrbsCollected);
     }
 
     protected override void OnTimeout()

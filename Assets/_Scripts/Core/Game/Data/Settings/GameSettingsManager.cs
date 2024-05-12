@@ -9,7 +9,7 @@ public class GameSettingsManager : MonoBehaviour
 
     private static string SETTINGS_PATH;
 
-    public GameSettingsWrapper gameSettings;
+    public GameSettingsData gameSettings;
 
     public static GameSettingsManager Instance;
 

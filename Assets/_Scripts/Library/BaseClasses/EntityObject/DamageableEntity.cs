@@ -70,11 +70,6 @@ public class DamageableEntity : WorldEntity, IDamageable
 
     public float InflictDamage(float damage)
     {
-<<<<<<< HEAD
-        Health -= damage;
-        OnDamagedEvent?.Invoke();
-        if(Dead)
-=======
         Debug.Log(Dead);
         if (Dead)
         {
@@ -85,7 +80,6 @@ public class DamageableEntity : WorldEntity, IDamageable
         OnDamagedEvent?.Invoke();
 
         if (Dead)
->>>>>>> 8febb5fc (feat: game over working)
         {
             OnDeathEvent?.Invoke();
         }
@@ -95,14 +89,11 @@ public class DamageableEntity : WorldEntity, IDamageable
 
     public float InflictHeal(float heal)
     {
-<<<<<<< HEAD
-=======
         if (Dead)
         {
             return 0;
         }
 
->>>>>>> 8febb5fc (feat: game over working)
         Health += heal;
         OnHealEvent?.Invoke();
 
@@ -111,20 +102,12 @@ public class DamageableEntity : WorldEntity, IDamageable
 
     public float InflictDrainDamage(float damage)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Debug.Log($"{name} health is drained by {damage}");
-        Health -= damage;
-        if(Dead)
-=======
-=======
         if (this is Player && GameController.Instance.cheatController.NO_DAMAGE)
         {
             Debug.Log("NO_DAMAGE cheat is active. Draining damage is not inflicted.");
             return Health;
         }
 
->>>>>>> f006296e (fix: some pet and cheat errors)
         if (Dead)
         {
             return 0;
@@ -134,7 +117,6 @@ public class DamageableEntity : WorldEntity, IDamageable
         Health -= damage;
 
         if (Dead)
->>>>>>> 8febb5fc (feat: game over working)
         {
             OnDeathEvent?.Invoke();
         }

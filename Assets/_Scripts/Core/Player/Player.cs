@@ -8,20 +8,7 @@ using UnityEngine;
 public class Player : PlayerEntity
 {
     // Static Attributes
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public const string ObjectIdPrefix = "Player";
-=======
-    public const string ObjectIdPrefix = "Player"; 
-    private int currentIndex = 0;
->>>>>>> 42c091d4 (fix: weapon switching and position)
-=======
-    public const string OBJECT_ID_PREFIX = "Player"; 
->>>>>>> acb4f76d (feat: Headgoon spawning, mobs stat tweak)
-=======
     public const string OBJECT_ID_PREFIX = "Player";
->>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
 
     // Attributes
     public PlayerMovementController movementController;
@@ -55,27 +42,7 @@ public class Player : PlayerEntity
         SetLayer(EnvironmentConfig.LAYER_PLAYER);
         SetAttackLayer(EnvironmentConfig.LAYER_PLAYER_ATTACK);
         GameController.Instance.player = this;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-
-        // TODO: These are for dev, consider deleting
-        // WeaponList.AddRange(GetComponentsInChildren<WeaponObject>());
-
-=======
-        
->>>>>>> cc490e85 (feat: mob sounds)
-=======
-
->>>>>>> 7e542b2c (feat: responsive crosshair and pause menu)
-=======
-        
->>>>>>> da34ded8 (feat: integrated shop with shopkeeper)
-=======
-
->>>>>>> b4a2bfd4 (fix: teleport logic in cheat)
         EquipWeapon(0);
 
         int initialIndex = CompanionList.Count;
@@ -84,19 +51,7 @@ public class Player : PlayerEntity
             CompanionActive.Add(true);
         }
 
-<<<<<<< HEAD
-        CompanionList.AddRange(EntityManager.Instance.GetComponentsInChildren<Companion>());
-        for (int i = initialIndex; i < CompanionList.Count; i++)
-        {
-            CompanionActive.Add(CompanionList[i].gameObject.activeSelf);
-        }
-
-<<<<<<< HEAD
-=======
->>>>>>> 40925012 (feat: cheats)
         ActivateAllCompanions();
-=======
->>>>>>> 42daf667 (feat: added companion aggregation)
     }
 
     // Functions
@@ -110,46 +65,15 @@ public class Player : PlayerEntity
         base.EquipWeapon(index);
     }
 
-<<<<<<< HEAD
-
-
-    protected new void Update()
-    {
-        base.Update();
-        if (Dead || GameController.Instance.IsPaused)
-        {
-            return;
-        }
-
-=======
     protected override void UpdateAction()
     {
-<<<<<<< HEAD
->>>>>>> 80acb321 (feat: base for headgoon, general, king)
-        inputController.HandleInputs();
-=======
         inputController?.HandleInputs();
->>>>>>> 0ba6d5e3 (refactor: internal classes for better editor experience)
     }
 
     protected override void FixedUpdateAction()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        base.FixedUpdate();
-        if (Dead || GameController.Instance.IsPaused)
-        {
-            return;
-        }
-
-=======
->>>>>>> 80acb321 (feat: base for headgoon, general, king)
-        movementController.HandleMovement();
-        stateController.UpdateState();
-=======
         movementController?.HandleMovement();
         stateController?.UpdateState();
->>>>>>> 0ba6d5e3 (refactor: internal classes for better editor experience)
     }
 
     protected void OnTriggerEnter(Collider otherCollider)
@@ -178,14 +102,8 @@ public class Player : PlayerEntity
         stateController.currentInteractables.Remove(interactable);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    protected void OnDrawGizmosSelected()
-=======
     // Debug Functions
     protected new void OnDrawGizmosSelected()
->>>>>>> 80acb321 (feat: base for headgoon, general, king)
     {
         base.OnDrawGizmosSelected();
 
@@ -248,50 +166,6 @@ public class Player : PlayerEntity
 
         Debug.Log(id + ": Damage increased from " + prev + " to " + Damage);
     }
-<<<<<<< HEAD
-=======
-    // Switches to the next weapon in the list
-=======
->>>>>>> 42c091d4 (fix: weapon switching and position)
-    public void SwitchWeapon()
-    {
-    if (WeaponList.Count == 0)
-    {
-        Debug.LogWarning("No weapons available.");
-        return;
-    }
-    Debug.Log($"WEAPON {WeaponList.Count}");
-
-    currentIndex = (currentIndex + 1) % WeaponList.Count; // Increment currentIndex and wrap it around if it's equal to WeaponList.Count
-    
-    Debug.Log(currentIndex);
-
-    EquipWeapon(currentIndex);
-    Debug.Log("Weapon switch SwitchWeapon Player.cs"); 
-}
-
-
-    // Equip a weapon by index
-    public void EquipCurrWeapon(int index)
-    {
-        if (index >= 0 && index < WeaponList.Count)
-        {
-            WeaponObject newWeapon = WeaponList[index];
-            Debug.Log($"Equipped weapon: {newWeapon.name}");
-            if (Weapon != null)
-            {
-                Weapon.gameObject.SetActive(false);
-            }
-            newWeapon.gameObject.SetActive(true);
-        }
-        else
-        {
-            Debug.LogWarning($"Invalid weapon index: {index}");
-        }
-    }
-
->>>>>>> 919d0e86 (add: weapon switching)
-=======
 
     public void TeleportAllCompanions(Vector3 destination)
     {
@@ -316,5 +190,4 @@ public class Player : PlayerEntity
             }
         }
     }
->>>>>>> b4a2bfd4 (fix: teleport logic in cheat)
 }

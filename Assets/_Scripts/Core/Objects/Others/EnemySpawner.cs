@@ -43,6 +43,8 @@ public class EnemySpawner : MonoBehaviour
                     position: transform.position + transform.up - transform.right + transform.forward,
                     objectName: "Monster"
                 );
+                SpawnedCount++;
+                spawnedEnemy.OnDeathEvent += OnMonsterDeath;
             }
         }
         yield return new WaitForSeconds(SpawnDelay); 

@@ -118,23 +118,9 @@ public class GameSaveManager : MonoBehaviour
         {
             return GameSaveResult.MAX_SAVES_REACHED;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
-=======
 
->>>>>>> 56798ab4 (feat: add guard in awake function of singletons to keep singleton single)
-=======
-
-<<<<<<< HEAD
->>>>>>> 5bc01392 (feat: added delete all saves)
-=======
         activeGameSave = new();
->>>>>>> 4c5786b0 (fix: bunch of major bugs)
         activeGameSaveIndex = gameSaves.Count;
->>>>>>> d93e8bd0 (fix: save, load)
         activeGameSave.SaveGame(SAVE_PATH);
         gameSaves.Add(activeGameSave);
 

@@ -1,4 +1,5 @@
 using System.Collections;
+using _Scripts.Core.Game.Data;
 using UnityEngine;
 
 public class Goon : EnemyEntity
@@ -27,6 +28,7 @@ public class Goon : EnemyEntity
         EquipWeapon(0);
 
         OnDeathEvent += OnDeath;
+        nav.enabled = false;
     }
 
     // Functions
@@ -45,21 +47,14 @@ public class Goon : EnemyEntity
 
     private void OnDeath()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         GameStatisticsManager.Instance.AddGoonsKilled();
->>>>>>> d871ba60 (feat: initial work on statistics element)
-=======
-        GameStatistics.Instance.AddGoonsKilled();
-        GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
->>>>>>> 6c55d7c6 (feat: level 2)
         StartCoroutine(DeleteBody());
     }
 
     private IEnumerator DeleteBody()
     {
         yield return new WaitForSeconds(2);
+        GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
         Destroy(gameObject);
     }
 

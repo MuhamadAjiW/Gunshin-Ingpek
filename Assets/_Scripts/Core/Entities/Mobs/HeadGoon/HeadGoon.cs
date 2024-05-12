@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Core.Game.Data;
 using UnityEngine;
 
 public class HeadGoon : EnemyEntity
@@ -33,6 +34,7 @@ public class HeadGoon : EnemyEntity
 
         OnDeathEvent += OnDeath;
         StartCoroutine(SpawnGoons());
+        nav.enabled = false;
     }
 
     // Functions
@@ -77,21 +79,14 @@ public class HeadGoon : EnemyEntity
 
     private void OnDeath()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
         GameStatisticsManager.Instance.AddHeadGoonsKilled();
->>>>>>> d871ba60 (feat: initial work on statistics element)
-=======
-        GameStatistics.Instance.AddHeadGoonsKilled();
-        GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
->>>>>>> 6c55d7c6 (feat: level 2)
         StartCoroutine(DeleteBody());
     }
 
     private IEnumerator DeleteBody()
     {
         yield return new WaitForSeconds(2);
+        GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
         Destroy(gameObject);
     }
 

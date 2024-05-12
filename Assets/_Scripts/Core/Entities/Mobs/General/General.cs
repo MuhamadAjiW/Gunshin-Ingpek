@@ -1,4 +1,5 @@
 using System.Collections;
+using _Scripts.Core.Game.Data;
 using UnityEngine;
 
 public class General : BossEntity
@@ -29,16 +30,10 @@ public class General : BossEntity
         animationController.Init(this);
 
         EquipWeapon(0);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        ActivateAllCompanions();
-=======
->>>>>>> d871ba60 (feat: initial work on statistics element)
-=======
->>>>>>> 69341d05 (fix: pet navmeshagent kejedot)
 
         OnDeathEvent += OnDeath;
         StartCoroutine(DrainPlayerHealth());
+        nav.enabled = false;
     }
 
     // Functions
@@ -71,31 +66,14 @@ public class General : BossEntity
 
     private void OnDeath()
     {
-<<<<<<< HEAD
-=======
         audioController.Play(AUDIO_DIE_KEY);
-<<<<<<< HEAD
-        GameStatistics.Instance.AddGeneralsKilled();
-<<<<<<< HEAD
->>>>>>> cc490e85 (feat: mob sounds)
-=======
         GameStatisticsManager.Instance.AddGeneralsKilled();
->>>>>>> d871ba60 (feat: initial work on statistics element)
-=======
-        GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
->>>>>>> 6c55d7c6 (feat: level 2)
         StartCoroutine(DeleteBody());
     }
 
     private IEnumerator DeleteBody()
     {
         yield return new WaitForSeconds(2);
-<<<<<<< HEAD
-        // foreach (Companion companion in CompanionList)
-        // {
-        //     Destroy(companion.gameObject);
-        // }
-=======
 
         // Destroy all companions, because it's not the child of this entity
         foreach (Companion companion in CompanionList)
@@ -104,7 +82,6 @@ public class General : BossEntity
         }
 
         GameController.Instance.InvokeEvent(GameConfig.EVENT_ENEMY_KILLED, this);
->>>>>>> de05d9f0 (feat: pet related behavior tuning)
         Destroy(gameObject);
     }
 

@@ -1,11 +1,5 @@
-using System;
-<<<<<<< HEAD
 using System.Collections;
-=======
-using Unity.VisualScripting;
->>>>>>> 42daf667 (feat: added companion aggregation)
 using UnityEngine;
-using UnityEngine.Rendering.HighDefinition;
 
 public abstract class Companion : DamageableEntity
 {
@@ -39,16 +33,9 @@ public abstract class Companion : DamageableEntity
     {
         return type switch
         {
-<<<<<<< HEAD
-            Type.HEALING => new HealingCompanion(),
-            Type.DAMAGE => new HealingCompanion(),
-            Type.INCREASE => new HealingCompanion(),
-            _ => new(),
-=======
             Type.HEALING => EventManager.Instance.CompanionPool[1],
             Type.DAMAGE => EventManager.Instance.CompanionPool[0],
             _ => null,
->>>>>>> 84fdb8a2 (fix: pet init)
         };
     }
 
