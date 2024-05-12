@@ -6,20 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    path: Assets/_Scenes/DeathCutscene.unity
-=======
-    path: Assets/_Scenes/Deprecated/DeathCutscene.unity
->>>>>>> 14d1a39e (feat: integrated ui and camera blockers to each level)
-    guid: 930eadc906c359546a4d2ffc35afd19d
-  - enabled: 1
->>>>>>> e55b0cc9 (add: finish quest cutscene)
-=======
->>>>>>> 4c5786b0 (fix: bunch of major bugs)
     path: Assets/_Scenes/SplashScreen.unity
     guid: 060ec6bae157d9df88b16ac218f05d80
   - enabled: 1
@@ -28,12 +14,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/World.unity
     guid: c8c3755eae08cd449986226d77d24722
-  - enabled: 0
-    path: Assets/_Scenes/Level-1.unity
-    guid: 7387d701aeb986b4ab3a74b6b72b89a4
-=======
-    path: Assets/_Scenes/Cutscene.unity
-    guid: 930eadc906c359546a4d2ffc35afd19d
->>>>>>> ef999f90 (fix: death cutscene)
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
