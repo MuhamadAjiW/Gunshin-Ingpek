@@ -122,5 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staticWeaponPivot: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   dynamicBottomPoint: {fileID: 0}
   dynamicWeaponPivot: {fileID: 0}
+=======
+  renderer: {fileID: 0}
+  bottomOffset: 0
+>>>>>>> 30868626 (feat: Level, Layer, Terrain, Texture)
