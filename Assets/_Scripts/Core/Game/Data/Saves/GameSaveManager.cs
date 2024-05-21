@@ -207,9 +207,9 @@ public class GameSaveManager : MonoBehaviour
 
         Debug.Log("Location: " + Instance.gameSaves[activeGameSaveIndex].positionData.point);
 
-        if (Instance.gameSaves[activeGameSaveIndex].positionData.point != null)
+        if (Instance.gameSaves[activeGameSaveIndex].positionData.point != Vector3.zero)
         {
-            GameController.Instance.player.transform.position = Instance.gameSaves[activeGameSaveIndex].positionData.point.Value;
+            GameController.Instance.player.transform.position = Instance.gameSaves[activeGameSaveIndex].positionData.point;
         }
 
         if (Instance.gameSaves[activeGameSaveIndex].petData != null)

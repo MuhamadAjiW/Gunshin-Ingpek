@@ -6,7 +6,7 @@ namespace _Scripts.Core.Game.Data.Position
     [Serializable]
     public class PositionData
     {
-        public Vector3? point = null;
+        public Vector3 point = Vector3.zero;
 
         public void Load(string json)
         {
