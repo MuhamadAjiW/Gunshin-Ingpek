@@ -2,7 +2,9 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameCameraController 
+
+[Serializable]
+public class GameCameraController
 {
     // Attributes
     public Camera activeCamera;

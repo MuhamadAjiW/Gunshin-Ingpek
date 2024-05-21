@@ -15,7 +15,7 @@ public class SplashScreenController : ScreenController
     IEnumerator EnterMainMenu()
     {
         yield return new WaitForSeconds(SplashScreenDurationSeconds);
-        ScenesManager.Instance.LoadScene(ScenesManager.Scene.MainMenu, false, false);
+        ScenesManager.Instance.LoadScene(ScenesManager.GameScene.MainMenu, false, false);
     }
 
 

@@ -43,7 +43,7 @@ public class MainMenuController : MainMenuScreenController
         yesButton.RegisterCallback((ClickEvent evt) =>
         {
             GameSaveManager.Instance?.OverrideSave();
-            ScenesManager.Instance.LoadNewGame();
+            ScenesManager.Instance.LoadOverworld();
         });
 
         cancelButton.RegisterCallback((ClickEvent evt) =>
@@ -75,7 +75,7 @@ public class MainMenuController : MainMenuScreenController
         GameSaveManager.GameSaveResult newSaveResult = GameSaveManager.Instance.NewSave();
         if (newSaveResult == GameSaveManager.GameSaveResult.SUCCESS)
         {
-            ScenesManager.Instance.LoadNewGame();
+            ScenesManager.Instance.LoadOverworld();
             return;
         }
 

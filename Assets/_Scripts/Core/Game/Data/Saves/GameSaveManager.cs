@@ -160,7 +160,7 @@ public class GameSaveManager : MonoBehaviour
     {
         activeGameSaveIndex = index;
         SetActiveGameSaveFromGameSaves(index);
-        ScenesManager.Instance.LoadNewGame();
+        ScenesManager.Instance.LoadOverworld();
         SceneManager.sceneLoaded += LoadGame;
     }
 

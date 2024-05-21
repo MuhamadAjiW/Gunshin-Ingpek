@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class CameraMouse : CameraFollowObject 
+public class CameraMouse : CameraFollowObject
 {
-    
+
     // Attributes
     public float mouseSensitivity = 0.2f;
     private Vector2 mouseTurn;
@@ -22,12 +22,14 @@ public class CameraMouse : CameraFollowObject
         initialRotation = target.transform.rotation;
         mouseUpAxis = target.transform.right;
         mouseRightAxis = target.transform.up;
+        Debug.Log(GameController.Instance.stateController.GetType());
+        Debug.Log(GameController.Instance.IsPaused);
     }
 
     // Functions
     protected void Update()
     {
-        if(GameController.Instance.IsPaused)
+        if (GameController.Instance.IsPaused)
         {
             return;
         }

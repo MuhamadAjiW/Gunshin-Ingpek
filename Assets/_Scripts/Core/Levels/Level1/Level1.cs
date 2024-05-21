@@ -11,6 +11,7 @@ public class Level1 : MonoBehaviour
 
     protected void Start()
     {
+        Debug.Log("Logging level 1 cutscene condition: " + !GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_START_CUTSCENE));
         if (!GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_START_CUTSCENE))
         {
             GameController.Instance.player.weaponList.Add(EventManager.Instance.WeaponPool[1]);

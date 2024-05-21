@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[Serializable]
 public class GameStateController
 {
     // Attributes
-    private readonly Stack<GameState> gameStateStack = new();
+    private Stack<GameState> gameStateStack = new();
 
     // Events
     public event GameStateChangeEvent OnGameStateChange;

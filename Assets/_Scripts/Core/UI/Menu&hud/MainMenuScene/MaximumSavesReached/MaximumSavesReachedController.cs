@@ -19,7 +19,7 @@ public class MaximumSavesReached : MainMenuScreenController
         yesButton.RegisterCallback((ClickEvent evt) =>
         {
             GameSaveManager.Instance?.OverrideSave();
-            ScenesManager.Instance.LoadNewGame();
+            ScenesManager.Instance.LoadOverworld();
         });
 
         cancelButton.RegisterCallback((ClickEvent evt) =>
