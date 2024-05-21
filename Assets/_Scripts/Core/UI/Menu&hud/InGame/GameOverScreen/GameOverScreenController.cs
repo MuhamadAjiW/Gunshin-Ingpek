@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class GameOverScreenController : InGameUIScreenController
 {
 
-    public CameraManager CameraManager;
+    public CameraSelectObjects CameraManager;
 
     public GameStatisticsContainer gameStatisticsContainer;
 

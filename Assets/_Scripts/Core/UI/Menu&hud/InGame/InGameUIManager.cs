@@ -9,7 +9,6 @@ public class InGameUIManager : MonoBehaviour
 {
     public static InGameUIManager Instance;
     public List<UIDocument> InGameUIDocuments;
-    public CameraManager CameraManager;
 
     public GameController GameController;
 

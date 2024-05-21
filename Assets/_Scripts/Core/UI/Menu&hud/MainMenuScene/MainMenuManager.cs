@@ -10,7 +10,7 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField] public List<GameObject> MainMenuUIDocumentsCameraPosition;
 
-    [SerializeField] public CameraManager CameraManager;
+    [SerializeField] public CameraSelectObjects CameraManager;
     public int TransitionTimeMiliSeconds;
 
     public float ZoomPeriodMiliSeconds;

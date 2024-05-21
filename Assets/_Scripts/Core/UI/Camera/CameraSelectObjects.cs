@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CameraSelectObjects : CameraBehaviour
 {
-
     public void SmoothLookAt(GameObject targetDirection, GameObject targetPosition, float durationMiliSeconds = 0f)
     {
         if (durationMiliSeconds == 0f)
