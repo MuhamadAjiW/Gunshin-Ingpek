@@ -11,7 +11,7 @@ public class Level1 : MonoBehaviour
 
     protected void Start()
     {
-        if(!GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_START_CUTSCENE))
+        if (!GameSaveManager.Instance.GetActiveGameSave().storyData.IsEventComplete(StoryConfig.KEY_STORY_1_START_CUTSCENE))
         {
             GameController.Instance.player.weaponList.Add(EventManager.Instance.WeaponPool[1]);
 
@@ -19,7 +19,7 @@ public class Level1 : MonoBehaviour
             GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_STORY_1_START_CUTSCENE);
 
             // _TODO: Add guard to detect whether the player has finished the game before
-            if(GameSaveManager.Instance.GetActiveGameSave().difficulty != DifficultyType.HARD)
+            if (GameSaveManager.Instance.GetActiveGameSave().difficulty != DifficultyType.HARD)
             {
                 DialogController.Instance.AddCallback(Tutorial);
                 GameController.Instance.OnGameEvent += OnDummyDeath;
@@ -28,12 +28,6 @@ public class Level1 : MonoBehaviour
             {
                 GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_TUTORIAL_FINAL);
                 GameController.Instance.player.weaponList.Add(EventManager.Instance.WeaponPool[4]);
-                
-                Debug.Log("Logging weapon indices");
-                foreach (WeaponObject weapons in GameController.Instance.player.weaponList)
-                {
-                    Debug.Log(weapons.poolIndex);
-                }
             }
         }
     }
@@ -46,7 +40,7 @@ public class Level1 : MonoBehaviour
 
     public void OnDummyDeath(string eventId, System.Object info)
     {
-        if(eventId == GameConfig.EVENT_ENEMY_KILLED && info is Dummy)
+        if (eventId == GameConfig.EVENT_ENEMY_KILLED && info is Dummy)
         {
             GameController.Instance.OnGameEvent -= OnDummyDeath;
             GameSaveManager.Instance.GetActiveGameSave().storyData.CompleteEvent(StoryConfig.KEY_TUTORIAL_2);

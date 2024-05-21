@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
+    <Style src="project://database/Assets/UI/InGame/HealthBar/HealthBar.uss?fileID=7433441132597879392&amp;guid=b6eaa6fb0e438346baf729b40d0afa5f&amp;type=3#HealthBar" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; align-items: flex-start; justify-content: flex-start; flex-direction: row; padding-bottom: 24px; padding-top: 24px; padding-right: 24px; padding-left: 24px;">
+        <HealthBar name="HealthBar" health="100" style="align-self: flex-start; align-items: flex-start; flex-direction: column; justify-content: flex-start; margin-bottom: 16px; margin-right: 24px;">
+            <Bindings>
+                <ui:DataBinding property="Health" binding-mode="ToTarget" data-source-type="Player, Assembly-CSharp" data-source-path="health" />
+            </Bindings>
+        </HealthBar>
+        <PetCounter data-source-type="Player" class="has-text" />
+    </ui:VisualElement>
+</ui:UXML>

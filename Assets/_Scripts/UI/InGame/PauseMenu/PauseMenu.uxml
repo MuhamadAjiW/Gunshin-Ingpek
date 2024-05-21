@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
+    <Style src="project://database/Assets/UI/InGame/PauseMenu/PauseMenu.uss?fileID=7433441132597879392&amp;guid=a92bd7591caac552d95718b61c97179c&amp;type=3#PauseMenu" />
+    <ui:VisualElement name="Container" class="root-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.57); align-items: center; justify-content: center;">
+        <ui:VisualElement name="PauseMenuContainer" class="rotated" style="flex-grow: 1; justify-content: center;">
+            <ui:Button text="Resume" name="Resume" emoji-fallback-support="false" class="button rounded bottom-above-spaced normal-button" />
+            <ui:Button text="Return To Main Menu" name="ReturnToMainMenu" class="rounded bottom-above-spaced button normal-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

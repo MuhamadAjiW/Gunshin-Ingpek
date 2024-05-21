@@ -40,14 +40,9 @@ public class GameSaveManager : MonoBehaviour
     // Constructor
     public void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null)
         {
             Destroy(gameObject);
-            return;
-        }
-
-        if (Instance == this)
-        {
             return;
         }
 
@@ -210,9 +205,14 @@ public class GameSaveManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= LoadGame;
 
-        GameController.Instance.player.transform.position = Instance.gameSaves[activeGameSaveIndex].positionData.point;
-        
-        if(Instance.gameSaves[activeGameSaveIndex].petData != null)
+        Debug.Log("Location: " + Instance.gameSaves[activeGameSaveIndex].positionData.point);
+
+        if (Instance.gameSaves[activeGameSaveIndex].positionData.point != null)
+        {
+            GameController.Instance.player.transform.position = Instance.gameSaves[activeGameSaveIndex].positionData.point.Value;
+        }
+
+        if (Instance.gameSaves[activeGameSaveIndex].petData != null)
         {
             GameController.Instance.player.companionList = new List<Companion>(Instance.gameSaves[activeGameSaveIndex].petData.Select(Companion.NewCompanionByType));
         }

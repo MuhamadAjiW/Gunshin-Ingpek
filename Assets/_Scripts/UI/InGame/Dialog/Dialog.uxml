@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/GeneralStyleSheet.uss?fileID=7433441132597879392&amp;guid=103e7885a07d8d0b094c9b5affb02f2a&amp;type=3#GeneralStyleSheet" />
+    <Style src="project://database/Assets/UI/InGame/Dialog/Dialog.uss?fileID=7433441132597879392&amp;guid=53c6b24877fd38c42aaa2bd77714218e&amp;type=3#Dialog" />
+    <Style src="project://database/Assets/UI/InGame/HealthBar/HealthBar.uss?fileID=7433441132597879392&amp;guid=b6eaa6fb0e438346baf729b40d0afa5f&amp;type=3#HealthBar" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; align-items: center; justify-content: center; flex-direction: row; padding-bottom: 0;">
+        <Dialog name="Dialog" class="flex" style="background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;" />
+    </ui:VisualElement>
+</ui:UXML>

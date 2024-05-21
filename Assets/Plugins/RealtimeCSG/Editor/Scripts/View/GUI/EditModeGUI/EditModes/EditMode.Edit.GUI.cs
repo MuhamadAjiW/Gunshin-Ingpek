@@ -197,12 +197,12 @@ namespace RealtimeCSG
 			EditModeCommonGUI.StartToolGUI();
 
 			var filteredSelection = EditModeManager.FilteredSelection;
-			
-			var left	= EditorStyles.miniButtonLeft;
-			var middle	= EditorStyles.miniButtonMid;
-			var right	= EditorStyles.miniButtonRight;
-			var button	= GUI.skin.button;
-								   
+
+			var left = EditorStyles.miniButtonLeft;
+			var middle = EditorStyles.miniButtonMid;
+			var right = EditorStyles.miniButtonRight;
+			var button = GUI.skin.button;
+
 
 			var defaultMaterial = CSGSettings.DefaultMaterial;
 			GUILayout.BeginVertical(isSceneGUI ? InSceneWidth : CSG_GUIStyleUtility.ContentEmpty);
@@ -211,13 +211,13 @@ namespace RealtimeCSG
 				GUILayout.BeginVertical(isSceneGUI ? GUI.skin.box : GUIStyle.none);
 				{
 					var selectionIgnoreBackfaced = CSGSettings.HiddenSurfacesNotSelectable;
-					var selectionVertex			 = CSGSettings.SelectionVertex;
-					var selectionEdge			 = CSGSettings.SelectionEdge;
-					var selectionSurface		 = CSGSettings.SelectionSurface;
+					var selectionVertex = CSGSettings.SelectionVertex;
+					var selectionEdge = CSGSettings.SelectionEdge;
+					var selectionSurface = CSGSettings.SelectionSurface;
 
 					EditorGUILayout.LabelField(ContentSelection);
 					EditorGUI.BeginChangeCheck();
-					{ 
+					{
 						GUILayout.BeginHorizontal(CSG_GUIStyleUtility.ContentEmpty);
 						{
 							selectionIgnoreBackfaced = GUILayout.Toggle(selectionIgnoreBackfaced, ContentIgnoreHidden, button);
@@ -230,13 +230,13 @@ namespace RealtimeCSG
 						}
 						GUILayout.BeginHorizontal(CSG_GUIStyleUtility.ContentEmpty);
 						{
-							selectionVertex		= GUILayout.Toggle(selectionVertex,		ContentVertex,	button);
+							selectionVertex = GUILayout.Toggle(selectionVertex, ContentVertex, button);
 							TooltipUtility.SetToolTip(TooltipVertex);
 
-							selectionEdge		= GUILayout.Toggle(selectionEdge,		ContentEdge,	button);
+							selectionEdge = GUILayout.Toggle(selectionEdge, ContentEdge, button);
 							TooltipUtility.SetToolTip(TooltipEdge);
 
-							selectionSurface	= GUILayout.Toggle(selectionSurface,	ContentSurface,	button);
+							selectionSurface = GUILayout.Toggle(selectionSurface, ContentSurface, button);
 							TooltipUtility.SetToolTip(TooltipSurface);
 						}
 						GUILayout.EndHorizontal();
@@ -244,9 +244,9 @@ namespace RealtimeCSG
 					if (EditorGUI.EndChangeCheck())
 					{
 						CSGSettings.HiddenSurfacesNotSelectable = selectionIgnoreBackfaced;
-						CSGSettings.SelectionVertex		= selectionVertex;
-						CSGSettings.SelectionEdge		= selectionEdge;
-						CSGSettings.SelectionSurface	= selectionSurface;
+						CSGSettings.SelectionVertex = selectionVertex;
+						CSGSettings.SelectionEdge = selectionEdge;
+						CSGSettings.SelectionSurface = selectionSurface;
 						CSGSettings.Save();
 					}
 					GUILayout.Space(3);
@@ -256,7 +256,7 @@ namespace RealtimeCSG
 				{
 					var autoCommitExtrusion = CSGSettings.AutoCommitExtrusion;
 					EditorGUI.BeginChangeCheck();
-					{ 
+					{
 						autoCommitExtrusion = GUILayout.Toggle(autoCommitExtrusion, ContentAutoCommitExtrusion, button);
 						TooltipUtility.SetToolTip(TooltipAutoCommitExtrusion);
 					}
@@ -299,11 +299,11 @@ namespace RealtimeCSG
 								else
 									EditorGUILayout.LabelField(ContentFlip, largeLabelWidth);
 
-								if (GUILayout.Button(ContentFlipX, left))	{ tool.FlipX(); }
+								if (GUILayout.Button(ContentFlipX, left)) { tool.FlipX(); }
 								TooltipUtility.SetToolTip(TooltipFlipX);
 								if (GUILayout.Button(ContentFlipY, middle)) { tool.FlipY(); }
 								TooltipUtility.SetToolTip(TooltipFlipY);
-								if (GUILayout.Button(ContentFlipZ, right))	{ tool.FlipZ(); }
+								if (GUILayout.Button(ContentFlipZ, right)) { tool.FlipZ(); }
 								TooltipUtility.SetToolTip(TooltipFlipZ);
 							}
 							GUILayout.EndHorizontal();
@@ -325,7 +325,7 @@ namespace RealtimeCSG
 							}
 							GUILayout.EndHorizontal();
 							*/
-						
+
 							if (GUILayout.Button(ContentSnapToGrid)) { tool.SnapToGrid(Camera.current); }
 							TooltipUtility.SetToolTip(TooltipSnapToGrid);
 						}
@@ -369,8 +369,9 @@ namespace RealtimeCSG
 					OnGUIContentsMaterialInspector(first_material, multiple_materials);
 					GUILayout.EndVertical();
 					*/
-				} else
-				{ 
+				}
+				else
+				{
 					EditorGUI.BeginChangeCheck();
 					{
 						defaultMaterial = EditorGUILayout.ObjectField(defaultMaterial, typeof(Material), true) as Material;

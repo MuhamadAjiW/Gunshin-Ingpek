@@ -15,14 +15,9 @@ public class GameSettingsManager : MonoBehaviour
 
     public void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null)
         {
             Destroy(gameObject);
-            return;
-        }
-
-        if (Instance == this)
-        {
             return;
         }
 
