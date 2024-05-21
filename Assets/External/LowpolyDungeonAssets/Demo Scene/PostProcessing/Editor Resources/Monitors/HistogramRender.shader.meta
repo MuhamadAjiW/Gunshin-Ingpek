@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 965efa32cf2345647a1c987546e08f86
+timeCreated: 1459956391
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117330
+  packageName: Lowpoly Dungeon Assets
+  packageVersion: 1.0
+  assetPath: Assets/LowpolyDungeonAssets/Demo Scene/PostProcessing/Editor Resources/Monitors/HistogramRender.shader
+  uploadId: 244909

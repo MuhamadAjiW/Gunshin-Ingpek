@@ -28,7 +28,7 @@ public class Rifle : WeaponObject
         audioController.Play(SHOT_AUDIO_KEY);
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
             prefabPath: PROJECTILE_PREFAB,
-            damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
+            damage: MathUtil.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower / 4,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
@@ -57,7 +57,7 @@ public class Rifle : WeaponObject
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: HITBOX_PREFAB,
-            damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
+            damage: MathUtil.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
@@ -74,7 +74,7 @@ public class Rifle : WeaponObject
         audioController.Play(SHOT_AUDIO_KEY);
         ProjectileObject attackProjectile = ObjectFactory.CreateAttackObject<ProjectileObject>(
             prefabPath: PROJECTILE_PREFAB,
-            damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
+            damage: MathUtil.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower * 2,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier * 10,

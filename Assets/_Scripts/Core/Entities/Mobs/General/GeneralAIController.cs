@@ -34,12 +34,12 @@ public class GeneralAIController
         switch (GeneralState.GetAIState(general.stateController.State))
         {
             case GeneralState.AI_PATROL_STATE:
-                if(patrolRoute.Count > 0)
+                if (patrolRoute.Count > 0)
                 {
                     GoToward(patrolRoute[patrolIndex]);
-                    if(Vector3.Distance(patrolRoute[patrolIndex].position, general.transform.position) < 1)
+                    if (Vector3.Distance(patrolRoute[patrolIndex].position, general.transform.position) < 1)
                     {
-                        if(patrolIndex < patrolRoute.Count - 1)
+                        if (patrolIndex < patrolRoute.Count - 1)
                         {
                             patrolIndex++;
                         }
@@ -56,7 +56,7 @@ public class GeneralAIController
             case GeneralState.AI_IN_RANGE_STATE:
                 Stop();
                 Quaternion targetAngle = LookToward(GameController.Instance.player.transform);
-                if(Quaternion.Angle(targetAngle, general.transform.rotation) < 10)
+                if (Quaternion.Angle(targetAngle, general.transform.rotation) < 10)
                 {
                     AlternateAttack();
                 }
@@ -64,7 +64,7 @@ public class GeneralAIController
             case GeneralState.AI_IN_RANGE_CLOSE_STATE:
                 Stop();
                 targetAngle = LookToward(GameController.Instance.player.transform);
-                if(Quaternion.Angle(targetAngle, general.transform.rotation) < 10)
+                if (Quaternion.Angle(targetAngle, general.transform.rotation) < 10)
                 {
                     Attack();
                 }
@@ -74,7 +74,7 @@ public class GeneralAIController
 
     public Quaternion LookToward(Transform target)
     {
-        Vector3 direction = MathUtils.GetDirectionVectorClamped(target.position, general.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
+        Vector3 direction = MathUtil.GetDirectionVectorClamped(target.position, general.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
         Quaternion look = Quaternion.LookRotation(direction);
         general.transform.rotation = Quaternion.Slerp(look, general.transform.rotation, Time.deltaTime);
         return look;
@@ -87,7 +87,7 @@ public class GeneralAIController
 
     public void GoToward(Transform target)
     {
-        if(!nav.enabled)
+        if (!nav.enabled)
         {
             nav.enabled = true;
         }
@@ -96,7 +96,7 @@ public class GeneralAIController
 
     public void Attack()
     {
-        if(general.Weapon == null || !general.Weapon.CanAttack)
+        if (general.Weapon == null || !general.Weapon.CanAttack)
         {
             return;
         }
@@ -105,7 +105,7 @@ public class GeneralAIController
 
     public void AlternateAttack()
     {
-        if(general.Weapon == null || !general.Weapon.CanAttack)
+        if (general.Weapon == null || !general.Weapon.CanAttack)
         {
             return;
         }
@@ -120,12 +120,12 @@ public class GeneralAIController
             AttackType.RANGED => general.model.rangedAnimationDelay,
             _ => 0
         };
-    
+
         general.animationController.AnimateAttack(general.Weapon.attackType);
-        
-        if(general.Weapon.CanAttack)
+
+        if (general.Weapon.CanAttack)
         {
-            if(general.Weapon.attackType == AttackType.MELEE 
+            if (general.Weapon.attackType == AttackType.MELEE
                 || general.stateController.weaponState != WeaponState.ATTACK)
             {
                 general.audioController.Play(General.AUDIO_ATTACK_KEY);
@@ -145,12 +145,12 @@ public class GeneralAIController
             AttackType.RANGED => general.model.rangedAnimationDelay,
             _ => 0
         };
-    
+
         general.animationController.AnimateAttack(general.Weapon.alternateAttackType);
-        
-        if(general.Weapon.CanAttack)
+
+        if (general.Weapon.CanAttack)
         {
-            if(general.Weapon.alternateAttackType == AttackType.MELEE 
+            if (general.Weapon.alternateAttackType == AttackType.MELEE
                 || general.stateController.weaponState != WeaponState.ATTACK)
             {
                 general.audioController.Play(General.AUDIO_ATTACK_KEY);
@@ -171,7 +171,7 @@ public class GeneralAIController
     private void TriggerWeaponState(WeaponState state)
     {
         general.stateController.SetWeaponState(state);
-        if(attackWindowCoroutine != null)
+        if (attackWindowCoroutine != null)
         {
             general.StopCoroutine(attackWindowCoroutine);
         }
@@ -189,7 +189,7 @@ public class GeneralAIController
 
     private void OnDamaged()
     {
-        if(nav.enabled)
+        if (nav.enabled)
         {
             nav.velocity /= 2;
         }

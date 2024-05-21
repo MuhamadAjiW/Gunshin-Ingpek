@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // Util contains static functions
-public static class MathUtils
+public static class MathUtil
 {
     public static Vector3 GetDirectionVectorFlat(Vector3 target, Vector3 origin)
     {

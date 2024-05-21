@@ -35,12 +35,12 @@ public class HeadGoonAIController
         switch (HeadGoonState.GetAIState(headGoon.stateController.State))
         {
             case HeadGoonState.AI_PATROL_STATE:
-                if(patrolRoute.Count > 0)
+                if (patrolRoute.Count > 0)
                 {
                     GoToward(patrolRoute[patrolIndex]);
-                    if(Vector3.Distance(patrolRoute[patrolIndex].position, headGoon.transform.position) < 1)
+                    if (Vector3.Distance(patrolRoute[patrolIndex].position, headGoon.transform.position) < 1)
                     {
-                        if(patrolIndex < patrolRoute.Count - 1)
+                        if (patrolIndex < patrolRoute.Count - 1)
                         {
                             patrolIndex++;
                         }
@@ -57,7 +57,7 @@ public class HeadGoonAIController
             case HeadGoonState.AI_IN_RANGE_STATE:
                 Stop();
                 targetAngle = LookToward(GameController.Instance.player.transform);
-                if(Quaternion.Angle(targetAngle, headGoon.transform.rotation) < 10)
+                if (Quaternion.Angle(targetAngle, headGoon.transform.rotation) < 10)
                 {
                     Attack();
                 }
@@ -65,7 +65,7 @@ public class HeadGoonAIController
             case HeadGoonState.AI_IN_RANGE_CLOSE_STATE:
                 Stop();
                 targetAngle = LookToward(GameController.Instance.player.transform);
-                if(Quaternion.Angle(targetAngle, headGoon.transform.rotation) < 10)
+                if (Quaternion.Angle(targetAngle, headGoon.transform.rotation) < 10)
                 {
                     AlternateAttack();
                 }
@@ -75,7 +75,7 @@ public class HeadGoonAIController
 
     public Quaternion LookToward(Transform target)
     {
-        Vector3 direction = MathUtils.GetDirectionVectorClamped(target.position, headGoon.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
+        Vector3 direction = MathUtil.GetDirectionVectorClamped(target.position, headGoon.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
         Quaternion look = Quaternion.LookRotation(direction);
         headGoon.transform.rotation = Quaternion.Slerp(look, headGoon.transform.rotation, Time.deltaTime);
         return look;
@@ -88,7 +88,7 @@ public class HeadGoonAIController
 
     public void GoToward(Transform target)
     {
-        if(!nav.enabled)
+        if (!nav.enabled)
         {
             nav.enabled = true;
         }
@@ -97,7 +97,7 @@ public class HeadGoonAIController
 
     public void Attack()
     {
-        if(headGoon.Weapon == null || !headGoon.Weapon.CanAttack)
+        if (headGoon.Weapon == null || !headGoon.Weapon.CanAttack)
         {
             return;
         }
@@ -106,7 +106,7 @@ public class HeadGoonAIController
 
     public void AlternateAttack()
     {
-        if(headGoon.Weapon == null || !headGoon.Weapon.CanAttack)
+        if (headGoon.Weapon == null || !headGoon.Weapon.CanAttack)
         {
             return;
         }
@@ -121,9 +121,9 @@ public class HeadGoonAIController
             AttackType.RANGED => headGoon.model.rangedAnimationDelay,
             _ => 0
         };
-    
+
         headGoon.animationController.AnimateAttack(headGoon.Weapon.attackType);
-        
+
         // TODO: Implement AudioController
 
         // if(headGoon.Weapon.CanAttack)
@@ -148,9 +148,9 @@ public class HeadGoonAIController
             AttackType.RANGED => headGoon.model.rangedAnimationDelay,
             _ => 0
         };
-    
+
         headGoon.animationController.AnimateAttack(headGoon.Weapon.alternateAttackType);
-        
+
         // TODO: Implement AudioController
 
         // if(headGoon.Weapon.CanAttack)
@@ -176,7 +176,7 @@ public class HeadGoonAIController
     private void TriggerWeaponState(WeaponState state)
     {
         headGoon.stateController.SetWeaponState(state);
-        if(attackWindowCoroutine != null)
+        if (attackWindowCoroutine != null)
         {
             headGoon.StopCoroutine(attackWindowCoroutine);
         }
@@ -194,7 +194,7 @@ public class HeadGoonAIController
 
     private void OnDamaged()
     {
-        if(nav.enabled)
+        if (nav.enabled)
         {
             nav.velocity = Vector3.zero;
         }

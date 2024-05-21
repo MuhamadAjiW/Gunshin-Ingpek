@@ -34,12 +34,12 @@ public class GoonAIController
         switch (GoonState.GetAIState(goon.stateController.State))
         {
             case GoonState.AI_PATROL_STATE:
-                if(patrolRoute.Count > 0)
+                if (patrolRoute.Count > 0)
                 {
                     GoToward(patrolRoute[patrolIndex]);
-                    if(Vector3.Distance(patrolRoute[patrolIndex].position, goon.transform.position) < 1)
+                    if (Vector3.Distance(patrolRoute[patrolIndex].position, goon.transform.position) < 1)
                     {
-                        if(patrolIndex < patrolRoute.Count - 1)
+                        if (patrolIndex < patrolRoute.Count - 1)
                         {
                             patrolIndex++;
                         }
@@ -56,7 +56,7 @@ public class GoonAIController
             case GoonState.AI_IN_RANGE_STATE:
                 Stop();
                 Quaternion targetAngle = LookToward(GameController.Instance.player.transform);
-                if(Quaternion.Angle(targetAngle, goon.transform.rotation) < 10)
+                if (Quaternion.Angle(targetAngle, goon.transform.rotation) < 10)
                 {
                     Attack();
                 }
@@ -66,7 +66,7 @@ public class GoonAIController
 
     public Quaternion LookToward(Transform target)
     {
-        Vector3 direction = MathUtils.GetDirectionVectorClamped(target.position, goon.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
+        Vector3 direction = MathUtil.GetDirectionVectorClamped(target.position, goon.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
         Quaternion look = Quaternion.LookRotation(direction);
         goon.transform.rotation = Quaternion.Slerp(look, goon.transform.rotation, Time.deltaTime);
         return look;
@@ -79,7 +79,7 @@ public class GoonAIController
 
     public void GoToward(Transform target)
     {
-        if(!nav.enabled)
+        if (!nav.enabled)
         {
             nav.enabled = true;
         }
@@ -88,7 +88,7 @@ public class GoonAIController
 
     public void Attack()
     {
-        if(goon.Weapon == null || !goon.Weapon.CanAttack)
+        if (goon.Weapon == null || !goon.Weapon.CanAttack)
         {
             return;
         }
@@ -97,7 +97,7 @@ public class GoonAIController
 
     public void AlternateAttack()
     {
-        if(goon.Weapon == null || !goon.Weapon.CanAttack)
+        if (goon.Weapon == null || !goon.Weapon.CanAttack)
         {
             return;
         }
@@ -112,9 +112,9 @@ public class GoonAIController
             AttackType.RANGED => goon.model.rangedAnimationDelay,
             _ => 0
         };
-    
+
         goon.animationController.AnimateAttack(goon.Weapon.attackType);
-        
+
         // TODO: Implement AudioController
 
         // if(goon.Weapon.CanAttack)
@@ -139,9 +139,9 @@ public class GoonAIController
             AttackType.RANGED => goon.model.rangedAnimationDelay,
             _ => 0
         };
-    
+
         goon.animationController.AnimateAttack(goon.Weapon.alternateAttackType);
-        
+
         // TODO: Implement AudioController
 
         // if(goon.Weapon.CanAttack)
@@ -167,7 +167,7 @@ public class GoonAIController
     private void TriggerWeaponState(WeaponState state)
     {
         goon.stateController.SetWeaponState(state);
-        if(attackWindowCoroutine != null)
+        if (attackWindowCoroutine != null)
         {
             goon.StopCoroutine(attackWindowCoroutine);
         }
@@ -185,7 +185,7 @@ public class GoonAIController
 
     private void OnDamaged()
     {
-        if(nav.enabled)
+        if (nav.enabled)
         {
             nav.velocity = Vector3.zero;
         }

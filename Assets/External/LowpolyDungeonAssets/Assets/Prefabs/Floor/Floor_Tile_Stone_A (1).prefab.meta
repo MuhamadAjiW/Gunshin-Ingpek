@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 475b905fe3b32864fb3448b79d6bc815
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 117330
+  packageName: Lowpoly Dungeon Assets
+  packageVersion: 1.0
+  assetPath: Assets/LowpolyDungeonAssets/Assets/Prefabs/Floor/Floor_Tile_Stone_A
+    (1).prefab
+  uploadId: 244909

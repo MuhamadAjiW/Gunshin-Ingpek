@@ -43,7 +43,7 @@ public class AttackObject : MonoBehaviour, IDamaging, IKnockback
     public void Knockback(IRigid rigidObject)
     {
         var knockbackModifier = (-1) * knockbackPower / rigidObject.KnockbackResistance;
-        Vector3 knockbackVector = MathUtils.GetDirectionVectorFlat(KnockbackOrigin, rigidObject.Position) * knockbackModifier;
+        Vector3 knockbackVector = MathUtil.GetDirectionVectorFlat(KnockbackOrigin, rigidObject.Position) * knockbackModifier;
         rigidObject.Rigidbody.AddForce(knockbackVector, ForceMode.Impulse);
     }
 

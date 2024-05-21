@@ -32,11 +32,11 @@ namespace RealtimeCSG
 						GUILayout.FlexibleSpace();
 
 						CSG_GUIStyleUtility.ResetGUIState();
-						
+
 						GUIStyle windowStyle = GUI.skin.window;
 						GUILayout.BeginVertical(ContentTitleLabel, windowStyle, CSG_GUIStyleUtility.ContentEmpty);
 						{
-							OnGUIContents(true, tool);	
+							OnGUIContents(true, tool);
 						}
 						GUILayout.EndVertical();
 
@@ -48,8 +48,8 @@ namespace RealtimeCSG
 						buttonArea.y += 2;
 						buttonArea.height = 13;
 						buttonArea.width = 13;
-						if (GUI.Button(buttonArea, GUIContent.none, "WinBtnClose"))
-							EditModeToolWindowSceneGUI.GetWindow();
+						// if (GUI.Button(buttonArea, GUIContent.none, "WinBtnClose"))
+						// 	EditModeToolWindowSceneGUI.GetWindow();
 						TooltipUtility.SetToolTip(CSG_GUIStyleUtility.PopOutTooltip, buttonArea);
 
 						int controlID = GUIUtility.GetControlID(SceneViewMeshOverlayHash, FocusType.Keyboard, currentArea);
@@ -74,7 +74,7 @@ namespace RealtimeCSG
 		{
 			lastGuiRect = Rect.MinMaxRect(-1, -1, -1, -1);
 			var tool = EditModeManager.ActiveTool as EditModePlace;
-			
+
 			CSG_GUIStyleUtility.InitStyles();
 			InitLocalStyles();
 			OnGUIContents(false, tool);
@@ -124,7 +124,7 @@ namespace RealtimeCSG
 				{
 					bool passThroughValue = false;
 					if (tool != null &&
-						filteredSelection.BrushTargets.Length == 0 && 
+						filteredSelection.BrushTargets.Length == 0 &&
 						filteredSelection.OperationTargets.Length > 0 &&
 						filteredSelection.OperationTargets.Length == filteredSelection.NodeTargets.Length) // only operations
 					{
@@ -264,7 +264,8 @@ namespace RealtimeCSG
 						}
 					}
 					EditorGUI.EndDisabledGroup();
-				} else
+				}
+				else
 				if (Tools.current == Tool.Rotate)
 				{
 					var doubleFieldOptions = isSceneGUI ? MaxWidth150 : CSG_GUIStyleUtility.ContentEmpty;
@@ -280,9 +281,9 @@ namespace RealtimeCSG
 							RealtimeCSG.CSGSettings.DefaultRotateOffset = defaultRotateOffset;
 							RealtimeCSG.CSGSettings.Save();
 						}
-	
+
 						EditorGUI.BeginChangeCheck();
-						{ 
+						{
 							GUILayout.Label(PivotCenterContent);
 							displayNewCenter = CSG_EditorGUIUtility.DistanceVector3Field(displayNewCenter, false, doubleFieldOptions);
 							TooltipUtility.SetToolTip(PivotVectorTooltip);

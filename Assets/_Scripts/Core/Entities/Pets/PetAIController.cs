@@ -27,7 +27,7 @@ public abstract class PetAIController<T> where T : Companion
 
     public Quaternion LookToward(Transform target)
     {
-        Vector3 direction = MathUtils.GetDirectionVectorFlat(target.position, pet.Position);
+        Vector3 direction = MathUtil.GetDirectionVectorFlat(target.position, pet.Position);
         Quaternion look = Quaternion.LookRotation(direction);
         pet.transform.rotation = Quaternion.Slerp(look, pet.transform.rotation, Time.deltaTime);
         return look;

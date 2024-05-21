@@ -33,8 +33,8 @@ namespace RealtimeCSG
 						GUILayout.FlexibleSpace();
 
 						CSG_GUIStyleUtility.ResetGUIState();
-						GUIStyle windowStyle = GUI.skin.window;		
-						
+						GUIStyle windowStyle = GUI.skin.window;
+
 						GUILayout.BeginVertical(ContentTitleLabel, windowStyle, GUILayout.Width(275));
 						{
 							OnGUIContents(tool, true, 0);
@@ -48,17 +48,17 @@ namespace RealtimeCSG
 						buttonArea.y += 2;
 						buttonArea.height = 13;
 						buttonArea.width = 13;
-						if (GUI.Button(buttonArea, GUIContent.none, "WinBtnClose"))
-							EditModeToolWindowSceneGUI.GetWindow();
+						// if (GUI.Button(buttonArea, GUIContent.none, "WinBtnClose"))
+						// 	EditModeToolWindowSceneGUI.GetWindow();
 						TooltipUtility.SetToolTip(CSG_GUIStyleUtility.PopOutTooltip, buttonArea);
 
 						int controlID = GUIUtility.GetControlID(SceneViewMeshOverlayHash, FocusType.Keyboard, currentArea);
 						switch (Event.current.GetTypeForControl(controlID))
 						{
-							case EventType.MouseDown:	{ if (currentArea.Contains(Event.current.mousePosition)) { GUIUtility.hotControl = controlID; GUIUtility.keyboardControl = controlID; Event.current.Use(); } break; }
-							case EventType.MouseMove:	{ if (currentArea.Contains(Event.current.mousePosition)) { Event.current.Use(); } break; }
-							case EventType.MouseUp:		{ if (GUIUtility.hotControl == controlID) { GUIUtility.hotControl = 0; GUIUtility.keyboardControl = 0; Event.current.Use(); } break; }
-							case EventType.MouseDrag:	{ if (GUIUtility.hotControl == controlID) { Event.current.Use(); } break; }
+							case EventType.MouseDown: { if (currentArea.Contains(Event.current.mousePosition)) { GUIUtility.hotControl = controlID; GUIUtility.keyboardControl = controlID; Event.current.Use(); } break; }
+							case EventType.MouseMove: { if (currentArea.Contains(Event.current.mousePosition)) { Event.current.Use(); } break; }
+							case EventType.MouseUp: { if (GUIUtility.hotControl == controlID) { GUIUtility.hotControl = 0; GUIUtility.keyboardControl = 0; Event.current.Use(); } break; }
+							case EventType.MouseDrag: { if (GUIUtility.hotControl == controlID) { Event.current.Use(); } break; }
 							case EventType.ScrollWheel: { if (currentArea.Contains(Event.current.mousePosition)) { Event.current.Use(); } break; }
 						}
 					}
@@ -67,7 +67,7 @@ namespace RealtimeCSG
 				GUILayout.EndVertical();
 				GUILayout.FlexibleSpace();
 			}
-			GUILayout.EndHorizontal();			
+			GUILayout.EndHorizontal();
 			tool.CurrentGenerator.FinishGUI();
 			return true;
 		}
@@ -103,7 +103,7 @@ namespace RealtimeCSG
 			GUILayout.BeginHorizontal(CSG_GUIStyleUtility.ContentEmpty);
 			{
 				if (isSceneGUI)
-				{ 
+				{
 					GUILayout.Space(5);
 					GUILayout.BeginVertical(GUILayout.MinWidth(10));
 					{
@@ -163,7 +163,7 @@ namespace RealtimeCSG
 				var csg_skin = CSG_GUIStyleUtility.Skin;
 				tool.BuilderMode = (ShapeMode)CSG_EditorGUIUtility.ToolbarWrapped((int)tool.BuilderMode, ref shapeModeRects, out shapeModeBounds, csg_skin.shapeModeNames, tooltips: CSG_GUIStyleUtility.shapeModeTooltips, yOffset: height, areaWidth: EditorGUIUtility.currentViewWidth - 4);
 				GUILayout.Space(shapeModeBounds.height);
-				
+
 				EditModeCommonGUI.StartToolGUI();
 
 				scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
@@ -231,7 +231,7 @@ namespace RealtimeCSG
 						Rect shapeModeBounds;
 						tool.BuilderMode = (ShapeMode)CSG_EditorGUIUtility.ToolbarWrapped((int)tool.BuilderMode, ref shapeModeRects, out shapeModeBounds, csg_skin.shapeModeNames, tooltips: CSG_GUIStyleUtility.shapeModeTooltips, yOffset: rect.y, areaWidth: 100);
 						GUILayout.Space(shapeModeBounds.height);
-				
+
 						ChooseOperation(tool, isSceneGUI);
 					}
 					GUILayout.EndVertical();
@@ -256,6 +256,6 @@ namespace RealtimeCSG
 			OnGUIContents(tool, false, height);
 			tool.CurrentGenerator.FinishGUI();
 		}
-		
+
 	}
 }

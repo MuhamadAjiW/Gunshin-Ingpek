@@ -12,7 +12,7 @@ public class Sword : WeaponObject
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: HITBOX_PREFAB,
-            damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
+            damage: MathUtil.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
@@ -32,7 +32,7 @@ public class Sword : WeaponObject
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: HITBOX_PREFAB,
-            damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
+            damage: MathUtil.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,

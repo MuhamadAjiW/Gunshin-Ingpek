@@ -17,9 +17,9 @@ namespace RealtimeCSG
 			if (ContentClipLabel != null)
 				return;
 
-			ContentClipLabel	= new GUIContent(CSG_GUIStyleUtility.brushEditModeNames[(int)ToolEditMode.Clip]);
+			ContentClipLabel = new GUIContent(CSG_GUIStyleUtility.brushEditModeNames[(int)ToolEditMode.Clip]);
 		}
-		
+
 		static bool doCommit = false; // unity bug workaround
 		static bool doCancel = false; // unity bug workaround
 
@@ -45,7 +45,7 @@ namespace RealtimeCSG
 						GUILayout.FlexibleSpace();
 
 						CSG_GUIStyleUtility.ResetGUIState();
-						
+
 						GUIStyle windowStyle = GUI.skin.window;
 						GUILayout.BeginVertical(ContentClipLabel, windowStyle, CSG_GUIStyleUtility.ContentEmpty);
 						{
@@ -60,17 +60,17 @@ namespace RealtimeCSG
 						buttonArea.y += 2;
 						buttonArea.height = 13;
 						buttonArea.width = 13;
-						if (GUI.Button(buttonArea, GUIContent.none, "WinBtnClose"))
-							EditModeToolWindowSceneGUI.GetWindow();
+						// if (GUI.Button(buttonArea, GUIContent.none, "WinBtnClose"))
+						// 	EditModeToolWindowSceneGUI.GetWindow();
 						TooltipUtility.SetToolTip(CSG_GUIStyleUtility.PopOutTooltip, buttonArea);
 
 						int controlID = GUIUtility.GetControlID(SceneViewMeshOverlayHash, FocusType.Passive, currentArea);
 						switch (Event.current.GetTypeForControl(controlID))
 						{
-							case EventType.MouseDown:	{ if (currentArea.Contains(Event.current.mousePosition)) { GUIUtility.hotControl = controlID; GUIUtility.keyboardControl = controlID; Event.current.Use(); } break; }
-							case EventType.MouseMove:	{ if (currentArea.Contains(Event.current.mousePosition)) { Event.current.Use(); } break; }
-							case EventType.MouseUp:		{ if (GUIUtility.hotControl == controlID) { GUIUtility.hotControl = 0; GUIUtility.keyboardControl = 0; Event.current.Use(); } break; }
-							case EventType.MouseDrag:	{ if (GUIUtility.hotControl == controlID) { Event.current.Use(); } break; }
+							case EventType.MouseDown: { if (currentArea.Contains(Event.current.mousePosition)) { GUIUtility.hotControl = controlID; GUIUtility.keyboardControl = controlID; Event.current.Use(); } break; }
+							case EventType.MouseMove: { if (currentArea.Contains(Event.current.mousePosition)) { Event.current.Use(); } break; }
+							case EventType.MouseUp: { if (GUIUtility.hotControl == controlID) { GUIUtility.hotControl = 0; GUIUtility.keyboardControl = 0; Event.current.Use(); } break; }
+							case EventType.MouseDrag: { if (GUIUtility.hotControl == controlID) { Event.current.Use(); } break; }
 							case EventType.ScrollWheel: { if (currentArea.Contains(Event.current.mousePosition)) { Event.current.Use(); } break; }
 						}
 					}
@@ -82,9 +82,9 @@ namespace RealtimeCSG
 			GUILayout.EndHorizontal();
 
 			if (tool != null)
-			{ 
-				if (doCommit) tool.Commit();	// unity bug workaround
-				if (doCancel) tool.Cancel();	// unity bug workaround
+			{
+				if (doCommit) tool.Commit();    // unity bug workaround
+				if (doCancel) tool.Cancel();    // unity bug workaround
 			}
 		}
 
@@ -95,8 +95,9 @@ namespace RealtimeCSG
 			if (tool.ClipBrushCount == 0)
 			{
 				GUILayout.Label(string.Format("no brushes selected", tool.ClipBrushCount), CSG_GUIStyleUtility.redTextArea);
-			} else
-			{ 
+			}
+			else
+			{
 				if (tool.ClipBrushCount == 1)
 					GUILayout.Label(string.Format("{0} brush selected", tool.ClipBrushCount));
 				else
@@ -104,7 +105,7 @@ namespace RealtimeCSG
 			}
 			EditorGUILayout.Space();
 			EditorGUI.BeginDisabledGroup(tool == null);
-			{ 
+			{
 				GUILayout.BeginVertical(isSceneGUI ? GUI.skin.box : GUIStyle.none);
 				{
 					var newClipMode = (tool != null) ? tool.clipMode : ((ClipMode)999);
@@ -114,8 +115,8 @@ namespace RealtimeCSG
 						var selected = newClipMode == clipModeValues[i];
 						GUIContent content;
 						GUIStyle style;
-						if (selected)	{ style = CSG_GUIStyleUtility.selectedIconLabelStyle;   content = skin.clipNamesOn[i]; }
-						else			{ style = CSG_GUIStyleUtility.unselectedIconLabelStyle; content = skin.clipNames[i];   }
+						if (selected) { style = CSG_GUIStyleUtility.selectedIconLabelStyle; content = skin.clipNamesOn[i]; }
+						else { style = CSG_GUIStyleUtility.unselectedIconLabelStyle; content = skin.clipNames[i]; }
 						if (GUILayout.Toggle(selected, content, style))
 						{
 							newClipMode = clipModeValues[i];
@@ -226,15 +227,15 @@ namespace RealtimeCSG
 
 			doCommit = false; // unity bug workaround
 			doCancel = false; // unity bug workaround
-			
+
 			CSG_GUIStyleUtility.InitStyles();
 			InitLocalStyles();
 			OnGUIContents(false, tool);
 
 			if (tool != null)
-			{ 
-				if (doCommit) tool.Commit();	// unity bug workaround
-				if (doCancel) tool.Cancel();	// unity bug workaround
+			{
+				if (doCommit) tool.Commit();    // unity bug workaround
+				if (doCancel) tool.Cancel();    // unity bug workaround
 			}
 		}
 	}

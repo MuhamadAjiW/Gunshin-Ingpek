@@ -4,12 +4,12 @@ using System;
 public class GeneralAnimationController : AnimationController
 {
     // Consts
-    private const string MOVEMENT_PARAM = "Movement_param"; 
-    private const string JUMP_BOOL = "Jump_param"; 
-    private const string DEAD_Trigger = "Dead_param"; 
-    private const string MELEE_TRIGGER = "MeleeAttack_param"; 
-    private const string RANGED_TRIGGER = "RangedAttack_param"; 
-    private const string HIT_TRIGGER = "Hit_param"; 
+    private const string MOVEMENT_PARAM = "Movement_param";
+    private const string JUMP_BOOL = "Jump_param";
+    private const string DEAD_Trigger = "Dead_param";
+    private const string MELEE_TRIGGER = "MeleeAttack_param";
+    private const string RANGED_TRIGGER = "RangedAttack_param";
+    private const string HIT_TRIGGER = "Hit_param";
 
     // Attributes
     private General general;
@@ -26,7 +26,7 @@ public class GeneralAnimationController : AnimationController
     // Functions
     public void AnimateStates(int oldState, int newState)
     {
-        if((newState & GeneralState.JUMPING) > 0)
+        if ((newState & GeneralState.JUMPING) > 0)
         {
             animator.SetBool(JUMP_BOOL, true);
         }
@@ -49,11 +49,11 @@ public class GeneralAnimationController : AnimationController
     {
         animator.SetBool(RANGED_TRIGGER, false);
         animator.SetBool(MELEE_TRIGGER, false);
-        if(type == AttackType.MELEE)
+        if (type == AttackType.MELEE)
         {
             animator.SetBool(MELEE_TRIGGER, true);
         }
-        if(type == AttackType.RANGED)
+        if (type == AttackType.RANGED)
         {
             animator.SetBool(RANGED_TRIGGER, true);
         }

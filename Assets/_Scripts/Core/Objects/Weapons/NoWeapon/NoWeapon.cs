@@ -4,13 +4,13 @@ public class NoWeapon : WeaponObject
 {
     // Constants
     private const string HITBOX_PREFAB = "Prefabs/Weapons/Hitbox";
-    
+
     // Functions
     protected override void OnAttack()
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: HITBOX_PREFAB,
-            damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
+            damage: MathUtil.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
@@ -27,7 +27,7 @@ public class NoWeapon : WeaponObject
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: HITBOX_PREFAB,
-            damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
+            damage: MathUtil.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,

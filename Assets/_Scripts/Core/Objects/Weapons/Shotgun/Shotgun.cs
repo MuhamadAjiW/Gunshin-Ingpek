@@ -28,7 +28,7 @@ public class Shotgun : WeaponObject
     protected override void OnAttack()
     {
         audioController.Play(SHOT_AUDIO_KEY);
-        float damage = MathUtils.CalculateDamage(bearer.Damage, data.baseDamage);
+        float damage = MathUtil.CalculateDamage(bearer.Damage, data.baseDamage);
         ShotgunProjectile attackProjectile = ObjectFactory.CreateAttackObject<ShotgunProjectile>(
             prefabPath: PROJECTILE_PREFAB,
             damage: damage,
@@ -90,7 +90,7 @@ public class Shotgun : WeaponObject
     {
         AttackObject attackHitbox = ObjectFactory.CreateAttackObject(
             prefabPath: HITBOX_PREFAB,
-            damage: MathUtils.CalculateDamage(bearer.Damage, data.baseDamage),
+            damage: MathUtil.CalculateDamage(bearer.Damage, data.baseDamage),
             knockbackPower: data.knockbackPower,
             attackLayerCode: bearer.AttackLayerCode,
             damageModifier: bearer.AttackMultiplier,
@@ -105,7 +105,7 @@ public class Shotgun : WeaponObject
     protected override void OnSkill()
     {
         audioController.Play(SHOT_AUDIO_KEY);
-        float damage = MathUtils.CalculateDamage(bearer.Damage, data.baseDamage) * 5;
+        float damage = MathUtil.CalculateDamage(bearer.Damage, data.baseDamage) * 5;
         ShotgunProjectile attackProjectile = ObjectFactory.CreateAttackObject<ShotgunProjectile>(
             prefabPath: PROJECTILE_PREFAB,
             damage: damage,

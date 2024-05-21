@@ -34,12 +34,12 @@ public class KingAIController
         switch (KingState.GetAIState(king.stateController.State))
         {
             case KingState.AI_PATROL_STATE:
-                if(patrolRoute.Count > 0)
+                if (patrolRoute.Count > 0)
                 {
                     GoToward(patrolRoute[patrolIndex]);
-                    if(Vector3.Distance(patrolRoute[patrolIndex].position, king.transform.position) < 1)
+                    if (Vector3.Distance(patrolRoute[patrolIndex].position, king.transform.position) < 1)
                     {
-                        if(patrolIndex < patrolRoute.Count)
+                        if (patrolIndex < patrolRoute.Count)
                         {
                             patrolIndex++;
                         }
@@ -56,7 +56,7 @@ public class KingAIController
             case KingState.AI_IN_RANGE_STATE:
                 Stop();
                 Quaternion targetAngle = LookToward(GameController.Instance.player.transform);
-                if(Quaternion.Angle(targetAngle, king.transform.rotation) < 10)
+                if (Quaternion.Angle(targetAngle, king.transform.rotation) < 10)
                 {
                     Attack();
                 }
@@ -64,7 +64,7 @@ public class KingAIController
             case KingState.AI_IN_RANGE_CLOSE_STATE:
                 Stop();
                 targetAngle = LookToward(GameController.Instance.player.transform);
-                if(Quaternion.Angle(targetAngle, king.transform.rotation) < 10)
+                if (Quaternion.Angle(targetAngle, king.transform.rotation) < 10)
                 {
                     AlternateAttack();
                 }
@@ -74,7 +74,7 @@ public class KingAIController
 
     public Quaternion LookToward(Transform target)
     {
-        Vector3 direction = MathUtils.GetDirectionVectorClamped(target.position + target.right / 2, king.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
+        Vector3 direction = MathUtil.GetDirectionVectorClamped(target.position + target.right / 2, king.Position, GameConfig.CAMERA_MOUSE_VERTICAL_MAX);
         Quaternion look = Quaternion.LookRotation(direction);
         king.transform.rotation = Quaternion.Slerp(look, king.transform.rotation, Time.deltaTime);
         return look;
@@ -87,7 +87,7 @@ public class KingAIController
 
     public void GoToward(Transform target)
     {
-        if(!nav.enabled)
+        if (!nav.enabled)
         {
             nav.enabled = true;
         }
@@ -96,7 +96,7 @@ public class KingAIController
 
     public void Attack()
     {
-        if(king.Weapon == null || !king.Weapon.CanAttack)
+        if (king.Weapon == null || !king.Weapon.CanAttack)
         {
             return;
         }
@@ -106,7 +106,7 @@ public class KingAIController
 
     public void AlternateAttack()
     {
-        if(king.Weapon == null || !king.Weapon.CanAttack)
+        if (king.Weapon == null || !king.Weapon.CanAttack)
         {
             return;
         }
@@ -122,12 +122,12 @@ public class KingAIController
             AttackType.RANGED => king.model.rangedAnimationDelay,
             _ => 0
         };
-    
+
         king.animationController.AnimateAttack(king.Weapon.attackType);
-        
-        if(king.Weapon.CanAttack)
+
+        if (king.Weapon.CanAttack)
         {
-            if(king.Weapon.attackType == AttackType.MELEE 
+            if (king.Weapon.attackType == AttackType.MELEE
                 || king.stateController.weaponState != WeaponState.ATTACK)
             {
                 king.audioController.Play(King.AUDIO_ATTACK_KEY);
@@ -147,12 +147,12 @@ public class KingAIController
             AttackType.RANGED => king.model.rangedAnimationDelay,
             _ => 0
         };
-    
+
         king.animationController.AnimateAttack(king.Weapon.alternateAttackType);
-        
-        if(king.Weapon.CanAttack)
+
+        if (king.Weapon.CanAttack)
         {
-            if(king.Weapon.alternateAttackType == AttackType.MELEE 
+            if (king.Weapon.alternateAttackType == AttackType.MELEE
                 || king.stateController.weaponState != WeaponState.ATTACK)
             {
                 king.audioController.Play(King.AUDIO_ATTACK_KEY);
@@ -173,7 +173,7 @@ public class KingAIController
     private void TriggerWeaponState(WeaponState state)
     {
         king.stateController.SetWeaponState(state);
-        if(attackWindowCoroutine != null)
+        if (attackWindowCoroutine != null)
         {
             king.StopCoroutine(attackWindowCoroutine);
         }
@@ -191,7 +191,7 @@ public class KingAIController
 
     private void OnDamaged()
     {
-        if(nav.enabled)
+        if (nav.enabled)
         {
             nav.velocity /= 2;
         }
